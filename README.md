@@ -38,7 +38,7 @@ cmake . --target build
 ## Alternatives <a name="alternatives"></a>
 [https://github.com/JensKlimke/odrparser](https://github.com/JensKlimke/odrparser)-1.5 
 
-[DLT-https://github.com/DLR-TS/xodr xodr](https://github.com/DLR-TS/xodr) - 1.4
+[DLT-https://github.com/DLR-TS/xodr](https://github.com/DLR-TS/xodr) - 1.4
 
 ## Contributing <a name="contributing"></a>
 Contibutions are very welcome!
