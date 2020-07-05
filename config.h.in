@@ -1,0 +1,12 @@
+#ifndef _CONFIG_H_
+#define _CONFIG_H_
+
+#pragma once
+
+// the configured options and settings for Tutorial
+#define XODR_VERSION  @XODR_VERSION@
+
+#define __DIRECTORY__ "@CMAKE_BINARY_DIR@"
+#define __DATA_DIR__ "@CMAKE_SOURCE_DIR@/samples"
+
+#endif // _CONFIG_H_
