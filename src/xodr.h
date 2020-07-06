@@ -1,15 +1,15 @@
 //
-//  OpenDRIVE_1.5M.xsd.h
+//  opendrive_16_core.h
 //
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Sun Jul  5 10:17:07 2020
+//  Created by Javed Shaik on Sun Jul  5 23:35:45 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 30a352ed-2bba-4102-9ea6-f671c021b017 --
+//  -- UUIDv4 : b760d970-539c-4cda-92a8-a4c36e39ef36 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
-#ifndef _OPENDRIVE_1_5M_XSD_H_
-#define _OPENDRIVE_1_5M_XSD_H_
+#ifndef _OPENDRIVE_16_CORE_H_
+#define _OPENDRIVE_16_CORE_H_
 #pragma once
 #include <iostream>
 #include <memory>
@@ -33,95 +33,74 @@ inline EnumT str2enum(const std::string& v)
 typedef double t_grEqZero;
 typedef double t_grZero;
 typedef double t_zeroOne;
-typedef float t_header_Version;
-typedef std::string t_junction_id;
-typedef std::string e_countryCode_iso3166alpha3;
-enum class t_bool : std::uint8_t
+typedef std::string e_countryCode_iso3166alpha2;
+typedef std::string e_countryCode_iso3166alpha3_deprecated;
+enum class e_dataQuality_RawData_PostProcessing : std::uint8_t
 {
-	  TRUE,               //true
-	  FALSE               //false
+	  RAW,               //raw
+	  CLEANED,               //cleaned
+	  PROCESSED,               //processed
+	  FUSED               //fused
+};
+enum class e_dataQuality_RawData_Source : std::uint8_t
+{
+	  SENSOR,               //sensor
+	  CADASTER,               //cadaster
+	  CUSTOM               //custom
+};
+enum class e_unitDistance : std::uint8_t
+{
+	  M,               //m
+	  KM,               //km
+	  FT,               //ft
+	  MILE               //mile
+};
+enum class e_unitMass : std::uint8_t
+{
+	  KG,               //kg
+	  T               //t
+};
+enum class e_unitSlope : std::uint8_t
+{
+	  PERCENT               //%
+};
+enum class e_unitSpeed : std::uint8_t
+{
+	  M_S,               //m/s
+	  MPH,               //mph
+	  KM_H               //km/h
 };
 enum class t_yesNo : std::uint8_t
 {
 	  YES,               //yes
 	  NO               //no
 };
-enum class e_maxSpeedString : std::uint8_t
-{
-	  NO_LIMIT,               //no limit
-	  UNDEFINED               //undefined
-};
-enum class e_trafficRule : std::uint8_t
-{
-	  RHT,               //RHT
-	  LHT               //LHT
-};
-enum class e_road_link_elementType : std::uint8_t
-{
-	  ROAD,               //road
-	  JUNCTION               //junction
-};
-enum class e_road_link_neighbor_side : std::uint8_t
-{
-	  LEFT,               //left
-	  RIGHT               //right
-};
-enum class e_paramPoly3_pRange : std::uint8_t
-{
-	  ARCLENGTH,               //arcLength
-	  NORMALIZED               //normalized
-};
-enum class e_road_lateralProfile_crossfall_side : std::uint8_t
-{
-	  LEFT,               //left
-	  RIGHT,               //right
-	  BOTH               //both
-};
-enum class e_road_lanes_laneSection_lcr_lane_roadMark_laneChange : std::uint8_t
-{
-	  INCREASE,               //increase
-	  DECREASE,               //decrease
-	  BOTH,               //both
-	  NONE               //none
-};
-enum class e_road_lanes_laneSection_lr_lane_access_rule : std::uint8_t
-{
-	  ALLOW,               //allow
-	  DENY               //deny
-};
-enum class e_road_objects_object_parkingSpace_access : std::uint8_t
-{
-	  ALL,               //all
-	  CAR,               //car
-	  WOMEN,               //women
-	  HANDICAPPED,               //handicapped
-	  BUS,               //bus
-	  TRUCK,               //truck
-	  ELECTRIC,               //electric
-	  RESIDENTS               //residents
-};
-enum class e_road_signals_signal_reference_elementType : std::uint8_t
-{
-	  OBJECT,               //object
-	  SIGNAL               //signal
-};
-enum class e_road_surface_CRG_purpose : std::uint8_t
-{
-	  ELEVATION,               //elevation
-	  FRICTION               //friction
-};
-enum class e_road_surface_CRG_mode : std::uint8_t
-{
-	  ATTACHED,               //attached
-	  ATTACHED0,               //attached0
-	  GENUINE,               //genuine
-	  GLOBAL               //global
-};
 enum class e_road_railroad_switch_position : std::uint8_t
 {
 	  DYNAMIC,               //dynamic
 	  STRAIGHT,               //straight
 	  TURN               //turn
+};
+enum class e_station_platform_segment_side : std::uint8_t
+{
+	  LEFT,               //left
+	  RIGHT               //right
+};
+enum class e_station_type : std::uint8_t
+{
+	  SMALL,               //small
+	  MEDIUM,               //medium
+	  LARGE               //large
+};
+enum class e_contactPoint : std::uint8_t
+{
+	  START,               //start
+	  END               //end
+};
+enum class e_elementDir : std::uint8_t
+{
+	  PLUS,               //+
+	  MINUS               //-
 };
 enum class e_junction_type : std::uint8_t
 {
@@ -133,51 +112,54 @@ enum class e_junctionGroup_type : std::uint8_t
 	  ROUNDABOUT,               //roundabout
 	  UNKNOWN               //unknown
 };
-enum class e_station_type : std::uint8_t
+enum class e_road_surface_CRG_mode : std::uint8_t
 {
-	  SMALL,               //small
-	  MEDIUM,               //medium
-	  LARGE               //large
+	  ATTACHED,               //attached
+	  ATTACHED0,               //attached0
+	  GENUINE,               //genuine
+	  GLOBAL               //global
 };
-enum class e_station_platform_segment_side : std::uint8_t
+enum class e_road_surface_CRG_purpose : std::uint8_t
 {
-	  LEFT,               //left
-	  RIGHT               //right
+	  ELEVATION,               //elevation
+	  FRICTION               //friction
 };
-enum class e_dataQuality_RawData_Source : std::uint8_t
+enum class e_road_signals_signal_reference_elementType : std::uint8_t
 {
-	  SENSOR,               //sensor
-	  CADASTER,               //cadaster
-	  CUSTOM               //custom
+	  OBJECT,               //object
+	  SIGNAL               //signal
 };
-enum class e_dataQuality_RawData_PostProcessing : std::uint8_t
+enum class e_countryCode_deprecated : std::uint8_t
 {
-	  RAW,               //raw
-	  CLEANED,               //cleaned
-	  PROCESSED,               //processed
-	  FUSED               //fused
+	  OPENDRIVE,               //OpenDRIVE
+	  AUSTRIA,               //Austria
+	  BRAZIL,               //Brazil
+	  CHINA,               //China
+	  FRANCE,               //France
+	  GERMANY,               //Germany
+	  ITALY,               //Italy
+	  SWITZERLAND,               //Switzerland
+	  USA               //USA
 };
-enum class e_unitDistance : std::uint8_t
+enum class e_direction : std::uint8_t
 {
-	  M,               //m
-	  KM,               //km
-	  FT,               //ft
-	  MILE               //mile
+	  SAME,               //same
+	  OPPOSITE               //opposite
 };
-enum class e_unitSpeed : std::uint8_t
+enum class e_maxSpeedString : std::uint8_t
 {
-	  M_S,               //m/s
-	  MPH,               //mph
-	  KM_H               //km/h
+	  NO_LIMIT,               //no limit
+	  UNDEFINED               //undefined
 };
-enum class e_unitMass : std::uint8_t
+enum class e_paramPoly3_pRange : std::uint8_t
 {
-	  KG,               //kg
-	  T               //t
+	  ARCLENGTH,               //arcLength
+	  NORMALIZED               //normalized
 };
-enum class e_unitSlope : std::uint8_t
+enum class e_road_link_elementType : std::uint8_t
 {
-	  PERCENT               //%
+	  ROAD,               //road
+	  JUNCTION               //junction
 };
 enum class e_roadType : std::uint8_t
 {
@@ -194,6 +176,167 @@ enum class e_roadType : std::uint8_t
 	  TOWNPRIVATE,               //townPrivate
 	  TOWNLOCAL,               //townLocal
 	  TOWNPLAYSTREET               //townPlayStreet
+};
+enum class e_trafficRule : std::uint8_t
+{
+	  RHT,               //RHT
+	  LHT               //LHT
+};
+enum class e_borderType : std::uint8_t
+{
+	  CONCRETE,               //concrete
+	  CURB               //curb
+};
+enum class e_bridgeType : std::uint8_t
+{
+	  CONCRETE,               //concrete
+	  STEEL,               //steel
+	  BRICK,               //brick
+	  WOOD               //wood
+};
+enum class e_objectType : std::uint8_t
+{
+	  NONE,               //none
+	  OBSTACLE,               //obstacle
+	  CAR,               //car
+	  POLE,               //pole
+	  TREE,               //tree
+	  VEGETATION,               //vegetation
+	  BARRIER,               //barrier
+	  BUILDING,               //building
+	  PARKINGSPACE,               //parkingSpace
+	  PATCH,               //patch
+	  RAILING,               //railing
+	  TRAFFICISLAND,               //trafficIsland
+	  CROSSWALK,               //crosswalk
+	  STREETLAMP,               //streetLamp
+	  GANTRY,               //gantry
+	  SOUNDBARRIER,               //soundBarrier
+	  VAN,               //van
+	  BUS,               //bus
+	  TRAILER,               //trailer
+	  BIKE,               //bike
+	  MOTORBIKE,               //motorbike
+	  TRAM,               //tram
+	  TRAIN,               //train
+	  PEDESTRIAN,               //pedestrian
+	  WIND,               //wind
+	  ROADMARK               //roadMark
+};
+enum class e_orientation : std::uint8_t
+{
+	  PLUS,               //+
+	  MINUS,               //-
+	  NONE               //none
+};
+enum class e_outlineFillType : std::uint8_t
+{
+	  GRASS,               //grass
+	  CONCRETE,               //concrete
+	  COBBLE,               //cobble
+	  ASPHALT,               //asphalt
+	  PAVEMENT,               //pavement
+	  GRAVEL,               //gravel
+	  SOIL               //soil
+};
+enum class e_road_objects_object_parkingSpace_access : std::uint8_t
+{
+	  ALL,               //all
+	  CAR,               //car
+	  WOMEN,               //women
+	  HANDICAPPED,               //handicapped
+	  BUS,               //bus
+	  TRUCK,               //truck
+	  ELECTRIC,               //electric
+	  RESIDENTS               //residents
+};
+enum class e_sideType : std::uint8_t
+{
+	  LEFT,               //left
+	  RIGHT,               //right
+	  FRONT,               //front
+	  REAR               //rear
+};
+enum class e_tunnelType : std::uint8_t
+{
+	  STANDARD,               //standard
+	  UNDERPASS               //underpass
+};
+enum class e_accessRestrictionType : std::uint8_t
+{
+	  SIMULATOR,               //simulator
+	  AUTONOMOUSTRAFFIC,               //autonomousTraffic
+	  PEDESTRIAN,               //pedestrian
+	  PASSENGERCAR,               //passengerCar
+	  BUS,               //bus
+	  DELIVERY,               //delivery
+	  EMERGENCY,               //emergency
+	  TAXI,               //taxi
+	  THROUGHTRAFFIC,               //throughTraffic
+	  TRUCK,               //truck
+	  BICYCLE,               //bicycle
+	  MOTORCYCLE,               //motorcycle
+	  NONE,               //none
+	  TRUCKS               //trucks
+};
+enum class e_laneType : std::uint8_t
+{
+	  SHOULDER,               //shoulder
+	  BORDER,               //border
+	  DRIVING,               //driving
+	  STOP,               //stop
+	  NONE,               //none
+	  RESTRICTED,               //restricted
+	  PARKING,               //parking
+	  MEDIAN,               //median
+	  BIKING,               //biking
+	  SIDEWALK,               //sidewalk
+	  CURB,               //curb
+	  EXIT,               //exit
+	  ENTRY,               //entry
+	  ONRAMP,               //onRamp
+	  OFFRAMP,               //offRamp
+	  CONNECTINGRAMP,               //connectingRamp
+	  BIDIRECTIONAL,               //bidirectional
+	  SPECIAL1,               //special1
+	  SPECIAL2,               //special2
+	  SPECIAL3,               //special3
+	  ROADWORKS,               //roadWorks
+	  TRAM,               //tram
+	  RAIL,               //rail
+	  BUS,               //bus
+	  TAXI,               //taxi
+	  HOV,               //HOV
+	  MWYENTRY,               //mwyEntry
+	  MWYEXIT               //mwyExit
+};
+enum class e_road_lanes_laneSection_lcr_lane_roadMark_laneChange : std::uint8_t
+{
+	  INCREASE,               //increase
+	  DECREASE,               //decrease
+	  BOTH,               //both
+	  NONE               //none
+};
+enum class e_road_lanes_laneSection_lr_lane_access_rule : std::uint8_t
+{
+	  ALLOW,               //allow
+	  DENY               //deny
+};
+enum class e_roadMarkColor : std::uint8_t
+{
+	  STANDARD,               //standard
+	  BLUE,               //blue
+	  GREEN,               //green
+	  RED,               //red
+	  WHITE,               //white
+	  YELLOW,               //yellow
+	  ORANGE               //orange
+};
+enum class e_roadMarkRule : std::uint8_t
+{
+	  NO_PASSING,               //no passing
+	  CAUTION,               //caution
+	  NONE               //none
 };
 enum class e_roadMarkType : std::uint8_t
 {
@@ -215,176 +358,12 @@ enum class e_roadMarkWeight : std::uint8_t
 	  STANDARD,               //standard
 	  BOLD               //bold
 };
-enum class e_roadMarkColor : std::uint8_t
+enum class t_bool : std::uint8_t
 {
-	  STANDARD,               //standard
-	  BLUE,               //blue
-	  GREEN,               //green
-	  RED,               //red
-	  WHITE,               //white
-	  YELLOW,               //yellow
-	  ORANGE               //orange
+	  TRUE,               //true
+	  FALSE               //false
 };
-enum class e_laneType : std::uint8_t
-{
-	  NONE,               //none
-	  DRIVING,               //driving
-	  STOP,               //stop
-	  SHOULDER,               //shoulder
-	  BIKING,               //biking
-	  SIDEWALK,               //sidewalk
-	  BORDER,               //border
-	  RESTRICTED,               //restricted
-	  PARKING,               //parking
-	  BIDIRECTIONAL,               //bidirectional
-	  MEDIAN,               //median
-	  SPECIAL1,               //special1
-	  SPECIAL2,               //special2
-	  SPECIAL3,               //special3
-	  ROADWORKS,               //roadWorks
-	  TRAM,               //tram
-	  RAIL,               //rail
-	  ENTRY,               //entry
-	  EXIT,               //exit
-	  OFFRAMP,               //offRamp
-	  ONRAMP,               //onRamp
-	  CONNECTINGRAMP,               //connectingRamp
-	  BUS,               //bus
-	  TAXI,               //taxi
-	  HOV,               //HOV
-	  MWYENTRY,               //mwyEntry
-	  MWYEXIT               //mwyExit
-};
-enum class e_objectType : std::uint8_t
-{
-	  NONE,               //none
-	  OBSTACLE,               //obstacle
-	  CAR,               //car
-	  POLE,               //pole
-	  TREE,               //tree
-	  VEGETATION,               //vegetation
-	  BARRIER,               //barrier
-	  BUILDING,               //building
-	  PARKINGSPACE,               //parkingSpace
-	  PATCH,               //patch
-	  RAILING,               //railing
-	  TRAFFICISLAND,               //trafficIsland
-	  CROSSWALK,               //crosswalk
-	  STREETLAMP,               //streetLamp
-	  GANTRY,               //gantry
-	  SOUNDBARRIER,               //soundBarrier
-	  TRUCK,               //truck
-	  VAN,               //van
-	  BUS,               //bus
-	  TRAILER,               //trailer
-	  BIKE,               //bike
-	  MOTORBIKE,               //motorbike
-	  TRAM,               //tram
-	  TRAIN,               //train
-	  PEDESTRIAN,               //pedestrian
-	  WIND               //wind
-};
-enum class e_tunnelType : std::uint8_t
-{
-	  STANDARD,               //standard
-	  UNDERPASS               //underpass
-};
-enum class e_bridgeType : std::uint8_t
-{
-	  CONCRETE,               //concrete
-	  STEEL,               //steel
-	  BRICK,               //brick
-	  WOOD               //wood
-};
-enum class e_accessRestrictionType : std::uint8_t
-{
-	  SIMULATOR,               //simulator
-	  AUTONOMOUSTRAFFIC,               //autonomousTraffic
-	  PEDESTRIAN,               //pedestrian
-	  PASSENGERCAR,               //passengerCar
-	  BUS,               //bus
-	  DELIVERY,               //delivery
-	  EMERGENCY,               //emergency
-	  TAXI,               //taxi
-	  THROUGHTRAFFIC,               //throughTraffic
-	  TRUCK,               //truck
-	  BICYCLE,               //bicycle
-	  MOTORCYCLE,               //motorcycle
-	  NONE,               //none
-	  TRUCKS               //trucks
-};
-enum class e_countryCode_deprecated : std::uint8_t
-{
-	  OPENDRIVE,               //OpenDRIVE
-	  AUSTRIA,               //Austria
-	  BRAZIL,               //Brazil
-	  CHINA,               //China
-	  FRANCE,               //France
-	  GERMANY,               //Germany
-	  ITALY,               //Italy
-	  SWITZERLAND,               //Switzerland
-	  USA               //USA
-};
-enum class e_sideType : std::uint8_t
-{
-	  LEFT,               //left
-	  RIGHT,               //right
-	  FRONT,               //front
-	  REAR               //rear
-};
-enum class e_outlineFillType : std::uint8_t
-{
-	  GRASS,               //grass
-	  CONCRETE,               //concrete
-	  COBBLE,               //cobble
-	  ASPHALT,               //asphalt
-	  PAVEMENT,               //pavement
-	  GRAVEL,               //gravel
-	  SOIL               //soil
-};
-enum class e_borderType : std::uint8_t
-{
-	  CONCRETE,               //concrete
-	  CURB               //curb
-};
-enum class e_contactPoint : std::uint8_t
-{
-	  START,               //start
-	  END               //end
-};
-enum class e_elementDir : std::uint8_t
-{
-	  PLUS,               //+
-	  MINUS               //-
-};
-enum class e_direction : std::uint8_t
-{
-	  SAME,               //same
-	  OPPOSITE               //opposite
-};
-enum class e_roadMarkRule : std::uint8_t
-{
-	  NO_PASSING,               //no passing
-	  CAUTION,               //caution
-	  NONE               //none
-};
-enum class e_orientation : std::uint8_t
-{
-	  PLUS,               //+
-	  MINUS,               //-
-	  NONE               //none
-};
-struct t_maxSpeed
-{
-public:
-	  e_maxSpeedString  maxSpeedString;
-	  t_grEqZero  grEqZero;
-public:
-	t_maxSpeed(){};
-    t_maxSpeed(pugi::xml_node node);
-	~t_maxSpeed(){};
-};
-struct e_unit
+struct e_unit	// TODO: >> Should be union - will have to handle properly
 {
 public:
 	  e_unitDistance  unitDistance;
@@ -396,22 +375,78 @@ public:
     e_unit(pugi::xml_node node);
 	~e_unit(){};
 };
-struct e_countryCode
+struct e_countryCode	// TODO: >> Should be union - will have to handle properly
 {
 public:
+	  e_countryCode_iso3166alpha2  countryCode_iso3166alpha2;
+	  e_countryCode_iso3166alpha3_deprecated  countryCode_iso3166alpha3_deprecated;
 	  e_countryCode_deprecated  countryCode_deprecated;
-	  e_countryCode_iso3166alpha3  countryCode_iso3166alpha3;
 public:
 	e_countryCode(){};
     e_countryCode(pugi::xml_node node);
 	~e_countryCode(){};
 };
+struct t_maxSpeed	// TODO: >> Should be union - will have to handle properly
+{
+public:
+	  t_grEqZero  grEqZero;
+	  e_maxSpeedString  maxSpeedString;
+public:
+	t_maxSpeed(){};
+    t_maxSpeed(pugi::xml_node node);
+	~t_maxSpeed(){};
+};
 template<>
-inline std::vector<std::pair<std::string, t_bool>>enum_map()
+inline std::vector<std::pair<std::string, e_dataQuality_RawData_PostProcessing>>enum_map()
 {
     return {
-        { "true", t_bool::TRUE } ,
-        { "false", t_bool::FALSE }
+        { "raw", e_dataQuality_RawData_PostProcessing::RAW } ,
+        { "cleaned", e_dataQuality_RawData_PostProcessing::CLEANED } ,
+        { "processed", e_dataQuality_RawData_PostProcessing::PROCESSED } ,
+        { "fused", e_dataQuality_RawData_PostProcessing::FUSED }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_dataQuality_RawData_Source>>enum_map()
+{
+    return {
+        { "sensor", e_dataQuality_RawData_Source::SENSOR } ,
+        { "cadaster", e_dataQuality_RawData_Source::CADASTER } ,
+        { "custom", e_dataQuality_RawData_Source::CUSTOM }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_unitDistance>>enum_map()
+{
+    return {
+        { "m", e_unitDistance::M } ,
+        { "km", e_unitDistance::KM } ,
+        { "ft", e_unitDistance::FT } ,
+        { "mile", e_unitDistance::MILE }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_unitMass>>enum_map()
+{
+    return {
+        { "kg", e_unitMass::KG } ,
+        { "t", e_unitMass::T }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_unitSlope>>enum_map()
+{
+    return {
+        { "%", e_unitSlope::PERCENT }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_unitSpeed>>enum_map()
+{
+    return {
+        { "m/s", e_unitSpeed::M_S } ,
+        { "mph", e_unitSpeed::MPH } ,
+        { "km/h", e_unitSpeed::KM_H }
     };
 }
 template<>
@@ -423,35 +458,118 @@ inline std::vector<std::pair<std::string, t_yesNo>>enum_map()
     };
 }
 template<>
+inline std::vector<std::pair<std::string, e_road_railroad_switch_position>>enum_map()
+{
+    return {
+        { "dynamic", e_road_railroad_switch_position::DYNAMIC } ,
+        { "straight", e_road_railroad_switch_position::STRAIGHT } ,
+        { "turn", e_road_railroad_switch_position::TURN }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_station_platform_segment_side>>enum_map()
+{
+    return {
+        { "left", e_station_platform_segment_side::LEFT } ,
+        { "right", e_station_platform_segment_side::RIGHT }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_station_type>>enum_map()
+{
+    return {
+        { "small", e_station_type::SMALL } ,
+        { "medium", e_station_type::MEDIUM } ,
+        { "large", e_station_type::LARGE }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_contactPoint>>enum_map()
+{
+    return {
+        { "start", e_contactPoint::START } ,
+        { "end", e_contactPoint::END }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_elementDir>>enum_map()
+{
+    return {
+        { "+", e_elementDir::PLUS } ,
+        { "-", e_elementDir::MINUS }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_junction_type>>enum_map()
+{
+    return {
+        { "default", e_junction_type::DEFAULT } ,
+        { "virtual", e_junction_type::VIRTUAL }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_junctionGroup_type>>enum_map()
+{
+    return {
+        { "roundabout", e_junctionGroup_type::ROUNDABOUT } ,
+        { "unknown", e_junctionGroup_type::UNKNOWN }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_road_surface_CRG_mode>>enum_map()
+{
+    return {
+        { "attached", e_road_surface_CRG_mode::ATTACHED } ,
+        { "attached0", e_road_surface_CRG_mode::ATTACHED0 } ,
+        { "genuine", e_road_surface_CRG_mode::GENUINE } ,
+        { "global", e_road_surface_CRG_mode::GLOBAL }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_road_surface_CRG_purpose>>enum_map()
+{
+    return {
+        { "elevation", e_road_surface_CRG_purpose::ELEVATION } ,
+        { "friction", e_road_surface_CRG_purpose::FRICTION }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_road_signals_signal_reference_elementType>>enum_map()
+{
+    return {
+        { "object", e_road_signals_signal_reference_elementType::OBJECT } ,
+        { "signal", e_road_signals_signal_reference_elementType::SIGNAL }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_countryCode_deprecated>>enum_map()
+{
+    return {
+        { "OpenDRIVE", e_countryCode_deprecated::OPENDRIVE } ,
+        { "Austria", e_countryCode_deprecated::AUSTRIA } ,
+        { "Brazil", e_countryCode_deprecated::BRAZIL } ,
+        { "China", e_countryCode_deprecated::CHINA } ,
+        { "France", e_countryCode_deprecated::FRANCE } ,
+        { "Germany", e_countryCode_deprecated::GERMANY } ,
+        { "Italy", e_countryCode_deprecated::ITALY } ,
+        { "Switzerland", e_countryCode_deprecated::SWITZERLAND } ,
+        { "USA", e_countryCode_deprecated::USA }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_direction>>enum_map()
+{
+    return {
+        { "same", e_direction::SAME } ,
+        { "opposite", e_direction::OPPOSITE }
+    };
+}
+template<>
 inline std::vector<std::pair<std::string, e_maxSpeedString>>enum_map()
 {
     return {
         { "no limit", e_maxSpeedString::NO_LIMIT } ,
         { "undefined", e_maxSpeedString::UNDEFINED }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_trafficRule>>enum_map()
-{
-    return {
-        { "RHT", e_trafficRule::RHT } ,
-        { "LHT", e_trafficRule::LHT }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_road_link_elementType>>enum_map()
-{
-    return {
-        { "road", e_road_link_elementType::ROAD } ,
-        { "junction", e_road_link_elementType::JUNCTION }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_road_link_neighbor_side>>enum_map()
-{
-    return {
-        { "left", e_road_link_neighbor_side::LEFT } ,
-        { "right", e_road_link_neighbor_side::RIGHT }
     };
 }
 template<>
@@ -463,12 +581,196 @@ inline std::vector<std::pair<std::string, e_paramPoly3_pRange>>enum_map()
     };
 }
 template<>
-inline std::vector<std::pair<std::string, e_road_lateralProfile_crossfall_side>>enum_map()
+inline std::vector<std::pair<std::string, e_road_link_elementType>>enum_map()
 {
     return {
-        { "left", e_road_lateralProfile_crossfall_side::LEFT } ,
-        { "right", e_road_lateralProfile_crossfall_side::RIGHT } ,
-        { "both", e_road_lateralProfile_crossfall_side::BOTH }
+        { "road", e_road_link_elementType::ROAD } ,
+        { "junction", e_road_link_elementType::JUNCTION }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_roadType>>enum_map()
+{
+    return {
+        { "unknown", e_roadType::UNKNOWN } ,
+        { "rural", e_roadType::RURAL } ,
+        { "motorway", e_roadType::MOTORWAY } ,
+        { "town", e_roadType::TOWN } ,
+        { "lowSpeed", e_roadType::LOWSPEED } ,
+        { "pedestrian", e_roadType::PEDESTRIAN } ,
+        { "bicycle", e_roadType::BICYCLE } ,
+        { "townExpressway", e_roadType::TOWNEXPRESSWAY } ,
+        { "townCollector", e_roadType::TOWNCOLLECTOR } ,
+        { "townArterial", e_roadType::TOWNARTERIAL } ,
+        { "townPrivate", e_roadType::TOWNPRIVATE } ,
+        { "townLocal", e_roadType::TOWNLOCAL } ,
+        { "townPlayStreet", e_roadType::TOWNPLAYSTREET }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_trafficRule>>enum_map()
+{
+    return {
+        { "RHT", e_trafficRule::RHT } ,
+        { "LHT", e_trafficRule::LHT }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_borderType>>enum_map()
+{
+    return {
+        { "concrete", e_borderType::CONCRETE } ,
+        { "curb", e_borderType::CURB }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_bridgeType>>enum_map()
+{
+    return {
+        { "concrete", e_bridgeType::CONCRETE } ,
+        { "steel", e_bridgeType::STEEL } ,
+        { "brick", e_bridgeType::BRICK } ,
+        { "wood", e_bridgeType::WOOD }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_objectType>>enum_map()
+{
+    return {
+        { "none", e_objectType::NONE } ,
+        { "obstacle", e_objectType::OBSTACLE } ,
+        { "car", e_objectType::CAR } ,
+        { "pole", e_objectType::POLE } ,
+        { "tree", e_objectType::TREE } ,
+        { "vegetation", e_objectType::VEGETATION } ,
+        { "barrier", e_objectType::BARRIER } ,
+        { "building", e_objectType::BUILDING } ,
+        { "parkingSpace", e_objectType::PARKINGSPACE } ,
+        { "patch", e_objectType::PATCH } ,
+        { "railing", e_objectType::RAILING } ,
+        { "trafficIsland", e_objectType::TRAFFICISLAND } ,
+        { "crosswalk", e_objectType::CROSSWALK } ,
+        { "streetLamp", e_objectType::STREETLAMP } ,
+        { "gantry", e_objectType::GANTRY } ,
+        { "soundBarrier", e_objectType::SOUNDBARRIER } ,
+        { "van", e_objectType::VAN } ,
+        { "bus", e_objectType::BUS } ,
+        { "trailer", e_objectType::TRAILER } ,
+        { "bike", e_objectType::BIKE } ,
+        { "motorbike", e_objectType::MOTORBIKE } ,
+        { "tram", e_objectType::TRAM } ,
+        { "train", e_objectType::TRAIN } ,
+        { "pedestrian", e_objectType::PEDESTRIAN } ,
+        { "wind", e_objectType::WIND } ,
+        { "roadMark", e_objectType::ROADMARK }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_orientation>>enum_map()
+{
+    return {
+        { "+", e_orientation::PLUS } ,
+        { "-", e_orientation::MINUS } ,
+        { "none", e_orientation::NONE }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_outlineFillType>>enum_map()
+{
+    return {
+        { "grass", e_outlineFillType::GRASS } ,
+        { "concrete", e_outlineFillType::CONCRETE } ,
+        { "cobble", e_outlineFillType::COBBLE } ,
+        { "asphalt", e_outlineFillType::ASPHALT } ,
+        { "pavement", e_outlineFillType::PAVEMENT } ,
+        { "gravel", e_outlineFillType::GRAVEL } ,
+        { "soil", e_outlineFillType::SOIL }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_road_objects_object_parkingSpace_access>>enum_map()
+{
+    return {
+        { "all", e_road_objects_object_parkingSpace_access::ALL } ,
+        { "car", e_road_objects_object_parkingSpace_access::CAR } ,
+        { "women", e_road_objects_object_parkingSpace_access::WOMEN } ,
+        { "handicapped", e_road_objects_object_parkingSpace_access::HANDICAPPED } ,
+        { "bus", e_road_objects_object_parkingSpace_access::BUS } ,
+        { "truck", e_road_objects_object_parkingSpace_access::TRUCK } ,
+        { "electric", e_road_objects_object_parkingSpace_access::ELECTRIC } ,
+        { "residents", e_road_objects_object_parkingSpace_access::RESIDENTS }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_sideType>>enum_map()
+{
+    return {
+        { "left", e_sideType::LEFT } ,
+        { "right", e_sideType::RIGHT } ,
+        { "front", e_sideType::FRONT } ,
+        { "rear", e_sideType::REAR }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_tunnelType>>enum_map()
+{
+    return {
+        { "standard", e_tunnelType::STANDARD } ,
+        { "underpass", e_tunnelType::UNDERPASS }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_accessRestrictionType>>enum_map()
+{
+    return {
+        { "simulator", e_accessRestrictionType::SIMULATOR } ,
+        { "autonomousTraffic", e_accessRestrictionType::AUTONOMOUSTRAFFIC } ,
+        { "pedestrian", e_accessRestrictionType::PEDESTRIAN } ,
+        { "passengerCar", e_accessRestrictionType::PASSENGERCAR } ,
+        { "bus", e_accessRestrictionType::BUS } ,
+        { "delivery", e_accessRestrictionType::DELIVERY } ,
+        { "emergency", e_accessRestrictionType::EMERGENCY } ,
+        { "taxi", e_accessRestrictionType::TAXI } ,
+        { "throughTraffic", e_accessRestrictionType::THROUGHTRAFFIC } ,
+        { "truck", e_accessRestrictionType::TRUCK } ,
+        { "bicycle", e_accessRestrictionType::BICYCLE } ,
+        { "motorcycle", e_accessRestrictionType::MOTORCYCLE } ,
+        { "none", e_accessRestrictionType::NONE } ,
+        { "trucks", e_accessRestrictionType::TRUCKS }
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_laneType>>enum_map()
+{
+    return {
+        { "shoulder", e_laneType::SHOULDER } ,
+        { "border", e_laneType::BORDER } ,
+        { "driving", e_laneType::DRIVING } ,
+        { "stop", e_laneType::STOP } ,
+        { "none", e_laneType::NONE } ,
+        { "restricted", e_laneType::RESTRICTED } ,
+        { "parking", e_laneType::PARKING } ,
+        { "median", e_laneType::MEDIAN } ,
+        { "biking", e_laneType::BIKING } ,
+        { "sidewalk", e_laneType::SIDEWALK } ,
+        { "curb", e_laneType::CURB } ,
+        { "exit", e_laneType::EXIT } ,
+        { "entry", e_laneType::ENTRY } ,
+        { "onRamp", e_laneType::ONRAMP } ,
+        { "offRamp", e_laneType::OFFRAMP } ,
+        { "connectingRamp", e_laneType::CONNECTINGRAMP } ,
+        { "bidirectional", e_laneType::BIDIRECTIONAL } ,
+        { "special1", e_laneType::SPECIAL1 } ,
+        { "special2", e_laneType::SPECIAL2 } ,
+        { "special3", e_laneType::SPECIAL3 } ,
+        { "roadWorks", e_laneType::ROADWORKS } ,
+        { "tram", e_laneType::TRAM } ,
+        { "rail", e_laneType::RAIL } ,
+        { "bus", e_laneType::BUS } ,
+        { "taxi", e_laneType::TAXI } ,
+        { "HOV", e_laneType::HOV } ,
+        { "mwyEntry", e_laneType::MWYENTRY } ,
+        { "mwyExit", e_laneType::MWYEXIT }
     };
 }
 template<>
@@ -490,157 +792,25 @@ inline std::vector<std::pair<std::string, e_road_lanes_laneSection_lr_lane_acces
     };
 }
 template<>
-inline std::vector<std::pair<std::string, e_road_objects_object_parkingSpace_access>>enum_map()
+inline std::vector<std::pair<std::string, e_roadMarkColor>>enum_map()
 {
     return {
-        { "all", e_road_objects_object_parkingSpace_access::ALL } ,
-        { "car", e_road_objects_object_parkingSpace_access::CAR } ,
-        { "women", e_road_objects_object_parkingSpace_access::WOMEN } ,
-        { "handicapped", e_road_objects_object_parkingSpace_access::HANDICAPPED } ,
-        { "bus", e_road_objects_object_parkingSpace_access::BUS } ,
-        { "truck", e_road_objects_object_parkingSpace_access::TRUCK } ,
-        { "electric", e_road_objects_object_parkingSpace_access::ELECTRIC } ,
-        { "residents", e_road_objects_object_parkingSpace_access::RESIDENTS }
+        { "standard", e_roadMarkColor::STANDARD } ,
+        { "blue", e_roadMarkColor::BLUE } ,
+        { "green", e_roadMarkColor::GREEN } ,
+        { "red", e_roadMarkColor::RED } ,
+        { "white", e_roadMarkColor::WHITE } ,
+        { "yellow", e_roadMarkColor::YELLOW } ,
+        { "orange", e_roadMarkColor::ORANGE }
     };
 }
 template<>
-inline std::vector<std::pair<std::string, e_road_signals_signal_reference_elementType>>enum_map()
+inline std::vector<std::pair<std::string, e_roadMarkRule>>enum_map()
 {
     return {
-        { "object", e_road_signals_signal_reference_elementType::OBJECT } ,
-        { "signal", e_road_signals_signal_reference_elementType::SIGNAL }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_road_surface_CRG_purpose>>enum_map()
-{
-    return {
-        { "elevation", e_road_surface_CRG_purpose::ELEVATION } ,
-        { "friction", e_road_surface_CRG_purpose::FRICTION }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_road_surface_CRG_mode>>enum_map()
-{
-    return {
-        { "attached", e_road_surface_CRG_mode::ATTACHED } ,
-        { "attached0", e_road_surface_CRG_mode::ATTACHED0 } ,
-        { "genuine", e_road_surface_CRG_mode::GENUINE } ,
-        { "global", e_road_surface_CRG_mode::GLOBAL }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_road_railroad_switch_position>>enum_map()
-{
-    return {
-        { "dynamic", e_road_railroad_switch_position::DYNAMIC } ,
-        { "straight", e_road_railroad_switch_position::STRAIGHT } ,
-        { "turn", e_road_railroad_switch_position::TURN }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_junction_type>>enum_map()
-{
-    return {
-        { "default", e_junction_type::DEFAULT } ,
-        { "virtual", e_junction_type::VIRTUAL }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_junctionGroup_type>>enum_map()
-{
-    return {
-        { "roundabout", e_junctionGroup_type::ROUNDABOUT } ,
-        { "unknown", e_junctionGroup_type::UNKNOWN }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_station_type>>enum_map()
-{
-    return {
-        { "small", e_station_type::SMALL } ,
-        { "medium", e_station_type::MEDIUM } ,
-        { "large", e_station_type::LARGE }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_station_platform_segment_side>>enum_map()
-{
-    return {
-        { "left", e_station_platform_segment_side::LEFT } ,
-        { "right", e_station_platform_segment_side::RIGHT }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_dataQuality_RawData_Source>>enum_map()
-{
-    return {
-        { "sensor", e_dataQuality_RawData_Source::SENSOR } ,
-        { "cadaster", e_dataQuality_RawData_Source::CADASTER } ,
-        { "custom", e_dataQuality_RawData_Source::CUSTOM }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_dataQuality_RawData_PostProcessing>>enum_map()
-{
-    return {
-        { "raw", e_dataQuality_RawData_PostProcessing::RAW } ,
-        { "cleaned", e_dataQuality_RawData_PostProcessing::CLEANED } ,
-        { "processed", e_dataQuality_RawData_PostProcessing::PROCESSED } ,
-        { "fused", e_dataQuality_RawData_PostProcessing::FUSED }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_unitDistance>>enum_map()
-{
-    return {
-        { "m", e_unitDistance::M } ,
-        { "km", e_unitDistance::KM } ,
-        { "ft", e_unitDistance::FT } ,
-        { "mile", e_unitDistance::MILE }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_unitSpeed>>enum_map()
-{
-    return {
-        { "m/s", e_unitSpeed::M_S } ,
-        { "mph", e_unitSpeed::MPH } ,
-        { "km/h", e_unitSpeed::KM_H }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_unitMass>>enum_map()
-{
-    return {
-        { "kg", e_unitMass::KG } ,
-        { "t", e_unitMass::T }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_unitSlope>>enum_map()
-{
-    return {
-        { "%", e_unitSlope::PERCENT }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_roadType>>enum_map()
-{
-    return {
-        { "unknown", e_roadType::UNKNOWN } ,
-        { "rural", e_roadType::RURAL } ,
-        { "motorway", e_roadType::MOTORWAY } ,
-        { "town", e_roadType::TOWN } ,
-        { "lowSpeed", e_roadType::LOWSPEED } ,
-        { "pedestrian", e_roadType::PEDESTRIAN } ,
-        { "bicycle", e_roadType::BICYCLE } ,
-        { "townExpressway", e_roadType::TOWNEXPRESSWAY } ,
-        { "townCollector", e_roadType::TOWNCOLLECTOR } ,
-        { "townArterial", e_roadType::TOWNARTERIAL } ,
-        { "townPrivate", e_roadType::TOWNPRIVATE } ,
-        { "townLocal", e_roadType::TOWNLOCAL } ,
-        { "townPlayStreet", e_roadType::TOWNPLAYSTREET }
+        { "no passing", e_roadMarkRule::NO_PASSING } ,
+        { "caution", e_roadMarkRule::CAUTION } ,
+        { "none", e_roadMarkRule::NONE }
     };
 }
 template<>
@@ -670,312 +840,124 @@ inline std::vector<std::pair<std::string, e_roadMarkWeight>>enum_map()
     };
 }
 template<>
-inline std::vector<std::pair<std::string, e_roadMarkColor>>enum_map()
+inline std::vector<std::pair<std::string, t_bool>>enum_map()
 {
     return {
-        { "standard", e_roadMarkColor::STANDARD } ,
-        { "blue", e_roadMarkColor::BLUE } ,
-        { "green", e_roadMarkColor::GREEN } ,
-        { "red", e_roadMarkColor::RED } ,
-        { "white", e_roadMarkColor::WHITE } ,
-        { "yellow", e_roadMarkColor::YELLOW } ,
-        { "orange", e_roadMarkColor::ORANGE }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_laneType>>enum_map()
-{
-    return {
-        { "none", e_laneType::NONE } ,
-        { "driving", e_laneType::DRIVING } ,
-        { "stop", e_laneType::STOP } ,
-        { "shoulder", e_laneType::SHOULDER } ,
-        { "biking", e_laneType::BIKING } ,
-        { "sidewalk", e_laneType::SIDEWALK } ,
-        { "border", e_laneType::BORDER } ,
-        { "restricted", e_laneType::RESTRICTED } ,
-        { "parking", e_laneType::PARKING } ,
-        { "bidirectional", e_laneType::BIDIRECTIONAL } ,
-        { "median", e_laneType::MEDIAN } ,
-        { "special1", e_laneType::SPECIAL1 } ,
-        { "special2", e_laneType::SPECIAL2 } ,
-        { "special3", e_laneType::SPECIAL3 } ,
-        { "roadWorks", e_laneType::ROADWORKS } ,
-        { "tram", e_laneType::TRAM } ,
-        { "rail", e_laneType::RAIL } ,
-        { "entry", e_laneType::ENTRY } ,
-        { "exit", e_laneType::EXIT } ,
-        { "offRamp", e_laneType::OFFRAMP } ,
-        { "onRamp", e_laneType::ONRAMP } ,
-        { "connectingRamp", e_laneType::CONNECTINGRAMP } ,
-        { "bus", e_laneType::BUS } ,
-        { "taxi", e_laneType::TAXI } ,
-        { "HOV", e_laneType::HOV } ,
-        { "mwyEntry", e_laneType::MWYENTRY } ,
-        { "mwyExit", e_laneType::MWYEXIT }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_objectType>>enum_map()
-{
-    return {
-        { "none", e_objectType::NONE } ,
-        { "obstacle", e_objectType::OBSTACLE } ,
-        { "car", e_objectType::CAR } ,
-        { "pole", e_objectType::POLE } ,
-        { "tree", e_objectType::TREE } ,
-        { "vegetation", e_objectType::VEGETATION } ,
-        { "barrier", e_objectType::BARRIER } ,
-        { "building", e_objectType::BUILDING } ,
-        { "parkingSpace", e_objectType::PARKINGSPACE } ,
-        { "patch", e_objectType::PATCH } ,
-        { "railing", e_objectType::RAILING } ,
-        { "trafficIsland", e_objectType::TRAFFICISLAND } ,
-        { "crosswalk", e_objectType::CROSSWALK } ,
-        { "streetLamp", e_objectType::STREETLAMP } ,
-        { "gantry", e_objectType::GANTRY } ,
-        { "soundBarrier", e_objectType::SOUNDBARRIER } ,
-        { "truck", e_objectType::TRUCK } ,
-        { "van", e_objectType::VAN } ,
-        { "bus", e_objectType::BUS } ,
-        { "trailer", e_objectType::TRAILER } ,
-        { "bike", e_objectType::BIKE } ,
-        { "motorbike", e_objectType::MOTORBIKE } ,
-        { "tram", e_objectType::TRAM } ,
-        { "train", e_objectType::TRAIN } ,
-        { "pedestrian", e_objectType::PEDESTRIAN } ,
-        { "wind", e_objectType::WIND }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_tunnelType>>enum_map()
-{
-    return {
-        { "standard", e_tunnelType::STANDARD } ,
-        { "underpass", e_tunnelType::UNDERPASS }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_bridgeType>>enum_map()
-{
-    return {
-        { "concrete", e_bridgeType::CONCRETE } ,
-        { "steel", e_bridgeType::STEEL } ,
-        { "brick", e_bridgeType::BRICK } ,
-        { "wood", e_bridgeType::WOOD }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_accessRestrictionType>>enum_map()
-{
-    return {
-        { "simulator", e_accessRestrictionType::SIMULATOR } ,
-        { "autonomousTraffic", e_accessRestrictionType::AUTONOMOUSTRAFFIC } ,
-        { "pedestrian", e_accessRestrictionType::PEDESTRIAN } ,
-        { "passengerCar", e_accessRestrictionType::PASSENGERCAR } ,
-        { "bus", e_accessRestrictionType::BUS } ,
-        { "delivery", e_accessRestrictionType::DELIVERY } ,
-        { "emergency", e_accessRestrictionType::EMERGENCY } ,
-        { "taxi", e_accessRestrictionType::TAXI } ,
-        { "throughTraffic", e_accessRestrictionType::THROUGHTRAFFIC } ,
-        { "truck", e_accessRestrictionType::TRUCK } ,
-        { "bicycle", e_accessRestrictionType::BICYCLE } ,
-        { "motorcycle", e_accessRestrictionType::MOTORCYCLE } ,
-        { "none", e_accessRestrictionType::NONE } ,
-        { "trucks", e_accessRestrictionType::TRUCKS }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_countryCode_deprecated>>enum_map()
-{
-    return {
-        { "OpenDRIVE", e_countryCode_deprecated::OPENDRIVE } ,
-        { "Austria", e_countryCode_deprecated::AUSTRIA } ,
-        { "Brazil", e_countryCode_deprecated::BRAZIL } ,
-        { "China", e_countryCode_deprecated::CHINA } ,
-        { "France", e_countryCode_deprecated::FRANCE } ,
-        { "Germany", e_countryCode_deprecated::GERMANY } ,
-        { "Italy", e_countryCode_deprecated::ITALY } ,
-        { "Switzerland", e_countryCode_deprecated::SWITZERLAND } ,
-        { "USA", e_countryCode_deprecated::USA }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_sideType>>enum_map()
-{
-    return {
-        { "left", e_sideType::LEFT } ,
-        { "right", e_sideType::RIGHT } ,
-        { "front", e_sideType::FRONT } ,
-        { "rear", e_sideType::REAR }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_outlineFillType>>enum_map()
-{
-    return {
-        { "grass", e_outlineFillType::GRASS } ,
-        { "concrete", e_outlineFillType::CONCRETE } ,
-        { "cobble", e_outlineFillType::COBBLE } ,
-        { "asphalt", e_outlineFillType::ASPHALT } ,
-        { "pavement", e_outlineFillType::PAVEMENT } ,
-        { "gravel", e_outlineFillType::GRAVEL } ,
-        { "soil", e_outlineFillType::SOIL }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_borderType>>enum_map()
-{
-    return {
-        { "concrete", e_borderType::CONCRETE } ,
-        { "curb", e_borderType::CURB }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_contactPoint>>enum_map()
-{
-    return {
-        { "start", e_contactPoint::START } ,
-        { "end", e_contactPoint::END }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_elementDir>>enum_map()
-{
-    return {
-        { "+", e_elementDir::PLUS } ,
-        { "-", e_elementDir::MINUS }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_direction>>enum_map()
-{
-    return {
-        { "same", e_direction::SAME } ,
-        { "opposite", e_direction::OPPOSITE }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_roadMarkRule>>enum_map()
-{
-    return {
-        { "no passing", e_roadMarkRule::NO_PASSING } ,
-        { "caution", e_roadMarkRule::CAUTION } ,
-        { "none", e_roadMarkRule::NONE }
-    };
-}
-template<>
-inline std::vector<std::pair<std::string, e_orientation>>enum_map()
-{
-    return {
-        { "+", e_orientation::PLUS } ,
-        { "-", e_orientation::MINUS } ,
-        { "none", e_orientation::NONE }
+        { "true", t_bool::TRUE } ,
+        { "false", t_bool::FALSE }
     };
 }
 //Begin Forward Declarations
+struct _OpenDriveElement;
+struct t_dataQuality;
+struct t_dataQuality_Error;
+struct t_dataQuality_RawData;
 struct t_header;
 struct t_header_GeoReference;
 struct t_header_Offset;
-struct t_road;
-struct t_road_link;
-struct t_road_link_predecessorSuccessor;
-struct t_road_link_neighbor;
-struct t_road_type;
-struct t_road_type_speed;
-struct t_road_planView;
-struct t_road_planView_geometry;
-struct t_road_planView_geometry_line;
-struct t_road_planView_geometry_spiral;
-struct t_road_planView_geometry_arc;
-struct t_road_planView_geometry_poly3;
-struct t_road_planView_geometry_paramPoly3;
-struct t_road_elevationProfile;
-struct t_road_elevationProfile_elevation;
-struct t_road_lateralProfile;
-struct t_road_lateralProfile_superelevation;
-struct t_road_lateralProfile_crossfall;
-struct t_road_lateralProfile_shape;
-struct t_road_lanes;
-struct t_road_lanes_laneOffset;
-struct t_road_lanes_laneSection;
-struct t_road_lanes_laneSection_left;
-struct t_road_lanes_laneSection_center;
-struct t_road_lanes_laneSection_right;
-struct t_road_lanes_laneSection_center_lane;
-struct t_road_lanes_laneSection_lr_lane;
-struct t_road_lanes_laneSection_left_lane;
-struct t_road_lanes_laneSection_right_lane;
-struct t_road_lanes_laneSection_lcr_lane_link;
-struct t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor;
-struct t_road_lanes_laneSection_lr_lane_width;
-struct t_road_lanes_laneSection_lr_lane_border;
-struct t_road_lanes_laneSection_lcr_lane_roadMark;
-struct t_road_lanes_laneSection_lcr_lane_roadMark_sway;
-struct t_road_lanes_laneSection_lcr_lane_roadMark_type;
-struct t_road_lanes_laneSection_lcr_lane_roadMark_type_line;
-struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit;
-struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line;
-struct t_road_lanes_laneSection_lr_lane_material;
-struct t_road_lanes_laneSection_lr_lane_visibility;
-struct t_road_lanes_laneSection_lr_lane_speed;
-struct t_road_lanes_laneSection_lr_lane_access;
-struct t_road_lanes_laneSection_lr_lane_height;
-struct t_road_lanes_laneSection_lr_lane_rule;
-struct t_road_objects;
-struct t_road_objects_object;
-struct t_road_objects_object_repeat;
-struct t_road_objects_object_outlines;
-struct t_road_objects_object_outlines_outline;
-struct t_road_objects_object_outlines_outline_cornerRoad;
-struct t_road_objects_object_outlines_outline_cornerLocal;
-struct t_road_objects_object_material;
-struct t_road_objects_object_laneValidity;
-struct t_road_objects_object_parkingSpace;
-struct t_road_objects_object_markings;
-struct t_road_objects_object_markings_marking;
-struct t_road_objects_object_markings_marking_cornerReference;
-struct t_road_objects_object_borders;
-struct t_road_objects_object_borders_border;
-struct t_road_objects_objectReference;
-struct t_road_objects_tunnel;
-struct t_road_objects_bridge;
-struct t_road_signals;
-struct t_road_signals_signal;
-struct t_road_signals_signal_dependency;
-struct t_road_signals_signal_reference;
-struct t_road_signals_signal_positionRoad;
-struct t_road_signals_signal_positionInertial;
-struct t_road_signals_signalReference;
-struct t_road_surface;
-struct t_road_surface_CRG;
+struct t_include;
+struct t_userData;
 struct t_road_railroad;
 struct t_road_railroad_switch;
 struct t_road_railroad_switch_mainTrack;
-struct t_road_railroad_switch_sideTrack;
 struct t_road_railroad_switch_partner;
-struct t_controller;
-struct t_controller_control;
+struct t_road_railroad_switch_sideTrack;
+struct t_station;
+struct t_station_platform;
+struct t_station_platform_segment;
 struct t_junction;
 struct t_junction_connection;
-struct t_junction_predecessorSuccessor;
 struct t_junction_connection_laneLink;
-struct t_junction_priority;
 struct t_junction_controller;
+struct t_junction_predecessorSuccessor;
+struct t_junction_priority;
 struct t_junction_surface;
 struct t_junction_surface_CRG;
 struct t_junctionGroup;
 struct t_junctionGroup_junctionReference;
-struct t_station;
-struct t_station_platform;
-struct t_station_platform_segment;
-struct t_userData;
-struct t_include;
-struct t_dataQuality;
-struct t_dataQuality_Error;
-struct t_dataQuality_RawData;
+struct t_controller;
+struct t_controller_control;
+struct t_road_signals;
+struct t_road_signals_signal;
+struct t_road_signals_signal_dependency;
+struct t_road_signals_signal_positionInertial;
+struct t_road_signals_signal_positionRoad;
+struct t_road_signals_signal_reference;
+struct t_road_signals_signalReference;
+struct t_road;
+struct t_road_elevationProfile;
+struct t_road_elevationProfile_elevation;
+struct t_road_lateralProfile;
+struct t_road_lateralProfile_shape;
+struct t_road_lateralProfile_superelevation;
+struct t_road_link;
+struct t_road_link_predecessorSuccessor;
+struct t_road_planView;
+struct t_road_planView_geometry;
+struct t_road_planView_geometry_arc;
+struct t_road_planView_geometry_line;
+struct t_road_planView_geometry_paramPoly3;
+struct t_road_planView_geometry_poly3;
+struct t_road_planView_geometry_spiral;
+struct t_road_surface;
+struct t_road_surface_CRG;
+struct t_road_type;
+struct t_road_type_speed;
+struct t_road_objects;
+struct t_road_objects_bridge;
+struct t_road_objects_object;
+struct t_road_objects_object_borders;
+struct t_road_objects_object_borders_border;
+struct t_road_objects_object_markings;
+struct t_road_objects_object_markings_marking;
+struct t_road_objects_object_markings_marking_cornerReference;
+struct t_road_objects_object_material;
+struct t_road_objects_object_outlines;
+struct t_road_objects_object_outlines_outline;
+struct t_road_objects_object_outlines_outline_cornerLocal;
+struct t_road_objects_object_outlines_outline_cornerRoad;
+struct t_road_objects_object_parkingSpace;
+struct t_road_objects_object_repeat;
+struct t_road_objects_objectReference;
+struct t_road_objects_tunnel;
+struct t_road_lanes;
+struct t_road_lanes_laneOffset;
+struct t_road_lanes_laneSection;
+struct t_road_lanes_laneSection_center;
+struct t_road_lanes_laneSection_center_lane;
+struct t_road_lanes_laneSection_lcr_lane_link;
+struct t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor;
+struct t_road_lanes_laneSection_lcr_lane_roadMark;
+struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit;
+struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line;
+struct t_road_lanes_laneSection_lcr_lane_roadMark_sway;
+struct t_road_lanes_laneSection_lcr_lane_roadMark_type;
+struct t_road_lanes_laneSection_lcr_lane_roadMark_type_line;
+struct t_road_lanes_laneSection_left;
+struct t_road_lanes_laneSection_left_lane;
+struct t_road_lanes_laneSection_lr_lane;
+struct t_road_lanes_laneSection_lr_lane_access;
+struct t_road_lanes_laneSection_lr_lane_border;
+struct t_road_lanes_laneSection_lr_lane_height;
+struct t_road_lanes_laneSection_lr_lane_material;
+struct t_road_lanes_laneSection_lr_lane_rule;
+struct t_road_lanes_laneSection_lr_lane_speed;
+struct t_road_lanes_laneSection_lr_lane_width;
+struct t_road_lanes_laneSection_right;
+struct t_road_lanes_laneSection_right_lane;
+struct t_road_objects_object_laneValidity;
 //End Forward Declarations
-struct t_road_planView_geometry_U
+struct t_road_signals_signal_U	// TODO: >> Should be union - will have to handle properly
+{
+public:
+    std::unique_ptr<t_road_signals_signal_positionRoad>                 m_positionRoad; //xs:element
+    std::unique_ptr<t_road_signals_signal_positionInertial>                 m_positionInertial; //xs:element
+public:
+    t_road_signals_signal_U(){};
+    t_road_signals_signal_U(pugi::xml_node node);
+    ~t_road_signals_signal_U(){};
+};
+struct t_road_planView_geometry_U	// TODO: >> Should be union - will have to handle properly
 {
 public:
     std::unique_ptr<t_road_planView_geometry_line>                 m_line; //xs:element
@@ -988,81 +970,651 @@ public:
     t_road_planView_geometry_U(pugi::xml_node node);
     ~t_road_planView_geometry_U(){};
 };
-struct t_road_lanes_laneSection_lr_lane_U
+struct t_road_objects_object_outlines_outline_U	// TODO: >> Should be union - will have to handle properly
 {
 public:
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_width>>                 m_widths; //xs:element
+    std::vector<std::unique_ptr<t_road_objects_object_outlines_outline_cornerRoad>>                 m_cornerRoads; //xs:element
+    std::vector<std::unique_ptr<t_road_objects_object_outlines_outline_cornerLocal>>                 m_cornerLocals; //xs:element
+public:
+    t_road_objects_object_outlines_outline_U(){};
+    t_road_objects_object_outlines_outline_U(pugi::xml_node node);
+    ~t_road_objects_object_outlines_outline_U(){};
+};
+struct t_road_lanes_laneSection_lr_lane_U	// TODO: >> Should be union - will have to handle properly
+{
+public:
     std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_border>>                 m_borders; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_width>>                 m_widths; //xs:element
 public:
     t_road_lanes_laneSection_lr_lane_U(){};
     t_road_lanes_laneSection_lr_lane_U(pugi::xml_node node);
     ~t_road_lanes_laneSection_lr_lane_U(){};
 };
-struct t_road_signals_signal_U
+struct _OpenDriveElement
 {
+/**/
+//Write your Abstract Methods here virtual f()=0;
 public:
-    std::unique_ptr<t_road_signals_signal_positionRoad>                 m_positionRoad; //xs:element
-    std::unique_ptr<t_road_signals_signal_positionInertial>                 m_positionInertial; //xs:element
-public:
-    t_road_signals_signal_U(){};
-    t_road_signals_signal_U(pugi::xml_node node);
-    ~t_road_signals_signal_U(){};
+	_OpenDriveElement(){};
+	virtual ~_OpenDriveElement(){};
 };
-struct t_header
+struct t_dataQuality
 {
+/*Raw data or data from external sources that is integrated in OpenDRIVE may be of varying quality. It is possible to describe quality and accuracy of external data in OpenDRIVE.The description of the data quality is represented by <dataQuality> elements. They may be stored at any position in OpenDRIVE.Measurement data derived from external sources like GPS that is integrated in OpenDRIVE may be inaccurate. The error range, given in [m], may be listed in the application.*/
+public:
+	t_dataQuality(){};
+	t_dataQuality(pugi::xml_node node);
+	virtual ~t_dataQuality(){};
+public:
+    std::unique_ptr<t_dataQuality_Error>                 m_error; //xs:element
+    std::unique_ptr<t_dataQuality_RawData>                 m_rawData; //xs:element
+};
+struct t_dataQuality_Error
+{
+/*The absolute or relative errors of road data are described by <error> elements within the <dataQuality> element.*/
+public:
+	t_dataQuality_Error(){};
+	t_dataQuality_Error(pugi::xml_node node);
+	virtual ~t_dataQuality_Error(){};
+public:
+	//Absolute error of the road data in x/y direction
+	double	    xyAbsolute; //  required
+	//Absolute error of the road data in z direction
+	double	    zAbsolute; //  required
+	//Relative error of the road data in x/y direction
+	double	    xyRelative; //  required
+	//Relative error of the road data in z direction
+	double	    zRelative; //  required
+};
+struct t_dataQuality_RawData
+{
+/*Some basic metadata containing information about raw data included in OpenDRIVE is described by the <rawData> element within the <dataQuality> element. */
+public:
+	t_dataQuality_RawData(){};
+	t_dataQuality_RawData(pugi::xml_node node);
+	virtual ~t_dataQuality_RawData(){};
+public:
+	//Date of the delivery of raw data, to be given in ISO 8601 notification (YYYY-MM-DDTHH:MM:SS) [9]. Time-of-day may be omitted
+	std::string	    date; //  required
+	//Source that has been used for retrieving the raw data; further sources to be added in upcoming versions. For values see UML Model
+	e_dataQuality_RawData_Source	    source; //  required
+	//Comments concerning the @source . Free text, depending on the application
+	std::string	    sourceComment; //  optional
+	//Information about the kind of data handling before exporting data into the ASAM OpenDRIVE file. For values see UML Model
+	e_dataQuality_RawData_PostProcessing	    postProcessing; //  required
+	//Comments concerning the postprocessing attribute. Free text, depending on the application
+	std::string	    postProcessingComment; //  optional
+};
+struct t_header   : public _OpenDriveElement
+{
+/**/
 public:
 	t_header(){};
 	t_header(pugi::xml_node node);
 	virtual ~t_header(){};
 public:
-	const int	    revMajor=1; // attribute : required
-	const int	    revMinor=5; // attribute : required
-	std::string	    name; // attribute : optional
-	t_header_Version	    version; // attribute : optional
-	std::string	    date; // attribute : optional
-	double	    north; // attribute : optional
-	double	    south; // attribute : optional
-	double	    east; // attribute : optional
-	double	    west; // attribute : optional
-	std::string	    vendor; // attribute : optional
+	//Major revision number of OpenDRIVE format
+	const int	    revMajor=1; //  required
+	//Minor revision number of OpenDRIVE format; 6 for OpenDrive 1.6
+	int	    revMinor; //  required
+	//Database name
+	std::string	    name; //  optional
+	//Version of this road network
+	std::string	    version; //  optional
+	//Time/date of database creation according to ISO 8601 (preference: YYYY-MM-DDThh:mm:ss)
+	std::string	    date; //  optional
+	//Maximum inertial y value
+	double	    north; //  optional
+	//Minimum inertial y value
+	double	    south; //  optional
+	//Maximum inertial x value
+	double	    east; //  optional
+	//Minimum inertial x value
+	double	    west; //  optional
+	//Vendor name
+	std::string	    vendor; //  optional
     std::unique_ptr<t_header_GeoReference>                 m_geoReference; //xs:element
     std::unique_ptr<t_header_Offset>                 m_offset; //xs:element
    //group tag : reference g_additionalData
 };
 struct t_header_GeoReference
 {
+/*Spatial reference systems are standardized by the European Petroleum Survey Group Geodesy (EPSG) and are defined by parameters describing the geodetic datum. A geodetic datum is a coordinate reference system for a collection of positions that are relative to an ellipsoid model of the earth. A geodetic datum is described by a projection string according to PROJ, that is, a format for the exchange of data between two coordinate systems. This data shall be marked as CDATA, because it may contain characters that interfere with the XML syntax of an element’s attribute.In OpenDRIVE, the information about the geographic reference of an OpenDRIVE dataset is represented by the <geoReference> element within the <header> element.*/
 public:
 	t_header_GeoReference(){};
 	t_header_GeoReference(pugi::xml_node node);
 	virtual ~t_header_GeoReference(){};
 public:
-   //s_group tag : reference g_additionalData
+   //group tag : reference g_additionalData
 };
-struct t_header_Offset
+struct t_header_Offset   : public _OpenDriveElement
 {
+/**/
 public:
 	t_header_Offset(){};
 	t_header_Offset(pugi::xml_node node);
 	virtual ~t_header_Offset(){};
 public:
-	double	    x; // attribute : required
-	double	    y; // attribute : required
-	double	    z; // attribute : required
-	float	    hdg; // attribute : required
-   //s_group tag : reference g_additionalData
+	//Inertial x offset
+	double	    x; //  required
+	//Inertial y offset
+	double	    y; //  required
+	//Inertial z offset
+	double	    z; //  required
+	//Heading offset (rotation around resulting z-axis)
+	float	    hdg; //  required
+   //group tag : reference g_additionalData
 };
-struct t_road
+struct t_include
 {
+/*OpenDRIVE allows including external files into the OpenDRIVE file. The processing of the files depends on the application.Included data is represented by <include> elements. They may be stored at any position in OpenDRIVE.*/
+public:
+	t_include(){};
+	t_include(pugi::xml_node node);
+	virtual ~t_include(){};
+public:
+	//Location of the file that is to be included
+	std::string	    file; //  required
+};
+struct t_userData
+{
+/*Ancillary data should be described near the element it refers to. Ancillary data contains data that are not yet described in OpenDRIVE, or data that is needed by an application for a specific reason. Examples are different road textures.In OpenDRIVE, ancillary data is represented by <userData> elements. They may be stored at any element in OpenDRIVE.*/
+public:
+	t_userData(){};
+	t_userData(pugi::xml_node node);
+	virtual ~t_userData(){};
+public:
+	//Code for the user data. Free text, depending on application.
+	std::string	    code; //  required
+	//User data. Free text, depending on application.
+	std::string	    value; //  optional
+};
+struct t_road_railroad   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_railroad(){};
+	t_road_railroad(pugi::xml_node node);
+	virtual ~t_road_railroad(){};
+public:
+    std::vector<std::unique_ptr<t_road_railroad_switch>>                 m_switchs; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road_railroad_switch   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_railroad_switch(){};
+	t_road_railroad_switch(pugi::xml_node node);
+	virtual ~t_road_railroad_switch(){};
+public:
+	//Unique name of the switch
+	std::string	    name; //  required
+	//Unique ID of the switch; preferably an integer number, see uint32_t
+	std::string	    id; //  required
+	//Either a switch can be operated (dynamic) or it is in a static position. For values see UML Model
+	e_road_railroad_switch_position	    position; //  required
+    std::unique_ptr<t_road_railroad_switch_mainTrack>                 m_mainTrack; //xs:element
+    std::unique_ptr<t_road_railroad_switch_sideTrack>                 m_sideTrack; //xs:element
+    std::unique_ptr<t_road_railroad_switch_partner>                 m_partner; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road_railroad_switch_mainTrack   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_railroad_switch_mainTrack(){};
+	t_road_railroad_switch_mainTrack(pugi::xml_node node);
+	virtual ~t_road_railroad_switch_mainTrack(){};
+public:
+	//Unique ID of the main track, that is, the &lt;road&gt; element. Must be consistent with parent containing this &lt;railroad&gt; element.
+	std::string	    id; //  required
+	//s-coordinate of the switch, that is, the point where main track and side track meet
+	t_grEqZero	    s; //  required
+	//direction, relative to the s-direction, on the main track for entering the side track via the switch
+	e_elementDir	    dir; //  required
+   //group tag : reference g_additionalData
+};
+struct t_road_railroad_switch_partner   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_railroad_switch_partner(){};
+	t_road_railroad_switch_partner(pugi::xml_node node);
+	virtual ~t_road_railroad_switch_partner(){};
+public:
+	//Unique name of the partner switch
+	std::string	    name; //  optional
+	//Unique ID of the partner switch
+	std::string	    id; //  required
+   //group tag : reference g_additionalData
+};
+struct t_road_railroad_switch_sideTrack   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_railroad_switch_sideTrack(){};
+	t_road_railroad_switch_sideTrack(pugi::xml_node node);
+	virtual ~t_road_railroad_switch_sideTrack(){};
+public:
+	//Unique ID of the side track, that is, the &lt;road&gt; element
+	std::string	    id; //  required
+	//s-coordinate of the switch on the side track
+	t_grEqZero	    s; //  required
+	//direction, relative to the s-direction, on the side track for after entering it via the switch
+	e_elementDir	    dir; //  required
+   //group tag : reference g_additionalData
+};
+struct t_station   : public _OpenDriveElement
+{
+/**/
+public:
+	t_station(){};
+	t_station(pugi::xml_node node);
+	virtual ~t_station(){};
+public:
+	//Unique name of the station
+	std::string	    name; //  required
+	//Unique ID within database
+	std::string	    id; //  required
+	//Type of station. Free text, depending on the application.e.g.: small, medium, large
+	e_station_type	    type; //  optional
+    std::vector<std::unique_ptr<t_station_platform>>                 m_platforms; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_station_platform   : public _OpenDriveElement
+{
+/**/
+public:
+	t_station_platform(){};
+	t_station_platform(pugi::xml_node node);
+	virtual ~t_station_platform(){};
+public:
+	//Name of the platform. May be chosen freely.
+	std::string	    name; //  optional
+	//Unique ID within database
+	std::string	    id; //  required
+    std::vector<std::unique_ptr<t_station_platform_segment>>                 m_segments; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_station_platform_segment   : public _OpenDriveElement
+{
+/**/
+public:
+	t_station_platform_segment(){};
+	t_station_platform_segment(pugi::xml_node node);
+	virtual ~t_station_platform_segment(){};
+public:
+	//Unique ID of the &lt;road&gt; element (track) that accompanies the platform
+	std::string	    roadId; //  required
+	//Minimum s-coordinate on &lt;road&gt; element that has an adjacent platform
+	t_grEqZero	    sStart; //  required
+	//Maximum s-coordiante on &lt;road&gt; element that has an adjacent platform
+	t_grEqZero	    sEnd; //  required
+	//Side of track on which the platform is situated when going from sStart to sEnd. For values see UML Model
+	e_station_platform_segment_side	    side; //  required
+};
+struct t_junction   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction(){};
+	t_junction(pugi::xml_node node);
+	virtual ~t_junction(){};
+public:
+	//Name of the junction. May be chosen freely.
+	std::string	    name; //  optional
+	//Unique ID within database
+	std::string	    id; //  required
+	//Type of the junction; regular junctions are of type &quot;default&quot;. The attribute is mandatory for virtual junctions
+	e_junction_type	    type; //  optional
+    std::vector<std::unique_ptr<t_junction_connection>>                 m_connections; //xs:element
+    std::vector<std::unique_ptr<t_junction_priority>>                 m_prioritys; //xs:element
+    std::vector<std::unique_ptr<t_junction_controller>>                 m_controllers; //xs:element
+    std::unique_ptr<t_junction_surface>                 m_surface; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_junction_connection   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction_connection(){};
+	t_junction_connection(pugi::xml_node node);
+	virtual ~t_junction_connection(){};
+public:
+	//Unique ID within the junction
+	std::string	    id; //  required
+	//Type of the connection, regular connections are type “default” mandatory attribute for virtual connections
+	e_junction_type	    type; //  optional
+	//ID of the incoming road
+	std::string	    incomingRoad; //  optional
+	//ID of the connecting road
+	std::string	    connectingRoad; //  optional
+	//Contact point on the connecting road. For values, see UML Model
+	std::string	    contactPoint; //  optional
+    std::unique_ptr<t_junction_predecessorSuccessor>                 m_predecessor; //xs:element
+    std::unique_ptr<t_junction_predecessorSuccessor>                 m_successor; //xs:element
+    std::vector<std::unique_ptr<t_junction_connection_laneLink>>                 m_laneLinks; //xs:element
+};
+struct t_junction_connection_laneLink   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction_connection_laneLink(){};
+	t_junction_connection_laneLink(pugi::xml_node node);
+	virtual ~t_junction_connection_laneLink(){};
+public:
+	//ID of the incoming lane
+	int	    from; //  required
+	//ID of the connection lane
+	int	    to; //  required
+};
+struct t_junction_controller   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction_controller(){};
+	t_junction_controller(pugi::xml_node node);
+	virtual ~t_junction_controller(){};
+public:
+	//ID of the controller
+	std::string	    id; //  required
+	//Type of control for this junction. Free text, depending on the application.
+	std::string	    type; //  optional
+	//Sequence number (priority) of this controller with respect to other controllers in the same junction
+	uint64_t	    sequence; //  optional
+};
+struct t_junction_predecessorSuccessor   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction_predecessorSuccessor(){};
+	t_junction_predecessorSuccessor(pugi::xml_node node);
+	virtual ~t_junction_predecessorSuccessor(){};
+public:
+	//Type of the linked element Currently only &quot;road&quot; is allowed.
+	const std::string	    elementType="road"; //  required
+	//ID of the linked element
+	std::string	    elementId; //  required
+	//s-coordinate where the connection meets the preceding / succeding road.
+	t_grZero	    elementS; //  required
+	//Direction, relative to the s-direction, of the connection on the preceding / succeding road
+	e_elementDir	    elementDir; //  required
+};
+struct t_junction_priority   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction_priority(){};
+	t_junction_priority(pugi::xml_node node);
+	virtual ~t_junction_priority(){};
+public:
+	//ID of the prioritized connecting road
+	std::string	    high; //  optional
+	//ID of the connecting road with lower priority
+	std::string	    low; //  optional
+};
+struct t_junction_surface   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction_surface(){};
+	t_junction_surface(pugi::xml_node node);
+	virtual ~t_junction_surface(){};
+public:
+    std::vector<std::unique_ptr<t_junction_surface_CRG>>                 m_CRGs; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_junction_surface_CRG   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junction_surface_CRG(){};
+	t_junction_surface_CRG(pugi::xml_node node);
+	virtual ~t_junction_surface_CRG(){};
+public:
+	//Name of the file containing the CRG data
+	std::string	    file; //  required
+	//Attachment mode for the surface data.
+	const e_road_surface_CRG_mode	    mode=e_road_surface_CRG_mode::GLOBAL; //  required
+	//Physical purpose of the data contained in the CRG file; if the attribute is missing, data will be interpreted as elevation data.
+	e_road_surface_CRG_purpose	    purpose; //  optional
+	//z offset between CRG center line and inertial xy-plane(default = 0.0)
+	double	    zOffset; //  optional
+	//z scale factor for the surface description (default = 1.0)
+	double	    zScale; //  optional
+};
+struct t_junctionGroup   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junctionGroup(){};
+	t_junctionGroup(pugi::xml_node node);
+	virtual ~t_junctionGroup(){};
+public:
+	//Name of the junction group. May be chosen freely.
+	std::string	    name; //  optional
+	//Unique ID within database
+	std::string	    id; //  required
+	//Type of junction groupFor values see UML Model
+	e_junctionGroup_type	    type; //  required
+    std::vector<std::unique_ptr<t_junctionGroup_junctionReference>>                 m_junctionReferences; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_junctionGroup_junctionReference   : public _OpenDriveElement
+{
+/**/
+public:
+	t_junctionGroup_junctionReference(){};
+	t_junctionGroup_junctionReference(pugi::xml_node node);
+	virtual ~t_junctionGroup_junctionReference(){};
+public:
+	//ID of the junction
+	std::string	    junction; //  required
+};
+struct t_controller   : public _OpenDriveElement
+{
+/**/
+public:
+	t_controller(){};
+	t_controller(pugi::xml_node node);
+	virtual ~t_controller(){};
+public:
+	//Unique ID within database
+	std::string	    id; //  required
+	//Name of the controller. May be chosen freely.
+	std::string	    name; //  optional
+	//Sequence number (priority) of this controller with respect to other controllers of same logical level
+	uint64_t	    sequence; //  optional
+    std::vector<std::unique_ptr<t_controller_control>>                 m_controls; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_controller_control   : public _OpenDriveElement
+{
+/**/
+public:
+	t_controller_control(){};
+	t_controller_control(pugi::xml_node node);
+	virtual ~t_controller_control(){};
+public:
+	//ID of the controlled signal
+	std::string	    signalId; //  required
+	//Type of control. Free Text, depends on the application.
+	std::string	    type; //  optional
+};
+struct t_road_signals   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_signals(){};
+	t_road_signals(pugi::xml_node node);
+	virtual ~t_road_signals(){};
+public:
+    std::vector<std::unique_ptr<t_road_signals_signal>>                 m_signals; //xs:element
+    std::vector<std::unique_ptr<t_road_signals_signalReference>>                 m_signalReferences; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road_signals_signal   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_signals_signal(){};
+	t_road_signals_signal(pugi::xml_node node);
+	virtual ~t_road_signals_signal(){};
+public:
+	//s-coordinate
+	t_grEqZero	    s; //  required
+	//t-coordinate
+	double	    t; //  required
+	//Unique ID of the signal within the OpenDRIVE file
+	std::string	    id; //  required
+	//Name of the signal. May be chosen freely.
+	std::string	    name; //  optional
+	//Indicates whether the signal is dynamic or static. Example: traffic light is dynamic
+	t_yesNo	    dynamic; //  required
+	//&quot;+&quot; = valid in positive s- direction&quot;-&quot; = valid in negative s- direction&quot;none&quot; = valid in both directions
+	e_orientation	    orientation; //  required
+	//z offset from the road to bottom edge of the signal. This represents the vertical clearance of the object. Relative to the reference line.
+	double	    zOffset; //  required
+	//Country code of the road, see ISO 3166-1, alpha-2 codes.
+	e_countryCode	    country; //  optional
+	//
+	std::string	    countryRevision; //  optional
+	//Type identifier according to country code or &quot;-1&quot; / &quot;none&quot;. See extra document.
+	std::string	    type; //  required
+	//Subtype identifier according to country code or &quot;-1&quot; / &quot;none&quot;
+	std::string	    subtype; //  required
+	//Value of the signal, if value is given, unit is mandatory
+	double	    value; //  optional
+	//Unit of @value
+	e_unit	    unit; //  optional
+	//Height of the signal, measured from bottom edge of the signal
+	t_grEqZero	    height; //  optional
+	//Width of the signal
+	t_grEqZero	    width; //  optional
+	//Additional text associated with the signal, for example, text on city limit &quot;City\nBadAibling&quot;
+	std::string	    text; //  optional
+	//Heading offset of the signal (relative to @orientation, if orientation is equal to “+” or “-“)Heading offset of the signal (relative to reference line, if orientation is equal to “none” )
+	double	    hOffset; //  optional
+	//Pitch angle of the signal, relative to the inertial system (xy-plane)
+	double	    pitch; //  optional
+	//Roll angle of the signal after applying pitch, relative to the inertial system (x’’y’’-plane)
+	double	    roll; //  optional
+    std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
+    std::vector<std::unique_ptr<t_road_signals_signal_dependency>>                 m_dependencys; //xs:element
+    std::vector<std::unique_ptr<t_road_signals_signal_reference>>                 m_references; //xs:element
+   //group tag : reference g_additionalData
+    std::unique_ptr<t_road_signals_signal_U>                 m_t_road_signals_signal; //xs:element
+};
+struct t_road_signals_signal_dependency   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_signals_signal_dependency(){};
+	t_road_signals_signal_dependency(pugi::xml_node node);
+	virtual ~t_road_signals_signal_dependency(){};
+public:
+	//ID of the controlled signal
+	std::string	    id; //  required
+	//Type of the dependency, Free text, depending on application
+	std::string	    type; //  optional
+};
+struct t_road_signals_signal_positionInertial   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_signals_signal_positionInertial(){};
+	t_road_signals_signal_positionInertial(pugi::xml_node node);
+	virtual ~t_road_signals_signal_positionInertial(){};
+public:
+	//x-coordinate
+	double	    x; //  required
+	//y-coordinate
+	double	    y; //  required
+	//z-coordinate
+	double	    z; //  required
+	//Heading of the signal, relative to the inertial system
+	double	    hdg; //  required
+	//Pitch angle of the signal after applying heading, relative to the inertial system (x’y’-plane)
+	double	    pitch; //  optional
+	//Roll angle of the signal after applying heading and pitch, relative to the inertial system (x’’y’’-plane)
+	double	    roll; //  optional
+};
+struct t_road_signals_signal_positionRoad   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_signals_signal_positionRoad(){};
+	t_road_signals_signal_positionRoad(pugi::xml_node node);
+	virtual ~t_road_signals_signal_positionRoad(){};
+public:
+	//Unique ID of the referenced road
+	std::string	    roadId; //  required
+	//s-coordinate
+	t_grEqZero	    s; //  required
+	//t-coordinate
+	double	    t; //  required
+	//z offset from road level to bottom edge of the signal
+	double	    zOffset; //  required
+	//Heading offset of the signal (relative to @orientation)
+	double	    hOffset; //  required
+	//Pitch angle of the signal after applying hOffset, relative to the inertial system (x’y’-plane)
+	double	    pitch; //  optional
+	//Roll angle of the signal after applying hOffset and pitch, relative to the inertial system (x’’y’’-plane)
+	double	    roll; //  optional
+};
+struct t_road_signals_signal_reference   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_signals_signal_reference(){};
+	t_road_signals_signal_reference(pugi::xml_node node);
+	virtual ~t_road_signals_signal_reference(){};
+public:
+	//Type of the linked element, For values see UML Model
+	e_road_signals_signal_reference_elementType	    elementType; //  required
+	//Unique ID of the linked element
+	std::string	    elementId; //  required
+	//Type of the linkage Free text, depending on application
+	std::string	    type; //  optional
+};
+struct t_road_signals_signalReference   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_signals_signalReference(){};
+	t_road_signals_signalReference(pugi::xml_node node);
+	virtual ~t_road_signals_signalReference(){};
+public:
+	//s-coordinate
+	t_grEqZero	    s; //  required
+	//t-coordinate
+	double	    t; //  required
+	//Unique ID of the referenced signal within the database
+	std::string	    id; //  required
+	//&quot;+&quot; = valid in positive s-direction&quot;-&quot; = valid in negative s-direction&quot;none&quot; = valid in both directions
+	e_orientation	    orientation; //  required
+    std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road   : public _OpenDriveElement
+{
+/**/
 public:
 	t_road(){};
 	t_road(pugi::xml_node node);
 	virtual ~t_road(){};
 public:
-	std::string	    name; // attribute : optional
-	t_grEqZero	    length; // attribute : required
-	std::string	    id; // attribute : required
-	std::string	    junction; // attribute : required
-	e_trafficRule	    rule; // attribute : optional
+	//Name of the road. May be chosen freely.
+	std::string	    name; //  optional
+	//Total length of the reference line in the xy-plane. Change in length due to elevation is not considered
+	std::string	    length; //  required
+	//Unique ID within the database. If it represents an integer number, it should comply to uint32_t and stay within the given range.
+	std::string	    id; //  required
+	//ID of the junction to which the road belongs as a connecting road (= -1 for none)
+	std::string	    junction; //  required
+	//Basic rule for using the road; RHT=right-hand traffic, LHT=left-hand traffic. When this attribute is missing, RHT is assumed.
+	e_trafficRule	    rule; //  optional
     std::unique_ptr<t_road_link>                 m_link; //xs:element
     std::vector<std::unique_ptr<t_road_type>>                 m_types; //xs:element
     std::unique_ptr<t_road_planView>                 m_planView; //xs:element
@@ -1075,155 +1627,9 @@ public:
     std::unique_ptr<t_road_railroad>                 m_railroad; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_link
+struct t_road_elevationProfile   : public _OpenDriveElement
 {
-public:
-	t_road_link(){};
-	t_road_link(pugi::xml_node node);
-	virtual ~t_road_link(){};
-public:
-    std::unique_ptr<t_road_link_predecessorSuccessor>                 m_predecessor; //xs:element
-    std::unique_ptr<t_road_link_predecessorSuccessor>                 m_successor; //xs:element
-    std::unique_ptr<t_road_link_neighbor>                 m_neighbor; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_link_predecessorSuccessor
-{
-public:
-	t_road_link_predecessorSuccessor(){};
-	t_road_link_predecessorSuccessor(pugi::xml_node node);
-	virtual ~t_road_link_predecessorSuccessor(){};
-public:
-	e_road_link_elementType	    elementType; // attribute : required
-	std::string	    elementId; // attribute : required
-	e_contactPoint	    contactPoint; // attribute : optional
-	t_grEqZero	    elementS; // attribute : optional
-	e_elementDir	    elementDir; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_link_neighbor
-{
-public:
-	t_road_link_neighbor(){};
-	t_road_link_neighbor(pugi::xml_node node);
-	virtual ~t_road_link_neighbor(){};
-public:
-	e_road_link_neighbor_side	    side; // attribute : required
-	std::string	    elementId; // attribute : required
-	e_direction	    direction; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_type
-{
-public:
-	t_road_type(){};
-	t_road_type(pugi::xml_node node);
-	virtual ~t_road_type(){};
-public:
-	t_grEqZero	    s; // attribute : required
-	e_roadType	    type; // attribute : required
-	e_countryCode	    country; // attribute : optional
-    std::unique_ptr<t_road_type_speed>                 m_speed; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_type_speed
-{
-public:
-	t_road_type_speed(){};
-	t_road_type_speed(pugi::xml_node node);
-	virtual ~t_road_type_speed(){};
-public:
-	t_maxSpeed	    max; // attribute : required
-	e_unitSpeed	    unit; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_planView
-{
-public:
-	t_road_planView(){};
-	t_road_planView(pugi::xml_node node);
-	virtual ~t_road_planView(){};
-public:
-    std::vector<std::unique_ptr<t_road_planView_geometry>>                 m_geometrys; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_planView_geometry
-{
-public:
-	t_road_planView_geometry(){};
-	t_road_planView_geometry(pugi::xml_node node);
-	virtual ~t_road_planView_geometry(){};
-public:
-	t_grEqZero	    s; // attribute : required
-	double	    x; // attribute : required
-	double	    y; // attribute : required
-	double	    hdg; // attribute : required
-	t_grEqZero	    length; // attribute : required
-    std::unique_ptr<t_road_planView_geometry_U>                 m_t_road_planView_geometry; //xs:element
-};
-struct t_road_planView_geometry_line
-{
-public:
-	t_road_planView_geometry_line(){};
-	t_road_planView_geometry_line(pugi::xml_node node);
-	virtual ~t_road_planView_geometry_line(){};
-public:
-   //s_group tag : reference g_additionalData
-};
-struct t_road_planView_geometry_spiral
-{
-public:
-	t_road_planView_geometry_spiral(){};
-	t_road_planView_geometry_spiral(pugi::xml_node node);
-	virtual ~t_road_planView_geometry_spiral(){};
-public:
-	double	    curvStart; // attribute : required
-	double	    curvEnd; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_planView_geometry_arc
-{
-public:
-	t_road_planView_geometry_arc(){};
-	t_road_planView_geometry_arc(pugi::xml_node node);
-	virtual ~t_road_planView_geometry_arc(){};
-public:
-	double	    curvature; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_planView_geometry_poly3
-{
-public:
-	t_road_planView_geometry_poly3(){};
-	t_road_planView_geometry_poly3(pugi::xml_node node);
-	virtual ~t_road_planView_geometry_poly3(){};
-public:
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_planView_geometry_paramPoly3
-{
-public:
-	t_road_planView_geometry_paramPoly3(){};
-	t_road_planView_geometry_paramPoly3(pugi::xml_node node);
-	virtual ~t_road_planView_geometry_paramPoly3(){};
-public:
-	double	    aU; // attribute : required
-	double	    bU; // attribute : required
-	double	    cU; // attribute : required
-	double	    dU; // attribute : required
-	double	    aV; // attribute : required
-	double	    bV; // attribute : required
-	double	    cV; // attribute : required
-	double	    dV; // attribute : required
-	e_paramPoly3_pRange	    pRange; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_elevationProfile
-{
+/**/
 public:
 	t_road_elevationProfile(){};
 	t_road_elevationProfile(pugi::xml_node node);
@@ -1232,406 +1638,291 @@ public:
     std::vector<std::unique_ptr<t_road_elevationProfile_elevation>>                 m_elevations; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_elevationProfile_elevation
+struct t_road_elevationProfile_elevation   : public _OpenDriveElement
 {
+/**/
 public:
 	t_road_elevationProfile_elevation(){};
 	t_road_elevationProfile_elevation(pugi::xml_node node);
 	virtual ~t_road_elevationProfile_elevation(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
+	//s-coordinate of start position
+	t_grEqZero	    s; //  required
+	//Polynom parameter a, elevation at @s (ds=0)
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
 };
-struct t_road_lateralProfile
+struct t_road_lateralProfile   : public _OpenDriveElement
 {
+/**/
 public:
 	t_road_lateralProfile(){};
 	t_road_lateralProfile(pugi::xml_node node);
 	virtual ~t_road_lateralProfile(){};
 public:
     std::vector<std::unique_ptr<t_road_lateralProfile_superelevation>>                 m_superelevations; //xs:element
-    std::vector<std::unique_ptr<t_road_lateralProfile_crossfall>>                 m_crossfalls; //xs:element
     std::vector<std::unique_ptr<t_road_lateralProfile_shape>>                 m_shapes; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_lateralProfile_superelevation
+struct t_road_lateralProfile_shape   : public _OpenDriveElement
 {
-public:
-	t_road_lateralProfile_superelevation(){};
-	t_road_lateralProfile_superelevation(pugi::xml_node node);
-	virtual ~t_road_lateralProfile_superelevation(){};
-public:
-	t_grEqZero	    s; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lateralProfile_crossfall
-{
-public:
-	t_road_lateralProfile_crossfall(){};
-	t_road_lateralProfile_crossfall(pugi::xml_node node);
-	virtual ~t_road_lateralProfile_crossfall(){};
-public:
-	e_road_lateralProfile_crossfall_side	    side; // attribute : required
-	t_grEqZero	    s; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lateralProfile_shape
-{
+/**/
 public:
 	t_road_lateralProfile_shape(){};
 	t_road_lateralProfile_shape(pugi::xml_node node);
 	virtual ~t_road_lateralProfile_shape(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	double	    t; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
+	//s-coordinate of start position
+	t_grEqZero	    s; //  required
+	//t-coordinate of start position
+	double	    t; //  required
+	//Polynom parameter a, relative height at @t (dt=0)
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
 };
-struct t_road_lanes
+struct t_road_lateralProfile_superelevation   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_lanes(){};
-	t_road_lanes(pugi::xml_node node);
-	virtual ~t_road_lanes(){};
+	t_road_lateralProfile_superelevation(){};
+	t_road_lateralProfile_superelevation(pugi::xml_node node);
+	virtual ~t_road_lateralProfile_superelevation(){};
 public:
-    std::vector<std::unique_ptr<t_road_lanes_laneOffset>>                 m_laneOffsets; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection>>                 m_laneSections; //xs:element
+	//s-coordinate of start position
+	t_grEqZero	    s; //  required
+	//Polynom parameter a, superelevation at @s (ds=0)
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
+};
+struct t_road_link   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_link(){};
+	t_road_link(pugi::xml_node node);
+	virtual ~t_road_link(){};
+public:
+    std::unique_ptr<t_road_link_predecessorSuccessor>                 m_predecessor; //xs:element
+    std::unique_ptr<t_road_link_predecessorSuccessor>                 m_successor; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_lanes_laneOffset
+struct t_road_link_predecessorSuccessor   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_lanes_laneOffset(){};
-	t_road_lanes_laneOffset(pugi::xml_node node);
-	virtual ~t_road_lanes_laneOffset(){};
+	t_road_link_predecessorSuccessor(){};
+	t_road_link_predecessorSuccessor(pugi::xml_node node);
+	virtual ~t_road_link_predecessorSuccessor(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
+	//ID of the linked element
+	std::string	    elementId; //  required
+	//Type of the linked element
+	std::string	    elementType; //  optional
+	//Contact point of link on the linked element
+	std::string	    contactPoint; //  optional
+	//Alternative to contactPoint for virtual junctions. Indicates a connection within the predecessor, meaning not at the start or end of the predecessor. Shall only be used for elementType &quot;road&quot;
+	t_grEqZero	    elementS; //  optional
+	//To be provided when elementS is used for the connection definition. Indicates the direction on the predecessor from which the road is entered.
+	std::string	    elementDir; //  optional
 };
-struct t_road_lanes_laneSection
+struct t_road_planView   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_lanes_laneSection(){};
-	t_road_lanes_laneSection(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection(){};
+	t_road_planView(){};
+	t_road_planView(pugi::xml_node node);
+	virtual ~t_road_planView(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	t_bool	    singleSide; // attribute : optional
-    std::unique_ptr<t_road_lanes_laneSection_left>                 m_left; //xs:element
-    std::unique_ptr<t_road_lanes_laneSection_center>                 m_center; //xs:element
-    std::unique_ptr<t_road_lanes_laneSection_right>                 m_right; //xs:element
+    std::vector<std::unique_ptr<t_road_planView_geometry>>                 m_geometrys; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_lanes_laneSection_left
+struct t_road_planView_geometry   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_lanes_laneSection_left(){};
-	t_road_lanes_laneSection_left(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_left(){};
+	t_road_planView_geometry(){};
+	t_road_planView_geometry(pugi::xml_node node);
+	virtual ~t_road_planView_geometry(){};
 public:
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_left_lane>>                 m_lanes; //xs:element
+	//s-coordinate of start position
+	t_grEqZero	    s; //  required
+	//Start position (x inertial)
+	double	    x; //  required
+	//Start position (y inertial)
+	double	    y; //  required
+	//Start orientation (inertial heading)
+	double	    hdg; //  required
+	//Length of the element&apos;s reference line
+	std::string	    length; //  required
+    std::unique_ptr<t_road_planView_geometry_U>                 m_t_road_planView_geometry; //xs:element
+};
+struct t_road_planView_geometry_arc   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_planView_geometry_arc(){};
+	t_road_planView_geometry_arc(pugi::xml_node node);
+	virtual ~t_road_planView_geometry_arc(){};
+public:
+	//Constant curvature throughout the element
+	double	    curvature; //  required
+};
+struct t_road_planView_geometry_line   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_planView_geometry_line(){};
+	t_road_planView_geometry_line(pugi::xml_node node);
+	virtual ~t_road_planView_geometry_line(){};
+public:
+};
+struct t_road_planView_geometry_paramPoly3   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_planView_geometry_paramPoly3(){};
+	t_road_planView_geometry_paramPoly3(pugi::xml_node node);
+	virtual ~t_road_planView_geometry_paramPoly3(){};
+public:
+	//Polynom parameter a for u
+	double	    aU; //  required
+	//Polynom parameter b for u
+	double	    bU; //  required
+	//Polynom parameter c for u
+	double	    cU; //  required
+	//Polynom parameter d for u
+	double	    dU; //  required
+	//Polynom parameter a for v
+	double	    aV; //  required
+	//Polynom parameter b for v
+	double	    bV; //  required
+	//Polynom parameter c for v
+	double	    cV; //  required
+	//Polynom parameter d for v
+	double	    dV; //  required
+	//Range of parameter p. - Case arcLength: p in [0, @length of &lt;geometry&gt;]- Case normalized: p in [0, 1]
+	e_paramPoly3_pRange	    pRange; //  required
+};
+struct t_road_planView_geometry_poly3   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_planView_geometry_poly3(){};
+	t_road_planView_geometry_poly3(pugi::xml_node node);
+	virtual ~t_road_planView_geometry_poly3(){};
+public:
+	//Polynom parameter a
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
+};
+struct t_road_planView_geometry_spiral   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_planView_geometry_spiral(){};
+	t_road_planView_geometry_spiral(pugi::xml_node node);
+	virtual ~t_road_planView_geometry_spiral(){};
+public:
+	//Curvature at the start of the element
+	double	    curvStart; //  required
+	//Curvature at the end of the element
+	double	    curvEnd; //  required
+};
+struct t_road_surface   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_surface(){};
+	t_road_surface(pugi::xml_node node);
+	virtual ~t_road_surface(){};
+public:
+    std::vector<std::unique_ptr<t_road_surface_CRG>>                 m_CRGs; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_lanes_laneSection_center
+struct t_road_surface_CRG   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_lanes_laneSection_center(){};
-	t_road_lanes_laneSection_center(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_center(){};
+	t_road_surface_CRG(){};
+	t_road_surface_CRG(pugi::xml_node node);
+	virtual ~t_road_surface_CRG(){};
 public:
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_center_lane>>                 m_lanes; //xs:element
+	//Name of the file containing the CRG data
+	std::string	    file; //  required
+	//Start of the application of CRG data(s-coordinate)
+	t_grEqZero	    sStart; //  required
+	//End of the application of CRG(s-coordinate)
+	t_grEqZero	    sEnd; //  required
+	//Orientation of the CRG data set relative to the parent &lt;road&gt; element
+	e_direction	    orientation; //  required
+	//Attachment mode for the surface data, see specification.
+	e_road_surface_CRG_mode	    mode; //  required
+	//Physical purpose of the data contained in the CRG file; if the attribute is missing, data will be interpreted as elevation data.
+	e_road_surface_CRG_purpose	    purpose; //  optional
+	//s-offset between CRG center line and reference line of the road (default = 0.0)
+	double	    sOffset; //  optional
+	//t-offset between CRG center line and reference line of the road (default = 0.0)
+	double	    tOffset; //  optional
+	//z-offset between CRG center line and reference line of the road (default = 0.0)
+	double	    zOffset; //  optional
+	//z-scale factor for the surface description (default = 1.0)
+	double	    zScale; //  optional
+	//Heading offset between CRG center line and reference line of the road (required for mode genuine only, default = 0.0)
+	double	    hOffset; //  optional
+};
+struct t_road_type   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_type(){};
+	t_road_type(pugi::xml_node node);
+	virtual ~t_road_type(){};
+public:
+	//s-coordinate of start position
+	t_grEqZero	    s; //  required
+	//For supported types, for values see UML model.
+	e_roadType	    type; //  required
+	//Country code of the road, see ISO 3166-1, alpha-2 codes.
+	e_countryCode	    country; //  optional
+    std::unique_ptr<t_road_type_speed>                 m_speed; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_lanes_laneSection_right
+struct t_road_type_speed   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_lanes_laneSection_right(){};
-	t_road_lanes_laneSection_right(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_right(){};
+	t_road_type_speed(){};
+	t_road_type_speed(pugi::xml_node node);
+	virtual ~t_road_type_speed(){};
 public:
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_right_lane>>                 m_lanes; //xs:element
-   //group tag : reference g_additionalData
+	//Maximum allowed speed. Given as string (only &quot;no limit&quot; / &quot;undefined&quot;) or numerical value in the respective unit (see attribute unit). If the attribute unit is not specified, m/s is used as default.
+	t_maxSpeed	    max; //  required
+	//Unit of the attribute max. For values, see chapter “units”.
+	e_unitSpeed	    unit; //  optional
 };
-struct t_road_lanes_laneSection_center_lane
+struct t_road_objects   : public _OpenDriveElement
 {
-public:
-	t_road_lanes_laneSection_center_lane(){};
-	t_road_lanes_laneSection_center_lane(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_center_lane(){};
-public:
-	const int	    id=0; // attribute : required
-	e_laneType	    type; // attribute : required
-	t_bool	    level; // attribute : optional
-    std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link>                 m_link; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark>>                 m_roadMarks; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane
-{
-public:
-	t_road_lanes_laneSection_lr_lane(){};
-	t_road_lanes_laneSection_lr_lane(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane(){};
-public:
-	e_laneType	    type; // attribute : required
-	t_bool	    level; // attribute : optional
-    std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link>                 m_link; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark>>                 m_roadMarks; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_material>>                 m_materials; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_visibility>>                 m_visibilitys; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_speed>>                 m_speeds; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_access>>                 m_accesss; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_height>>                 m_heights; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_rule>>                 m_rules; //xs:element
-   //group tag : reference g_additionalData
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_U>>                 m_t_road_lanes_laneSection_lr_lanes; //xs:element
-};
-struct t_road_lanes_laneSection_left_lane
-{
-public:
-	t_road_lanes_laneSection_left_lane(){};
-	t_road_lanes_laneSection_left_lane(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_left_lane(){};
-public:
-};
-struct t_road_lanes_laneSection_right_lane
-{
-public:
-	t_road_lanes_laneSection_right_lane(){};
-	t_road_lanes_laneSection_right_lane(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_right_lane(){};
-public:
-};
-struct t_road_lanes_laneSection_lcr_lane_link
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_link(){};
-	t_road_lanes_laneSection_lcr_lane_link(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_link(){};
-public:
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>>                 m_predecessors; //xs:element
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>>                 m_successors; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor(){};
-	t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor(){};
-public:
-	int	    id; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_width
-{
-public:
-	t_road_lanes_laneSection_lr_lane_width(){};
-	t_road_lanes_laneSection_lr_lane_width(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_width(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_border
-{
-public:
-	t_road_lanes_laneSection_lr_lane_border(){};
-	t_road_lanes_laneSection_lr_lane_border(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_border(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lcr_lane_roadMark
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_roadMark(){};
-	t_road_lanes_laneSection_lcr_lane_roadMark(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	e_roadMarkType	    type; // attribute : required
-	e_roadMarkWeight	    weight; // attribute : optional
-	e_roadMarkColor	    color; // attribute : required
-	std::string	    material; // attribute : optional
-	t_grEqZero	    width; // attribute : optional
-	e_road_lanes_laneSection_lcr_lane_roadMark_laneChange	    laneChange; // attribute : optional
-	double	    height; // attribute : optional
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_sway>>                 m_sways; //xs:element
-    std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_type>                 m_type; //xs:element
-    std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit>                 m_explicit; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lcr_lane_roadMark_sway
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_roadMark_sway(){};
-	t_road_lanes_laneSection_lcr_lane_roadMark_sway(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_sway(){};
-public:
-	t_grEqZero	    ds; // attribute : required
-	double	    a; // attribute : required
-	double	    b; // attribute : required
-	double	    c; // attribute : required
-	double	    d; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lcr_lane_roadMark_type
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_roadMark_type(){};
-	t_road_lanes_laneSection_lcr_lane_roadMark_type(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_type(){};
-public:
-	std::string	    name; // attribute : required
-	t_grEqZero	    width; // attribute : required
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_type_line>>                 m_lines; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lcr_lane_roadMark_type_line
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_roadMark_type_line(){};
-	t_road_lanes_laneSection_lcr_lane_roadMark_type_line(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_type_line(){};
-public:
-	t_grEqZero	    length; // attribute : required
-	t_grEqZero	    space; // attribute : required
-	double	    tOffset; // attribute : required
-	t_grEqZero	    sOffset; // attribute : required
-	e_roadMarkRule	    rule; // attribute : optional
-	t_grEqZero	    width; // attribute : required
-	e_roadMarkColor	    color; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_roadMark_explicit(){};
-	t_road_lanes_laneSection_lcr_lane_roadMark_explicit(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_explicit(){};
-public:
-    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line>>                 m_lines; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line
-{
-public:
-	t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line(){};
-	t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line(){};
-public:
-	t_grEqZero	    length; // attribute : required
-	double	    tOffset; // attribute : required
-	t_grEqZero	    sOffset; // attribute : required
-	e_roadMarkRule	    rule; // attribute : optional
-	t_grEqZero	    width; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_material
-{
-public:
-	t_road_lanes_laneSection_lr_lane_material(){};
-	t_road_lanes_laneSection_lr_lane_material(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_material(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	std::string	    surface; // attribute : optional
-	t_grEqZero	    friction; // attribute : required
-	t_grEqZero	    roughness; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_visibility
-{
-public:
-	t_road_lanes_laneSection_lr_lane_visibility(){};
-	t_road_lanes_laneSection_lr_lane_visibility(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_visibility(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	t_grEqZero	    forward; // attribute : required
-	t_grEqZero	    back; // attribute : required
-	t_grEqZero	    left; // attribute : required
-	t_grEqZero	    right; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_speed
-{
-public:
-	t_road_lanes_laneSection_lr_lane_speed(){};
-	t_road_lanes_laneSection_lr_lane_speed(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_speed(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	t_grEqZero	    max; // attribute : required
-	e_unitSpeed	    unit; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_access
-{
-public:
-	t_road_lanes_laneSection_lr_lane_access(){};
-	t_road_lanes_laneSection_lr_lane_access(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_access(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	e_road_lanes_laneSection_lr_lane_access_rule	    rule; // attribute : required
-	e_accessRestrictionType	    restriction; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_height
-{
-public:
-	t_road_lanes_laneSection_lr_lane_height(){};
-	t_road_lanes_laneSection_lr_lane_height(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_height(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	double	    inner; // attribute : required
-	double	    outer; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_lanes_laneSection_lr_lane_rule
-{
-public:
-	t_road_lanes_laneSection_lr_lane_rule(){};
-	t_road_lanes_laneSection_lr_lane_rule(pugi::xml_node node);
-	virtual ~t_road_lanes_laneSection_lr_lane_rule(){};
-public:
-	t_grEqZero	    sOffset; // attribute : required
-	std::string	    value; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects
-{
+/**/
 public:
 	t_road_objects(){};
 	t_road_objects(pugi::xml_node node);
@@ -1643,31 +1934,70 @@ public:
     std::vector<std::unique_ptr<t_road_objects_bridge>>                 m_bridges; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_objects_object
+struct t_road_objects_bridge   : public _OpenDriveElement
 {
+/**/
+public:
+	t_road_objects_bridge(){};
+	t_road_objects_bridge(pugi::xml_node node);
+	virtual ~t_road_objects_bridge(){};
+public:
+	//s-coordinate
+	t_grEqZero	    s; //  required
+	//Length of the bridge (in s-direction)
+	t_grEqZero	    length; //  required
+	//Name of the bridge. May be chosen freely.
+	std::string	    name; //  optional
+	//Unique ID within database
+	std::string	    id; //  required
+	//Type of bridge. For values see UML Model.
+	e_bridgeType	    type; //  required
+    std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road_objects_object   : public _OpenDriveElement
+{
+/**/
 public:
 	t_road_objects_object(){};
 	t_road_objects_object(pugi::xml_node node);
 	virtual ~t_road_objects_object(){};
 public:
-	e_objectType	    type; // attribute : optional
-	std::string	    subtype; // attribute : optional
-	t_yesNo	    dynamic; // attribute : required
-	std::string	    name; // attribute : optional
-	std::string	    id; // attribute : required
-	t_grEqZero	    s; // attribute : required
-	double	    t; // attribute : required
-	double	    zOffset; // attribute : required
-	t_grEqZero	    validLength; // attribute : required
-	e_orientation	    orientation; // attribute : required
-	double	    hdg; // attribute : required
-	double	    pitch; // attribute : required
-	double	    roll; // attribute : required
-	double	    height; // attribute : required
-	double	    length; // attribute : optional
-	double	    width; // attribute : optional
-	double	    radius; // attribute : optional
-    std::unique_ptr<t_road_objects_object_repeat>                 m_repeat; //xs:element
+	//t-coordinate of object&apos;s origin
+	double	    t; //  required
+	//z-offset of object&apos;s origin relative to the elevation of the reference line
+	double	    zOffset; //  required
+	//Type of object. For values, see UML.For a parking space, the &lt;parkingSpace&gt; element may be used additionally.
+	e_objectType	    type; //  optional
+	//Validity of object along s-axis (0.0 for point object)
+	t_grEqZero	    validLength; //  optional
+	//&quot;+&quot; = valid in positive s-direction&quot;-&quot; = valid in negative s-direction&quot;none&quot; = valid in both directions(does not affect the heading)
+	e_orientation	    orientation; //  optional
+	//Variant of a type
+	std::string	    subtype; //  optional
+	//Indicates whether the object is dynamic or static, default value is “no” (static). Dynamic object cannot change its position.
+	t_yesNo	    dynamic; //  optional
+	//Heading angle of the object relative to road direction
+	double	    hdg; //  optional
+	//Name of the object. May be chosen freely.
+	std::string	    name; //  optional
+	//Pitch angle relative to the x/y-plane
+	double	    pitch; //  optional
+	//Unique ID within database
+	std::string	    id; //  required
+	//Roll angle relative to the x/y-plane
+	double	    roll; //  optional
+	//Height of the object&apos;s bounding box. @height is defined in the local coordinate system u/v along the z-axis
+	double	    height; //  optional
+	//s-coordinate of object&apos;s origin
+	t_grEqZero	    s; //  required
+	//Length of the object&apos;s bounding box, alternative to @radius.@length is defined in the local coordinate system u/v along the v-axis
+	double	    length; //  optional
+	//Width of the object&apos;s bounding box, alternative to @radius.@width is defined in the local coordinate system u/v along the u-axis
+	double	    width; //  optional
+	//radius of the circular object&apos;s bounding box, alternative to @length and @width. @radius is defined in the local coordinate system u/v
+	double	    radius; //  optional
+    std::vector<std::unique_ptr<t_road_objects_object_repeat>>                 m_repeats; //xs:element
     std::unique_ptr<t_road_objects_object_outlines_outline>                 m_outline; //xs:element
     std::unique_ptr<t_road_objects_object_outlines>                 m_outlines; //xs:element
     std::vector<std::unique_ptr<t_road_objects_object_material>>                 m_materials; //xs:element
@@ -1677,159 +2007,9 @@ public:
     std::unique_ptr<t_road_objects_object_borders>                 m_borders; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_objects_object_repeat
+struct t_road_objects_object_borders   : public _OpenDriveElement
 {
-public:
-	t_road_objects_object_repeat(){};
-	t_road_objects_object_repeat(pugi::xml_node node);
-	virtual ~t_road_objects_object_repeat(){};
-public:
-	t_grEqZero	    s; // attribute : required
-	t_grEqZero	    length; // attribute : required
-	t_grEqZero	    distance; // attribute : required
-	double	    tStart; // attribute : required
-	double	    tEnd; // attribute : required
-	double	    heightStart; // attribute : required
-	double	    heightEnd; // attribute : required
-	double	    zOffsetStart; // attribute : required
-	double	    zOffsetEnd; // attribute : required
-	t_grEqZero	    widthStart; // attribute : required
-	t_grEqZero	    widthEnd; // attribute : required
-	t_grEqZero	    lengthStart; // attribute : optional
-	t_grEqZero	    lengthEnd; // attribute : optional
-	t_grEqZero	    radiusStart; // attribute : optional
-	t_grEqZero	    radiusEnd; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects_object_outlines
-{
-public:
-	t_road_objects_object_outlines(){};
-	t_road_objects_object_outlines(pugi::xml_node node);
-	virtual ~t_road_objects_object_outlines(){};
-public:
-    std::vector<std::unique_ptr<t_road_objects_object_outlines_outline>>                 m_outlines; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_objects_object_outlines_outline
-{
-public:
-	t_road_objects_object_outlines_outline(){};
-	t_road_objects_object_outlines_outline(pugi::xml_node node);
-	virtual ~t_road_objects_object_outlines_outline(){};
-public:
-	uint64_t	    id; // attribute : required
-	e_outlineFillType	    fillType; // attribute : required
-	t_bool	    outer; // attribute : required
-	t_bool	    closed; // attribute : required
-	e_laneType	    laneType; // attribute : required
-    std::vector<std::unique_ptr<t_road_objects_object_outlines_outline_cornerRoad>>                 m_cornerRoads; //xs:element
-    std::vector<std::unique_ptr<t_road_objects_object_outlines_outline_cornerLocal>>                 m_cornerLocals; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_objects_object_outlines_outline_cornerRoad
-{
-public:
-	t_road_objects_object_outlines_outline_cornerRoad(){};
-	t_road_objects_object_outlines_outline_cornerRoad(pugi::xml_node node);
-	virtual ~t_road_objects_object_outlines_outline_cornerRoad(){};
-public:
-	t_grEqZero	    s; // attribute : required
-	double	    t; // attribute : required
-	double	    dz; // attribute : required
-	double	    height; // attribute : required
-	uint64_t	    id; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects_object_outlines_outline_cornerLocal
-{
-public:
-	t_road_objects_object_outlines_outline_cornerLocal(){};
-	t_road_objects_object_outlines_outline_cornerLocal(pugi::xml_node node);
-	virtual ~t_road_objects_object_outlines_outline_cornerLocal(){};
-public:
-	double	    u; // attribute : required
-	double	    v; // attribute : required
-	double	    z; // attribute : required
-	double	    height; // attribute : required
-	uint64_t	    id; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects_object_material
-{
-public:
-	t_road_objects_object_material(){};
-	t_road_objects_object_material(pugi::xml_node node);
-	virtual ~t_road_objects_object_material(){};
-public:
-	std::string	    surface; // attribute : optional
-	t_grEqZero	    friction; // attribute : optional
-	t_grEqZero	    roughness; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects_object_laneValidity
-{
-public:
-	t_road_objects_object_laneValidity(){};
-	t_road_objects_object_laneValidity(pugi::xml_node node);
-	virtual ~t_road_objects_object_laneValidity(){};
-public:
-	int	    fromLane; // attribute : required
-	int	    toLane; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects_object_parkingSpace
-{
-public:
-	t_road_objects_object_parkingSpace(){};
-	t_road_objects_object_parkingSpace(pugi::xml_node node);
-	virtual ~t_road_objects_object_parkingSpace(){};
-public:
-	e_road_objects_object_parkingSpace_access	    access; // attribute : required
-	std::string	    restrictions; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects_object_markings
-{
-public:
-	t_road_objects_object_markings(){};
-	t_road_objects_object_markings(pugi::xml_node node);
-	virtual ~t_road_objects_object_markings(){};
-public:
-    std::vector<std::unique_ptr<t_road_objects_object_markings_marking>>                 m_markings; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_objects_object_markings_marking
-{
-public:
-	t_road_objects_object_markings_marking(){};
-	t_road_objects_object_markings_marking(pugi::xml_node node);
-	virtual ~t_road_objects_object_markings_marking(){};
-public:
-	e_sideType	    side; // attribute : required
-	e_roadMarkWeight	    weight; // attribute : required
-	t_grEqZero	    width; // attribute : optional
-	e_roadMarkColor	    color; // attribute : required
-	t_grEqZero	    zOffset; // attribute : optional
-	t_grEqZero	    spaceLength; // attribute : required
-	t_grEqZero	    lineLength; // attribute : required
-	double	    startOffset; // attribute : required
-	double	    stopOffset; // attribute : required
-    std::vector<std::unique_ptr<t_road_objects_object_markings_marking_cornerReference>>                 m_cornerReferences; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_road_objects_object_markings_marking_cornerReference
-{
-public:
-	t_road_objects_object_markings_marking_cornerReference(){};
-	t_road_objects_object_markings_marking_cornerReference(pugi::xml_node node);
-	virtual ~t_road_objects_object_markings_marking_cornerReference(){};
-public:
-	uint64_t	    id; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_road_objects_object_borders
-{
+/**/
 public:
 	t_road_objects_object_borders(){};
 	t_road_objects_object_borders(pugi::xml_node node);
@@ -1838,512 +2018,661 @@ public:
     std::vector<std::unique_ptr<t_road_objects_object_borders_border>>                 m_borders; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_objects_object_borders_border
+struct t_road_objects_object_borders_border   : public _OpenDriveElement
 {
+/**/
 public:
 	t_road_objects_object_borders_border(){};
 	t_road_objects_object_borders_border(pugi::xml_node node);
 	virtual ~t_road_objects_object_borders_border(){};
 public:
-	t_grEqZero	    width; // attribute : required
-	e_borderType	    type; // attribute : required
-	uint64_t	    outlineId; // attribute : required
-	t_bool	    useCompleteOutline; // attribute : optional
+	//Border width
+	t_grEqZero	    width; //  required
+	//Appearance of border. For values see UML Model.
+	e_borderType	    type; //  required
+	//ID of the outline to use
+	uint64_t	    outlineId; //  required
+	//Use all outline points for border. “true” is used as default.
+	t_bool	    useCompleteOutline; //  optional
     std::vector<std::unique_ptr<t_road_objects_object_markings_marking_cornerReference>>                 m_cornerReferences; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_objects_objectReference
+struct t_road_objects_object_markings   : public _OpenDriveElement
 {
+/**/
+public:
+	t_road_objects_object_markings(){};
+	t_road_objects_object_markings(pugi::xml_node node);
+	virtual ~t_road_objects_object_markings(){};
+public:
+    std::vector<std::unique_ptr<t_road_objects_object_markings_marking>>                 m_markings; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road_objects_object_markings_marking   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_markings_marking(){};
+	t_road_objects_object_markings_marking(pugi::xml_node node);
+	virtual ~t_road_objects_object_markings_marking(){};
+public:
+	//Side of the bounding box described in &lt;object&gt; element in the local coordinate system u/v. For values see UML model.
+	e_sideType	    side; //  required
+	//Optical &quot;weight&quot; of the marking. For values see UML model.
+	e_roadMarkWeight	    weight; //  optional
+	//Width of the marking.
+	std::string	    width; //  optional
+	//Color of the marking. For values see UML model.
+	e_roadMarkColor	    color; //  required
+	//Height of road mark above the road, i.e. thickness of the road mark
+	t_grEqZero	    zOffset; //  optional
+	//Length of the gap between the visible parts
+	t_grEqZero	    spaceLength; //  required
+	//Length of the visible part
+	std::string	    lineLength; //  required
+	//Lateral offset in u-direction from start of bounding box side where the first marking starts
+	double	    startOffset; //  required
+	//Lateral offset in u-direction from end of bounding box side where the marking ends
+	double	    stopOffset; //  required
+    std::vector<std::unique_ptr<t_road_objects_object_markings_marking_cornerReference>>                 m_cornerReferences; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road_objects_object_markings_marking_cornerReference   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_markings_marking_cornerReference(){};
+	t_road_objects_object_markings_marking_cornerReference(pugi::xml_node node);
+	virtual ~t_road_objects_object_markings_marking_cornerReference(){};
+public:
+	//Index of outline point
+	uint64_t	    id; //  required
+};
+struct t_road_objects_object_material   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_material(){};
+	t_road_objects_object_material(pugi::xml_node node);
+	virtual ~t_road_objects_object_material(){};
+public:
+	//Surface material code, depending on application
+	std::string	    surface; //  optional
+	//Friction value, depending on application
+	t_grEqZero	    friction; //  optional
+	//Roughness, for example, for sound and motion systems, depending on application
+	t_grEqZero	    roughness; //  optional
+};
+struct t_road_objects_object_outlines   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_outlines(){};
+	t_road_objects_object_outlines(pugi::xml_node node);
+	virtual ~t_road_objects_object_outlines(){};
+public:
+    std::vector<std::unique_ptr<t_road_objects_object_outlines_outline>>                 m_outlines; //xs:element
+   //group tag : reference g_additionalData
+};
+struct t_road_objects_object_outlines_outline   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_outlines_outline(){};
+	t_road_objects_object_outlines_outline(pugi::xml_node node);
+	virtual ~t_road_objects_object_outlines_outline(){};
+public:
+	//ID of the outline. Must be unique within one object.
+	uint64_t	    id; //  optional
+	//Type used to fill the area inside the outline. For values see UML Model.
+	e_outlineFillType	    fillType; //  optional
+	//Defines if outline is an outer outline of the object.
+	t_bool	    outer; //  optional
+	//If true, the outline describes an area, not a linear feature.
+	t_bool	    closed; //  optional
+	//Describes the lane type of the outline. For values see UML Model.
+	e_laneType	    laneType; //  optional
+   //group tag : reference g_additionalData
+    std::unique_ptr<t_road_objects_object_outlines_outline_U>                 m_t_road_objects_object_outlines_outline; //xs:element
+};
+struct t_road_objects_object_outlines_outline_cornerLocal   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_outlines_outline_cornerLocal(){};
+	t_road_objects_object_outlines_outline_cornerLocal(pugi::xml_node node);
+	virtual ~t_road_objects_object_outlines_outline_cornerLocal(){};
+public:
+	//Local u-coordinate of the corner
+	double	    u; //  required
+	//Local v-coordinate of the corner
+	double	    v; //  required
+	//Local z-coordinate of the corner
+	double	    z; //  required
+	//Height of the object at this corner, along the z-axis
+	double	    height; //  required
+	//ID of the outline point. Shall be unique within one outline.
+	uint64_t	    id; //  optional
+};
+struct t_road_objects_object_outlines_outline_cornerRoad   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_outlines_outline_cornerRoad(){};
+	t_road_objects_object_outlines_outline_cornerRoad(pugi::xml_node node);
+	virtual ~t_road_objects_object_outlines_outline_cornerRoad(){};
+public:
+	//s-coordinate of the corner
+	t_grEqZero	    s; //  required
+	//t-coordinate of the corner
+	double	    t; //  required
+	//dz of the corner relative to road reference line
+	double	    dz; //  required
+	//Height of the object at this corner, along the z-axis
+	double	    height; //  required
+	//ID of the outline point. Must be unique within one outline
+	uint64_t	    id; //  optional
+};
+struct t_road_objects_object_parkingSpace   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_parkingSpace(){};
+	t_road_objects_object_parkingSpace(pugi::xml_node node);
+	virtual ~t_road_objects_object_parkingSpace(){};
+public:
+	//Access definitions for the parking space. Parking spaces tagged with &quot;women&quot; and &quot;handicapped&quot; are vehicles of type car. For values see UML Model
+	e_road_objects_object_parkingSpace_access	    access; //  required
+	//Free text, depending on application
+	std::string	    restrictions; //  optional
+};
+struct t_road_objects_object_repeat   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_objects_object_repeat(){};
+	t_road_objects_object_repeat(pugi::xml_node node);
+	virtual ~t_road_objects_object_repeat(){};
+public:
+	//s-coordinate of start position, overrides the corresponding argument in the original &lt;object&gt; record
+	t_grEqZero	    s; //  required
+	//Length of the repeat area, along the reference line in s-direction.
+	t_grEqZero	    length; //  required
+	//Distance between two instances of the object;If this value is zero, then the object is treated like a continuous feature, for example, a guard rail, a wall, etc.
+	t_grEqZero	    distance; //  required
+	//Lateral offset of objects reference point at @s
+	double	    tStart; //  required
+	//Lateral offset of object&apos;s reference point at @s + @length
+	double	    tEnd; //  required
+	//Height of the object at @s
+	double	    heightStart; //  required
+	//Height of the object at @s + @length
+	double	    heightEnd; //  required
+	//z-offset of the object at @s, relative to the elevation of the reference line
+	double	    zOffsetStart; //  required
+	//z-offset of the object at @s + @length, relative to the elevation of the reference line
+	double	    zOffsetEnd; //  required
+	//Width of the object at @s
+	t_grEqZero	    widthStart; //  optional
+	//Width of the object at @s + @length
+	t_grEqZero	    widthEnd; //  optional
+	//Length of the object at @sh
+	t_grEqZero	    lengthStart; //  optional
+	//Length of the object at @s + @length
+	t_grEqZero	    lengthEnd; //  optional
+	//Radius of the object at @s
+	t_grEqZero	    radiusStart; //  optional
+	//Radius of the object at @s + @length
+	t_grEqZero	    radiusEnd; //  optional
+};
+struct t_road_objects_objectReference   : public _OpenDriveElement
+{
+/**/
 public:
 	t_road_objects_objectReference(){};
 	t_road_objects_objectReference(pugi::xml_node node);
 	virtual ~t_road_objects_objectReference(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	double	    t; // attribute : required
-	std::string	    id; // attribute : required
-	double	    zOffset; // attribute : required
-	t_grEqZero	    validLength; // attribute : required
-	e_orientation	    orientation; // attribute : required
+	//s-coordinate
+	t_grEqZero	    s; //  required
+	//t-coordinate
+	double	    t; //  required
+	//Unique ID of the referred object within the database
+	std::string	    id; //  required
+	//z offset relative to the elevation of the reference line
+	double	    zOffset; //  optional
+	//Validity of the object along s-axis(0.0 for point object)
+	t_grEqZero	    validLength; //  optional
+	//&quot;+&quot; = valid in positive s-direction&quot;-&quot; = valid in negative s-direction&quot;none&quot; = valid in both directions
+	e_orientation	    orientation; //  required
     std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_objects_tunnel
+struct t_road_objects_tunnel   : public _OpenDriveElement
 {
+/**/
 public:
 	t_road_objects_tunnel(){};
 	t_road_objects_tunnel(pugi::xml_node node);
 	virtual ~t_road_objects_tunnel(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	t_grEqZero	    length; // attribute : required
-	std::string	    name; // attribute : optional
-	std::string	    id; // attribute : required
-	e_tunnelType	    type; // attribute : required
-	t_zeroOne	    lighting; // attribute : optional
-	t_zeroOne	    daylight; // attribute : optional
+	//s-coordinate
+	t_grEqZero	    s; //  required
+	//Length of the tunnel (in s-direction)
+	t_grEqZero	    length; //  required
+	//Name of the tunnel. May be chosen freely.
+	std::string	    name; //  optional
+	//Unique ID within database
+	std::string	    id; //  required
+	//Type of tunnel. For values see UML Model.
+	e_tunnelType	    type; //  required
+	//Degree of artificial tunnel lighting. Depends on the application.
+	t_zeroOne	    lighting; //  optional
+	//Degree of daylight intruding the tunnel. Depends on the application.
+	t_zeroOne	    daylight; //  optional
     std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_objects_bridge
+struct t_road_lanes   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_objects_bridge(){};
-	t_road_objects_bridge(pugi::xml_node node);
-	virtual ~t_road_objects_bridge(){};
+	t_road_lanes(){};
+	t_road_lanes(pugi::xml_node node);
+	virtual ~t_road_lanes(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	t_grEqZero	    length; // attribute : required
-	std::string	    name; // attribute : optional
-	std::string	    id; // attribute : required
-	e_bridgeType	    type; // attribute : required
-    std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneOffset>>                 m_laneOffsets; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection>>                 m_laneSections; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_signals
+struct t_road_lanes_laneOffset   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_signals(){};
-	t_road_signals(pugi::xml_node node);
-	virtual ~t_road_signals(){};
+	t_road_lanes_laneOffset(){};
+	t_road_lanes_laneOffset(pugi::xml_node node);
+	virtual ~t_road_lanes_laneOffset(){};
 public:
-    std::vector<std::unique_ptr<t_road_signals_signal>>                 m_signals; //xs:element
-    std::vector<std::unique_ptr<t_road_signals_signalReference>>                 m_signalReferences; //xs:element
+	//s-coordinate of start position
+	t_grEqZero	    s; //  required
+	//Polynom parameter a, offset at @s (ds=0)
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
+};
+struct t_road_lanes_laneSection   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection(){};
+	t_road_lanes_laneSection(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection(){};
+public:
+	//s-coordinate of start position
+	t_grEqZero	    s; //  required
+	//Lane section element is valid for one side only (left, center, or right), depending on the child elements.
+	t_bool	    singleSide; //  optional
+    std::unique_ptr<t_road_lanes_laneSection_left>                 m_left; //xs:element
+    std::unique_ptr<t_road_lanes_laneSection_center>                 m_center; //xs:element
+    std::unique_ptr<t_road_lanes_laneSection_right>                 m_right; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_signals_signal
+struct t_road_lanes_laneSection_center   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_signals_signal(){};
-	t_road_signals_signal(pugi::xml_node node);
-	virtual ~t_road_signals_signal(){};
+	t_road_lanes_laneSection_center(){};
+	t_road_lanes_laneSection_center(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_center(){};
 public:
-	t_grEqZero	    s; // attribute : required
-	double	    t; // attribute : required
-	std::string	    id; // attribute : required
-	std::string	    name; // attribute : optional
-	t_yesNo	    dynamic; // attribute : required
-	e_orientation	    orientation; // attribute : required
-	double	    zOffset; // attribute : required
-	e_countryCode	    country; // attribute : optional
-	std::string	    countryRevision; // attribute : optional
-	std::string	    type; // attribute : required
-	std::string	    subtype; // attribute : required
-	double	    value; // attribute : optional
-	e_unit	    unit; // attribute : optional
-	t_grEqZero	    height; // attribute : required
-	t_grEqZero	    width; // attribute : required
-	std::string	    text; // attribute : optional
-	double	    hOffset; // attribute : optional
-	double	    pitch; // attribute : optional
-	double	    roll; // attribute : optional
-    std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
-    std::vector<std::unique_ptr<t_road_signals_signal_dependency>>                 m_dependencys; //xs:element
-    std::vector<std::unique_ptr<t_road_signals_signal_reference>>                 m_references; //xs:element
-   //group tag : reference g_additionalData
-    std::unique_ptr<t_road_signals_signal_U>                 m_t_road_signals_signal; //xs:element
-};
-struct t_road_signals_signal_dependency
-{
-public:
-	t_road_signals_signal_dependency(){};
-	t_road_signals_signal_dependency(pugi::xml_node node);
-	virtual ~t_road_signals_signal_dependency(){};
-public:
-	std::string	    id; // attribute : required
-	std::string	    type; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_signals_signal_reference
-{
-public:
-	t_road_signals_signal_reference(){};
-	t_road_signals_signal_reference(pugi::xml_node node);
-	virtual ~t_road_signals_signal_reference(){};
-public:
-	e_road_signals_signal_reference_elementType	    elementType; // attribute : required
-	std::string	    elementId; // attribute : required
-	std::string	    type; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_signals_signal_positionRoad
-{
-public:
-	t_road_signals_signal_positionRoad(){};
-	t_road_signals_signal_positionRoad(pugi::xml_node node);
-	virtual ~t_road_signals_signal_positionRoad(){};
-public:
-	std::string	    roadId; // attribute : required
-	t_grEqZero	    s; // attribute : required
-	double	    t; // attribute : required
-	double	    zOffset; // attribute : required
-	double	    hOffset; // attribute : required
-	double	    pitch; // attribute : optional
-	double	    roll; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_signals_signal_positionInertial
-{
-public:
-	t_road_signals_signal_positionInertial(){};
-	t_road_signals_signal_positionInertial(pugi::xml_node node);
-	virtual ~t_road_signals_signal_positionInertial(){};
-public:
-	double	    x; // attribute : required
-	double	    y; // attribute : required
-	double	    z; // attribute : required
-	double	    hdg; // attribute : required
-	double	    pitch; // attribute : optional
-	double	    roll; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_road_signals_signalReference
-{
-public:
-	t_road_signals_signalReference(){};
-	t_road_signals_signalReference(pugi::xml_node node);
-	virtual ~t_road_signals_signalReference(){};
-public:
-	t_grEqZero	    s; // attribute : required
-	double	    t; // attribute : required
-	std::string	    id; // attribute : required
-	e_orientation	    orientation; // attribute : required
-    std::vector<std::unique_ptr<t_road_objects_object_laneValidity>>                 m_validitys; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_center_lane>>                 m_lanes; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_surface
+struct t_road_lanes_laneSection_lr_lane   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_surface(){};
-	t_road_surface(pugi::xml_node node);
-	virtual ~t_road_surface(){};
+	t_road_lanes_laneSection_lr_lane(){};
+	t_road_lanes_laneSection_lr_lane(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane(){};
 public:
-    std::vector<std::unique_ptr<t_road_surface_CRG>>                 m_CRGs; //xs:element
+	//Type of the lane. For values see UML model.
+	e_laneType	    type; //  required
+	//&quot;true&quot; = keep lane on level, that is, do not apply superelevation;&quot;false&quot; = apply superelevation to this lane (default, also used if attribute level is missing)
+	t_bool	    level; //  optional
+    std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link>                 m_link; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark>>                 m_roadMarks; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_material>>                 m_materials; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_speed>>                 m_speeds; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_access>>                 m_accesss; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_height>>                 m_heights; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_rule>>                 m_rules; //xs:element
+   //group tag : reference g_additionalData
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_U>>                 m_t_road_lanes_laneSection_lr_lanes; //xs:element
+};
+struct t_road_lanes_laneSection_center_lane   : public t_road_lanes_laneSection_lr_lane
+{
+/**/
+public:
+	t_road_lanes_laneSection_center_lane(){};
+	t_road_lanes_laneSection_center_lane(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_center_lane(){};
+public:
+	//ID of the lane
+	const int	    id=0; //  required
+};
+struct t_road_lanes_laneSection_lcr_lane_link   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lcr_lane_link(){};
+	t_road_lanes_laneSection_lcr_lane_link(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_link(){};
+public:
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>>                 m_predecessors; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>>                 m_successors; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_surface_CRG
+struct t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_surface_CRG(){};
-	t_road_surface_CRG(pugi::xml_node node);
-	virtual ~t_road_surface_CRG(){};
+	t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor(){};
+	t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor(){};
 public:
-	std::string	    file; // attribute : required
-	t_grEqZero	    sStart; // attribute : required
-	t_grEqZero	    sEnd; // attribute : required
-	e_direction	    orientation; // attribute : required
-	e_road_surface_CRG_mode	    mode; // attribute : required
-	e_road_surface_CRG_purpose	    purpose; // attribute : optional
-	double	    sOffset; // attribute : optional
-	double	    tOffset; // attribute : optional
-	double	    zOffset; // attribute : optional
-	double	    zScale; // attribute : optional
-	double	    hOffset; // attribute : optional
-   //s_group tag : reference g_additionalData
+	//ID of the preceding / succeeding linked lane
+	int	    id; //  required
 };
-struct t_road_railroad
+struct t_road_lanes_laneSection_lcr_lane_roadMark   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_railroad(){};
-	t_road_railroad(pugi::xml_node node);
-	virtual ~t_road_railroad(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark(){};
 public:
-    std::vector<std::unique_ptr<t_road_railroad_switch>>                 m_switchs; //xs:element
+	//s-coordinate of start position of the &lt;roadMark&gt; element, relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Type of the road mark. For values see UML model.
+	e_roadMarkType	    type; //  required
+	//Weight of the road mark. This attribute is optional if detailed definition is given below. For values see UML model.
+	e_roadMarkWeight	    weight; //  optional
+	//Color of the road mark. For values see UML model.
+	e_roadMarkColor	    color; //  required
+	//Material of the road mark. Identifiers to be defined by the user, use &quot;standard&quot; as default value.
+	std::string	    material; //  optional
+	//Width of the road mark. This attribute is optional if detailed definition is given by &lt;line&gt; element.
+	t_grEqZero	    width; //  optional
+	//Allows a lane change in the indicated direction, taking into account that lanes are numbered in ascending order from right to left. If the attribute is missing, “both” is used as default. For values see UML model.
+	e_road_lanes_laneSection_lcr_lane_roadMark_laneChange	    laneChange; //  optional
+	//Height of road mark above the road, i.e. thickness of the road mark.
+	double	    height; //  optional
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_sway>>                 m_sways; //xs:element
+    std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_type>                 m_type; //xs:element
+    std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit>                 m_explicit; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_railroad_switch
+struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_railroad_switch(){};
-	t_road_railroad_switch(pugi::xml_node node);
-	virtual ~t_road_railroad_switch(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_explicit(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_explicit(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_explicit(){};
 public:
-	std::string	    name; // attribute : required
-	std::string	    id; // attribute : required
-	e_road_railroad_switch_position	    position; // attribute : required
-    std::unique_ptr<t_road_railroad_switch_mainTrack>                 m_mainTrack; //xs:element
-    std::unique_ptr<t_road_railroad_switch_sideTrack>                 m_sideTrack; //xs:element
-    std::unique_ptr<t_road_railroad_switch_partner>                 m_partner; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line>>                 m_lines; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_road_railroad_switch_mainTrack
+struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_railroad_switch_mainTrack(){};
-	t_road_railroad_switch_mainTrack(pugi::xml_node node);
-	virtual ~t_road_railroad_switch_mainTrack(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line(){};
 public:
-	std::string	    id; // attribute : required
-	t_grEqZero	    s; // attribute : required
-	e_elementDir	    dir; // attribute : required
-   //s_group tag : reference g_additionalData
+	//Length of the visible line
+	std::string	    length; //  required
+	//Lateral offset from the lane border.If &lt;sway&gt; element is present, the lateral offset follows the sway.
+	double	    tOffset; //  required
+	//Offset of start position of the &lt;line&gt; element, relative to the @sOffset  given in the &lt;roadMark&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Rule that must be observed when passing the line from inside, that is, from the lane with the lower absolute ID to the lane with the higher absolute ID. For values see UML Model.
+	e_roadMarkRule	    rule; //  optional
+	//Line width. This attribute supersedes the definition in the &lt;roadMark&gt; element.
+	std::string	    width; //  optional
 };
-struct t_road_railroad_switch_sideTrack
+struct t_road_lanes_laneSection_lcr_lane_roadMark_sway   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_railroad_switch_sideTrack(){};
-	t_road_railroad_switch_sideTrack(pugi::xml_node node);
-	virtual ~t_road_railroad_switch_sideTrack(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_sway(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_sway(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_sway(){};
 public:
-	std::string	    id; // attribute : required
-	t_grEqZero	    s; // attribute : required
-	e_elementDir	    dir; // attribute : required
-   //s_group tag : reference g_additionalData
+	//s-coordinate of start position of the &lt;sway&gt; element, relative to the @sOffset given in the &lt;roadMark&gt; element
+	t_grEqZero	    ds; //  required
+	//Polynom parameter a, sway value at @s (ds=0)
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
 };
-struct t_road_railroad_switch_partner
+struct t_road_lanes_laneSection_lcr_lane_roadMark_type   : public _OpenDriveElement
 {
+/**/
 public:
-	t_road_railroad_switch_partner(){};
-	t_road_railroad_switch_partner(pugi::xml_node node);
-	virtual ~t_road_railroad_switch_partner(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_type(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_type(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_type(){};
 public:
-	std::string	    name; // attribute : optional
-	std::string	    id; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_controller
-{
-public:
-	t_controller(){};
-	t_controller(pugi::xml_node node);
-	virtual ~t_controller(){};
-public:
-	std::string	    id; // attribute : required
-	std::string	    name; // attribute : optional
-	uint64_t	    sequence; // attribute : optional
-    std::vector<std::unique_ptr<t_controller_control>>                 m_controls; //xs:element
+	//Name of the road mark type. May be chosen freely.
+	std::string	    name; //  required
+	//Accumulated width of the road mark. In case of several &lt;line&gt; elements this @width is the sum of all @width of &lt;line&gt; elements and spaces in between, necessary to form the road mark. This attribute supersedes the definition in the &lt;roadMark&gt; element.
+	t_grEqZero	    width; //  required
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_type_line>>                 m_lines; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_controller_control
+struct t_road_lanes_laneSection_lcr_lane_roadMark_type_line   : public _OpenDriveElement
 {
+/**/
 public:
-	t_controller_control(){};
-	t_controller_control(pugi::xml_node node);
-	virtual ~t_controller_control(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_type_line(){};
+	t_road_lanes_laneSection_lcr_lane_roadMark_type_line(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lcr_lane_roadMark_type_line(){};
 public:
-	std::string	    signalId; // attribute : required
-	std::string	    type; // attribute : optional
-   //s_group tag : reference g_additionalData
+	//Length of the visible part
+	std::string	    length; //  required
+	//Length of the gap between the visible parts
+	t_grEqZero	    space; //  required
+	//Lateral offset from the lane border.If &lt;sway&gt; element is present, the lateral offset follows the sway.
+	double	    tOffset; //  required
+	//Initial longitudinal offset of the line definition from the start of the road mark definition
+	t_grEqZero	    sOffset; //  required
+	//Rule that must be observed when passing the line from inside, for example, from the lane with the lower absolute ID to the lane with the higher absolute ID. For values see UML Model.
+	e_roadMarkRule	    rule; //  optional
+	//Line width
+	std::string	    width; //  optional
+	//Line color. If given, this attribute supersedes the definition in the &lt;roadMark&gt; element. For values see UML Model.
+	e_roadMarkColor	    color; //  optional
 };
-struct t_junction
+struct t_road_lanes_laneSection_left   : public _OpenDriveElement
 {
+/**/
 public:
-	t_junction(){};
-	t_junction(pugi::xml_node node);
-	virtual ~t_junction(){};
+	t_road_lanes_laneSection_left(){};
+	t_road_lanes_laneSection_left(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_left(){};
 public:
-	std::string	    name; // attribute : optional
-	t_junction_id	    id; // attribute : required
-	e_junction_type	    type; // attribute : optional
-    std::vector<std::unique_ptr<t_junction_connection>>                 m_connections; //xs:element
-    std::vector<std::unique_ptr<t_junction_priority>>                 m_prioritys; //xs:element
-    std::vector<std::unique_ptr<t_junction_controller>>                 m_controllers; //xs:element
-    std::unique_ptr<t_junction_surface>                 m_surface; //xs:element
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_left_lane>>                 m_lanes; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_junction_connection
+struct t_road_lanes_laneSection_left_lane   : public t_road_lanes_laneSection_lr_lane
 {
+/**/
 public:
-	t_junction_connection(){};
-	t_junction_connection(pugi::xml_node node);
-	virtual ~t_junction_connection(){};
+	t_road_lanes_laneSection_left_lane(){};
+	t_road_lanes_laneSection_left_lane(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_left_lane(){};
 public:
-	std::string	    id; // attribute : required
-	std::string	    incomingRoad; // attribute : required
-	std::string	    connectingRoad; // attribute : required
-	e_contactPoint	    contactPoint; // attribute : required
-	std::string	    connectionMaster; // attribute : optional
-	e_junction_type	    type; // attribute : optional
-    std::unique_ptr<t_junction_predecessorSuccessor>                 m_predecessor; //xs:element
-    std::unique_ptr<t_junction_predecessorSuccessor>                 m_successor; //xs:element
-    std::vector<std::unique_ptr<t_junction_connection_laneLink>>                 m_laneLinks; //xs:element
+	//ID of the lane
+	uint64_t	    id; //  required
+};
+struct t_road_lanes_laneSection_lr_lane_access   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lr_lane_access(){};
+	t_road_lanes_laneSection_lr_lane_access(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane_access(){};
+public:
+	//s-coordinate of start position, relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Specifies whether the participant given in the attribute @restriction is allowed or denied access to the given lane
+	e_road_lanes_laneSection_lr_lane_access_rule	    rule; //  optional
+	//Identifier of the participant to whom the restriction applies. For values, see UML Model
+	e_accessRestrictionType	    restriction; //  required
+};
+struct t_road_lanes_laneSection_lr_lane_border   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lr_lane_border(){};
+	t_road_lanes_laneSection_lr_lane_border(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane_border(){};
+public:
+	//s-coordinate of start position of the &lt;border&gt; element , relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Polynom parameter a, border position at @s (ds=0)
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
+};
+struct t_road_lanes_laneSection_lr_lane_height   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lr_lane_height(){};
+	t_road_lanes_laneSection_lr_lane_height(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane_height(){};
+public:
+	//s-coordinate of start position, relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Inner offset from road level
+	double	    inner; //  required
+	//Outer offset from road level
+	double	    outer; //  required
+};
+struct t_road_lanes_laneSection_lr_lane_material   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lr_lane_material(){};
+	t_road_lanes_laneSection_lr_lane_material(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane_material(){};
+public:
+	//s-coordinate of start position, relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Surface material code, depending on application
+	std::string	    surface; //  optional
+	//Friction coefficient
+	t_grEqZero	    friction; //  required
+	//Roughness, for example, for sound and motion systems
+	t_grEqZero	    roughness; //  optional
+};
+struct t_road_lanes_laneSection_lr_lane_rule   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lr_lane_rule(){};
+	t_road_lanes_laneSection_lr_lane_rule(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane_rule(){};
+public:
+	//s-coordinate of start position, relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Free text; currently recommended values are&quot;no stopping at any time&quot;&quot;disabled parking&quot;&quot;car pool&quot;
+	std::string	    value; //  required
+};
+struct t_road_lanes_laneSection_lr_lane_speed   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lr_lane_speed(){};
+	t_road_lanes_laneSection_lr_lane_speed(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane_speed(){};
+public:
+	//s-coordinate of start position, relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Maximum allowed speed. If the attribute unit is not specified, m/s is used as default.
+	t_grEqZero	    max; //  required
+	//Unit of the attribute max. For values, see UML Model
+	e_unitSpeed	    unit; //  optional
+};
+struct t_road_lanes_laneSection_lr_lane_width   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_lr_lane_width(){};
+	t_road_lanes_laneSection_lr_lane_width(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_lr_lane_width(){};
+public:
+	//s-coordinate of start position of the &lt;width&gt; element, relative to the position of the preceding &lt;laneSection&gt; element
+	t_grEqZero	    sOffset; //  required
+	//Polynom parameter a, width at @s (ds=0)
+	double	    a; //  required
+	//Polynom parameter b
+	double	    b; //  required
+	//Polynom parameter c
+	double	    c; //  required
+	//Polynom parameter d
+	double	    d; //  required
+};
+struct t_road_lanes_laneSection_right   : public _OpenDriveElement
+{
+/**/
+public:
+	t_road_lanes_laneSection_right(){};
+	t_road_lanes_laneSection_right(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_right(){};
+public:
+    std::vector<std::unique_ptr<t_road_lanes_laneSection_right_lane>>                 m_lanes; //xs:element
    //group tag : reference g_additionalData
 };
-struct t_junction_predecessorSuccessor
+struct t_road_lanes_laneSection_right_lane   : public t_road_lanes_laneSection_lr_lane
 {
+/**/
 public:
-	t_junction_predecessorSuccessor(){};
-	t_junction_predecessorSuccessor(pugi::xml_node node);
-	virtual ~t_junction_predecessorSuccessor(){};
+	t_road_lanes_laneSection_right_lane(){};
+	t_road_lanes_laneSection_right_lane(pugi::xml_node node);
+	virtual ~t_road_lanes_laneSection_right_lane(){};
 public:
-	const std::string	    elementType="road"; // attribute : required
-	std::string	    elementId; // attribute : required
-	t_grZero	    elementS; // attribute : required
-	e_elementDir	    elementDir; // attribute : required
-   //s_group tag : reference g_additionalData
+	//ID of the lane
+	int	    id; //  required
 };
-struct t_junction_connection_laneLink
+struct t_road_objects_object_laneValidity   : public _OpenDriveElement
 {
+/**/
 public:
-	t_junction_connection_laneLink(){};
-	t_junction_connection_laneLink(pugi::xml_node node);
-	virtual ~t_junction_connection_laneLink(){};
+	t_road_objects_object_laneValidity(){};
+	t_road_objects_object_laneValidity(pugi::xml_node node);
+	virtual ~t_road_objects_object_laneValidity(){};
 public:
-	int	    from; // attribute : required
-	int	    to; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_junction_priority
-{
-public:
-	t_junction_priority(){};
-	t_junction_priority(pugi::xml_node node);
-	virtual ~t_junction_priority(){};
-public:
-	std::string	    high; // attribute : optional
-	std::string	    low; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_junction_controller
-{
-public:
-	t_junction_controller(){};
-	t_junction_controller(pugi::xml_node node);
-	virtual ~t_junction_controller(){};
-public:
-	std::string	    id; // attribute : required
-	std::string	    type; // attribute : optional
-	uint64_t	    sequence; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_junction_surface
-{
-public:
-	t_junction_surface(){};
-	t_junction_surface(pugi::xml_node node);
-	virtual ~t_junction_surface(){};
-public:
-    std::vector<std::unique_ptr<t_junction_surface_CRG>>                 m_CRGs; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_junction_surface_CRG
-{
-public:
-	t_junction_surface_CRG(){};
-	t_junction_surface_CRG(pugi::xml_node node);
-	virtual ~t_junction_surface_CRG(){};
-public:
-	std::string	    file; // attribute : required
-	const e_road_surface_CRG_mode	    mode=e_road_surface_CRG_mode::GLOBAL; // attribute : required
-	e_road_surface_CRG_purpose	    purpose; // attribute : optional
-	double	    zOffset; // attribute : optional
-	double	    zScale; // attribute : optional
-   //s_group tag : reference g_additionalData
-};
-struct t_junctionGroup
-{
-public:
-	t_junctionGroup(){};
-	t_junctionGroup(pugi::xml_node node);
-	virtual ~t_junctionGroup(){};
-public:
-	std::string	    name; // attribute : optional
-	std::string	    id; // attribute : required
-	e_junctionGroup_type	    type; // attribute : required
-    std::vector<std::unique_ptr<t_junctionGroup_junctionReference>>                 m_junctionReferences; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_junctionGroup_junctionReference
-{
-public:
-	t_junctionGroup_junctionReference(){};
-	t_junctionGroup_junctionReference(pugi::xml_node node);
-	virtual ~t_junctionGroup_junctionReference(){};
-public:
-	std::string	    junction; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_station
-{
-public:
-	t_station(){};
-	t_station(pugi::xml_node node);
-	virtual ~t_station(){};
-public:
-	std::string	    name; // attribute : required
-	std::string	    id; // attribute : required
-	e_station_type	    type; // attribute : optional
-    std::vector<std::unique_ptr<t_station_platform>>                 m_platforms; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_station_platform
-{
-public:
-	t_station_platform(){};
-	t_station_platform(pugi::xml_node node);
-	virtual ~t_station_platform(){};
-public:
-	std::string	    name; // attribute : optional
-	std::string	    id; // attribute : required
-    std::vector<std::unique_ptr<t_station_platform_segment>>                 m_segments; //xs:element
-   //group tag : reference g_additionalData
-};
-struct t_station_platform_segment
-{
-public:
-	t_station_platform_segment(){};
-	t_station_platform_segment(pugi::xml_node node);
-	virtual ~t_station_platform_segment(){};
-public:
-	std::string	    roadId; // attribute : required
-	t_grEqZero	    sStart; // attribute : required
-	t_grEqZero	    sEnd; // attribute : required
-	e_station_platform_segment_side	    side; // attribute : required
-   //s_group tag : reference g_additionalData
-};
-struct t_userData
-{
-public:
-	t_userData(){};
-	t_userData(pugi::xml_node node);
-	virtual ~t_userData(){};
-public:
-	std::string	    code; // attribute : required
-	std::string	    value; // attribute : required
-};
-struct t_include
-{
-public:
-	t_include(){};
-	t_include(pugi::xml_node node);
-	virtual ~t_include(){};
-public:
-	std::string	    file; // attribute : required
-};
-struct t_dataQuality
-{
-public:
-	t_dataQuality(){};
-	t_dataQuality(pugi::xml_node node);
-	virtual ~t_dataQuality(){};
-public:
-    std::unique_ptr<t_dataQuality_Error>                 m_error; //xs:element
-    std::unique_ptr<t_dataQuality_RawData>                 m_rawData; //xs:element
-};
-struct t_dataQuality_Error
-{
-public:
-	t_dataQuality_Error(){};
-	t_dataQuality_Error(pugi::xml_node node);
-	virtual ~t_dataQuality_Error(){};
-public:
-	double	    xyAbsolute; // attribute : required
-	double	    zAbsolute; // attribute : required
-	double	    xyRelative; // attribute : required
-	double	    zRelative; // attribute : required
-};
-struct t_dataQuality_RawData
-{
-public:
-	t_dataQuality_RawData(){};
-	t_dataQuality_RawData(pugi::xml_node node);
-	virtual ~t_dataQuality_RawData(){};
-public:
-	std::string	    date; // attribute : required
-	e_dataQuality_RawData_Source	    source; // attribute : required
-	std::string	    sourceComment; // attribute : optional
-	e_dataQuality_RawData_PostProcessing	    postProcessing; // attribute : required
-	std::string	    postProcessingComment; // attribute : optional
+	//Minimum ID of the lanes for which the object is valid
+	int	    fromLane; //  required
+	//Maximum ID of the lanes for which the object is valid
+	int	    toLane; //  required
 };
 // xs:group -> aliased to group definition
 struct g_additionalData
@@ -2353,8 +2682,8 @@ public:
 	g_additionalData(pugi::xml_node node);
 	virtual ~g_additionalData(){};
 public:
-    std::vector<std::unique_ptr<t_userData>>                 m_userDatas; //xs:element
     std::vector<std::unique_ptr<t_include>>                 m_includes; //xs:element
+    std::vector<std::unique_ptr<t_userData>>                 m_userDatas; //xs:element
     std::unique_ptr<t_dataQuality>                 m_dataQuality; //xs:element
 };
 // xs:element -> main  as clazz definition
@@ -2386,4 +2715,4 @@ public:
     xodr();
     ~xodr();
 };
-#endif //_OPENDRIVE_1_5M_XSD_H_
+#endif //_OPENDRIVE_16_CORE_H_

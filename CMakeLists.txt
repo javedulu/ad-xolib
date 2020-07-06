@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-PROJECT(xodr LANGUAGES C CXX)
+PROJECT(ad-xolib LANGUAGES C CXX)
 
 SET(CMAKE_CXX_STANDARD 14)
 
