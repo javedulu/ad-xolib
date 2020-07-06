@@ -6,8 +6,8 @@ C++ library for Parsing OpenDrive format files (1.6 format)
 
 This repository provides a library for reading OpenDrive XML Data, the parsing conforms to OpenDrive format <b>1.6</b>
 
-[https://www.asam.net/index.php?eID=dumpFile&t=f&f=3495&token=56b15ffd9dfe23ad8f759523c806fc1f1a90a0e8)] (Opendrive 1.6
-Specification)
+[ASAM OpenDRIVE 1.6
+Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=3495&token=56b15ffd9dfe23ad8f759523c806fc1f1a90a0e8)
 
 ## License <a name="license"></a>
 
@@ -37,9 +37,9 @@ cmake . --target build
 ```
 
 ## Alternatives <a name="alternatives"></a>
-[https://github.com/JensKlimke/odrparser] (https://github.com/JensKlimke/odrparser)- OpenDrive 1.5 
+[https://github.com/JensKlimke/odrparser](https://github.com/JensKlimke/odrparser)- OpenDrive 1.5 
 
-[https://github.com/DLR-TS/xodr] (https://github.com/DLR-TS/xodr) - OpenDrive 1.4
+[https://github.com/DLR-TS/xodr](https://github.com/DLR-TS/xodr) - OpenDrive 1.4
 
 ## Contributing <a name="contributing"></a>
 Contributions are very welcome!
