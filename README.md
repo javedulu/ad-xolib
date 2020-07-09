@@ -15,7 +15,8 @@ This software library is provided under the MIT open-source license: https://ope
 
 ## Inspiration <a name="inspiration"></a>
 
-This library is inspired by https://github.com/carla-simulator/map
+- https://github.com/carla-simulator/map
+- https://github.com/esmini/esmini.git
 
 ## Getting started <a name="started"></a>
 The project is compiled with c++14 enabled compiler, choose your stack accordingly .
