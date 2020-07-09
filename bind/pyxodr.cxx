@@ -618,7 +618,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("id", &t_road_objects_tunnel::id ) //required
 		.def_readwrite("type", &t_road_objects_tunnel::type ) //required
 		.def_readwrite("lighting", &t_road_objects_tunnel::lighting ) //optional
-		.def_readwrite("daylight", &t_road_objects_tunnel::daylight ) //optional
+		//.def_readwrite("daylight", &t_road_objects_tunnel::daylight ) //optional
 		.def_readwrite("validity", &t_road_objects_tunnel::m_validitys ) //t_road_objects_object_laneValidity
    //group tag : reference g_additionalData
 ;
