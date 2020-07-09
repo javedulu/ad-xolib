@@ -20,16 +20,11 @@ This library is inspired by https://github.com/carla-simulator/map
 ## Getting started <a name="started"></a>
 The project is compiled with c++14 enabled compiler, choose your stack accordingly .
 
-It has only one dependency pugixml, use your favourite package manager to install the same.
-```bash
-mac  : brew install pugixml
-ubuntu : sudo apt install pugixml
-windows : cmake --build . --target install 
-```
 #### Build from Source <a name="build"></a>
 
 ```bash
 git clone https://github.com/javedulu/xodr.git
+git submodule update --init --recursive 
 mkdir build
 cd build
 cmake . -B build
