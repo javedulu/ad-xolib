@@ -52,6 +52,6 @@ Don't edit them directly .
 
 ## Coming Soon <a name="future"></a>
  - Save to xodr from c++  
- - Python binding
- - ~~Bump the format to 1.6 of OpenDrive~~ 
+ - ~~Python binding DONE~~ DONE
+ - ~~Bump the format to 1.6 of OpenDrive~~ DONE
  - OpenScenario c++ parsing based on OpenScenario-1.0 [ Wait for OpenScenario 2.0 ?? ]
