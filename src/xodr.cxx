@@ -2,15 +2,13 @@
 //  opendrive_16_core.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Tue Jul  7 21:15:11 2020
+//  Created by Javed Shaik on Thu Jul  9 10:49:01 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : e6019dc8-4141-43ab-b560-98c01cd466e6 --
+//  -- UUIDv4 : 8137d7f6-75b5-4d42-a128-4a5578d45264 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
-
 //
 #include "xodr.h"
-
 t_road_signals_signal_U::t_road_signals_signal_U(pugi::xml_node node)
 {
 	if (strcmp(node.name(),"positionRoad")==0) { m_positionRoad = std::make_shared<t_road_signals_signal_positionRoad>(node); }
