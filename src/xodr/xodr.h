@@ -3,9 +3,9 @@
 //
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Fri Jul 10 19:25:39 2020
+//  Created by Javed Shaik on Sat Jul 11 09:15:32 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : a993f10e-acb9-473f-a691-daf77d4aa2ff --
+//  -- UUIDv4 : 724708d6-604d-422a-ac38-ec78f21f7f4b --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 #ifndef _OPENDRIVE_16_CORE_H_
@@ -454,8 +454,8 @@ public:
 struct XODR_EXPORT e_countryCode	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  e_countryCode_iso3166alpha2  countryCode_iso3166alpha2;
-	  e_countryCode_iso3166alpha3_deprecated  countryCode_iso3166alpha3_deprecated;
+	  e_countryCode_iso3166alpha2  m_e_countryCode_iso3166alpha2;
+	  e_countryCode_iso3166alpha3_deprecated  m_e_countryCode_iso3166alpha3_deprecated;
 	  e_countryCode_deprecated  countryCode_deprecated;
 public:
 	e_countryCode(){};
@@ -465,7 +465,7 @@ public:
 struct XODR_EXPORT t_maxSpeed	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_grEqZero  grEqZero;
+	  t_grEqZero  m_t_grEqZero;
 	  e_maxSpeedString  maxSpeedString;
 public:
 	t_maxSpeed(){};

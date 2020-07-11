@@ -2,9 +2,9 @@
 //  opendrive_16_core.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Fri Jul 10 19:25:39 2020
+//  Created by Javed Shaik on Sat Jul 11 09:15:32 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : a993f10e-acb9-473f-a691-daf77d4aa2ff --
+//  -- UUIDv4 : 724708d6-604d-422a-ac38-ec78f21f7f4b --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -18,13 +18,13 @@ e_unit::e_unit(pugi::xml_attribute attr)
 }
 e_countryCode::e_countryCode(pugi::xml_attribute attr)
 {
-	if (  (countryCode_iso3166alpha2 = attr.as_string())  ) { return ; }   // Typedef redirected to read value
-	if (  (countryCode_iso3166alpha3_deprecated = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (  (m_e_countryCode_iso3166alpha2 = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (  (m_e_countryCode_iso3166alpha3_deprecated = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	if (isvalid<e_countryCode_deprecated>(attr.as_string())) { countryCode_deprecated = str2enum<e_countryCode_deprecated>(attr.as_string()); }
 }
 t_maxSpeed::t_maxSpeed(pugi::xml_attribute attr)
 {
-	if (  (grEqZero = attr.as_double())  ) { return ; }   // Typedef redirected to read value
+	if (  (m_t_grEqZero = attr.as_double())  ) { return ; }   // Typedef redirected to read value
 	if (isvalid<e_maxSpeedString>(attr.as_string())) { maxSpeedString = str2enum<e_maxSpeedString>(attr.as_string()); }
 }
 t_road_signals_signal_U::t_road_signals_signal_U(pugi::xml_node node)

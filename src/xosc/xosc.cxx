@@ -2,147 +2,147 @@
 //  OpenSCENARIO.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Fri Jul 10 17:42:56 2020
+//  Created by Javed Shaik on Sat Jul 11 09:15:32 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 0df65bd9-57c1-41d7-9bc9-9fa46819e60d --
+//  -- UUIDv4 : 2bccfbb7-bf86-40f6-b568-0b9cac661010 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
 #include "xosc.h"
 Boolean::Boolean(pugi::xml_attribute attr)
 {
-	if (  (m_parameter = attr.value())  ) { return ; }
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	m_boolean = attr.as_bool();
 }
 DateTime::DateTime(pugi::xml_attribute attr)
 {
-	if (  (m_parameter = attr.value())  ) { return ; }
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	m_dateTime = attr.as_string();
 }
 Double::Double(pugi::xml_attribute attr)
 {
-	if (  (m_parameter = attr.value())  ) { return ; }
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	m_double = attr.as_double();
 }
 Int::Int(pugi::xml_attribute attr)
 {
-	if (  (m_parameter = attr.value())  ) { return ; }
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	m_int = attr.as_int();
 }
 String::String(pugi::xml_attribute attr)
 {
-	if (  (m_parameter = attr.value())  ) { return ; }
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	m_string = attr.as_string();
 }
 UnsignedInt::UnsignedInt(pugi::xml_attribute attr)
 {
-	if (  (m_parameter = attr.value())  ) { return ; }
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	m_unsignedInt = attr.as_ullong();
 }
 UnsignedShort::UnsignedShort(pugi::xml_attribute attr)
 {
-	if (  (m_parameter = attr.value())  ) { return ; }
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
 	m_unsignedShort = attr.as_ullong();
 }
 CloudState::CloudState(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	cloudState = str2enum<e_CloudState>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_CloudState>(attr.as_string())) { cloudState = str2enum<e_CloudState>(attr.as_string()); }
 }
 ConditionEdge::ConditionEdge(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	conditionEdge = str2enum<e_ConditionEdge>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_ConditionEdge>(attr.as_string())) { conditionEdge = str2enum<e_ConditionEdge>(attr.as_string()); }
 }
 DynamicsDimension::DynamicsDimension(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	dynamicsDimension = str2enum<e_DynamicsDimension>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_DynamicsDimension>(attr.as_string())) { dynamicsDimension = str2enum<e_DynamicsDimension>(attr.as_string()); }
 }
 DynamicsShape::DynamicsShape(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	dynamicsShape = str2enum<e_DynamicsShape>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_DynamicsShape>(attr.as_string())) { dynamicsShape = str2enum<e_DynamicsShape>(attr.as_string()); }
 }
 FollowingMode::FollowingMode(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	followingMode = str2enum<e_FollowingMode>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_FollowingMode>(attr.as_string())) { followingMode = str2enum<e_FollowingMode>(attr.as_string()); }
 }
 MiscObjectCategory::MiscObjectCategory(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	miscObjectCategory = str2enum<e_MiscObjectCategory>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_MiscObjectCategory>(attr.as_string())) { miscObjectCategory = str2enum<e_MiscObjectCategory>(attr.as_string()); }
 }
 ObjectType::ObjectType(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	objectType = str2enum<e_ObjectType>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_ObjectType>(attr.as_string())) { objectType = str2enum<e_ObjectType>(attr.as_string()); }
 }
 ParameterType::ParameterType(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	parameterType = str2enum<e_ParameterType>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_ParameterType>(attr.as_string())) { parameterType = str2enum<e_ParameterType>(attr.as_string()); }
 }
 PedestrianCategory::PedestrianCategory(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	pedestrianCategory = str2enum<e_PedestrianCategory>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_PedestrianCategory>(attr.as_string())) { pedestrianCategory = str2enum<e_PedestrianCategory>(attr.as_string()); }
 }
 PrecipitationType::PrecipitationType(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	precipitationType = str2enum<e_PrecipitationType>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_PrecipitationType>(attr.as_string())) { precipitationType = str2enum<e_PrecipitationType>(attr.as_string()); }
 }
 Priority::Priority(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	priority = str2enum<e_Priority>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_Priority>(attr.as_string())) { priority = str2enum<e_Priority>(attr.as_string()); }
 }
 ReferenceContext::ReferenceContext(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	referenceContext = str2enum<e_ReferenceContext>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_ReferenceContext>(attr.as_string())) { referenceContext = str2enum<e_ReferenceContext>(attr.as_string()); }
 }
 RelativeDistanceType::RelativeDistanceType(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	relativeDistanceType = str2enum<e_RelativeDistanceType>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_RelativeDistanceType>(attr.as_string())) { relativeDistanceType = str2enum<e_RelativeDistanceType>(attr.as_string()); }
 }
 RouteStrategy::RouteStrategy(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	routeStrategy = str2enum<e_RouteStrategy>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_RouteStrategy>(attr.as_string())) { routeStrategy = str2enum<e_RouteStrategy>(attr.as_string()); }
 }
 Rule::Rule(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	rule = str2enum<e_Rule>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_Rule>(attr.as_string())) { rule = str2enum<e_Rule>(attr.as_string()); }
 }
 SpeedTargetValueType::SpeedTargetValueType(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	speedTargetValueType = str2enum<e_SpeedTargetValueType>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_SpeedTargetValueType>(attr.as_string())) { speedTargetValueType = str2enum<e_SpeedTargetValueType>(attr.as_string()); }
 }
 StoryboardElementState::StoryboardElementState(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	storyboardElementState = str2enum<e_StoryboardElementState>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_StoryboardElementState>(attr.as_string())) { storyboardElementState = str2enum<e_StoryboardElementState>(attr.as_string()); }
 }
 StoryboardElementType::StoryboardElementType(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	storyboardElementType = str2enum<e_StoryboardElementType>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_StoryboardElementType>(attr.as_string())) { storyboardElementType = str2enum<e_StoryboardElementType>(attr.as_string()); }
 }
 TriggeringEntitiesRule::TriggeringEntitiesRule(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	triggeringEntitiesRule = str2enum<e_TriggeringEntitiesRule>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_TriggeringEntitiesRule>(attr.as_string())) { triggeringEntitiesRule = str2enum<e_TriggeringEntitiesRule>(attr.as_string()); }
 }
 VehicleCategory::VehicleCategory(pugi::xml_attribute attr)
 {
-	if (  (parameter = attr.value())  ) { return ; }
-	vehicleCategory = str2enum<e_VehicleCategory>(attr.value());
+	if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_VehicleCategory>(attr.as_string())) { vehicleCategory = str2enum<e_VehicleCategory>(attr.as_string()); }
 }
 Action_U::Action_U(pugi::xml_node node)
 {

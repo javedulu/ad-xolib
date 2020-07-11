@@ -2,9 +2,9 @@
 //  opendrive_16_core_py.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Thu Jul  9 10:49:01 2020
+//  Created by Javed Shaik on Sat Jul 11 09:15:32 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 8137d7f6-75b5-4d42-a128-4a5578d45264 --
+//  -- UUIDv4 : 724708d6-604d-422a-ac38-ec78f21f7f4b --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -1095,12 +1095,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("unitSlope",&e_unit::unitSlope)
 	;
 	py::class_<e_countryCode, std::shared_ptr<e_countryCode>>(m,"e_countryCode") // union definition
-		.def_readwrite("countryCode_iso3166alpha2",&e_countryCode::countryCode_iso3166alpha2)
-		.def_readwrite("countryCode_iso3166alpha3_deprecated",&e_countryCode::countryCode_iso3166alpha3_deprecated)
+		.def_readwrite("m_e_countryCode_iso3166alpha2",&e_countryCode::m_e_countryCode_iso3166alpha2)
+		.def_readwrite("m_e_countryCode_iso3166alpha3_deprecated",&e_countryCode::m_e_countryCode_iso3166alpha3_deprecated)
 		.def_readwrite("countryCode_deprecated",&e_countryCode::countryCode_deprecated)
 	;
 	py::class_<t_maxSpeed, std::shared_ptr<t_maxSpeed>>(m,"t_maxSpeed") // union definition
-		.def_readwrite("grEqZero",&t_maxSpeed::grEqZero)
+		.def_readwrite("m_t_grEqZero",&t_maxSpeed::m_t_grEqZero)
 		.def_readwrite("maxSpeedString",&t_maxSpeed::maxSpeedString)
 	;
 //

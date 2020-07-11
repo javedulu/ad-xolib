@@ -3,9 +3,9 @@
 //
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Fri Jul 10 17:42:56 2020
+//  Created by Javed Shaik on Sat Jul 11 09:15:32 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 0df65bd9-57c1-41d7-9bc9-9fa46819e60d --
+//  -- UUIDv4 : 2bccfbb7-bf86-40f6-b568-0b9cac661010 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 #ifndef _OPENSCENARIO_H_
@@ -48,6 +48,15 @@ inline std::string enum2str(const EnumT v)
 	return "INVALID";
 }
 //
+template <typename EnumT>
+inline bool isvalid(const std::string& v)
+{
+	for (const auto&p : enum_map<EnumT>())
+		if (p.first == v)
+			return true;
+	return false;
+}
+//
 struct t_datetime
 {
     std::string format = "%FT%T.000%z'";
@@ -77,12 +86,24 @@ struct t_patternstr
         return false;
     }
 };
+template<typename T>
+struct t_typevar
+{
+	T _val;
+	bool operator=(T value)
+	{
+		_val = value; // TODO: If from string convert to actual datatype and return true.
+		return true;
+	}
+};
+//Example USAGE
 // // typedef t_patternstr<std::string,std::string(".*")> t_parameter; //C++ doesnt allow literals as template parameters
 //const std::string pattern = "[$][A-Za-z_][A-Za-z0-9_]";
 //typedef t_patternstr<pattern> t_patterneter;
+//Example USAGE
 // Typedefs
-const std::string t_parameter_pattern = "[$][A-Za-z_][A-Za-z0-9_]*";
-typedef t_patternstr<t_parameter_pattern> t_parameter;
+const std::string parameter_pattern = "[$][A-Za-z_][A-Za-z0-9_]*";
+typedef t_patternstr<parameter_pattern> parameter;
 // Enumerations
 enum class e_CloudState : std::uint8_t
 {
@@ -241,271 +262,271 @@ enum class e_VehicleCategory : std::uint8_t
 struct XOSC_EXPORT Boolean	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  m_parameter;
+	  parameter  m_parameter;
 	  bool  m_boolean;
 public:
 	Boolean(){};
-    Boolean(pugi::xml_attribute atttr);
+    Boolean(pugi::xml_attribute attr);
 	~Boolean(){};
 };
 struct XOSC_EXPORT DateTime	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  m_parameter;
+	  parameter  m_parameter;
 	  t_datetime  m_dateTime;
 public:
 	DateTime(){};
-    DateTime(pugi::xml_attribute atttr);
+    DateTime(pugi::xml_attribute attr);
 	~DateTime(){};
 };
 struct XOSC_EXPORT Double	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  m_parameter;
+	  parameter  m_parameter;
 	  double  m_double;
 public:
 	Double(){};
-    Double(pugi::xml_attribute atttr);
+    Double(pugi::xml_attribute attr);
 	~Double(){};
 };
 struct XOSC_EXPORT Int	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  m_parameter;
+	  parameter  m_parameter;
 	  int  m_int;
 public:
 	Int(){};
-    Int(pugi::xml_attribute atttr);
+    Int(pugi::xml_attribute attr);
 	~Int(){};
 };
 struct XOSC_EXPORT String	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  m_parameter;
+	  parameter  m_parameter;
 	  std::string  m_string;
 public:
 	String(){};
-    String(pugi::xml_attribute atttr);
+    String(pugi::xml_attribute attr);
 	~String(){};
 };
 struct XOSC_EXPORT UnsignedInt	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  m_parameter;
+	  parameter  m_parameter;
 	  uint64_t  m_unsignedInt;
 public:
 	UnsignedInt(){};
-    UnsignedInt(pugi::xml_attribute atttr);
+    UnsignedInt(pugi::xml_attribute attr);
 	~UnsignedInt(){};
 };
 struct XOSC_EXPORT UnsignedShort	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  m_parameter;
+	  parameter  m_parameter;
 	  uint64_t  m_unsignedShort;
 public:
 	UnsignedShort(){};
-    UnsignedShort(pugi::xml_attribute atttr);
+    UnsignedShort(pugi::xml_attribute attr);
 	~UnsignedShort(){};
 };
 struct XOSC_EXPORT CloudState	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_CloudState  cloudState;
 public:
 	CloudState(){};
-    CloudState(pugi::xml_attribute atttr);
+    CloudState(pugi::xml_attribute attr);
 	~CloudState(){};
 };
 struct XOSC_EXPORT ConditionEdge	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_ConditionEdge  conditionEdge;
 public:
 	ConditionEdge(){};
-    ConditionEdge(pugi::xml_attribute atttr);
+    ConditionEdge(pugi::xml_attribute attr);
 	~ConditionEdge(){};
 };
 struct XOSC_EXPORT DynamicsDimension	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_DynamicsDimension  dynamicsDimension;
 public:
 	DynamicsDimension(){};
-    DynamicsDimension(pugi::xml_attribute atttr);
+    DynamicsDimension(pugi::xml_attribute attr);
 	~DynamicsDimension(){};
 };
 struct XOSC_EXPORT DynamicsShape	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_DynamicsShape  dynamicsShape;
 public:
 	DynamicsShape(){};
-    DynamicsShape(pugi::xml_attribute atttr);
+    DynamicsShape(pugi::xml_attribute attr);
 	~DynamicsShape(){};
 };
 struct XOSC_EXPORT FollowingMode	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_FollowingMode  followingMode;
 public:
 	FollowingMode(){};
-    FollowingMode(pugi::xml_attribute atttr);
+    FollowingMode(pugi::xml_attribute attr);
 	~FollowingMode(){};
 };
 struct XOSC_EXPORT MiscObjectCategory	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_MiscObjectCategory  miscObjectCategory;
 public:
 	MiscObjectCategory(){};
-    MiscObjectCategory(pugi::xml_attribute atttr);
+    MiscObjectCategory(pugi::xml_attribute attr);
 	~MiscObjectCategory(){};
 };
 struct XOSC_EXPORT ObjectType	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_ObjectType  objectType;
 public:
 	ObjectType(){};
-    ObjectType(pugi::xml_attribute atttr);
+    ObjectType(pugi::xml_attribute attr);
 	~ObjectType(){};
 };
 struct XOSC_EXPORT ParameterType	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_ParameterType  parameterType;
 public:
 	ParameterType(){};
-    ParameterType(pugi::xml_attribute atttr);
+    ParameterType(pugi::xml_attribute attr);
 	~ParameterType(){};
 };
 struct XOSC_EXPORT PedestrianCategory	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_PedestrianCategory  pedestrianCategory;
 public:
 	PedestrianCategory(){};
-    PedestrianCategory(pugi::xml_attribute atttr);
+    PedestrianCategory(pugi::xml_attribute attr);
 	~PedestrianCategory(){};
 };
 struct XOSC_EXPORT PrecipitationType	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_PrecipitationType  precipitationType;
 public:
 	PrecipitationType(){};
-    PrecipitationType(pugi::xml_attribute atttr);
+    PrecipitationType(pugi::xml_attribute attr);
 	~PrecipitationType(){};
 };
 struct XOSC_EXPORT Priority	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_Priority  priority;
 public:
 	Priority(){};
-    Priority(pugi::xml_attribute atttr);
+    Priority(pugi::xml_attribute attr);
 	~Priority(){};
 };
 struct XOSC_EXPORT ReferenceContext	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_ReferenceContext  referenceContext;
 public:
 	ReferenceContext(){};
-    ReferenceContext(pugi::xml_attribute atttr);
+    ReferenceContext(pugi::xml_attribute attr);
 	~ReferenceContext(){};
 };
 struct XOSC_EXPORT RelativeDistanceType	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_RelativeDistanceType  relativeDistanceType;
 public:
 	RelativeDistanceType(){};
-    RelativeDistanceType(pugi::xml_attribute atttr);
+    RelativeDistanceType(pugi::xml_attribute attr);
 	~RelativeDistanceType(){};
 };
 struct XOSC_EXPORT RouteStrategy	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_RouteStrategy  routeStrategy;
 public:
 	RouteStrategy(){};
-    RouteStrategy(pugi::xml_attribute atttr);
+    RouteStrategy(pugi::xml_attribute attr);
 	~RouteStrategy(){};
 };
 struct XOSC_EXPORT Rule	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_Rule  rule;
 public:
 	Rule(){};
-    Rule(pugi::xml_attribute atttr);
+    Rule(pugi::xml_attribute attr);
 	~Rule(){};
 };
 struct XOSC_EXPORT SpeedTargetValueType	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_SpeedTargetValueType  speedTargetValueType;
 public:
 	SpeedTargetValueType(){};
-    SpeedTargetValueType(pugi::xml_attribute atttr);
+    SpeedTargetValueType(pugi::xml_attribute attr);
 	~SpeedTargetValueType(){};
 };
 struct XOSC_EXPORT StoryboardElementState	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_StoryboardElementState  storyboardElementState;
 public:
 	StoryboardElementState(){};
-    StoryboardElementState(pugi::xml_attribute atttr);
+    StoryboardElementState(pugi::xml_attribute attr);
 	~StoryboardElementState(){};
 };
 struct XOSC_EXPORT StoryboardElementType	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_StoryboardElementType  storyboardElementType;
 public:
 	StoryboardElementType(){};
-    StoryboardElementType(pugi::xml_attribute atttr);
+    StoryboardElementType(pugi::xml_attribute attr);
 	~StoryboardElementType(){};
 };
 struct XOSC_EXPORT TriggeringEntitiesRule	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_TriggeringEntitiesRule  triggeringEntitiesRule;
 public:
 	TriggeringEntitiesRule(){};
-    TriggeringEntitiesRule(pugi::xml_attribute atttr);
+    TriggeringEntitiesRule(pugi::xml_attribute attr);
 	~TriggeringEntitiesRule(){};
 };
 struct XOSC_EXPORT VehicleCategory	// TODO: >> Should be union - will have to handle properly
 {
 public:
-	  t_parameter  parameter;
+	  parameter  m_parameter;
 	  e_VehicleCategory  vehicleCategory;
 public:
 	VehicleCategory(){};
-    VehicleCategory(pugi::xml_attribute atttr);
+    VehicleCategory(pugi::xml_attribute attr);
 	~VehicleCategory(){};
 };
 // Enumerations to String Value Maps
