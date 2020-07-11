@@ -60,7 +60,6 @@ Don't edit them directly .
  - ~~Python binding [XODR]~~ DONE
  - ~~Bump the format to 1.6 of OpenDrive~~ DONE
  - ~~OpenScenario c++ parsing based on OpenScenario-1.0~~ DONE
- - Python binding for OpenScenario [XOSC] 
- - evented mechanism for Handling OpenScenario events
+ - ~~Python binding for OpenScenario [XOSC]~~ DONE
+ - OpenScenario Manager to manage simulations with External Simulator's 
  - OpenScenario 2.0 [Awaiting specification ] 
- - Independent Scenario Simulation examples with Carla / Other simulation engine. 
