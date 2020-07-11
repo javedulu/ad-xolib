@@ -3,9 +3,9 @@
 //
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Sat Jul 11 09:15:32 2020
+//  Created by Javed Shaik on Sat Jul 11 12:40:05 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 2bccfbb7-bf86-40f6-b568-0b9cac661010 --
+//  -- UUIDv4 : 0473a170-1000-40b0-89cf-3489fc527163 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 #ifndef _OPENSCENARIO_H_

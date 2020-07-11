@@ -2,9 +2,9 @@
 //  opendrive_16_core.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Sat Jul 11 09:15:32 2020
+//  Created by Javed Shaik on Sat Jul 11 12:40:05 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 724708d6-604d-422a-ac38-ec78f21f7f4b --
+//  -- UUIDv4 : cee7ecd4-d9a0-4773-a2fc-a907ec37b010 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -1036,7 +1036,7 @@ OpenDRIVE::OpenDRIVE(pugi::xml_node node)
 	{
 		m_stations.push_back(std::make_shared<t_station>(e_station));
 	}
-    //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 #ifdef __DEBUG__
 	std::cout<<*this<<std::endl;
 #endif
@@ -1061,7 +1061,6 @@ void xodr::load(std::string xodrfilename )
 void xodr::parse()
 {
 	try {
-		//TODO: To fill the OpenDRIVE class struct from xml_node
 		m_OpenDRIVE = std::make_shared<OpenDRIVE>(m_root.child("OpenDRIVE"));
 		std::cout << "OpenDRIVE parse successfully " << m_OpenDRIVE<< std::endl;
 	}
