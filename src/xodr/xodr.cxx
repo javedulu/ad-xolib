@@ -2,13 +2,31 @@
 //  opendrive_16_core.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Thu Jul  9 10:49:01 2020
+//  Created by Javed Shaik on Sat Jul 11 12:40:05 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 8137d7f6-75b5-4d42-a128-4a5578d45264 --
+//  -- UUIDv4 : cee7ecd4-d9a0-4773-a2fc-a907ec37b010 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
 #include "xodr.h"
+e_unit::e_unit(pugi::xml_attribute attr)
+{
+	if (isvalid<e_unitDistance>(attr.as_string())) { unitDistance = str2enum<e_unitDistance>(attr.as_string()); }
+	if (isvalid<e_unitSpeed>(attr.as_string())) { unitSpeed = str2enum<e_unitSpeed>(attr.as_string()); }
+	if (isvalid<e_unitMass>(attr.as_string())) { unitMass = str2enum<e_unitMass>(attr.as_string()); }
+	if (isvalid<e_unitSlope>(attr.as_string())) { unitSlope = str2enum<e_unitSlope>(attr.as_string()); }
+}
+e_countryCode::e_countryCode(pugi::xml_attribute attr)
+{
+	if (  (m_e_countryCode_iso3166alpha2 = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (  (m_e_countryCode_iso3166alpha3_deprecated = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_countryCode_deprecated>(attr.as_string())) { countryCode_deprecated = str2enum<e_countryCode_deprecated>(attr.as_string()); }
+}
+t_maxSpeed::t_maxSpeed(pugi::xml_attribute attr)
+{
+	if (  (m_t_grEqZero = attr.as_double())  ) { return ; }   // Typedef redirected to read value
+	if (isvalid<e_maxSpeedString>(attr.as_string())) { maxSpeedString = str2enum<e_maxSpeedString>(attr.as_string()); }
+}
 t_road_signals_signal_U::t_road_signals_signal_U(pugi::xml_node node)
 {
 	if (strcmp(node.name(),"positionRoad")==0) { m_positionRoad = std::make_shared<t_road_signals_signal_positionRoad>(node); }
@@ -90,11 +108,11 @@ t_header::t_header(pugi::xml_node node)
     if (node.attribute("vendor")) { vendor = node.attribute("vendor").as_string(); } //optional
 	if (node.child("geoReference")) { m_geoReference = std::make_shared<t_header_GeoReference>(node.child("geoReference")); }
 	if (node.child("offset")) { m_offset = std::make_shared<t_header_Offset>(node.child("offset")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_header_GeoReference::t_header_GeoReference(pugi::xml_node node)
 {
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_header_Offset::t_header_Offset(pugi::xml_node node)
 {
@@ -102,7 +120,7 @@ t_header_Offset::t_header_Offset(pugi::xml_node node)
     if (node.attribute("y")) { y = node.attribute("y").as_double(); } //required
     if (node.attribute("z")) { z = node.attribute("z").as_double(); } //required
     if (node.attribute("hdg")) { hdg = node.attribute("hdg").as_float(); } //required
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_include::t_include(pugi::xml_node node)
 {
@@ -119,7 +137,7 @@ t_road_railroad::t_road_railroad(pugi::xml_node node)
 	{
 		m_switchs.push_back(std::make_shared<t_road_railroad_switch>(e_switch));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_railroad_switch::t_road_railroad_switch(pugi::xml_node node)
 {
@@ -129,27 +147,27 @@ t_road_railroad_switch::t_road_railroad_switch(pugi::xml_node node)
 	if (node.child("mainTrack")) { m_mainTrack = std::make_shared<t_road_railroad_switch_mainTrack>(node.child("mainTrack")); }
 	if (node.child("sideTrack")) { m_sideTrack = std::make_shared<t_road_railroad_switch_sideTrack>(node.child("sideTrack")); }
 	if (node.child("partner")) { m_partner = std::make_shared<t_road_railroad_switch_partner>(node.child("partner")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_railroad_switch_mainTrack::t_road_railroad_switch_mainTrack(pugi::xml_node node)
 {
     if (node.attribute("id")) { id = node.attribute("id").as_string(); } //required
 	if (node.attribute("s")) { s = node.attribute("s").as_double(); }  //typedef
 	if (node.attribute("dir")) { dir = str2enum<e_elementDir>(node.attribute("dir").as_string()); } // enum
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_railroad_switch_partner::t_road_railroad_switch_partner(pugi::xml_node node)
 {
     if (node.attribute("name")) { name = node.attribute("name").as_string(); } //optional
     if (node.attribute("id")) { id = node.attribute("id").as_string(); } //required
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_railroad_switch_sideTrack::t_road_railroad_switch_sideTrack(pugi::xml_node node)
 {
     if (node.attribute("id")) { id = node.attribute("id").as_string(); } //required
 	if (node.attribute("s")) { s = node.attribute("s").as_double(); }  //typedef
 	if (node.attribute("dir")) { dir = str2enum<e_elementDir>(node.attribute("dir").as_string()); } // enum
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_station::t_station(pugi::xml_node node)
 {
@@ -160,7 +178,7 @@ t_station::t_station(pugi::xml_node node)
 	{
 		m_platforms.push_back(std::make_shared<t_station_platform>(e_platform));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_station_platform::t_station_platform(pugi::xml_node node)
 {
@@ -170,7 +188,7 @@ t_station_platform::t_station_platform(pugi::xml_node node)
 	{
 		m_segments.push_back(std::make_shared<t_station_platform_segment>(e_segment));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_station_platform_segment::t_station_platform_segment(pugi::xml_node node)
 {
@@ -197,7 +215,7 @@ t_junction::t_junction(pugi::xml_node node)
 		m_controllers.push_back(std::make_shared<t_junction_controller>(e_controller));
 	}
 	if (node.child("surface")) { m_surface = std::make_shared<t_junction_surface>(node.child("surface")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_junction_connection::t_junction_connection(pugi::xml_node node)
 {
@@ -242,7 +260,7 @@ t_junction_surface::t_junction_surface(pugi::xml_node node)
 	{
 		m_CRGs.push_back(std::make_shared<t_junction_surface_CRG>(e_CRG));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_junction_surface_CRG::t_junction_surface_CRG(pugi::xml_node node)
 {
@@ -261,7 +279,7 @@ t_junctionGroup::t_junctionGroup(pugi::xml_node node)
 	{
 		m_junctionReferences.push_back(std::make_shared<t_junctionGroup_junctionReference>(e_junctionReference));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_junctionGroup_junctionReference::t_junctionGroup_junctionReference(pugi::xml_node node)
 {
@@ -276,7 +294,7 @@ t_controller::t_controller(pugi::xml_node node)
 	{
 		m_controls.push_back(std::make_shared<t_controller_control>(e_control));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_controller_control::t_controller_control(pugi::xml_node node)
 {
@@ -293,7 +311,7 @@ t_road_signals::t_road_signals(pugi::xml_node node)
 	{
 		m_signalReferences.push_back(std::make_shared<t_road_signals_signalReference>(e_signalReference));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_signals_signal::t_road_signals_signal(pugi::xml_node node)
 {
@@ -304,12 +322,12 @@ t_road_signals_signal::t_road_signals_signal(pugi::xml_node node)
 	if (node.attribute("dynamic")) { dynamic = str2enum<t_yesNo>(node.attribute("dynamic").as_string()); } // enum
 	if (node.attribute("orientation")) { orientation = str2enum<e_orientation>(node.attribute("orientation").as_string()); } // enum
     if (node.attribute("zOffset")) { zOffset = node.attribute("zOffset").as_double(); } //required
-	//--> ERROR <-- : if (node.attribute("country")) { country = node.attribute("country").e_countryCode; }  // TODO: >> union - handle properly
+	if (node.attribute("country")) { country = e_countryCode(node.attribute("country")); }  // TODO: >> union - handle properly
     if (node.attribute("countryRevision")) { countryRevision = node.attribute("countryRevision").as_string(); } //optional
     if (node.attribute("type")) { type = node.attribute("type").as_string(); } //required
     if (node.attribute("subtype")) { subtype = node.attribute("subtype").as_string(); } //required
     if (node.attribute("value")) { value = node.attribute("value").as_double(); } //optional
-	//--> ERROR <-- : if (node.attribute("unit")) { unit = node.attribute("unit").e_unit; }  // TODO: >> union - handle properly
+	if (node.attribute("unit")) { unit = e_unit(node.attribute("unit")); }  // TODO: >> union - handle properly
 	if (node.attribute("height")) { height = node.attribute("height").as_double(); }  //typedef
 	if (node.attribute("width")) { width = node.attribute("width").as_double(); }  //typedef
     if (node.attribute("text")) { text = node.attribute("text").as_string(); } //optional
@@ -328,7 +346,7 @@ t_road_signals_signal::t_road_signals_signal(pugi::xml_node node)
 	{
 		m_references.push_back(std::make_shared<t_road_signals_signal_reference>(e_reference));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
     //t_road_signals_signal_U	m_t_road_signals_signal;
 	if (node.first_child()) { m_t_road_signals_signal = std::make_shared<t_road_signals_signal_U>(node.first_child()); }
 }
@@ -372,7 +390,7 @@ t_road_signals_signalReference::t_road_signals_signalReference(pugi::xml_node no
 	{
 		m_validitys.push_back(std::make_shared<t_road_objects_object_laneValidity>(e_validity));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road::t_road(pugi::xml_node node)
 {
@@ -394,7 +412,7 @@ t_road::t_road(pugi::xml_node node)
 	if (node.child("signals")) { m_signals = std::make_shared<t_road_signals>(node.child("signals")); }
 	if (node.child("surface")) { m_surface = std::make_shared<t_road_surface>(node.child("surface")); }
 	if (node.child("railroad")) { m_railroad = std::make_shared<t_road_railroad>(node.child("railroad")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_elevationProfile::t_road_elevationProfile(pugi::xml_node node)
 {
@@ -402,7 +420,7 @@ t_road_elevationProfile::t_road_elevationProfile(pugi::xml_node node)
 	{
 		m_elevations.push_back(std::make_shared<t_road_elevationProfile_elevation>(e_elevation));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_elevationProfile_elevation::t_road_elevationProfile_elevation(pugi::xml_node node)
 {
@@ -422,7 +440,7 @@ t_road_lateralProfile::t_road_lateralProfile(pugi::xml_node node)
 	{
 		m_shapes.push_back(std::make_shared<t_road_lateralProfile_shape>(e_shape));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lateralProfile_shape::t_road_lateralProfile_shape(pugi::xml_node node)
 {
@@ -445,7 +463,7 @@ t_road_link::t_road_link(pugi::xml_node node)
 {
 	if (node.child("predecessor")) { m_predecessor = std::make_shared<t_road_link_predecessorSuccessor>(node.child("predecessor")); }
 	if (node.child("successor")) { m_successor = std::make_shared<t_road_link_predecessorSuccessor>(node.child("successor")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_link_predecessorSuccessor::t_road_link_predecessorSuccessor(pugi::xml_node node)
 {
@@ -461,7 +479,7 @@ t_road_planView::t_road_planView(pugi::xml_node node)
 	{
 		m_geometrys.push_back(std::make_shared<t_road_planView_geometry>(e_geometry));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_planView_geometry::t_road_planView_geometry(pugi::xml_node node)
 {
@@ -510,7 +528,7 @@ t_road_surface::t_road_surface(pugi::xml_node node)
 	{
 		m_CRGs.push_back(std::make_shared<t_road_surface_CRG>(e_CRG));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_surface_CRG::t_road_surface_CRG(pugi::xml_node node)
 {
@@ -530,13 +548,13 @@ t_road_type::t_road_type(pugi::xml_node node)
 {
 	if (node.attribute("s")) { s = node.attribute("s").as_double(); }  //typedef
 	if (node.attribute("type")) { type = str2enum<e_roadType>(node.attribute("type").as_string()); } // enum
-	//--> ERROR <-- : if (node.attribute("country")) { country = node.attribute("country").e_countryCode; }  // TODO: >> union - handle properly
+	if (node.attribute("country")) { country = e_countryCode(node.attribute("country")); }  // TODO: >> union - handle properly
 	if (node.child("speed")) { m_speed = std::make_shared<t_road_type_speed>(node.child("speed")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_type_speed::t_road_type_speed(pugi::xml_node node)
 {
-	//--> ERROR <-- : if (node.attribute("max")) { max = node.attribute("max").t_maxSpeed; }  // TODO: >> union - handle properly
+	if (node.attribute("max")) { max = t_maxSpeed(node.attribute("max")); }  // TODO: >> union - handle properly
 	if (node.attribute("unit")) { unit = str2enum<e_unitSpeed>(node.attribute("unit").as_string()); } // enum
 }
 t_road_objects::t_road_objects(pugi::xml_node node)
@@ -557,7 +575,7 @@ t_road_objects::t_road_objects(pugi::xml_node node)
 	{
 		m_bridges.push_back(std::make_shared<t_road_objects_bridge>(e_bridge));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_bridge::t_road_objects_bridge(pugi::xml_node node)
 {
@@ -570,7 +588,7 @@ t_road_objects_bridge::t_road_objects_bridge(pugi::xml_node node)
 	{
 		m_validitys.push_back(std::make_shared<t_road_objects_object_laneValidity>(e_validity));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_object::t_road_objects_object(pugi::xml_node node)
 {
@@ -608,7 +626,7 @@ t_road_objects_object::t_road_objects_object(pugi::xml_node node)
 	if (node.child("parkingSpace")) { m_parkingSpace = std::make_shared<t_road_objects_object_parkingSpace>(node.child("parkingSpace")); }
 	if (node.child("markings")) { m_markings = std::make_shared<t_road_objects_object_markings>(node.child("markings")); }
 	if (node.child("borders")) { m_borders = std::make_shared<t_road_objects_object_borders>(node.child("borders")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_object_borders::t_road_objects_object_borders(pugi::xml_node node)
 {
@@ -616,7 +634,7 @@ t_road_objects_object_borders::t_road_objects_object_borders(pugi::xml_node node
 	{
 		m_borders.push_back(std::make_shared<t_road_objects_object_borders_border>(e_border));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_object_borders_border::t_road_objects_object_borders_border(pugi::xml_node node)
 {
@@ -628,7 +646,7 @@ t_road_objects_object_borders_border::t_road_objects_object_borders_border(pugi:
 	{
 		m_cornerReferences.push_back(std::make_shared<t_road_objects_object_markings_marking_cornerReference>(e_cornerReference));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_object_markings::t_road_objects_object_markings(pugi::xml_node node)
 {
@@ -636,7 +654,7 @@ t_road_objects_object_markings::t_road_objects_object_markings(pugi::xml_node no
 	{
 		m_markings.push_back(std::make_shared<t_road_objects_object_markings_marking>(e_marking));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_object_markings_marking::t_road_objects_object_markings_marking(pugi::xml_node node)
 {
@@ -653,7 +671,7 @@ t_road_objects_object_markings_marking::t_road_objects_object_markings_marking(p
 	{
 		m_cornerReferences.push_back(std::make_shared<t_road_objects_object_markings_marking_cornerReference>(e_cornerReference));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_object_markings_marking_cornerReference::t_road_objects_object_markings_marking_cornerReference(pugi::xml_node node)
 {
@@ -671,7 +689,7 @@ t_road_objects_object_outlines::t_road_objects_object_outlines(pugi::xml_node no
 	{
 		m_outlines.push_back(std::make_shared<t_road_objects_object_outlines_outline>(e_outline));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_object_outlines_outline::t_road_objects_object_outlines_outline(pugi::xml_node node)
 {
@@ -680,7 +698,7 @@ t_road_objects_object_outlines_outline::t_road_objects_object_outlines_outline(p
 	if (node.attribute("outer")) { outer = str2enum<t_bool>(node.attribute("outer").as_string()); } // enum
 	if (node.attribute("closed")) { closed = str2enum<t_bool>(node.attribute("closed").as_string()); } // enum
 	if (node.attribute("laneType")) { laneType = str2enum<e_laneType>(node.attribute("laneType").as_string()); } // enum
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
     //t_road_objects_object_outlines_outline_U	m_t_road_objects_object_outlines_outline;
 	if (node.first_child()) { m_t_road_objects_object_outlines_outline = std::make_shared<t_road_objects_object_outlines_outline_U>(node.first_child()); }
 }
@@ -735,7 +753,7 @@ t_road_objects_objectReference::t_road_objects_objectReference(pugi::xml_node no
 	{
 		m_validitys.push_back(std::make_shared<t_road_objects_object_laneValidity>(e_validity));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_objects_tunnel::t_road_objects_tunnel(pugi::xml_node node)
 {
@@ -750,7 +768,7 @@ t_road_objects_tunnel::t_road_objects_tunnel(pugi::xml_node node)
 	{
 		m_validitys.push_back(std::make_shared<t_road_objects_object_laneValidity>(e_validity));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes::t_road_lanes(pugi::xml_node node)
 {
@@ -762,7 +780,7 @@ t_road_lanes::t_road_lanes(pugi::xml_node node)
 	{
 		m_laneSections.push_back(std::make_shared<t_road_lanes_laneSection>(e_laneSection));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneOffset::t_road_lanes_laneOffset(pugi::xml_node node)
 {
@@ -779,7 +797,7 @@ t_road_lanes_laneSection::t_road_lanes_laneSection(pugi::xml_node node)
 	if (node.child("left")) { m_left = std::make_shared<t_road_lanes_laneSection_left>(node.child("left")); }
 	if (node.child("center")) { m_center = std::make_shared<t_road_lanes_laneSection_center>(node.child("center")); }
 	if (node.child("right")) { m_right = std::make_shared<t_road_lanes_laneSection_right>(node.child("right")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_center::t_road_lanes_laneSection_center(pugi::xml_node node)
 {
@@ -787,7 +805,7 @@ t_road_lanes_laneSection_center::t_road_lanes_laneSection_center(pugi::xml_node 
 	{
 		m_lanes.push_back(std::make_shared<t_road_lanes_laneSection_center_lane>(e_lane));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_lr_lane::t_road_lanes_laneSection_lr_lane(pugi::xml_node node)
 {
@@ -818,7 +836,7 @@ t_road_lanes_laneSection_lr_lane::t_road_lanes_laneSection_lr_lane(pugi::xml_nod
 	{
 		m_rules.push_back(std::make_shared<t_road_lanes_laneSection_lr_lane_rule>(e_rule));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
     //std::vector<t_road_lanes_laneSection_lr_lane_U>	m_t_road_lanes_laneSection_lr_lane;
 	for (pugi::xml_node e_t_road_lanes_laneSection_lr_lane : node.children())
 	{
@@ -839,7 +857,7 @@ t_road_lanes_laneSection_lcr_lane_link::t_road_lanes_laneSection_lcr_lane_link(p
 	{
 		m_successors.push_back(std::make_shared<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>(e_successor));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor::t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor(pugi::xml_node node)
 {
@@ -861,7 +879,7 @@ t_road_lanes_laneSection_lcr_lane_roadMark::t_road_lanes_laneSection_lcr_lane_ro
 	}
 	if (node.child("type")) { m_type = std::make_shared<t_road_lanes_laneSection_lcr_lane_roadMark_type>(node.child("type")); }
 	if (node.child("explicit")) { m_explicit = std::make_shared<t_road_lanes_laneSection_lcr_lane_roadMark_explicit>(node.child("explicit")); }
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_lcr_lane_roadMark_explicit::t_road_lanes_laneSection_lcr_lane_roadMark_explicit(pugi::xml_node node)
 {
@@ -869,7 +887,7 @@ t_road_lanes_laneSection_lcr_lane_roadMark_explicit::t_road_lanes_laneSection_lc
 	{
 		m_lines.push_back(std::make_shared<t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line>(e_line));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line::t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line(pugi::xml_node node)
 {
@@ -895,7 +913,7 @@ t_road_lanes_laneSection_lcr_lane_roadMark_type::t_road_lanes_laneSection_lcr_la
 	{
 		m_lines.push_back(std::make_shared<t_road_lanes_laneSection_lcr_lane_roadMark_type_line>(e_line));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_lcr_lane_roadMark_type_line::t_road_lanes_laneSection_lcr_lane_roadMark_type_line(pugi::xml_node node)
 {
@@ -913,7 +931,7 @@ t_road_lanes_laneSection_left::t_road_lanes_laneSection_left(pugi::xml_node node
 	{
 		m_lanes.push_back(std::make_shared<t_road_lanes_laneSection_left_lane>(e_lane));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_left_lane::t_road_lanes_laneSection_left_lane(pugi::xml_node node)
 {
@@ -971,7 +989,7 @@ t_road_lanes_laneSection_right::t_road_lanes_laneSection_right(pugi::xml_node no
 	{
 		m_lanes.push_back(std::make_shared<t_road_lanes_laneSection_right_lane>(e_lane));
 	}
-   //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 t_road_lanes_laneSection_right_lane::t_road_lanes_laneSection_right_lane(pugi::xml_node node)
 {
@@ -981,6 +999,19 @@ t_road_objects_object_laneValidity::t_road_objects_object_laneValidity(pugi::xml
 {
     if (node.attribute("fromLane")) { fromLane = node.attribute("fromLane").as_int(); } //required
     if (node.attribute("toLane")) { toLane = node.attribute("toLane").as_int(); } //required
+}
+// xs:group -> aliased to group definition
+g_additionalData::g_additionalData(pugi::xml_node node)
+{
+	for (pugi::xml_node e_include = node.child("include"); e_include; e_include= e_include.next_sibling("include"))
+	{
+		m_includes.push_back(std::make_shared<t_include>(e_include));
+	}
+	for (pugi::xml_node e_userData = node.child("userData"); e_userData; e_userData= e_userData.next_sibling("userData"))
+	{
+		m_userDatas.push_back(std::make_shared<t_userData>(e_userData));
+	}
+	if (node.child("dataQuality")) { m_dataQuality = std::make_shared<t_dataQuality>(node.child("dataQuality")); }
 }
 OpenDRIVE::OpenDRIVE(pugi::xml_node node)
 {
@@ -1005,7 +1036,7 @@ OpenDRIVE::OpenDRIVE(pugi::xml_node node)
 	{
 		m_stations.push_back(std::make_shared<t_station>(e_station));
 	}
-    //group tag : reference g_additionalData
+	{ m_g_additionalData = std::make_shared<g_additionalData>(node); } // Node has no xml def, same node passes through until it finds an element.
 #ifdef __DEBUG__
 	std::cout<<*this<<std::endl;
 #endif
@@ -1030,9 +1061,8 @@ void xodr::load(std::string xodrfilename )
 void xodr::parse()
 {
 	try {
-		//TODO: To fill the OpenDRIVE class struct from xml_node
 		m_OpenDRIVE = std::make_shared<OpenDRIVE>(m_root.child("OpenDRIVE"));
-		std::cout << "OpenDrive parse successfully " << m_OpenDRIVE->m_header->vendor << std::endl;
+		std::cout << "OpenDRIVE parse successfully " << m_OpenDRIVE<< std::endl;
 	}
 	catch (std::exception &e)
 	{

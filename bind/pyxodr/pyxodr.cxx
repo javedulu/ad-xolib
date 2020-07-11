@@ -2,9 +2,9 @@
 //  opendrive_16_core_py.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Thu Jul  9 10:49:01 2020
+//  Created by Javed Shaik on Sat Jul 11 12:40:05 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 8137d7f6-75b5-4d42-a128-4a5578d45264 --
+//  -- UUIDv4 : cee7ecd4-d9a0-4773-a2fc-a907ec37b010 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -74,11 +74,11 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("vendor", &t_header::vendor, "Vendor name" ) //optional
 		.def_readwrite("geoReference", &t_header::m_geoReference ) //t_header_GeoReference
 		.def_readwrite("offset", &t_header::m_offset ) //t_header_Offset
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_header::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_header_GeoReference, std::shared_ptr<t_header_GeoReference>>(m,"t_header_GeoReference","Spatial reference systems are standardized by the European Petroleum Survey Group Geodesy (EPSG) and are defined by parameters describing the geodetic datum. A geodetic datum is a coordinate reference system for a collection of positions that are relative to an ellipsoid model of the earth. A geodetic datum is described by a projection string according to PROJ, that is, a format for the exchange of data between two coordinate systems. This data shall be marked as CDATA, because it may contain characters that interfere with the XML syntax of an element’s attribute.In OpenDRIVE, the information about the geographic reference of an OpenDRIVE dataset is represented by the &lt;geoReference&gt; element within the &lt;header&gt; element.")
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_header_GeoReference::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_header_Offset, std::shared_ptr<t_header_Offset>>(m,"t_header_Offset","")
@@ -86,7 +86,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("y", &t_header_Offset::y, "Inertial y offset" ) //required
 		.def_readwrite("z", &t_header_Offset::z, "Inertial z offset" ) //required
 		.def_readwrite("hdg", &t_header_Offset::hdg, "Heading offset (rotation around resulting z-axis)" ) //required
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_header_Offset::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_include, std::shared_ptr<t_include>>(m,"t_include","OpenDRIVE allows including external files into the OpenDRIVE file. The processing of the files depends on the application.Included data is represented by &lt;include&gt; elements. They may be stored at any position in OpenDRIVE.")
@@ -100,7 +100,7 @@ PYBIND11_MODULE(pyxodr,m)
 //
 	py::class_<t_road_railroad, std::shared_ptr<t_road_railroad>>(m,"t_road_railroad","")
 		.def_readwrite("switch", &t_road_railroad::m_switchs ) //t_road_railroad_switch
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_railroad::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_railroad_switch, std::shared_ptr<t_road_railroad_switch>>(m,"t_road_railroad_switch","")
@@ -110,27 +110,27 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("mainTrack", &t_road_railroad_switch::m_mainTrack ) //t_road_railroad_switch_mainTrack
 		.def_readwrite("sideTrack", &t_road_railroad_switch::m_sideTrack ) //t_road_railroad_switch_sideTrack
 		.def_readwrite("partner", &t_road_railroad_switch::m_partner ) //t_road_railroad_switch_partner
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_railroad_switch::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_railroad_switch_mainTrack, std::shared_ptr<t_road_railroad_switch_mainTrack>>(m,"t_road_railroad_switch_mainTrack","")
 		.def_readwrite("id", &t_road_railroad_switch_mainTrack::id, "Unique ID of the main track, that is, the &lt;road&gt; element. Must be consistent with parent containing this &lt;railroad&gt; element." ) //required
 		.def_readwrite("s", &t_road_railroad_switch_mainTrack::s , "s-coordinate of the switch, that is, the point where main track and side track meet" ) //required
 		.def_readwrite("dir", &t_road_railroad_switch_mainTrack::dir, "direction, relative to the s-direction, on the main track for entering the side track via the switch" ) //required
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_railroad_switch_mainTrack::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_railroad_switch_partner, std::shared_ptr<t_road_railroad_switch_partner>>(m,"t_road_railroad_switch_partner","")
 		.def_readwrite("name", &t_road_railroad_switch_partner::name, "Unique name of the partner switch" ) //optional
 		.def_readwrite("id", &t_road_railroad_switch_partner::id, "Unique ID of the partner switch" ) //required
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_railroad_switch_partner::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_railroad_switch_sideTrack, std::shared_ptr<t_road_railroad_switch_sideTrack>>(m,"t_road_railroad_switch_sideTrack","")
 		.def_readwrite("id", &t_road_railroad_switch_sideTrack::id, "Unique ID of the side track, that is, the &lt;road&gt; element" ) //required
 		.def_readwrite("s", &t_road_railroad_switch_sideTrack::s , "s-coordinate of the switch on the side track " ) //required
 		.def_readwrite("dir", &t_road_railroad_switch_sideTrack::dir, "direction, relative to the s-direction, on the side track for after entering it via the switch" ) //required
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_railroad_switch_sideTrack::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_station, std::shared_ptr<t_station>>(m,"t_station","")
@@ -138,14 +138,14 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("id", &t_station::id, "Unique ID within database" ) //required
 		.def_readwrite("type", &t_station::type, "Type of station. Free text, depending on the application.e.g.: small, medium, large" ) //optional
 		.def_readwrite("platform", &t_station::m_platforms ) //t_station_platform
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_station::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_station_platform, std::shared_ptr<t_station_platform>>(m,"t_station_platform","")
 		.def_readwrite("name", &t_station_platform::name, "Name of the platform. May be chosen freely." ) //optional
 		.def_readwrite("id", &t_station_platform::id, "Unique ID within database" ) //required
 		.def_readwrite("segment", &t_station_platform::m_segments ) //t_station_platform_segment
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_station_platform::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_station_platform_segment, std::shared_ptr<t_station_platform_segment>>(m,"t_station_platform_segment","")
@@ -163,7 +163,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("priority", &t_junction::m_prioritys ) //t_junction_priority
 		.def_readwrite("controller", &t_junction::m_controllers ) //t_junction_controller
 		.def_readwrite("surface", &t_junction::m_surface ) //t_junction_surface
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_junction::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_junction_connection, std::shared_ptr<t_junction_connection>>(m,"t_junction_connection","")
@@ -202,7 +202,7 @@ PYBIND11_MODULE(pyxodr,m)
 //
 	py::class_<t_junction_surface, std::shared_ptr<t_junction_surface>>(m,"t_junction_surface","")
 		.def_readwrite("CRG", &t_junction_surface::m_CRGs ) //t_junction_surface_CRG
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_junction_surface::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_junction_surface_CRG, std::shared_ptr<t_junction_surface_CRG>>(m,"t_junction_surface_CRG","")
@@ -218,7 +218,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("id", &t_junctionGroup::id, "Unique ID within database" ) //required
 		.def_readwrite("type", &t_junctionGroup::type, "Type of junction groupFor values see UML Model" ) //required
 		.def_readwrite("junctionReference", &t_junctionGroup::m_junctionReferences ) //t_junctionGroup_junctionReference
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_junctionGroup::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_junctionGroup_junctionReference, std::shared_ptr<t_junctionGroup_junctionReference>>(m,"t_junctionGroup_junctionReference","")
@@ -230,7 +230,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("name", &t_controller::name, "Name of the controller. May be chosen freely." ) //optional
 		.def_readwrite("sequence", &t_controller::sequence, "Sequence number (priority) of this controller with respect to other controllers of same logical level" ) //optional
 		.def_readwrite("control", &t_controller::m_controls ) //t_controller_control
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_controller::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_controller_control, std::shared_ptr<t_controller_control>>(m,"t_controller_control","")
@@ -241,7 +241,7 @@ PYBIND11_MODULE(pyxodr,m)
 	py::class_<t_road_signals, std::shared_ptr<t_road_signals>>(m,"t_road_signals","")
 		.def_readwrite("signal", &t_road_signals::m_signals ) //t_road_signals_signal
 		.def_readwrite("signalReference", &t_road_signals::m_signalReferences ) //t_road_signals_signalReference
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_signals::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_signals_signal, std::shared_ptr<t_road_signals_signal>>(m,"t_road_signals_signal","")
@@ -252,12 +252,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("dynamic", &t_road_signals_signal::dynamic, "Indicates whether the signal is dynamic or static. Example: traffic light is dynamic" ) //required
 		.def_readwrite("orientation", &t_road_signals_signal::orientation, "&quot;+&quot; = valid in positive s- direction&quot;-&quot; = valid in negative s- direction&quot;none&quot; = valid in both directions" ) //required
 		.def_readwrite("zOffset", &t_road_signals_signal::zOffset, "z offset from the road to bottom edge of the signal. This represents the vertical clearance of the object. Relative to the reference line." ) //required
-	//--> ERROR <-- : if (node.attribute("country")) { country = node.attribute("country").e_countryCode; }  // TODO: >> union - handle properly
+		.def_readwrite("country", &t_road_signals_signal::country, "Country code of the road, see ISO 3166-1, alpha-2 codes.")
 		.def_readwrite("countryRevision", &t_road_signals_signal::countryRevision, "" ) //optional
 		.def_readwrite("type", &t_road_signals_signal::type, "Type identifier according to country code or &quot;-1&quot; / &quot;none&quot;. See extra document." ) //required
 		.def_readwrite("subtype", &t_road_signals_signal::subtype, "Subtype identifier according to country code or &quot;-1&quot; / &quot;none&quot;" ) //required
 		.def_readwrite("value", &t_road_signals_signal::value, "Value of the signal, if value is given, unit is mandatory" ) //optional
-	//--> ERROR <-- : if (node.attribute("unit")) { unit = node.attribute("unit").e_unit; }  // TODO: >> union - handle properly
+		.def_readwrite("unit", &t_road_signals_signal::unit, "Unit of @value")
 		.def_readwrite("height", &t_road_signals_signal::height , "Height of the signal, measured from bottom edge of the signal" ) //optional
 		.def_readwrite("width", &t_road_signals_signal::width , "Width of the signal" ) //optional
 		.def_readwrite("text", &t_road_signals_signal::text, "Additional text associated with the signal, for example, text on city limit &quot;City\nBadAibling&quot;" ) //optional
@@ -267,7 +267,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("validity", &t_road_signals_signal::m_validitys ) //t_road_objects_object_laneValidity
 		.def_readwrite("dependency", &t_road_signals_signal::m_dependencys ) //t_road_signals_signal_dependency
 		.def_readwrite("reference", &t_road_signals_signal::m_references ) //t_road_signals_signal_reference
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_signals_signal::m_g_additionalData ) // group read
 		.def_readwrite("t_road_signals_signal", &t_road_signals_signal::m_t_road_signals_signal ) //
 ;
 //
@@ -307,7 +307,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("id", &t_road_signals_signalReference::id, "Unique ID of the referenced signal within the database" ) //required
 		.def_readwrite("orientation", &t_road_signals_signalReference::orientation, "&quot;+&quot; = valid in positive s-direction&quot;-&quot; = valid in negative s-direction&quot;none&quot; = valid in both directions" ) //required
 		.def_readwrite("validity", &t_road_signals_signalReference::m_validitys ) //t_road_objects_object_laneValidity
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_signals_signalReference::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road, std::shared_ptr<t_road>>(m,"t_road","")
@@ -326,12 +326,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("signals", &t_road::m_signals ) //t_road_signals
 		.def_readwrite("surface", &t_road::m_surface ) //t_road_surface
 		.def_readwrite("railroad", &t_road::m_railroad ) //t_road_railroad
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_elevationProfile, std::shared_ptr<t_road_elevationProfile>>(m,"t_road_elevationProfile","")
 		.def_readwrite("elevation", &t_road_elevationProfile::m_elevations ) //t_road_elevationProfile_elevation
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_elevationProfile::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_elevationProfile_elevation, std::shared_ptr<t_road_elevationProfile_elevation>>(m,"t_road_elevationProfile_elevation","")
@@ -345,7 +345,7 @@ PYBIND11_MODULE(pyxodr,m)
 	py::class_<t_road_lateralProfile, std::shared_ptr<t_road_lateralProfile>>(m,"t_road_lateralProfile","")
 		.def_readwrite("superelevation", &t_road_lateralProfile::m_superelevations ) //t_road_lateralProfile_superelevation
 		.def_readwrite("shape", &t_road_lateralProfile::m_shapes ) //t_road_lateralProfile_shape
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lateralProfile::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lateralProfile_shape, std::shared_ptr<t_road_lateralProfile_shape>>(m,"t_road_lateralProfile_shape","")
@@ -368,7 +368,7 @@ PYBIND11_MODULE(pyxodr,m)
 	py::class_<t_road_link, std::shared_ptr<t_road_link>>(m,"t_road_link","")
 		.def_readwrite("predecessor", &t_road_link::m_predecessor ) //t_road_link_predecessorSuccessor
 		.def_readwrite("successor", &t_road_link::m_successor ) //t_road_link_predecessorSuccessor
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_link::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_link_predecessorSuccessor, std::shared_ptr<t_road_link_predecessorSuccessor>>(m,"t_road_link_predecessorSuccessor","")
@@ -381,7 +381,7 @@ PYBIND11_MODULE(pyxodr,m)
 //
 	py::class_<t_road_planView, std::shared_ptr<t_road_planView>>(m,"t_road_planView","")
 		.def_readwrite("geometry", &t_road_planView::m_geometrys ) //t_road_planView_geometry
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_planView::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_planView_geometry, std::shared_ptr<t_road_planView_geometry>>(m,"t_road_planView_geometry","")
@@ -426,7 +426,7 @@ PYBIND11_MODULE(pyxodr,m)
 //
 	py::class_<t_road_surface, std::shared_ptr<t_road_surface>>(m,"t_road_surface","")
 		.def_readwrite("CRG", &t_road_surface::m_CRGs ) //t_road_surface_CRG
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_surface::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_surface_CRG, std::shared_ptr<t_road_surface_CRG>>(m,"t_road_surface_CRG","")
@@ -446,13 +446,13 @@ PYBIND11_MODULE(pyxodr,m)
 	py::class_<t_road_type, std::shared_ptr<t_road_type>>(m,"t_road_type","")
 		.def_readwrite("s", &t_road_type::s , "s-coordinate of start position" ) //required
 		.def_readwrite("type", &t_road_type::type, "For supported types, for values see UML model." ) //required
-	//--> ERROR <-- : if (node.attribute("country")) { country = node.attribute("country").e_countryCode; }  // TODO: >> union - handle properly
+		.def_readwrite("country", &t_road_type::country, "Country code of the road, see ISO 3166-1, alpha-2 codes.")
 		.def_readwrite("speed", &t_road_type::m_speed ) //t_road_type_speed
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_type::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_type_speed, std::shared_ptr<t_road_type_speed>>(m,"t_road_type_speed","")
-	//--> ERROR <-- : if (node.attribute("max")) { max = node.attribute("max").t_maxSpeed; }  // TODO: >> union - handle properly
+		.def_readwrite("max", &t_road_type_speed::max, "Maximum allowed speed. Given as string (only &quot;no limit&quot; / &quot;undefined&quot;) or numerical value in the respective unit (see attribute unit). If the attribute unit is not specified, m/s is used as default. ")
 		.def_readwrite("unit", &t_road_type_speed::unit, "Unit of the attribute max. For values, see chapter “units”." ) //optional
 ;
 //
@@ -461,7 +461,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("objectReference", &t_road_objects::m_objectReferences ) //t_road_objects_objectReference
 		.def_readwrite("tunnel", &t_road_objects::m_tunnels ) //t_road_objects_tunnel
 		.def_readwrite("bridge", &t_road_objects::m_bridges ) //t_road_objects_bridge
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_bridge, std::shared_ptr<t_road_objects_bridge>>(m,"t_road_objects_bridge","")
@@ -471,7 +471,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("id", &t_road_objects_bridge::id, "Unique ID within database" ) //required
 		.def_readwrite("type", &t_road_objects_bridge::type, "Type of bridge. For values see UML Model." ) //required
 		.def_readwrite("validity", &t_road_objects_bridge::m_validitys ) //t_road_objects_object_laneValidity
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_bridge::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_object, std::shared_ptr<t_road_objects_object>>(m,"t_road_objects_object","")
@@ -500,12 +500,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("parkingSpace", &t_road_objects_object::m_parkingSpace ) //t_road_objects_object_parkingSpace
 		.def_readwrite("markings", &t_road_objects_object::m_markings ) //t_road_objects_object_markings
 		.def_readwrite("borders", &t_road_objects_object::m_borders ) //t_road_objects_object_borders
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_object::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_object_borders, std::shared_ptr<t_road_objects_object_borders>>(m,"t_road_objects_object_borders","")
 		.def_readwrite("border", &t_road_objects_object_borders::m_borders ) //t_road_objects_object_borders_border
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_object_borders::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_object_borders_border, std::shared_ptr<t_road_objects_object_borders_border>>(m,"t_road_objects_object_borders_border","")
@@ -514,12 +514,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("outlineId", &t_road_objects_object_borders_border::outlineId, "ID of the outline to use" ) //required
 		.def_readwrite("useCompleteOutline", &t_road_objects_object_borders_border::useCompleteOutline, "Use all outline points for border. “true” is used as default." ) //optional
 		.def_readwrite("cornerReference", &t_road_objects_object_borders_border::m_cornerReferences ) //t_road_objects_object_markings_marking_cornerReference
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_object_borders_border::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_object_markings, std::shared_ptr<t_road_objects_object_markings>>(m,"t_road_objects_object_markings","")
 		.def_readwrite("marking", &t_road_objects_object_markings::m_markings ) //t_road_objects_object_markings_marking
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_object_markings::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_object_markings_marking, std::shared_ptr<t_road_objects_object_markings_marking>>(m,"t_road_objects_object_markings_marking","")
@@ -533,7 +533,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("startOffset", &t_road_objects_object_markings_marking::startOffset, "Lateral offset in u-direction from start of bounding box side where the first marking starts" ) //required
 		.def_readwrite("stopOffset", &t_road_objects_object_markings_marking::stopOffset, "Lateral offset in u-direction from end of bounding box side where the marking ends" ) //required
 		.def_readwrite("cornerReference", &t_road_objects_object_markings_marking::m_cornerReferences ) //t_road_objects_object_markings_marking_cornerReference
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_object_markings_marking::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_object_markings_marking_cornerReference, std::shared_ptr<t_road_objects_object_markings_marking_cornerReference>>(m,"t_road_objects_object_markings_marking_cornerReference","")
@@ -548,7 +548,7 @@ PYBIND11_MODULE(pyxodr,m)
 //
 	py::class_<t_road_objects_object_outlines, std::shared_ptr<t_road_objects_object_outlines>>(m,"t_road_objects_object_outlines","")
 		.def_readwrite("outline", &t_road_objects_object_outlines::m_outlines ) //t_road_objects_object_outlines_outline
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_object_outlines::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_object_outlines_outline, std::shared_ptr<t_road_objects_object_outlines_outline>>(m,"t_road_objects_object_outlines_outline","")
@@ -557,7 +557,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("outer", &t_road_objects_object_outlines_outline::outer, "Defines if outline is an outer outline of the object." ) //optional
 		.def_readwrite("closed", &t_road_objects_object_outlines_outline::closed, "If true, the outline describes an area, not a linear feature." ) //optional
 		.def_readwrite("laneType", &t_road_objects_object_outlines_outline::laneType, "Describes the lane type of the outline. For values see UML Model." ) //optional
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_object_outlines_outline::m_g_additionalData ) // group read
 		.def_readwrite("t_road_objects_object_outlines_outline", &t_road_objects_object_outlines_outline::m_t_road_objects_object_outlines_outline ) //
 ;
 //
@@ -608,7 +608,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("validLength", &t_road_objects_objectReference::validLength , "Validity of the object along s-axis(0.0 for point object)" ) //optional
 		.def_readwrite("orientation", &t_road_objects_objectReference::orientation, "&quot;+&quot; = valid in positive s-direction&quot;-&quot; = valid in negative s-direction&quot;none&quot; = valid in both directions" ) //required
 		.def_readwrite("validity", &t_road_objects_objectReference::m_validitys ) //t_road_objects_object_laneValidity
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_objectReference::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_objects_tunnel, std::shared_ptr<t_road_objects_tunnel>>(m,"t_road_objects_tunnel","")
@@ -620,13 +620,13 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("lighting", &t_road_objects_tunnel::lighting , "Degree of artificial tunnel lighting. Depends on the application." ) //optional
 		.def_readwrite("daylight", &t_road_objects_tunnel::daylight , "Degree of daylight intruding the tunnel. Depends on the application." ) //optional
 		.def_readwrite("validity", &t_road_objects_tunnel::m_validitys ) //t_road_objects_object_laneValidity
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_objects_tunnel::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes, std::shared_ptr<t_road_lanes>>(m,"t_road_lanes","")
 		.def_readwrite("laneOffset", &t_road_lanes::m_laneOffsets ) //t_road_lanes_laneOffset
 		.def_readwrite("laneSection", &t_road_lanes::m_laneSections ) //t_road_lanes_laneSection
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneOffset, std::shared_ptr<t_road_lanes_laneOffset>>(m,"t_road_lanes_laneOffset","")
@@ -643,12 +643,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("left", &t_road_lanes_laneSection::m_left ) //t_road_lanes_laneSection_left
 		.def_readwrite("center", &t_road_lanes_laneSection::m_center ) //t_road_lanes_laneSection_center
 		.def_readwrite("right", &t_road_lanes_laneSection::m_right ) //t_road_lanes_laneSection_right
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_center, std::shared_ptr<t_road_lanes_laneSection_center>>(m,"t_road_lanes_laneSection_center","")
 		.def_readwrite("lane", &t_road_lanes_laneSection_center::m_lanes ) //t_road_lanes_laneSection_center_lane
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_center::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_lr_lane, std::shared_ptr<t_road_lanes_laneSection_lr_lane>>(m,"t_road_lanes_laneSection_lr_lane","")
@@ -661,7 +661,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("access", &t_road_lanes_laneSection_lr_lane::m_accesss ) //t_road_lanes_laneSection_lr_lane_access
 		.def_readwrite("height", &t_road_lanes_laneSection_lr_lane::m_heights ) //t_road_lanes_laneSection_lr_lane_height
 		.def_readwrite("rule", &t_road_lanes_laneSection_lr_lane::m_rules ) //t_road_lanes_laneSection_lr_lane_rule
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_lr_lane::m_g_additionalData ) // group read
 		.def_readwrite("t_road_lanes_laneSection_lr_lane", &t_road_lanes_laneSection_lr_lane::m_t_road_lanes_laneSection_lr_lanes ) //
 ;
 //
@@ -672,7 +672,7 @@ PYBIND11_MODULE(pyxodr,m)
 	py::class_<t_road_lanes_laneSection_lcr_lane_link, std::shared_ptr<t_road_lanes_laneSection_lcr_lane_link>>(m,"t_road_lanes_laneSection_lcr_lane_link","")
 		.def_readwrite("predecessor", &t_road_lanes_laneSection_lcr_lane_link::m_predecessors ) //t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor
 		.def_readwrite("successor", &t_road_lanes_laneSection_lcr_lane_link::m_successors ) //t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_lcr_lane_link::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor, std::shared_ptr<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>>(m,"t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor","")
@@ -691,12 +691,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("sway", &t_road_lanes_laneSection_lcr_lane_roadMark::m_sways ) //t_road_lanes_laneSection_lcr_lane_roadMark_sway
 		.def_readwrite("type", &t_road_lanes_laneSection_lcr_lane_roadMark::m_type ) //t_road_lanes_laneSection_lcr_lane_roadMark_type
 		.def_readwrite("explicit", &t_road_lanes_laneSection_lcr_lane_roadMark::m_explicit ) //t_road_lanes_laneSection_lcr_lane_roadMark_explicit
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_lcr_lane_roadMark::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_lcr_lane_roadMark_explicit, std::shared_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit>>(m,"t_road_lanes_laneSection_lcr_lane_roadMark_explicit","")
 		.def_readwrite("line", &t_road_lanes_laneSection_lcr_lane_roadMark_explicit::m_lines ) //t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_lcr_lane_roadMark_explicit::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line, std::shared_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line>>(m,"t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line","")
@@ -719,7 +719,7 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("name", &t_road_lanes_laneSection_lcr_lane_roadMark_type::name, "Name of the road mark type. May be chosen freely." ) //required
 		.def_readwrite("width", &t_road_lanes_laneSection_lcr_lane_roadMark_type::width , "Accumulated width of the road mark. In case of several &lt;line&gt; elements this @width is the sum of all @width of &lt;line&gt; elements and spaces in between, necessary to form the road mark. This attribute supersedes the definition in the &lt;roadMark&gt; element." ) //required
 		.def_readwrite("line", &t_road_lanes_laneSection_lcr_lane_roadMark_type::m_lines ) //t_road_lanes_laneSection_lcr_lane_roadMark_type_line
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_lcr_lane_roadMark_type::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_lcr_lane_roadMark_type_line, std::shared_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_type_line>>(m,"t_road_lanes_laneSection_lcr_lane_roadMark_type_line","")
@@ -734,7 +734,7 @@ PYBIND11_MODULE(pyxodr,m)
 //
 	py::class_<t_road_lanes_laneSection_left, std::shared_ptr<t_road_lanes_laneSection_left>>(m,"t_road_lanes_laneSection_left","")
 		.def_readwrite("lane", &t_road_lanes_laneSection_left::m_lanes ) //t_road_lanes_laneSection_left_lane
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_left::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_left_lane, std::shared_ptr<t_road_lanes_laneSection_left_lane>>(m,"t_road_lanes_laneSection_left_lane","")
@@ -789,7 +789,7 @@ PYBIND11_MODULE(pyxodr,m)
 //
 	py::class_<t_road_lanes_laneSection_right, std::shared_ptr<t_road_lanes_laneSection_right>>(m,"t_road_lanes_laneSection_right","")
 		.def_readwrite("lane", &t_road_lanes_laneSection_right::m_lanes ) //t_road_lanes_laneSection_right_lane
-   //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &t_road_lanes_laneSection_right::m_g_additionalData ) // group read
 ;
 //
 	py::class_<t_road_lanes_laneSection_right_lane, std::shared_ptr<t_road_lanes_laneSection_right_lane>>(m,"t_road_lanes_laneSection_right_lane","")
@@ -800,6 +800,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("fromLane", &t_road_objects_object_laneValidity::fromLane, "Minimum ID of the lanes for which the object is valid" ) //required
 		.def_readwrite("toLane", &t_road_objects_object_laneValidity::toLane, "Maximum ID of the lanes for which the object is valid" ) //required
 ;
+	// xs:group -> aliased to group definition
+	py::class_<g_additionalData, std::shared_ptr<g_additionalData>>(m,"g_additionalData","Group g_additionalData")
+		.def_readwrite("include", &g_additionalData::m_includes ) //t_include
+		.def_readwrite("userData", &g_additionalData::m_userDatas ) //t_userData
+		.def_readwrite("dataQuality", &g_additionalData::m_dataQuality ) //t_dataQuality
+	;
 //
 	py::enum_<e_dataQuality_RawData_PostProcessing>(m,"e_dataQuality_RawData_PostProcessing", py::arithmetic(),"")
 		.value(enum2str<e_dataQuality_RawData_PostProcessing>(e_dataQuality_RawData_PostProcessing::RAW).c_str(),e_dataQuality_RawData_PostProcessing::RAW,"")            //raw
@@ -1095,12 +1101,12 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("unitSlope",&e_unit::unitSlope)
 	;
 	py::class_<e_countryCode, std::shared_ptr<e_countryCode>>(m,"e_countryCode") // union definition
-		.def_readwrite("countryCode_iso3166alpha2",&e_countryCode::countryCode_iso3166alpha2)
-		.def_readwrite("countryCode_iso3166alpha3_deprecated",&e_countryCode::countryCode_iso3166alpha3_deprecated)
+		.def_readwrite("m_e_countryCode_iso3166alpha2",&e_countryCode::m_e_countryCode_iso3166alpha2)
+		.def_readwrite("m_e_countryCode_iso3166alpha3_deprecated",&e_countryCode::m_e_countryCode_iso3166alpha3_deprecated)
 		.def_readwrite("countryCode_deprecated",&e_countryCode::countryCode_deprecated)
 	;
 	py::class_<t_maxSpeed, std::shared_ptr<t_maxSpeed>>(m,"t_maxSpeed") // union definition
-		.def_readwrite("grEqZero",&t_maxSpeed::grEqZero)
+		.def_readwrite("m_t_grEqZero",&t_maxSpeed::m_t_grEqZero)
 		.def_readwrite("maxSpeedString",&t_maxSpeed::maxSpeedString)
 	;
 //
@@ -1111,9 +1117,9 @@ PYBIND11_MODULE(pyxodr,m)
 		.def_readwrite("junction", &OpenDRIVE::m_junctions ) //t_junction
 		.def_readwrite("junctionGroup", &OpenDRIVE::m_junctionGroups ) //t_junctionGroup
 		.def_readwrite("station", &OpenDRIVE::m_stations ) //t_station
-				    //group tag : reference g_additionalData
+	.def_readwrite("g_additionalData", &OpenDRIVE::m_g_additionalData ) // group read
 			;
-	py::class_<xodr,std::shared_ptr<xodr>>(m, "xodr", "Main Clazz for interfacing with Opendrive")
+	py::class_<xodr,std::shared_ptr<xodr>>(m, "xodr", "Main Clazz for interfacing with OpenDRIVE")
 		.def(py::init<>())
 		.def("load", &xodr::load, py::arg("filename"))
 		.def("parse", &xodr::parse)
