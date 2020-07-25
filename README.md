@@ -44,6 +44,7 @@ cmake . --target build
 - [https://github.com/DLR-TS/xodr](https://github.com/DLR-TS/xodr) - OpenDrive 1.4
 - [https://github.com/pyoscx/pyoscx](https://github.com/pyoscx/pyoscx) - pyoscx
 - [https://github.com/carla-simulator/scenario_runner](https://github.com/carla-simulator/scenario_runner) - Scenario Runner
+- [https://github.com/MrMushroom/CarlaScenarioLoader](https://github.com/MrMushroom/CarlaScenarioLoader) - CarlaScenarioLoader
 
 ## Contributing <a name="contributing"></a>
 Contributions are very welcome!
@@ -60,7 +61,6 @@ Don't edit them directly .
  - ~~Python binding [XODR]~~ DONE
  - ~~Bump the format to 1.6 of OpenDrive~~ DONE
  - ~~OpenScenario c++ parsing based on OpenScenario-1.0~~ DONE
- - Python binding for OpenScenario [XOSC] 
- - evented mechanism for Handling OpenScenario events
+ - ~~Python binding for OpenScenario [XOSC]~~ DONE
+ - OpenScenario Manager to manage simulations with External Simulator's 
  - OpenScenario 2.0 [Awaiting specification ] 
- - Independent Scenario Simulation examples with Carla / Other simulation engine. 
