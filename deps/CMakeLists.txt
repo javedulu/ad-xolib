@@ -11,4 +11,4 @@ set_global_variable (DEPS_INCL_DIR
 #set(PYBIND11_CPP_STANDARD -std=c++14)
 add_subdirectory(pybind11)
 add_subdirectory(pugixml)
-
+add_subdirectory(libuv)
