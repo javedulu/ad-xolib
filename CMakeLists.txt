@@ -10,7 +10,7 @@ INCLUDE(GenerateExportHeader)
 ADD_PLATFORM_ARCH()
 
 OPTION(BUILD_SHARED_LIBS "Build project with shared Opendds library" ON)
-OPTION(BUILD_PYTHON_EMBED "Build project with Python embed " ON)
+OPTION(BUILD_EMBED_TARGETS "Build project with embed targets Python / Javascript-c++(v8) / Emscripten" ON)
 
 SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -96,7 +96,7 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/deps/pugixml/src)
 
 ADD_SUBDIRECTORY(deps) # for pybind11 & pugixml
 ADD_SUBDIRECTORY(src)
-IF(BUILD_PYTHON_EMBED)
+IF(BUILD_EMBED_TARGETS)
     ADD_SUBDIRECTORY(bind)
 ENDIF()
 ADD_SUBDIRECTORY(appln)
