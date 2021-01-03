@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        console.log('lerp result: ' + Module.lerp(1, 2, 0.5));
+      }
+    };
+  </script>
+  <script src="xosc.js"></script>
+</html>
+
+<!-- 
+ref : https://developers.google.com/web/updates/2018/08/embind
+-- $ emcc --bind -O3 --std=c++11 a_c_file.c another_c_file.c -x c++ your_cpp_file.cpp 
+<script src="/a.out.js"></script>
+<script>
+Module.onRuntimeInitialized = _ => {
+  const c = new Module.Counter(22);
+  console.log(c.counter); // prints 22
+  c.increase();
+  console.log(c.counter); // prints 23
+  console.log(c.squareCounter()); // prints 529
+};
+</script>
+-->
+
+
+<!--
+  
+<!doctype html>
+<html>
+   <input type="file" id="fileinput" />
+   <script type="text/javascript">
+      function readSingleFile(evt) {
+        //Retrieve the first (and only!) File from the FileList object
+        var f = evt.target.files[0];
+
+        if (f) {
+          var r = new FileReader();
+          r.onload = function(e) {
+            var contents = e.target.result;
+            Module['FS_createDataFile']("/tmp", f.name, contents, true, true);
+            alert( "Got the file.\n"
+                  +"name: " + f.name + "\n"
+                  +"type: " + f.type + "\n"
+                  +"size: " + f.size + " bytes\n"
+                  + "starts with: " + contents.substr(1, contents.indexOf("\n"))
+            );
+            document.getElementById('area').value=  contents;
+          }
+          r.readAsText(f);
+
+        } else {
+          alert("Failed to load file");
+        }
+      }
+      document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+   </script>
+
+  <textarea rows=20 id="area"></textarea>
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        //console.log('lerp result: ' + Module.lerp(1, 2, 0.5));
+        console.log('Module result: ' + Module.xosc);
+      }
+    };
+  </script>
+  <script src="xosc.js"></script>
+</html>
+
+-->

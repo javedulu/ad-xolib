@@ -594,7 +594,7 @@ t_road_objects_object::t_road_objects_object(pugi::xml_node node)
 {
     if (node.attribute("t")) { t = node.attribute("t").as_double(); } //required
     if (node.attribute("zOffset")) { zOffset = node.attribute("zOffset").as_double(); } //required
-	if (node.attribute("type")) { type = str2enum<e_objectType>(node.attribute("type").as_string()); } // enum
+	//if (node.attribute("type")) { type = str2enum<e_objectType>(node.attribute("type").as_string()); } // enum
 	if (node.attribute("validLength")) { validLength = node.attribute("validLength").as_double(); }  //typedef
 	if (node.attribute("orientation")) { orientation = str2enum<e_orientation>(node.attribute("orientation").as_string()); } // enum
     if (node.attribute("subtype")) { subtype = node.attribute("subtype").as_string(); } //optional

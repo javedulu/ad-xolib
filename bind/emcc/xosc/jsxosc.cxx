@@ -2,9 +2,9 @@
 //  OpenSCENARIO_js.cxx
 //  xsd2cxx- for OpenDrive CXX classes
 //
-//  Created by Javed Shaik on Sun Dec 27 22:22:52 2020
+//  Created by Javed Shaik on Wed Dec 30 22:36:44 2020
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : e2c6e6f7-538a-4a19-8f6d-ddf00d885420 --
+//  -- UUIDv4 : 44ffbc2d-b191-4afe-86d8-bad28f025399 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -13,7 +13,6 @@
 #include <emscripten/bind.h>
 //
 #include "xosc.h"
-
 using namespace emscripten;
 EMSCRIPTEN_BINDINGS(jsxosc)
 {
@@ -174,9 +173,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 ;
 	class_<SelectedEntities_U>("SelectedEntities_U")
 		.smart_ptr_constructor("SelectedEntities_U",&std::make_shared<SelectedEntities_U>)
-		.property("EntityRef", &SelectedEntities_U::m_EntityRefs ) //EntityRef
-		.property("ByType", &SelectedEntities_U::m_ByTypes ) //ByType
+		.property("EntityRef", &SelectedEntities_U::m_EntityRefs ) //EntityRef - #vector (choice_elem_load)
+		.property("ByType", &SelectedEntities_U::m_ByTypes ) //ByType - #vector (choice_elem_load)
 ;
+		register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (choice_elem_load)
+		register_vector<std::shared_ptr<ByType>>("vector<ByType>"); //ByType - #vector - register (choice_elem_load)
 	class_<Shape_U>("Shape_U")
 		.smart_ptr_constructor("Shape_U",&std::make_shared<Shape_U>)
 		.property("Polyline", &Shape_U::m_Polyline ) //Polyline
@@ -244,10 +245,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 	class_<Act>("Act") 
 		.smart_ptr_constructor("Act",&std::make_shared<Act>) 
 		.property("name", &Act::name) 
-		.property("ManeuverGroup", &Act::m_ManeuverGroups ) //ManeuverGroup
+		.property("ManeuverGroup", &Act::m_ManeuverGroups ) //ManeuverGroup - #vector (elem_load_js)
 		.property("StartTrigger", &Act::m_StartTrigger ) //Trigger
 		.property("StopTrigger", &Act::m_StopTrigger ) //Trigger
 ; 
+		register_vector<std::shared_ptr<ManeuverGroup>>("vector<ManeuverGroup>"); //ManeuverGroup - #vector - register (elem_load_js)
 //
 	class_<Action>("Action") 
 		.smart_ptr_constructor("Action",&std::make_shared<Action>) 
@@ -264,8 +266,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 	class_<Actors>("Actors") 
 		.smart_ptr_constructor("Actors",&std::make_shared<Actors>) 
 		.property("selectTriggeringEntities", &Actors::selectTriggeringEntities) 
-		.property("EntityRef", &Actors::m_EntityRefs ) //EntityRef
+		.property("EntityRef", &Actors::m_EntityRefs ) //EntityRef - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (elem_load_js)
 //
 	class_<AddEntityAction>("AddEntityAction") 
 		.smart_ptr_constructor("AddEntityAction",&std::make_shared<AddEntityAction>) 
@@ -295,8 +298,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.smart_ptr_constructor("Axles",&std::make_shared<Axles>) 
 		.property("FrontAxle", &Axles::m_FrontAxle ) //Axle
 		.property("RearAxle", &Axles::m_RearAxle ) //Axle
-		.property("AdditionalAxle", &Axles::m_AdditionalAxles ) //Axle
+		.property("AdditionalAxle", &Axles::m_AdditionalAxles ) //Axle - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Axle>>("vector<Axle>"); //Axle - #vector - register (elem_load_js)
 //
 	class_<BoundingBox>("BoundingBox") 
 		.smart_ptr_constructor("BoundingBox",&std::make_shared<BoundingBox>) 
@@ -328,15 +332,23 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 	class_<Catalog>("Catalog") 
 		.smart_ptr_constructor("Catalog",&std::make_shared<Catalog>) 
 		.property("name", &Catalog::name) 
-		.property("Vehicle", &Catalog::m_Vehicles ) //Vehicle
-		.property("Controller", &Catalog::m_Controllers ) //Controller
-		.property("Pedestrian", &Catalog::m_Pedestrians ) //Pedestrian
-		.property("MiscObject", &Catalog::m_MiscObjects ) //MiscObject
-		.property("Environment", &Catalog::m_Environments ) //Environment
-		.property("Maneuver", &Catalog::m_Maneuvers ) //Maneuver
-		.property("Trajectory", &Catalog::m_Trajectorys ) //Trajectory
-		.property("Route", &Catalog::m_Routes ) //Route
+		.property("Vehicle", &Catalog::m_Vehicles ) //Vehicle - #vector (elem_load_js)
+		.property("Controller", &Catalog::m_Controllers ) //Controller - #vector (elem_load_js)
+		.property("Pedestrian", &Catalog::m_Pedestrians ) //Pedestrian - #vector (elem_load_js)
+		.property("MiscObject", &Catalog::m_MiscObjects ) //MiscObject - #vector (elem_load_js)
+		.property("Environment", &Catalog::m_Environments ) //Environment - #vector (elem_load_js)
+		.property("Maneuver", &Catalog::m_Maneuvers ) //Maneuver - #vector (elem_load_js)
+		.property("Trajectory", &Catalog::m_Trajectorys ) //Trajectory - #vector (elem_load_js)
+		.property("Route", &Catalog::m_Routes ) //Route - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Vehicle>>("vector<Vehicle>"); //Vehicle - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Controller>>("vector<Controller>"); //Controller - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Pedestrian>>("vector<Pedestrian>"); //Pedestrian - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<MiscObject>>("vector<MiscObject>"); //MiscObject - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Environment>>("vector<Environment>"); //Environment - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Maneuver>>("vector<Maneuver>"); //Maneuver - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Trajectory>>("vector<Trajectory>"); //Trajectory - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Route>>("vector<Route>"); //Route - #vector - register (elem_load_js)
 //
 	class_<CatalogLocations>("CatalogLocations") 
 		.smart_ptr_constructor("CatalogLocations",&std::make_shared<CatalogLocations>) 
@@ -394,8 +406,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<ConditionGroup>("ConditionGroup") 
 		.smart_ptr_constructor("ConditionGroup",&std::make_shared<ConditionGroup>) 
-		.property("Condition", &ConditionGroup::m_Conditions ) //Condition
+		.property("Condition", &ConditionGroup::m_Conditions ) //Condition - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Condition>>("vector<Condition>"); //Condition - #vector - register (elem_load_js)
 //
 	class_<Controller>("Controller") 
 		.smart_ptr_constructor("Controller",&std::make_shared<Controller>) 
@@ -417,8 +430,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<ControllerDistribution>("ControllerDistribution") 
 		.smart_ptr_constructor("ControllerDistribution",&std::make_shared<ControllerDistribution>) 
-		.property("ControllerDistributionEntry", &ControllerDistribution::m_ControllerDistributionEntrys ) //ControllerDistributionEntry
+		.property("ControllerDistributionEntry", &ControllerDistribution::m_ControllerDistributionEntrys ) //ControllerDistributionEntry - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<ControllerDistributionEntry>>("vector<ControllerDistributionEntry>"); //ControllerDistributionEntry - #vector - register (elem_load_js)
 //
 	class_<ControllerDistributionEntry>("ControllerDistributionEntry") 
 		.smart_ptr_constructor("ControllerDistributionEntry",&std::make_shared<ControllerDistributionEntry>) 
@@ -477,9 +491,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<Entities>("Entities") 
 		.smart_ptr_constructor("Entities",&std::make_shared<Entities>) 
-		.property("ScenarioObject", &Entities::m_ScenarioObjects ) //ScenarioObject
-		.property("EntitySelection", &Entities::m_EntitySelections ) //EntitySelection
+		.property("ScenarioObject", &Entities::m_ScenarioObjects ) //ScenarioObject - #vector (elem_load_js)
+		.property("EntitySelection", &Entities::m_EntitySelections ) //EntitySelection - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<ScenarioObject>>("vector<ScenarioObject>"); //ScenarioObject - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<EntitySelection>>("vector<EntitySelection>"); //EntitySelection - #vector - register (elem_load_js)
 //
 	class_<EntityAction>("EntityAction") 
 		.smart_ptr_constructor("EntityAction",&std::make_shared<EntityAction>) 
@@ -527,9 +543,10 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("maximumExecutionCount", &Event::maximumExecutionCount) 
 		.property("name", &Event::name) 
 		.property("priority", &Event::priority) 
-		.property("Action", &Event::m_Actions ) //Action
+		.property("Action", &Event::m_Actions ) //Action - #vector (elem_load_js)
 		.property("StartTrigger", &Event::m_StartTrigger ) //Trigger
 ; 
+		register_vector<std::shared_ptr<Action>>("vector<Action>"); //Action - #vector - register (elem_load_js)
 //
 	class_<File>("File") 
 		.smart_ptr_constructor("File",&std::make_shared<File>) 
@@ -581,10 +598,13 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<InitActions>("InitActions") 
 		.smart_ptr_constructor("InitActions",&std::make_shared<InitActions>) 
-		.property("GlobalAction", &InitActions::m_GlobalActions ) //GlobalAction
-		.property("UserDefinedAction", &InitActions::m_UserDefinedActions ) //UserDefinedAction
-		.property("Private", &InitActions::m_Privates ) //Private
+		.property("GlobalAction", &InitActions::m_GlobalActions ) //GlobalAction - #vector (elem_load_js)
+		.property("UserDefinedAction", &InitActions::m_UserDefinedActions ) //UserDefinedAction - #vector (elem_load_js)
+		.property("Private", &InitActions::m_Privates ) //Private - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<GlobalAction>>("vector<GlobalAction>"); //GlobalAction - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<UserDefinedAction>>("vector<UserDefinedAction>"); //UserDefinedAction - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Private>>("vector<Private>"); //Private - #vector - register (elem_load_js)
 //
 	class_<InRoutePosition>("InRoutePosition") 
 		.smart_ptr_constructor("InRoutePosition",&std::make_shared<InRoutePosition>) 
@@ -668,8 +688,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.smart_ptr_constructor("Maneuver",&std::make_shared<Maneuver>) 
 		.property("name", &Maneuver::name) 
 		.property("ParameterDeclarations", &Maneuver::m_ParameterDeclarations ) //ParameterDeclarations
-		.property("Event", &Maneuver::m_Events ) //Event
+		.property("Event", &Maneuver::m_Events ) //Event - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Event>>("vector<Event>"); //Event - #vector - register (elem_load_js)
 //
 	class_<ManeuverCatalogLocation>("ManeuverCatalogLocation") 
 		.smart_ptr_constructor("ManeuverCatalogLocation",&std::make_shared<ManeuverCatalogLocation>) 
@@ -681,9 +702,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("maximumExecutionCount", &ManeuverGroup::maximumExecutionCount) 
 		.property("name", &ManeuverGroup::name) 
 		.property("Actors", &ManeuverGroup::m_Actors ) //Actors
-		.property("CatalogReference", &ManeuverGroup::m_CatalogReferences ) //CatalogReference
-		.property("Maneuver", &ManeuverGroup::m_Maneuvers ) //Maneuver
+		.property("CatalogReference", &ManeuverGroup::m_CatalogReferences ) //CatalogReference - #vector (elem_load_js)
+		.property("Maneuver", &ManeuverGroup::m_Maneuvers ) //Maneuver - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<CatalogReference>>("vector<CatalogReference>"); //CatalogReference - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Maneuver>>("vector<Maneuver>"); //Maneuver - #vector - register (elem_load_js)
 //
 	class_<MiscObject>("MiscObject") 
 		.smart_ptr_constructor("MiscObject",&std::make_shared<MiscObject>) 
@@ -712,9 +735,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 	class_<Nurbs>("Nurbs") 
 		.smart_ptr_constructor("Nurbs",&std::make_shared<Nurbs>) 
 		.property("order", &Nurbs::order) 
-		.property("ControlPoint", &Nurbs::m_ControlPoints ) //ControlPoint
-		.property("Knot", &Nurbs::m_Knots ) //Knot
+		.property("ControlPoint", &Nurbs::m_ControlPoints ) //ControlPoint - #vector (elem_load_js)
+		.property("Knot", &Nurbs::m_Knots ) //Knot - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<ControlPoint>>("vector<ControlPoint>"); //ControlPoint - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<Knot>>("vector<Knot>"); //Knot - #vector - register (elem_load_js)
 //
 	class_<ObjectController>("ObjectController") 
 		.smart_ptr_constructor("ObjectController",&std::make_shared<ObjectController>) 
@@ -805,8 +830,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<ParameterAssignments>("ParameterAssignments") 
 		.smart_ptr_constructor("ParameterAssignments",&std::make_shared<ParameterAssignments>) 
-		.property("ParameterAssignment", &ParameterAssignments::m_ParameterAssignments ) //ParameterAssignment
+		.property("ParameterAssignment", &ParameterAssignments::m_ParameterAssignments ) //ParameterAssignment - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<ParameterAssignment>>("vector<ParameterAssignment>"); //ParameterAssignment - #vector - register (elem_load_js)
 //
 	class_<ParameterCondition>("ParameterCondition") 
 		.smart_ptr_constructor("ParameterCondition",&std::make_shared<ParameterCondition>) 
@@ -824,8 +850,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<ParameterDeclarations>("ParameterDeclarations") 
 		.smart_ptr_constructor("ParameterDeclarations",&std::make_shared<ParameterDeclarations>) 
-		.property("ParameterDeclaration", &ParameterDeclarations::m_ParameterDeclarations ) //ParameterDeclaration
+		.property("ParameterDeclaration", &ParameterDeclarations::m_ParameterDeclarations ) //ParameterDeclaration - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<ParameterDeclaration>>("vector<ParameterDeclaration>"); //ParameterDeclaration - #vector - register (elem_load_js)
 //
 	class_<ParameterModifyAction>("ParameterModifyAction") 
 		.smart_ptr_constructor("ParameterModifyAction",&std::make_shared<ParameterModifyAction>) 
@@ -869,13 +896,15 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.smart_ptr_constructor("Phase",&std::make_shared<Phase>) 
 		.property("duration", &Phase::duration) 
 		.property("name", &Phase::name) 
-		.property("TrafficSignalState", &Phase::m_TrafficSignalStates ) //TrafficSignalState
+		.property("TrafficSignalState", &Phase::m_TrafficSignalStates ) //TrafficSignalState - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<TrafficSignalState>>("vector<TrafficSignalState>"); //TrafficSignalState - #vector - register (elem_load_js)
 //
 	class_<Polyline>("Polyline") 
 		.smart_ptr_constructor("Polyline",&std::make_shared<Polyline>) 
-		.property("Vertex", &Polyline::m_Vertexs ) //Vertex
+		.property("Vertex", &Polyline::m_Vertexs ) //Vertex - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Vertex>>("vector<Vertex>"); //Vertex - #vector - register (elem_load_js)
 //
 	class_<Position>("Position") 
 		.smart_ptr_constructor("Position",&std::make_shared<Position>) 
@@ -909,8 +938,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 	class_<Private>("Private") 
 		.smart_ptr_constructor("Private",&std::make_shared<Private>) 
 		.property("entityRef", &Private::entityRef) 
-		.property("PrivateAction", &Private::m_PrivateActions ) //PrivateAction
+		.property("PrivateAction", &Private::m_PrivateActions ) //PrivateAction - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<PrivateAction>>("vector<PrivateAction>"); //PrivateAction - #vector - register (elem_load_js)
 //
 	class_<PrivateAction>("PrivateAction") 
 		.smart_ptr_constructor("PrivateAction",&std::make_shared<PrivateAction>) 
@@ -919,9 +949,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<Properties>("Properties") 
 		.smart_ptr_constructor("Properties",&std::make_shared<Properties>) 
-		.property("Property", &Properties::m_Propertys ) //Property
-		.property("File", &Properties::m_Files ) //File
+		.property("Property", &Properties::m_Propertys ) //Property - #vector (elem_load_js)
+		.property("File", &Properties::m_Files ) //File - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Property>>("vector<Property>"); //Property - #vector - register (elem_load_js)
+		register_vector<std::shared_ptr<File>>("vector<File>"); //File - #vector - register (elem_load_js)
 //
 	class_<Property>("Property") 
 		.smart_ptr_constructor("Property",&std::make_shared<Property>) 
@@ -1038,8 +1070,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("closed", &Route::closed) 
 		.property("name", &Route::name) 
 		.property("ParameterDeclarations", &Route::m_ParameterDeclarations ) //ParameterDeclarations
-		.property("Waypoint", &Route::m_Waypoints ) //Waypoint
+		.property("Waypoint", &Route::m_Waypoints ) //Waypoint - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Waypoint>>("vector<Waypoint>"); //Waypoint - #vector - register (elem_load_js)
 //
 	class_<RouteCatalogLocation>("RouteCatalogLocation") 
 		.smart_ptr_constructor("RouteCatalogLocation",&std::make_shared<RouteCatalogLocation>) 
@@ -1112,15 +1145,17 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.smart_ptr_constructor("Story",&std::make_shared<Story>) 
 		.property("name", &Story::name) 
 		.property("ParameterDeclarations", &Story::m_ParameterDeclarations ) //ParameterDeclarations
-		.property("Act", &Story::m_Acts ) //Act
+		.property("Act", &Story::m_Acts ) //Act - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Act>>("vector<Act>"); //Act - #vector - register (elem_load_js)
 //
 	class_<Storyboard>("Storyboard") 
 		.smart_ptr_constructor("Storyboard",&std::make_shared<Storyboard>) 
 		.property("Init", &Storyboard::m_Init ) //Init
-		.property("Story", &Storyboard::m_Storys ) //Story
+		.property("Story", &Storyboard::m_Storys ) //Story - #vector (elem_load_js)
 		.property("StopTrigger", &Storyboard::m_StopTrigger ) //Trigger
 ; 
+		register_vector<std::shared_ptr<Story>>("vector<Story>"); //Story - #vector - register (elem_load_js)
 //
 	class_<StoryboardElementStateCondition>("StoryboardElementStateCondition") 
 		.smart_ptr_constructor("StoryboardElementStateCondition",&std::make_shared<StoryboardElementStateCondition>) 
@@ -1224,13 +1259,15 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("delay", &TrafficSignalController::delay) 
 		.property("name", &TrafficSignalController::name) 
 		.property("reference", &TrafficSignalController::reference) 
-		.property("Phase", &TrafficSignalController::m_Phases ) //Phase
+		.property("Phase", &TrafficSignalController::m_Phases ) //Phase - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<Phase>>("vector<Phase>"); //Phase - #vector - register (elem_load_js)
 //
 	class_<TrafficSignals>("TrafficSignals") 
 		.smart_ptr_constructor("TrafficSignals",&std::make_shared<TrafficSignals>) 
-		.property("TrafficSignalController", &TrafficSignals::m_TrafficSignalControllers ) //TrafficSignalController
+		.property("TrafficSignalController", &TrafficSignals::m_TrafficSignalControllers ) //TrafficSignalController - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<TrafficSignalController>>("vector<TrafficSignalController>"); //TrafficSignalController - #vector - register (elem_load_js)
 //
 	class_<TrafficSignalControllerAction>("TrafficSignalControllerAction") 
 		.smart_ptr_constructor("TrafficSignalControllerAction",&std::make_shared<TrafficSignalControllerAction>) 
@@ -1317,14 +1354,16 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<Trigger>("Trigger") 
 		.smart_ptr_constructor("Trigger",&std::make_shared<Trigger>) 
-		.property("ConditionGroup", &Trigger::m_ConditionGroups ) //ConditionGroup
+		.property("ConditionGroup", &Trigger::m_ConditionGroups ) //ConditionGroup - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<ConditionGroup>>("vector<ConditionGroup>"); //ConditionGroup - #vector - register (elem_load_js)
 //
 	class_<TriggeringEntities>("TriggeringEntities") 
 		.smart_ptr_constructor("TriggeringEntities",&std::make_shared<TriggeringEntities>) 
 		.property("triggeringEntitiesRule", &TriggeringEntities::triggeringEntitiesRule) 
-		.property("EntityRef", &TriggeringEntities::m_EntityRefs ) //EntityRef
+		.property("EntityRef", &TriggeringEntities::m_EntityRefs ) //EntityRef - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (elem_load_js)
 //
 	class_<UserDefinedAction>("UserDefinedAction") 
 		.smart_ptr_constructor("UserDefinedAction",&std::make_shared<UserDefinedAction>) 
@@ -1356,8 +1395,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<VehicleCategoryDistribution>("VehicleCategoryDistribution") 
 		.smart_ptr_constructor("VehicleCategoryDistribution",&std::make_shared<VehicleCategoryDistribution>) 
-		.property("VehicleCategoryDistributionEntry", &VehicleCategoryDistribution::m_VehicleCategoryDistributionEntrys ) //VehicleCategoryDistributionEntry
+		.property("VehicleCategoryDistributionEntry", &VehicleCategoryDistribution::m_VehicleCategoryDistributionEntrys ) //VehicleCategoryDistributionEntry - #vector (elem_load_js)
 ; 
+		register_vector<std::shared_ptr<VehicleCategoryDistributionEntry>>("vector<VehicleCategoryDistributionEntry>"); //VehicleCategoryDistributionEntry - #vector - register (elem_load_js)
 //
 	class_<VehicleCategoryDistributionEntry>("VehicleCategoryDistributionEntry") 
 		.smart_ptr_constructor("VehicleCategoryDistributionEntry",&std::make_shared<VehicleCategoryDistributionEntry>) 
@@ -1721,7 +1761,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
 	class_<xosc>("xosc")  // "Main Clazz for interfacing with OpenSCENARIO"
 		.smart_ptr_constructor("xosc",&std::make_shared<xosc>) 
-		//.function("load", &xosc::load, js::arg("filename"))
+	 	.function("load", &xosc::load)
 		.function("parse", &xosc::parse)
 		.property("OpenSCENARIO", &xosc::m_OpenSCENARIO);
 }

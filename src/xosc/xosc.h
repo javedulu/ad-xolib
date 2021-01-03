@@ -3641,9 +3641,9 @@ public:
 // xs:element -> main  as clazz definition
 using OpenSCENARIO = OpenScenario;
 //
-class XOSC_EXPORT xosc
+struct XOSC_EXPORT xosc
 {
-private:
+public:
     pugi::xml_document m_doc;
     pugi::xml_node m_root;
 public:

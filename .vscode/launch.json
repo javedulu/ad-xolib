@@ -8,6 +8,18 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
+            "program": "${workspaceFolder}/build/xodr-darwin_x64",
+            "args": ["${workspaceFolder}/build/Infinity.xodr"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
             "program": "${workspaceFolder}/build/xosc-darwin_x64",
             "args": [],
             "stopAtEntry": false,
