@@ -176,7 +176,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("EntityRef", &SelectedEntities_U::m_EntityRefs ) //EntityRef - #vector (choice_elem_load)
 		.property("ByType", &SelectedEntities_U::m_ByTypes ) //ByType - #vector (choice_elem_load)
 ;
-		register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (choice_elem_load)
+		//register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (choice_elem_load)
 		register_vector<std::shared_ptr<ByType>>("vector<ByType>"); //ByType - #vector - register (choice_elem_load)
 	class_<Shape_U>("Shape_U")
 		.smart_ptr_constructor("Shape_U",&std::make_shared<Shape_U>)
@@ -268,7 +268,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("selectTriggeringEntities", &Actors::selectTriggeringEntities) 
 		.property("EntityRef", &Actors::m_EntityRefs ) //EntityRef - #vector (elem_load_js)
 ; 
-		register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (elem_load_js)
+		//register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (elem_load_js)
 //
 	class_<AddEntityAction>("AddEntityAction") 
 		.smart_ptr_constructor("AddEntityAction",&std::make_shared<AddEntityAction>) 
@@ -706,7 +706,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("Maneuver", &ManeuverGroup::m_Maneuvers ) //Maneuver - #vector (elem_load_js)
 ; 
 		register_vector<std::shared_ptr<CatalogReference>>("vector<CatalogReference>"); //CatalogReference - #vector - register (elem_load_js)
-		register_vector<std::shared_ptr<Maneuver>>("vector<Maneuver>"); //Maneuver - #vector - register (elem_load_js)
+		//register_vector<std::shared_ptr<Maneuver>>("vector<Maneuver>"); //Maneuver - #vector - register (elem_load_js)
 //
 	class_<MiscObject>("MiscObject") 
 		.smart_ptr_constructor("MiscObject",&std::make_shared<MiscObject>) 
@@ -1363,7 +1363,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 		.property("triggeringEntitiesRule", &TriggeringEntities::triggeringEntitiesRule) 
 		.property("EntityRef", &TriggeringEntities::m_EntityRefs ) //EntityRef - #vector (elem_load_js)
 ; 
-		register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (elem_load_js)
+		//register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef - #vector - register (elem_load_js)
 //
 	class_<UserDefinedAction>("UserDefinedAction") 
 		.smart_ptr_constructor("UserDefinedAction",&std::make_shared<UserDefinedAction>) 
