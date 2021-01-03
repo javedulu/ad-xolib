@@ -126,7 +126,7 @@ macro(add_emcc_target name depend_libs sources)
             ${CMAKE_CURRENT_SOURCE_DIR}
         COMMAND
             ${EMCC_EXECUTABLE} ${INCS}
-            --bind ${sources} --std=c++1z -s FORCE_FILESYSTEM=1 --no-entry -s LLD_REPORT_UNDEFINED  -s MODULARIZE=1
+            --bind ${sources} --std=c++1z -O3 -s FORCE_FILESYSTEM=1 --no-entry -s LLD_REPORT_UNDEFINED  -s MODULARIZE=1
             ${LIBRARY_SOURCES}
             -o ${CMAKE_CURRENT_BINARY_DIR}/${name}
         VERBATIM 
