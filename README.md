@@ -58,7 +58,7 @@ Don't edit them directly .
 
 ## Coming Soon .. [ Sneak Peek ] 
  - Javascript binding for OpenScenario & OpenDrive (with emcc)
- - Visual Graph Editiing of OpenScenario & OpenDrive 
+ - Visual Graph Editing of OpenScenario & OpenDrive 
  ![alt text](https://github.com/javedulu/ad-xolib/blob/openscenario/nodes.png?raw=true)
  
 ## Future Requests <a name="future"></a>
