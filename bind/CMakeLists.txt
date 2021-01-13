@@ -1,2 +1,2 @@
-add_subdirectory(pyxodr)
-add_subdirectory(pyxosc)
+add_subdirectory(py)
+add_subdirectory(emcc)
