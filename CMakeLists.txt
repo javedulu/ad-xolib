@@ -9,7 +9,7 @@ INCLUDE(GenerateExportHeader)
 
 ADD_PLATFORM_ARCH()
 
-OPTION(BUILD_SHARED_LIBS "Build project with shared Opendds library" ON)
+OPTION(BUILD_SHARED_LIBS "Build project with shared library" ON)
 OPTION(BUILD_EMBED_TARGETS "Build project with embed targets Python / Javascript-c++(v8) / Emscripten" ON)
 
 SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)

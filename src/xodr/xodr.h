@@ -30,9 +30,9 @@
 typedef t_typevar<double> t_grEqZero;
 typedef t_typevar<double> t_grZero;
 typedef t_typevar<double> t_zeroOne;
-const std::string e_countryCode_iso3166alpha2_pattern = "[A-Z]{2}";
+const constexpr char e_countryCode_iso3166alpha2_pattern[] = "[A-Z]{2}";
 typedef t_patternstr<e_countryCode_iso3166alpha2_pattern> e_countryCode_iso3166alpha2;
-const std::string e_countryCode_iso3166alpha3_deprecated_pattern = "[A-Z]{3}";
+const constexpr char e_countryCode_iso3166alpha3_deprecated_pattern[] = "[A-Z]{3}";
 typedef t_patternstr<e_countryCode_iso3166alpha3_deprecated_pattern> e_countryCode_iso3166alpha3_deprecated;
 // Enumerations
 enum class e_dataQuality_RawData_PostProcessing : std::uint8_t

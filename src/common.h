@@ -49,12 +49,13 @@ struct t_datetime
         t = mktime(&tm);
     }
 };
-template <const std::string& pattern>
+template <const char* pattern>
 struct t_patternstr
 {
     std::string _val;
-    bool operator=(std::string tval)
+    bool operator=(const char* cval)
     {
+        std::string tval(cval);
         std::regex r(pattern);
         std::smatch m;
         std::regex_search(tval,m,r);

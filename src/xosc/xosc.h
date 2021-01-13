@@ -11,6 +11,8 @@
 #ifndef _OPENSCENARIO_H_
 #define _OPENSCENARIO_H_
 #pragma once
+
+
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -27,7 +29,7 @@
 //
 #include "common.h" 
 // Typedefs
-const std::string parameter_pattern = "[$][A-Za-z_][A-Za-z0-9_]*";
+const constexpr char parameter_pattern[] = "[$][A-Za-z_][A-Za-z0-9_]*";
 typedef t_patternstr<parameter_pattern> parameter;
 // Enumerations
 enum class e_CloudState : std::uint8_t
