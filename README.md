@@ -63,7 +63,7 @@ Don't edit them directly .
  
 ## Future Requests <a name="future"></a>
  - Meta manager to handle OpenDrive & OpenScenario -- In Progress
- - ~~Save to xo[dr,sc] from c++~~
+ - ~~Save to xo[dr,sc] from c++~~ [ 01-18-2021 ] 
  - Javascript porting using emcc -- In Progress.
  - Visual Graph based Editing (Web Browser Based) -- In Progress
  - ~~Python binding [XODR]~~ DONE
