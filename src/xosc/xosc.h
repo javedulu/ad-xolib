@@ -4,7 +4,7 @@
 //
 //  Created by Javed Shaik on Mon Jan 18 21:29:49 2021
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 986986ab-9025-4091-8192-9feb848c9f85 --
+//  -- UUIDv4 : 78a6864d-cfec-4801-8799-10eb4b8ed2f2 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 #ifndef _OPENSCENARIO_H_
@@ -28,454 +28,454 @@ typedef t_patternstr<parameter_pattern> parameter;
 // Enumerations 
 enum class e_CloudState : std::uint8_t  
 {
-	  CLOUDY,               //cloudy 
-	  FREE,               //free 
-	  OVERCAST,               //overcast 
-	  RAINY,               //rainy 
-	  SKYOFF               //skyOff 
+      CLOUDY,               //cloudy 
+      FREE,               //free 
+      OVERCAST,               //overcast 
+      RAINY,               //rainy 
+      SKYOFF               //skyOff 
 };
 enum class e_ConditionEdge : std::uint8_t  
 {
-	  FALLING,               //falling 
-	  NONE,               //none 
-	  RISING,               //rising 
-	  RISINGORFALLING               //risingOrFalling 
+      FALLING,               //falling 
+      NONE,               //none 
+      RISING,               //rising 
+      RISINGORFALLING               //risingOrFalling 
 };
 enum class e_DynamicsDimension : std::uint8_t  
 {
-	  DISTANCE,               //distance 
-	  RATE,               //rate 
-	  TIME               //time 
+      DISTANCE,               //distance 
+      RATE,               //rate 
+      TIME               //time 
 };
 enum class e_DynamicsShape : std::uint8_t  
 {
-	  CUBIC,               //cubic 
-	  LINEAR,               //linear 
-	  SINUSOIDAL,               //sinusoidal 
-	  STEP               //step 
+      CUBIC,               //cubic 
+      LINEAR,               //linear 
+      SINUSOIDAL,               //sinusoidal 
+      STEP               //step 
 };
 enum class e_FollowingMode : std::uint8_t  
 {
-	  FOLLOW,               //follow 
-	  POSITION               //position 
+      FOLLOW,               //follow 
+      POSITION               //position 
 };
 enum class e_MiscObjectCategory : std::uint8_t  
 {
-	  BARRIER,               //barrier 
-	  BUILDING,               //building 
-	  CROSSWALK,               //crosswalk 
-	  GANTRY,               //gantry 
-	  NONE,               //none 
-	  OBSTACLE,               //obstacle 
-	  PARKINGSPACE,               //parkingSpace 
-	  PATCH,               //patch 
-	  POLE,               //pole 
-	  RAILING,               //railing 
-	  ROADMARK,               //roadMark 
-	  SOUNDBARRIER,               //soundBarrier 
-	  STREETLAMP,               //streetLamp 
-	  TRAFFICISLAND,               //trafficIsland 
-	  TREE,               //tree 
-	  VEGETATION,               //vegetation 
-	  WIND               //wind 
+      BARRIER,               //barrier 
+      BUILDING,               //building 
+      CROSSWALK,               //crosswalk 
+      GANTRY,               //gantry 
+      NONE,               //none 
+      OBSTACLE,               //obstacle 
+      PARKINGSPACE,               //parkingSpace 
+      PATCH,               //patch 
+      POLE,               //pole 
+      RAILING,               //railing 
+      ROADMARK,               //roadMark 
+      SOUNDBARRIER,               //soundBarrier 
+      STREETLAMP,               //streetLamp 
+      TRAFFICISLAND,               //trafficIsland 
+      TREE,               //tree 
+      VEGETATION,               //vegetation 
+      WIND               //wind 
 };
 enum class e_ObjectType : std::uint8_t  
 {
-	  MISCELLANEOUS,               //miscellaneous 
-	  PEDESTRIAN,               //pedestrian 
-	  VEHICLE               //vehicle 
+      MISCELLANEOUS,               //miscellaneous 
+      PEDESTRIAN,               //pedestrian 
+      VEHICLE               //vehicle 
 };
 enum class e_ParameterType : std::uint8_t  
 {
-	  BOOLEAN,               //boolean 
-	  DATETIME,               //dateTime 
-	  DOUBLE,               //double 
-	  INTEGER,               //integer 
-	  STRING,               //string 
-	  UNSIGNEDINT,               //unsignedInt 
-	  UNSIGNEDSHORT               //unsignedShort 
+      BOOLEAN,               //boolean 
+      DATETIME,               //dateTime 
+      DOUBLE,               //double 
+      INTEGER,               //integer 
+      STRING,               //string 
+      UNSIGNEDINT,               //unsignedInt 
+      UNSIGNEDSHORT               //unsignedShort 
 };
 enum class e_PedestrianCategory : std::uint8_t  
 {
-	  ANIMAL,               //animal 
-	  PEDESTRIAN,               //pedestrian 
-	  WHEELCHAIR               //wheelchair 
+      ANIMAL,               //animal 
+      PEDESTRIAN,               //pedestrian 
+      WHEELCHAIR               //wheelchair 
 };
 enum class e_PrecipitationType : std::uint8_t  
 {
-	  DRY,               //dry 
-	  RAIN,               //rain 
-	  SNOW               //snow 
+      DRY,               //dry 
+      RAIN,               //rain 
+      SNOW               //snow 
 };
 enum class e_Priority : std::uint8_t  
 {
-	  OVERWRITE,               //overwrite 
-	  PARALLEL,               //parallel 
-	  SKIP               //skip 
+      OVERWRITE,               //overwrite 
+      PARALLEL,               //parallel 
+      SKIP               //skip 
 };
 enum class e_ReferenceContext : std::uint8_t  
 {
-	  ABSOLUTE,               //absolute 
-	  RELATIVE               //relative 
+      ABSOLUTE,               //absolute 
+      RELATIVE               //relative 
 };
 enum class e_RelativeDistanceType : std::uint8_t  
 {
-	  CARTESIANDISTANCE,               //cartesianDistance 
-	  LATERAL,               //lateral 
-	  LONGITUDINAL               //longitudinal 
+      CARTESIANDISTANCE,               //cartesianDistance 
+      LATERAL,               //lateral 
+      LONGITUDINAL               //longitudinal 
 };
 enum class e_RouteStrategy : std::uint8_t  
 {
-	  FASTEST,               //fastest 
-	  LEASTINTERSECTIONS,               //leastIntersections 
-	  RANDOM,               //random 
-	  SHORTEST               //shortest 
+      FASTEST,               //fastest 
+      LEASTINTERSECTIONS,               //leastIntersections 
+      RANDOM,               //random 
+      SHORTEST               //shortest 
 };
 enum class e_Rule : std::uint8_t  
 {
-	  EQUALTO,               //equalTo 
-	  GREATERTHAN,               //greaterThan 
-	  LESSTHAN               //lessThan 
+      EQUALTO,               //equalTo 
+      GREATERTHAN,               //greaterThan 
+      LESSTHAN               //lessThan 
 };
 enum class e_SpeedTargetValueType : std::uint8_t  
 {
-	  DELTA,               //delta 
-	  FACTOR               //factor 
+      DELTA,               //delta 
+      FACTOR               //factor 
 };
 enum class e_StoryboardElementState : std::uint8_t  
 {
-	  COMPLETESTATE,               //completeState 
-	  ENDTRANSITION,               //endTransition 
-	  RUNNINGSTATE,               //runningState 
-	  SKIPTRANSITION,               //skipTransition 
-	  STANDBYSTATE,               //standbyState 
-	  STARTTRANSITION,               //startTransition 
-	  STOPTRANSITION               //stopTransition 
+      COMPLETESTATE,               //completeState 
+      ENDTRANSITION,               //endTransition 
+      RUNNINGSTATE,               //runningState 
+      SKIPTRANSITION,               //skipTransition 
+      STANDBYSTATE,               //standbyState 
+      STARTTRANSITION,               //startTransition 
+      STOPTRANSITION               //stopTransition 
 };
 enum class e_StoryboardElementType : std::uint8_t  
 {
-	  ACT,               //act 
-	  ACTION,               //action 
-	  EVENT,               //event 
-	  MANEUVER,               //maneuver 
-	  MANEUVERGROUP,               //maneuverGroup 
-	  STORY               //story 
+      ACT,               //act 
+      ACTION,               //action 
+      EVENT,               //event 
+      MANEUVER,               //maneuver 
+      MANEUVERGROUP,               //maneuverGroup 
+      STORY               //story 
 };
 enum class e_TriggeringEntitiesRule : std::uint8_t  
 {
-	  ALL,               //all 
-	  ANY               //any 
+      ALL,               //all 
+      ANY               //any 
 };
 enum class e_VehicleCategory : std::uint8_t  
 {
-	  BICYCLE,               //bicycle 
-	  BUS,               //bus 
-	  CAR,               //car 
-	  MOTORBIKE,               //motorbike 
-	  SEMITRAILER,               //semitrailer 
-	  TRAILER,               //trailer 
-	  TRAIN,               //train 
-	  TRAM,               //tram 
-	  TRUCK,               //truck 
-	  VAN               //van 
+      BICYCLE,               //bicycle 
+      BUS,               //bus 
+      CAR,               //car 
+      MOTORBIKE,               //motorbike 
+      SEMITRAILER,               //semitrailer 
+      TRAILER,               //trailer 
+      TRAIN,               //train 
+      TRAM,               //tram 
+      TRUCK,               //truck 
+      VAN               //van 
 };
 // Union Defintions
 struct XOSC_EXPORT Boolean	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  bool  m_boolean;
+      parameter  m_parameter;
+      bool  m_boolean;
 public:
-	Boolean(){};
+    Boolean(){};
     Boolean(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~Boolean(){};
+    ~Boolean(){};
 };
 struct XOSC_EXPORT DateTime	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  t_datetime  m_dateTime;
+      parameter  m_parameter;
+      t_datetime  m_dateTime;
 public:
-	DateTime(){};
+    DateTime(){};
     DateTime(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~DateTime(){};
+    ~DateTime(){};
 };
 struct XOSC_EXPORT Double	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  double  m_double;
+      parameter  m_parameter;
+      double  m_double;
 public:
-	Double(){};
+    Double(){};
     Double(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~Double(){};
+    ~Double(){};
 };
 struct XOSC_EXPORT Int	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  int  m_int;
+      parameter  m_parameter;
+      int  m_int;
 public:
-	Int(){};
+    Int(){};
     Int(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~Int(){};
+    ~Int(){};
 };
 struct XOSC_EXPORT String	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  std::string  m_string;
+      parameter  m_parameter;
+      std::string  m_string;
 public:
-	String(){};
+    String(){};
     String(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~String(){};
+    ~String(){};
 };
 struct XOSC_EXPORT UnsignedInt	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  uint64_t  m_unsignedInt;
+      parameter  m_parameter;
+      uint64_t  m_unsignedInt;
 public:
-	UnsignedInt(){};
+    UnsignedInt(){};
     UnsignedInt(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~UnsignedInt(){};
+    ~UnsignedInt(){};
 };
 struct XOSC_EXPORT UnsignedShort	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  uint64_t  m_unsignedShort;
+      parameter  m_parameter;
+      uint64_t  m_unsignedShort;
 public:
-	UnsignedShort(){};
+    UnsignedShort(){};
     UnsignedShort(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~UnsignedShort(){};
+    ~UnsignedShort(){};
 };
 struct XOSC_EXPORT CloudState	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_CloudState  cloudState;
+      parameter  m_parameter;
+      e_CloudState  cloudState;
 public:
-	CloudState(){};
+    CloudState(){};
     CloudState(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~CloudState(){};
+    ~CloudState(){};
 };
 struct XOSC_EXPORT ConditionEdge	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_ConditionEdge  conditionEdge;
+      parameter  m_parameter;
+      e_ConditionEdge  conditionEdge;
 public:
-	ConditionEdge(){};
+    ConditionEdge(){};
     ConditionEdge(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~ConditionEdge(){};
+    ~ConditionEdge(){};
 };
 struct XOSC_EXPORT DynamicsDimension	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_DynamicsDimension  dynamicsDimension;
+      parameter  m_parameter;
+      e_DynamicsDimension  dynamicsDimension;
 public:
-	DynamicsDimension(){};
+    DynamicsDimension(){};
     DynamicsDimension(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~DynamicsDimension(){};
+    ~DynamicsDimension(){};
 };
 struct XOSC_EXPORT DynamicsShape	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_DynamicsShape  dynamicsShape;
+      parameter  m_parameter;
+      e_DynamicsShape  dynamicsShape;
 public:
-	DynamicsShape(){};
+    DynamicsShape(){};
     DynamicsShape(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~DynamicsShape(){};
+    ~DynamicsShape(){};
 };
 struct XOSC_EXPORT FollowingMode	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_FollowingMode  followingMode;
+      parameter  m_parameter;
+      e_FollowingMode  followingMode;
 public:
-	FollowingMode(){};
+    FollowingMode(){};
     FollowingMode(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~FollowingMode(){};
+    ~FollowingMode(){};
 };
 struct XOSC_EXPORT MiscObjectCategory	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_MiscObjectCategory  miscObjectCategory;
+      parameter  m_parameter;
+      e_MiscObjectCategory  miscObjectCategory;
 public:
-	MiscObjectCategory(){};
+    MiscObjectCategory(){};
     MiscObjectCategory(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~MiscObjectCategory(){};
+    ~MiscObjectCategory(){};
 };
 struct XOSC_EXPORT ObjectType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_ObjectType  objectType;
+      parameter  m_parameter;
+      e_ObjectType  objectType;
 public:
-	ObjectType(){};
+    ObjectType(){};
     ObjectType(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~ObjectType(){};
+    ~ObjectType(){};
 };
 struct XOSC_EXPORT ParameterType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_ParameterType  parameterType;
+      parameter  m_parameter;
+      e_ParameterType  parameterType;
 public:
-	ParameterType(){};
+    ParameterType(){};
     ParameterType(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~ParameterType(){};
+    ~ParameterType(){};
 };
 struct XOSC_EXPORT PedestrianCategory	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_PedestrianCategory  pedestrianCategory;
+      parameter  m_parameter;
+      e_PedestrianCategory  pedestrianCategory;
 public:
-	PedestrianCategory(){};
+    PedestrianCategory(){};
     PedestrianCategory(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~PedestrianCategory(){};
+    ~PedestrianCategory(){};
 };
 struct XOSC_EXPORT PrecipitationType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_PrecipitationType  precipitationType;
+      parameter  m_parameter;
+      e_PrecipitationType  precipitationType;
 public:
-	PrecipitationType(){};
+    PrecipitationType(){};
     PrecipitationType(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~PrecipitationType(){};
+    ~PrecipitationType(){};
 };
 struct XOSC_EXPORT Priority	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_Priority  priority;
+      parameter  m_parameter;
+      e_Priority  priority;
 public:
-	Priority(){};
+    Priority(){};
     Priority(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~Priority(){};
+    ~Priority(){};
 };
 struct XOSC_EXPORT ReferenceContext	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_ReferenceContext  referenceContext;
+      parameter  m_parameter;
+      e_ReferenceContext  referenceContext;
 public:
-	ReferenceContext(){};
+    ReferenceContext(){};
     ReferenceContext(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~ReferenceContext(){};
+    ~ReferenceContext(){};
 };
 struct XOSC_EXPORT RelativeDistanceType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_RelativeDistanceType  relativeDistanceType;
+      parameter  m_parameter;
+      e_RelativeDistanceType  relativeDistanceType;
 public:
-	RelativeDistanceType(){};
+    RelativeDistanceType(){};
     RelativeDistanceType(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~RelativeDistanceType(){};
+    ~RelativeDistanceType(){};
 };
 struct XOSC_EXPORT RouteStrategy	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_RouteStrategy  routeStrategy;
+      parameter  m_parameter;
+      e_RouteStrategy  routeStrategy;
 public:
-	RouteStrategy(){};
+    RouteStrategy(){};
     RouteStrategy(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~RouteStrategy(){};
+    ~RouteStrategy(){};
 };
 struct XOSC_EXPORT Rule	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_Rule  rule;
+      parameter  m_parameter;
+      e_Rule  rule;
 public:
-	Rule(){};
+    Rule(){};
     Rule(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~Rule(){};
+    ~Rule(){};
 };
 struct XOSC_EXPORT SpeedTargetValueType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_SpeedTargetValueType  speedTargetValueType;
+      parameter  m_parameter;
+      e_SpeedTargetValueType  speedTargetValueType;
 public:
-	SpeedTargetValueType(){};
+    SpeedTargetValueType(){};
     SpeedTargetValueType(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~SpeedTargetValueType(){};
+    ~SpeedTargetValueType(){};
 };
 struct XOSC_EXPORT StoryboardElementState	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_StoryboardElementState  storyboardElementState;
+      parameter  m_parameter;
+      e_StoryboardElementState  storyboardElementState;
 public:
-	StoryboardElementState(){};
+    StoryboardElementState(){};
     StoryboardElementState(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~StoryboardElementState(){};
+    ~StoryboardElementState(){};
 };
 struct XOSC_EXPORT StoryboardElementType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_StoryboardElementType  storyboardElementType;
+      parameter  m_parameter;
+      e_StoryboardElementType  storyboardElementType;
 public:
-	StoryboardElementType(){};
+    StoryboardElementType(){};
     StoryboardElementType(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~StoryboardElementType(){};
+    ~StoryboardElementType(){};
 };
 struct XOSC_EXPORT TriggeringEntitiesRule	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_TriggeringEntitiesRule  triggeringEntitiesRule;
+      parameter  m_parameter;
+      e_TriggeringEntitiesRule  triggeringEntitiesRule;
 public:
-	TriggeringEntitiesRule(){};
+    TriggeringEntitiesRule(){};
     TriggeringEntitiesRule(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~TriggeringEntitiesRule(){};
+    ~TriggeringEntitiesRule(){};
 };
 struct XOSC_EXPORT VehicleCategory	// TODO: >> Should be union - will have to handle properly 
 {
 public:
-	  parameter  m_parameter;
-	  e_VehicleCategory  vehicleCategory;
+      parameter  m_parameter;
+      e_VehicleCategory  vehicleCategory;
 public:
-	VehicleCategory(){};
+    VehicleCategory(){};
     VehicleCategory(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
-	~VehicleCategory(){};
+    ~VehicleCategory(){};
 };
 // Enumerations to String Value Maps
 template<>
@@ -1266,72 +1266,72 @@ struct XOSC_EXPORT AbsoluteSpeed
 {
 /**/
 public:
-	AbsoluteSpeed(){};
-	AbsoluteSpeed(pugi::xml_node node);
+    AbsoluteSpeed(){};
+    AbsoluteSpeed(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AbsoluteSpeed(){};
+    virtual ~AbsoluteSpeed(){};
 public: 
-	//
-	Double	    value; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT AbsoluteTargetLane   
 {
 /**/
 public:
-	AbsoluteTargetLane(){};
-	AbsoluteTargetLane(pugi::xml_node node);
+    AbsoluteTargetLane(){};
+    AbsoluteTargetLane(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AbsoluteTargetLane(){};
+    virtual ~AbsoluteTargetLane(){};
 public: 
-	//
-	String	    value; //  required 
+    //
+    String	    value; //  required 
 };
 struct XOSC_EXPORT AbsoluteTargetLaneOffset   
 {
 /**/
 public:
-	AbsoluteTargetLaneOffset(){};
-	AbsoluteTargetLaneOffset(pugi::xml_node node);
+    AbsoluteTargetLaneOffset(){};
+    AbsoluteTargetLaneOffset(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AbsoluteTargetLaneOffset(){};
+    virtual ~AbsoluteTargetLaneOffset(){};
 public: 
-	//
-	Double	    value; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT AbsoluteTargetSpeed   
 {
 /**/
 public:
-	AbsoluteTargetSpeed(){};
-	AbsoluteTargetSpeed(pugi::xml_node node);
+    AbsoluteTargetSpeed(){};
+    AbsoluteTargetSpeed(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AbsoluteTargetSpeed(){};
+    virtual ~AbsoluteTargetSpeed(){};
 public: 
-	//
-	Double	    value; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT AccelerationCondition   
 {
 /**/
 public:
-	AccelerationCondition(){};
-	AccelerationCondition(pugi::xml_node node);
+    AccelerationCondition(){};
+    AccelerationCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AccelerationCondition(){};
+    virtual ~AccelerationCondition(){};
 public: 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT AcquirePositionAction   
 {
 /**/
 public:
-	AcquirePositionAction(){};
-	AcquirePositionAction(pugi::xml_node node);
+    AcquirePositionAction(){};
+    AcquirePositionAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AcquirePositionAction(){};
+    virtual ~AcquirePositionAction(){};
 public: 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
@@ -1339,13 +1339,13 @@ struct XOSC_EXPORT Act
 {
 /**/
 public:
-	Act(){};
-	Act(pugi::xml_node node);
+    Act(){};
+    Act(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Act(){};
+    virtual ~Act(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::vector<std::shared_ptr<ManeuverGroup>>                 m_ManeuverGroups; //xs:element
     std::shared_ptr<Trigger>                 m_StartTrigger; //xs:element
     std::shared_ptr<Trigger>                 m_StopTrigger; //xs:element
@@ -1354,50 +1354,50 @@ struct XOSC_EXPORT Action
 {
 /**/
 public:
-	Action(){};
-	Action(pugi::xml_node node);
+    Action(){};
+    Action(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Action(){};
+    virtual ~Action(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<Action_U>                 m_Action; //xs:element
 };
 struct XOSC_EXPORT ActivateControllerAction   
 {
 /**/
 public:
-	ActivateControllerAction(){};
-	ActivateControllerAction(pugi::xml_node node);
+    ActivateControllerAction(){};
+    ActivateControllerAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ActivateControllerAction(){};
+    virtual ~ActivateControllerAction(){};
 public: 
-	//
-	Boolean	    lateral; //   
-	//
-	Boolean	    longitudinal; //   
+    //
+    Boolean	    lateral; //   
+    //
+    Boolean	    longitudinal; //   
 };
 struct XOSC_EXPORT Actors   
 {
 /**/
 public:
-	Actors(){};
-	Actors(pugi::xml_node node);
+    Actors(){};
+    Actors(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Actors(){};
+    virtual ~Actors(){};
 public: 
-	//
-	Boolean	    selectTriggeringEntities; //  required 
+    //
+    Boolean	    selectTriggeringEntities; //  required 
     std::vector<std::shared_ptr<EntityRef>>                 m_EntityRefs; //xs:element
 };
 struct XOSC_EXPORT AddEntityAction   
 {
 /**/
 public:
-	AddEntityAction(){};
-	AddEntityAction(pugi::xml_node node);
+    AddEntityAction(){};
+    AddEntityAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AddEntityAction(){};
+    virtual ~AddEntityAction(){};
 public: 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
@@ -1405,10 +1405,10 @@ struct XOSC_EXPORT AssignControllerAction
 {
 /**/
 public:
-	AssignControllerAction(){};
-	AssignControllerAction(pugi::xml_node node);
+    AssignControllerAction(){};
+    AssignControllerAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AssignControllerAction(){};
+    virtual ~AssignControllerAction(){};
 public: 
     std::shared_ptr<AssignControllerAction_U>                 m_AssignControllerAction; //xs:element
 };
@@ -1416,10 +1416,10 @@ struct XOSC_EXPORT AssignRouteAction
 {
 /**/
 public:
-	AssignRouteAction(){};
-	AssignRouteAction(pugi::xml_node node);
+    AssignRouteAction(){};
+    AssignRouteAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~AssignRouteAction(){};
+    virtual ~AssignRouteAction(){};
 public: 
     std::shared_ptr<AssignRouteAction_U>                 m_AssignRouteAction; //xs:element
 };
@@ -1427,30 +1427,30 @@ struct XOSC_EXPORT Axle
 {
 /**/
 public:
-	Axle(){};
-	Axle(pugi::xml_node node);
+    Axle(){};
+    Axle(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Axle(){};
+    virtual ~Axle(){};
 public: 
-	//
-	Double	    maxSteering; //  required 
-	//
-	Double	    positionX; //  required 
-	//
-	Double	    positionZ; //  required 
-	//
-	Double	    trackWidth; //  required 
-	//
-	Double	    wheelDiameter; //  required 
+    //
+    Double	    maxSteering; //  required 
+    //
+    Double	    positionX; //  required 
+    //
+    Double	    positionZ; //  required 
+    //
+    Double	    trackWidth; //  required 
+    //
+    Double	    wheelDiameter; //  required 
 };
 struct XOSC_EXPORT Axles   
 {
 /**/
 public:
-	Axles(){};
-	Axles(pugi::xml_node node);
+    Axles(){};
+    Axles(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Axles(){};
+    virtual ~Axles(){};
 public: 
     std::shared_ptr<Axle>                 m_FrontAxle; //xs:element
     std::shared_ptr<Axle>                 m_RearAxle; //xs:element
@@ -1460,10 +1460,10 @@ struct XOSC_EXPORT BoundingBox
 {
 /**/
 public:
-	BoundingBox(){};
-	BoundingBox(pugi::xml_node node);
+    BoundingBox(){};
+    BoundingBox(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~BoundingBox(){};
+    virtual ~BoundingBox(){};
 public: 
     std::shared_ptr<Center>                 m_Center; //xs:element
     std::shared_ptr<Dimensions>                 m_Dimensions; //xs:element
@@ -1472,10 +1472,10 @@ struct XOSC_EXPORT ByEntityCondition
 {
 /**/
 public:
-	ByEntityCondition(){};
-	ByEntityCondition(pugi::xml_node node);
+    ByEntityCondition(){};
+    ByEntityCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ByEntityCondition(){};
+    virtual ~ByEntityCondition(){};
 public: 
     std::shared_ptr<TriggeringEntities>                 m_TriggeringEntities; //xs:element
     std::shared_ptr<EntityCondition>                 m_EntityCondition; //xs:element
@@ -1484,34 +1484,34 @@ struct XOSC_EXPORT ByObjectType
 {
 /**/
 public:
-	ByObjectType(){};
-	ByObjectType(pugi::xml_node node);
+    ByObjectType(){};
+    ByObjectType(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ByObjectType(){};
+    virtual ~ByObjectType(){};
 public: 
-	//
-	ObjectType	    type; //  required 
+    //
+    ObjectType	    type; //  required 
 };
 struct XOSC_EXPORT ByType   
 {
 /**/
 public:
-	ByType(){};
-	ByType(pugi::xml_node node);
+    ByType(){};
+    ByType(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ByType(){};
+    virtual ~ByType(){};
 public: 
-	//
-	ObjectType	    objectType; //  required 
+    //
+    ObjectType	    objectType; //  required 
 };
 struct XOSC_EXPORT ByValueCondition   
 {
 /**/
 public:
-	ByValueCondition(){};
-	ByValueCondition(pugi::xml_node node);
+    ByValueCondition(){};
+    ByValueCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ByValueCondition(){};
+    virtual ~ByValueCondition(){};
 public: 
     std::shared_ptr<ByValueCondition_U>                 m_ByValueCondition; //xs:element
 };
@@ -1519,13 +1519,13 @@ struct XOSC_EXPORT Catalog
 {
 /**/
 public:
-	Catalog(){};
-	Catalog(pugi::xml_node node);
+    Catalog(){};
+    Catalog(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Catalog(){};
+    virtual ~Catalog(){};
 public: 
-	//
-	String	    name; //   
+    //
+    String	    name; //   
     std::vector<std::shared_ptr<Vehicle>>                 m_Vehicles; //xs:element
     std::vector<std::shared_ptr<Controller>>                 m_Controllers; //xs:element
     std::vector<std::shared_ptr<Pedestrian>>                 m_Pedestrians; //xs:element
@@ -1539,10 +1539,10 @@ struct XOSC_EXPORT CatalogLocations
 {
 /**/
 public:
-	CatalogLocations(){};
-	CatalogLocations(pugi::xml_node node);
+    CatalogLocations(){};
+    CatalogLocations(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~CatalogLocations(){};
+    virtual ~CatalogLocations(){};
 public: 
     std::shared_ptr<VehicleCatalogLocation>                 m_VehicleCatalog; //xs:element
     std::shared_ptr<ControllerCatalogLocation>                 m_ControllerCatalog; //xs:element
@@ -1557,74 +1557,74 @@ struct XOSC_EXPORT CatalogReference
 {
 /**/
 public:
-	CatalogReference(){};
-	CatalogReference(pugi::xml_node node);
+    CatalogReference(){};
+    CatalogReference(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~CatalogReference(){};
+    virtual ~CatalogReference(){};
 public: 
-	//
-	String	    catalogName; //  required 
-	//
-	String	    entryName; //  required 
+    //
+    String	    catalogName; //  required 
+    //
+    String	    entryName; //  required 
     std::shared_ptr<ParameterAssignments>                 m_ParameterAssignments; //xs:element
 };
 struct XOSC_EXPORT Center   
 {
 /**/
 public:
-	Center(){};
-	Center(pugi::xml_node node);
+    Center(){};
+    Center(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Center(){};
+    virtual ~Center(){};
 public: 
-	//
-	Double	    x; //  required 
-	//
-	Double	    y; //  required 
-	//
-	Double	    z; //  required 
+    //
+    Double	    x; //  required 
+    //
+    Double	    y; //  required 
+    //
+    Double	    z; //  required 
 };
 struct XOSC_EXPORT CentralSwarmObject   
 {
 /**/
 public:
-	CentralSwarmObject(){};
-	CentralSwarmObject(pugi::xml_node node);
+    CentralSwarmObject(){};
+    CentralSwarmObject(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~CentralSwarmObject(){};
+    virtual ~CentralSwarmObject(){};
 public: 
-	//
-	String	    entityRef; //  required 
+    //
+    String	    entityRef; //  required 
 };
 struct XOSC_EXPORT Clothoid   
 {
 /**/
 public:
-	Clothoid(){};
-	Clothoid(pugi::xml_node node);
+    Clothoid(){};
+    Clothoid(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Clothoid(){};
+    virtual ~Clothoid(){};
 public: 
-	//
-	Double	    curvature; //  required 
-	//
-	Double	    curvatureDot; //  required 
-	//
-	Double	    length; //  required 
-	//
-	Double	    startTime; //   
-	//
-	Double	    stopTime; //   
+    //
+    Double	    curvature; //  required 
+    //
+    Double	    curvatureDot; //  required 
+    //
+    Double	    length; //  required 
+    //
+    Double	    startTime; //   
+    //
+    Double	    stopTime; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
 struct XOSC_EXPORT CollisionCondition   
 {
 /**/
 public:
-	CollisionCondition(){};
-	CollisionCondition(pugi::xml_node node);
+    CollisionCondition(){};
+    CollisionCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~CollisionCondition(){};
+    virtual ~CollisionCondition(){};
 public: 
     std::shared_ptr<CollisionCondition_U>                 m_CollisionCondition; //xs:element
 };
@@ -1632,27 +1632,27 @@ struct XOSC_EXPORT Condition
 {
 /**/
 public:
-	Condition(){};
-	Condition(pugi::xml_node node);
+    Condition(){};
+    Condition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Condition(){};
+    virtual ~Condition(){};
 public: 
-	//
-	ConditionEdge	    conditionEdge; //  required 
-	//
-	Double	    delay; //  required 
-	//
-	String	    name; //  required 
+    //
+    ConditionEdge	    conditionEdge; //  required 
+    //
+    Double	    delay; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<Condition_U>                 m_Condition; //xs:element
 };
 struct XOSC_EXPORT ConditionGroup   
 {
 /**/
 public:
-	ConditionGroup(){};
-	ConditionGroup(pugi::xml_node node);
+    ConditionGroup(){};
+    ConditionGroup(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ConditionGroup(){};
+    virtual ~ConditionGroup(){};
 public: 
     std::vector<std::shared_ptr<Condition>>                 m_Conditions; //xs:element
 };
@@ -1660,13 +1660,13 @@ struct XOSC_EXPORT Controller
 {
 /**/
 public:
-	Controller(){};
-	Controller(pugi::xml_node node);
+    Controller(){};
+    Controller(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Controller(){};
+    virtual ~Controller(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
@@ -1674,10 +1674,10 @@ struct XOSC_EXPORT ControllerAction
 {
 /**/
 public:
-	ControllerAction(){};
-	ControllerAction(pugi::xml_node node);
+    ControllerAction(){};
+    ControllerAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ControllerAction(){};
+    virtual ~ControllerAction(){};
 public: 
     std::shared_ptr<AssignControllerAction>                 m_AssignControllerAction; //xs:element
     std::shared_ptr<OverrideControllerValueAction>                 m_OverrideControllerValueAction; //xs:element
@@ -1686,10 +1686,10 @@ struct XOSC_EXPORT ControllerCatalogLocation
 {
 /**/
 public:
-	ControllerCatalogLocation(){};
-	ControllerCatalogLocation(pugi::xml_node node);
+    ControllerCatalogLocation(){};
+    ControllerCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ControllerCatalogLocation(){};
+    virtual ~ControllerCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -1697,10 +1697,10 @@ struct XOSC_EXPORT ControllerDistribution
 {
 /**/
 public:
-	ControllerDistribution(){};
-	ControllerDistribution(pugi::xml_node node);
+    ControllerDistribution(){};
+    ControllerDistribution(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ControllerDistribution(){};
+    virtual ~ControllerDistribution(){};
 public: 
     std::vector<std::shared_ptr<ControllerDistributionEntry>>                 m_ControllerDistributionEntrys; //xs:element
 };
@@ -1708,135 +1708,135 @@ struct XOSC_EXPORT ControllerDistributionEntry
 {
 /**/
 public:
-	ControllerDistributionEntry(){};
-	ControllerDistributionEntry(pugi::xml_node node);
+    ControllerDistributionEntry(){};
+    ControllerDistributionEntry(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ControllerDistributionEntry(){};
+    virtual ~ControllerDistributionEntry(){};
 public: 
-	//
-	Double	    weight; //  required 
+    //
+    Double	    weight; //  required 
     std::shared_ptr<ControllerDistributionEntry_U>                 m_ControllerDistributionEntry; //xs:element
 };
 struct XOSC_EXPORT ControlPoint   
 {
 /**/
 public:
-	ControlPoint(){};
-	ControlPoint(pugi::xml_node node);
+    ControlPoint(){};
+    ControlPoint(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ControlPoint(){};
+    virtual ~ControlPoint(){};
 public: 
-	//
-	Double	    time; //   
-	//
-	Double	    weight; //   
+    //
+    Double	    time; //   
+    //
+    Double	    weight; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
 struct XOSC_EXPORT CustomCommandAction   
 {
 /**/
 public:
-	CustomCommandAction(){};
-	CustomCommandAction(pugi::xml_node node);
+    CustomCommandAction(){};
+    CustomCommandAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~CustomCommandAction(){};
+    virtual ~CustomCommandAction(){};
 public: 
-	//
-	String	    type; //  required 
+    //
+    String	    type; //  required 
 };
 struct XOSC_EXPORT DeleteEntityAction   
 {
 /**/
 public:
-	DeleteEntityAction(){};
-	DeleteEntityAction(pugi::xml_node node);
+    DeleteEntityAction(){};
+    DeleteEntityAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~DeleteEntityAction(){};
+    virtual ~DeleteEntityAction(){};
 public: 
 };
 struct XOSC_EXPORT Dimensions   
 {
 /**/
 public:
-	Dimensions(){};
-	Dimensions(pugi::xml_node node);
+    Dimensions(){};
+    Dimensions(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Dimensions(){};
+    virtual ~Dimensions(){};
 public: 
-	//
-	Double	    height; //  required 
-	//
-	Double	    length; //  required 
-	//
-	Double	    width; //  required 
+    //
+    Double	    height; //  required 
+    //
+    Double	    length; //  required 
+    //
+    Double	    width; //  required 
 };
 struct XOSC_EXPORT Directory   
 {
 /**/
 public:
-	Directory(){};
-	Directory(pugi::xml_node node);
+    Directory(){};
+    Directory(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Directory(){};
+    virtual ~Directory(){};
 public: 
-	//
-	String	    path; //  required 
+    //
+    String	    path; //  required 
 };
 struct XOSC_EXPORT DistanceCondition   
 {
 /**/
 public:
-	DistanceCondition(){};
-	DistanceCondition(pugi::xml_node node);
+    DistanceCondition(){};
+    DistanceCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~DistanceCondition(){};
+    virtual ~DistanceCondition(){};
 public: 
-	//
-	Boolean	    alongRoute; //  required 
-	//
-	Boolean	    freespace; //  required 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Boolean	    alongRoute; //  required 
+    //
+    Boolean	    freespace; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
 struct XOSC_EXPORT DynamicConstraints   
 {
 /**/
 public:
-	DynamicConstraints(){};
-	DynamicConstraints(pugi::xml_node node);
+    DynamicConstraints(){};
+    DynamicConstraints(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~DynamicConstraints(){};
+    virtual ~DynamicConstraints(){};
 public: 
-	//
-	Double	    maxAcceleration; //   
-	//
-	Double	    maxDeceleration; //   
-	//
-	Double	    maxSpeed; //   
+    //
+    Double	    maxAcceleration; //   
+    //
+    Double	    maxDeceleration; //   
+    //
+    Double	    maxSpeed; //   
 };
 struct XOSC_EXPORT EndOfRoadCondition   
 {
 /**/
 public:
-	EndOfRoadCondition(){};
-	EndOfRoadCondition(pugi::xml_node node);
+    EndOfRoadCondition(){};
+    EndOfRoadCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EndOfRoadCondition(){};
+    virtual ~EndOfRoadCondition(){};
 public: 
-	//
-	Double	    duration; //  required 
+    //
+    Double	    duration; //  required 
 };
 struct XOSC_EXPORT Entities   
 {
 /**/
 public:
-	Entities(){};
-	Entities(pugi::xml_node node);
+    Entities(){};
+    Entities(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Entities(){};
+    virtual ~Entities(){};
 public: 
     std::vector<std::shared_ptr<ScenarioObject>>                 m_ScenarioObjects; //xs:element
     std::vector<std::shared_ptr<EntitySelection>>                 m_EntitySelections; //xs:element
@@ -1845,23 +1845,23 @@ struct XOSC_EXPORT EntityAction
 {
 /**/
 public:
-	EntityAction(){};
-	EntityAction(pugi::xml_node node);
+    EntityAction(){};
+    EntityAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EntityAction(){};
+    virtual ~EntityAction(){};
 public: 
-	//
-	String	    entityRef; //  required 
+    //
+    String	    entityRef; //  required 
     std::shared_ptr<EntityAction_U>                 m_EntityAction; //xs:element
 };
 struct XOSC_EXPORT EntityCondition   
 {
 /**/
 public:
-	EntityCondition(){};
-	EntityCondition(pugi::xml_node node);
+    EntityCondition(){};
+    EntityCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EntityCondition(){};
+    virtual ~EntityCondition(){};
 public: 
     std::shared_ptr<EntityCondition_U>                 m_EntityCondition; //xs:element
 };
@@ -1869,38 +1869,38 @@ struct XOSC_EXPORT EntityRef
 {
 /**/
 public:
-	EntityRef(){};
-	EntityRef(pugi::xml_node node);
+    EntityRef(){};
+    EntityRef(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EntityRef(){};
+    virtual ~EntityRef(){};
 public: 
-	//
-	String	    entityRef; //  required 
+    //
+    String	    entityRef; //  required 
 };
 struct XOSC_EXPORT EntitySelection   
 {
 /**/
 public:
-	EntitySelection(){};
-	EntitySelection(pugi::xml_node node);
+    EntitySelection(){};
+    EntitySelection(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EntitySelection(){};
+    virtual ~EntitySelection(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<SelectedEntities>                 m_Members; //xs:element
 };
 struct XOSC_EXPORT Environment   
 {
 /**/
 public:
-	Environment(){};
-	Environment(pugi::xml_node node);
+    Environment(){};
+    Environment(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Environment(){};
+    virtual ~Environment(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<TimeOfDay>                 m_TimeOfDay; //xs:element
     std::shared_ptr<Weather>                 m_Weather; //xs:element
@@ -1910,10 +1910,10 @@ struct XOSC_EXPORT EnvironmentAction
 {
 /**/
 public:
-	EnvironmentAction(){};
-	EnvironmentAction(pugi::xml_node node);
+    EnvironmentAction(){};
+    EnvironmentAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EnvironmentAction(){};
+    virtual ~EnvironmentAction(){};
 public: 
     std::shared_ptr<EnvironmentAction_U>                 m_EnvironmentAction; //xs:element
 };
@@ -1921,10 +1921,10 @@ struct XOSC_EXPORT EnvironmentCatalogLocation
 {
 /**/
 public:
-	EnvironmentCatalogLocation(){};
-	EnvironmentCatalogLocation(pugi::xml_node node);
+    EnvironmentCatalogLocation(){};
+    EnvironmentCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EnvironmentCatalogLocation(){};
+    virtual ~EnvironmentCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -1932,17 +1932,17 @@ struct XOSC_EXPORT Event
 {
 /**/
 public:
-	Event(){};
-	Event(pugi::xml_node node);
+    Event(){};
+    Event(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Event(){};
+    virtual ~Event(){};
 public: 
-	//
-	UnsignedInt	    maximumExecutionCount; //   
-	//
-	String	    name; //  required 
-	//
-	Priority	    priority; //  required 
+    //
+    UnsignedInt	    maximumExecutionCount; //   
+    //
+    String	    name; //  required 
+    //
+    Priority	    priority; //  required 
     std::vector<std::shared_ptr<Action>>                 m_Actions; //xs:element
     std::shared_ptr<Trigger>                 m_StartTrigger; //xs:element
 };
@@ -1950,42 +1950,42 @@ struct XOSC_EXPORT File
 {
 /**/
 public:
-	File(){};
-	File(pugi::xml_node node);
+    File(){};
+    File(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~File(){};
+    virtual ~File(){};
 public: 
-	//
-	String	    filepath; //  required 
+    //
+    String	    filepath; //  required 
 };
 struct XOSC_EXPORT FileHeader   
 {
 /**/
 public:
-	FileHeader(){};
-	FileHeader(pugi::xml_node node);
+    FileHeader(){};
+    FileHeader(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~FileHeader(){};
+    virtual ~FileHeader(){};
 public: 
-	//
-	String	    author; //  required 
-	//
-	DateTime	    date; //  required 
-	//
-	String	    description; //  required 
-	//
-	UnsignedShort	    revMajor; //  required 
-	//
-	UnsignedShort	    revMinor; //  required 
+    //
+    String	    author; //  required 
+    //
+    DateTime	    date; //  required 
+    //
+    String	    description; //  required 
+    //
+    UnsignedShort	    revMajor; //  required 
+    //
+    UnsignedShort	    revMinor; //  required 
 };
 struct XOSC_EXPORT FinalSpeed   
 {
 /**/
 public:
-	FinalSpeed(){};
-	FinalSpeed(pugi::xml_node node);
+    FinalSpeed(){};
+    FinalSpeed(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~FinalSpeed(){};
+    virtual ~FinalSpeed(){};
 public: 
     std::shared_ptr<FinalSpeed_U>                 m_FinalSpeed; //xs:element
 };
@@ -1993,23 +1993,23 @@ struct XOSC_EXPORT Fog
 {
 /**/
 public:
-	Fog(){};
-	Fog(pugi::xml_node node);
+    Fog(){};
+    Fog(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Fog(){};
+    virtual ~Fog(){};
 public: 
-	//
-	Double	    visualRange; //  required 
+    //
+    Double	    visualRange; //  required 
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
 };
 struct XOSC_EXPORT FollowTrajectoryAction   
 {
 /**/
 public:
-	FollowTrajectoryAction(){};
-	FollowTrajectoryAction(pugi::xml_node node);
+    FollowTrajectoryAction(){};
+    FollowTrajectoryAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~FollowTrajectoryAction(){};
+    virtual ~FollowTrajectoryAction(){};
 public: 
     std::shared_ptr<Trajectory>                 m_Trajectory; //xs:element
     std::shared_ptr<CatalogReference>                 m_CatalogReference; //xs:element
@@ -2020,10 +2020,10 @@ struct XOSC_EXPORT GlobalAction
 {
 /**/
 public:
-	GlobalAction(){};
-	GlobalAction(pugi::xml_node node);
+    GlobalAction(){};
+    GlobalAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~GlobalAction(){};
+    virtual ~GlobalAction(){};
 public: 
     std::shared_ptr<GlobalAction_U>                 m_GlobalAction; //xs:element
 };
@@ -2031,10 +2031,10 @@ struct XOSC_EXPORT InfrastructureAction
 {
 /**/
 public:
-	InfrastructureAction(){};
-	InfrastructureAction(pugi::xml_node node);
+    InfrastructureAction(){};
+    InfrastructureAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~InfrastructureAction(){};
+    virtual ~InfrastructureAction(){};
 public: 
     std::shared_ptr<TrafficSignalAction>                 m_TrafficSignalAction; //xs:element
 };
@@ -2042,10 +2042,10 @@ struct XOSC_EXPORT Init
 {
 /**/
 public:
-	Init(){};
-	Init(pugi::xml_node node);
+    Init(){};
+    Init(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Init(){};
+    virtual ~Init(){};
 public: 
     std::shared_ptr<InitActions>                 m_Actions; //xs:element
 };
@@ -2053,10 +2053,10 @@ struct XOSC_EXPORT InitActions
 {
 /**/
 public:
-	InitActions(){};
-	InitActions(pugi::xml_node node);
+    InitActions(){};
+    InitActions(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~InitActions(){};
+    virtual ~InitActions(){};
 public: 
     std::vector<std::shared_ptr<GlobalAction>>                 m_GlobalActions; //xs:element
     std::vector<std::shared_ptr<UserDefinedAction>>                 m_UserDefinedActions; //xs:element
@@ -2066,10 +2066,10 @@ struct XOSC_EXPORT InRoutePosition
 {
 /**/
 public:
-	InRoutePosition(){};
-	InRoutePosition(pugi::xml_node node);
+    InRoutePosition(){};
+    InRoutePosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~InRoutePosition(){};
+    virtual ~InRoutePosition(){};
 public: 
     std::shared_ptr<InRoutePosition_U>                 m_InRoutePosition; //xs:element
 };
@@ -2077,25 +2077,25 @@ struct XOSC_EXPORT Knot
 {
 /**/
 public:
-	Knot(){};
-	Knot(pugi::xml_node node);
+    Knot(){};
+    Knot(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Knot(){};
+    virtual ~Knot(){};
 public: 
-	//
-	Double	    value; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT LaneChangeAction   
 {
 /**/
 public:
-	LaneChangeAction(){};
-	LaneChangeAction(pugi::xml_node node);
+    LaneChangeAction(){};
+    LaneChangeAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LaneChangeAction(){};
+    virtual ~LaneChangeAction(){};
 public: 
-	//
-	Double	    targetLaneOffset; //   
+    //
+    Double	    targetLaneOffset; //   
     std::shared_ptr<TransitionDynamics>                 m_LaneChangeActionDynamics; //xs:element
     std::shared_ptr<LaneChangeTarget>                 m_LaneChangeTarget; //xs:element
 };
@@ -2103,10 +2103,10 @@ struct XOSC_EXPORT LaneChangeTarget
 {
 /**/
 public:
-	LaneChangeTarget(){};
-	LaneChangeTarget(pugi::xml_node node);
+    LaneChangeTarget(){};
+    LaneChangeTarget(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LaneChangeTarget(){};
+    virtual ~LaneChangeTarget(){};
 public: 
     std::shared_ptr<LaneChangeTarget_U>                 m_LaneChangeTarget; //xs:element
 };
@@ -2114,13 +2114,13 @@ struct XOSC_EXPORT LaneOffsetAction
 {
 /**/
 public:
-	LaneOffsetAction(){};
-	LaneOffsetAction(pugi::xml_node node);
+    LaneOffsetAction(){};
+    LaneOffsetAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LaneOffsetAction(){};
+    virtual ~LaneOffsetAction(){};
 public: 
-	//
-	Boolean	    continuous; //  required 
+    //
+    Boolean	    continuous; //  required 
     std::shared_ptr<LaneOffsetActionDynamics>                 m_LaneOffsetActionDynamics; //xs:element
     std::shared_ptr<LaneOffsetTarget>                 m_LaneOffsetTarget; //xs:element
 };
@@ -2128,24 +2128,24 @@ struct XOSC_EXPORT LaneOffsetActionDynamics
 {
 /**/
 public:
-	LaneOffsetActionDynamics(){};
-	LaneOffsetActionDynamics(pugi::xml_node node);
+    LaneOffsetActionDynamics(){};
+    LaneOffsetActionDynamics(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LaneOffsetActionDynamics(){};
+    virtual ~LaneOffsetActionDynamics(){};
 public: 
-	//
-	DynamicsShape	    dynamicsShape; //  required 
-	//
-	Double	    maxLateralAcc; //   
+    //
+    DynamicsShape	    dynamicsShape; //  required 
+    //
+    Double	    maxLateralAcc; //   
 };
 struct XOSC_EXPORT LaneOffsetTarget   
 {
 /**/
 public:
-	LaneOffsetTarget(){};
-	LaneOffsetTarget(pugi::xml_node node);
+    LaneOffsetTarget(){};
+    LaneOffsetTarget(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LaneOffsetTarget(){};
+    virtual ~LaneOffsetTarget(){};
 public: 
     std::shared_ptr<LaneOffsetTarget_U>                 m_LaneOffsetTarget; //xs:element
 };
@@ -2153,29 +2153,29 @@ struct XOSC_EXPORT LanePosition
 {
 /**/
 public:
-	LanePosition(){};
-	LanePosition(pugi::xml_node node);
+    LanePosition(){};
+    LanePosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LanePosition(){};
+    virtual ~LanePosition(){};
 public: 
-	//
-	String	    laneId; //  required 
-	//
-	Double	    offset; //   
-	//
-	String	    roadId; //  required 
-	//
-	Double	    s; //  required 
+    //
+    String	    laneId; //  required 
+    //
+    Double	    offset; //   
+    //
+    String	    roadId; //  required 
+    //
+    Double	    s; //  required 
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
 struct XOSC_EXPORT LateralAction   
 {
 /**/
 public:
-	LateralAction(){};
-	LateralAction(pugi::xml_node node);
+    LateralAction(){};
+    LateralAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LateralAction(){};
+    virtual ~LateralAction(){};
 public: 
     std::shared_ptr<LateralAction_U>                 m_LateralAction; //xs:element
 };
@@ -2183,29 +2183,29 @@ struct XOSC_EXPORT LateralDistanceAction
 {
 /**/
 public:
-	LateralDistanceAction(){};
-	LateralDistanceAction(pugi::xml_node node);
+    LateralDistanceAction(){};
+    LateralDistanceAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LateralDistanceAction(){};
+    virtual ~LateralDistanceAction(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Boolean	    continuous; //  required 
-	//
-	Double	    distance; //   
-	//
-	Boolean	    freespace; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Boolean	    continuous; //  required 
+    //
+    Double	    distance; //   
+    //
+    Boolean	    freespace; //  required 
     std::shared_ptr<DynamicConstraints>                 m_DynamicConstraints; //xs:element
 };
 struct XOSC_EXPORT LongitudinalAction   
 {
 /**/
 public:
-	LongitudinalAction(){};
-	LongitudinalAction(pugi::xml_node node);
+    LongitudinalAction(){};
+    LongitudinalAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LongitudinalAction(){};
+    virtual ~LongitudinalAction(){};
 public: 
     std::shared_ptr<LongitudinalAction_U>                 m_LongitudinalAction; //xs:element
 };
@@ -2213,34 +2213,34 @@ struct XOSC_EXPORT LongitudinalDistanceAction
 {
 /**/
 public:
-	LongitudinalDistanceAction(){};
-	LongitudinalDistanceAction(pugi::xml_node node);
+    LongitudinalDistanceAction(){};
+    LongitudinalDistanceAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~LongitudinalDistanceAction(){};
+    virtual ~LongitudinalDistanceAction(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Boolean	    continuous; //  required 
-	//
-	Double	    distance; //   
-	//
-	Boolean	    freespace; //  required 
-	//
-	Double	    timeGap; //   
+    //
+    String	    entityRef; //  required 
+    //
+    Boolean	    continuous; //  required 
+    //
+    Double	    distance; //   
+    //
+    Boolean	    freespace; //  required 
+    //
+    Double	    timeGap; //   
     std::shared_ptr<DynamicConstraints>                 m_DynamicConstraints; //xs:element
 };
 struct XOSC_EXPORT Maneuver   
 {
 /**/
 public:
-	Maneuver(){};
-	Maneuver(pugi::xml_node node);
+    Maneuver(){};
+    Maneuver(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Maneuver(){};
+    virtual ~Maneuver(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::vector<std::shared_ptr<Event>>                 m_Events; //xs:element
 };
@@ -2248,10 +2248,10 @@ struct XOSC_EXPORT ManeuverCatalogLocation
 {
 /**/
 public:
-	ManeuverCatalogLocation(){};
-	ManeuverCatalogLocation(pugi::xml_node node);
+    ManeuverCatalogLocation(){};
+    ManeuverCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ManeuverCatalogLocation(){};
+    virtual ~ManeuverCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -2259,15 +2259,15 @@ struct XOSC_EXPORT ManeuverGroup
 {
 /**/
 public:
-	ManeuverGroup(){};
-	ManeuverGroup(pugi::xml_node node);
+    ManeuverGroup(){};
+    ManeuverGroup(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ManeuverGroup(){};
+    virtual ~ManeuverGroup(){};
 public: 
-	//
-	UnsignedInt	    maximumExecutionCount; //  required 
-	//
-	String	    name; //  required 
+    //
+    UnsignedInt	    maximumExecutionCount; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<Actors>                 m_Actors; //xs:element
     std::vector<std::shared_ptr<CatalogReference>>                 m_CatalogReferences; //xs:element
     std::vector<std::shared_ptr<Maneuver>>                 m_Maneuvers; //xs:element
@@ -2276,17 +2276,17 @@ struct XOSC_EXPORT MiscObject
 {
 /**/
 public:
-	MiscObject(){};
-	MiscObject(pugi::xml_node node);
+    MiscObject(){};
+    MiscObject(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~MiscObject(){};
+    virtual ~MiscObject(){};
 public: 
-	//
-	Double	    mass; //  required 
-	//
-	MiscObjectCategory	    miscObjectCategory; //  required 
-	//
-	String	    name; //  required 
+    //
+    Double	    mass; //  required 
+    //
+    MiscObjectCategory	    miscObjectCategory; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
@@ -2295,10 +2295,10 @@ struct XOSC_EXPORT MiscObjectCatalogLocation
 {
 /**/
 public:
-	MiscObjectCatalogLocation(){};
-	MiscObjectCatalogLocation(pugi::xml_node node);
+    MiscObjectCatalogLocation(){};
+    MiscObjectCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~MiscObjectCatalogLocation(){};
+    virtual ~MiscObjectCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -2306,10 +2306,10 @@ struct XOSC_EXPORT ModifyRule
 {
 /**/
 public:
-	ModifyRule(){};
-	ModifyRule(pugi::xml_node node);
+    ModifyRule(){};
+    ModifyRule(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ModifyRule(){};
+    virtual ~ModifyRule(){};
 public: 
     std::shared_ptr<ModifyRule_U>                 m_ModifyRule; //xs:element
 };
@@ -2317,23 +2317,23 @@ struct XOSC_EXPORT None
 {
 /**/
 public:
-	None(){};
-	None(pugi::xml_node node);
+    None(){};
+    None(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~None(){};
+    virtual ~None(){};
 public: 
 };
 struct XOSC_EXPORT Nurbs   
 {
 /**/
 public:
-	Nurbs(){};
-	Nurbs(pugi::xml_node node);
+    Nurbs(){};
+    Nurbs(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Nurbs(){};
+    virtual ~Nurbs(){};
 public: 
-	//
-	UnsignedInt	    order; //  required 
+    //
+    UnsignedInt	    order; //  required 
     std::vector<std::shared_ptr<ControlPoint>>                 m_ControlPoints; //xs:element
     std::vector<std::shared_ptr<Knot>>                 m_Knots; //xs:element
 };
@@ -2341,10 +2341,10 @@ struct XOSC_EXPORT ObjectController
 {
 /**/
 public:
-	ObjectController(){};
-	ObjectController(pugi::xml_node node);
+    ObjectController(){};
+    ObjectController(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ObjectController(){};
+    virtual ~ObjectController(){};
 public: 
     std::shared_ptr<ObjectController_U>                 m_ObjectController; //xs:element
 };
@@ -2352,22 +2352,22 @@ struct XOSC_EXPORT OffroadCondition
 {
 /**/
 public:
-	OffroadCondition(){};
-	OffroadCondition(pugi::xml_node node);
+    OffroadCondition(){};
+    OffroadCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OffroadCondition(){};
+    virtual ~OffroadCondition(){};
 public: 
-	//
-	Double	    duration; //  required 
+    //
+    Double	    duration; //  required 
 };
 struct XOSC_EXPORT OpenScenario   
 {
 /**/
 public:
-	OpenScenario(){};
-	OpenScenario(pugi::xml_node node);
+    OpenScenario(){};
+    OpenScenario(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OpenScenario(){};
+    virtual ~OpenScenario(){};
 public: 
     std::shared_ptr<FileHeader>                 m_FileHeader; //xs:element
     std::shared_ptr<OpenScenarioCategory>                 m_OpenScenarioCategory; //xs:groupent
@@ -2376,56 +2376,56 @@ struct XOSC_EXPORT Orientation
 {
 /**/
 public:
-	Orientation(){};
-	Orientation(pugi::xml_node node);
+    Orientation(){};
+    Orientation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Orientation(){};
+    virtual ~Orientation(){};
 public: 
-	//
-	Double	    h; //   
-	//
-	Double	    p; //   
-	//
-	Double	    r; //   
-	//
-	ReferenceContext	    type; //   
+    //
+    Double	    h; //   
+    //
+    Double	    p; //   
+    //
+    Double	    r; //   
+    //
+    ReferenceContext	    type; //   
 };
 struct XOSC_EXPORT OverrideBrakeAction   
 {
 /**/
 public:
-	OverrideBrakeAction(){};
-	OverrideBrakeAction(pugi::xml_node node);
+    OverrideBrakeAction(){};
+    OverrideBrakeAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OverrideBrakeAction(){};
+    virtual ~OverrideBrakeAction(){};
 public: 
-	//
-	Boolean	    active; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Boolean	    active; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT OverrideClutchAction   
 {
 /**/
 public:
-	OverrideClutchAction(){};
-	OverrideClutchAction(pugi::xml_node node);
+    OverrideClutchAction(){};
+    OverrideClutchAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OverrideClutchAction(){};
+    virtual ~OverrideClutchAction(){};
 public: 
-	//
-	Boolean	    active; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Boolean	    active; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT OverrideControllerValueAction   
 {
 /**/
 public:
-	OverrideControllerValueAction(){};
-	OverrideControllerValueAction(pugi::xml_node node);
+    OverrideControllerValueAction(){};
+    OverrideControllerValueAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OverrideControllerValueAction(){};
+    virtual ~OverrideControllerValueAction(){};
 public: 
     std::shared_ptr<OverrideThrottleAction>                 m_Throttle; //xs:element
     std::shared_ptr<OverrideBrakeAction>                 m_Brake; //xs:element
@@ -2438,105 +2438,105 @@ struct XOSC_EXPORT OverrideGearAction
 {
 /**/
 public:
-	OverrideGearAction(){};
-	OverrideGearAction(pugi::xml_node node);
+    OverrideGearAction(){};
+    OverrideGearAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OverrideGearAction(){};
+    virtual ~OverrideGearAction(){};
 public: 
-	//
-	Boolean	    active; //  required 
-	//
-	Double	    number; //  required 
+    //
+    Boolean	    active; //  required 
+    //
+    Double	    number; //  required 
 };
 struct XOSC_EXPORT OverrideParkingBrakeAction   
 {
 /**/
 public:
-	OverrideParkingBrakeAction(){};
-	OverrideParkingBrakeAction(pugi::xml_node node);
+    OverrideParkingBrakeAction(){};
+    OverrideParkingBrakeAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OverrideParkingBrakeAction(){};
+    virtual ~OverrideParkingBrakeAction(){};
 public: 
-	//
-	Boolean	    active; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Boolean	    active; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT OverrideSteeringWheelAction   
 {
 /**/
 public:
-	OverrideSteeringWheelAction(){};
-	OverrideSteeringWheelAction(pugi::xml_node node);
+    OverrideSteeringWheelAction(){};
+    OverrideSteeringWheelAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OverrideSteeringWheelAction(){};
+    virtual ~OverrideSteeringWheelAction(){};
 public: 
-	//
-	Boolean	    active; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Boolean	    active; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT OverrideThrottleAction   
 {
 /**/
 public:
-	OverrideThrottleAction(){};
-	OverrideThrottleAction(pugi::xml_node node);
+    OverrideThrottleAction(){};
+    OverrideThrottleAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OverrideThrottleAction(){};
+    virtual ~OverrideThrottleAction(){};
 public: 
-	//
-	Boolean	    active; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Boolean	    active; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT ParameterAction   
 {
 /**/
 public:
-	ParameterAction(){};
-	ParameterAction(pugi::xml_node node);
+    ParameterAction(){};
+    ParameterAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterAction(){};
+    virtual ~ParameterAction(){};
 public: 
-	//
-	String	    parameterRef; //  required 
+    //
+    String	    parameterRef; //  required 
     std::shared_ptr<ParameterAction_U>                 m_ParameterAction; //xs:element
 };
 struct XOSC_EXPORT ParameterAddValueRule   
 {
 /**/
 public:
-	ParameterAddValueRule(){};
-	ParameterAddValueRule(pugi::xml_node node);
+    ParameterAddValueRule(){};
+    ParameterAddValueRule(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterAddValueRule(){};
+    virtual ~ParameterAddValueRule(){};
 public: 
-	//
-	Double	    value; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT ParameterAssignment   
 {
 /**/
 public:
-	ParameterAssignment(){};
-	ParameterAssignment(pugi::xml_node node);
+    ParameterAssignment(){};
+    ParameterAssignment(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterAssignment(){};
+    virtual ~ParameterAssignment(){};
 public: 
-	//
-	String	    parameterRef; //  required 
-	//
-	String	    value; //  required 
+    //
+    String	    parameterRef; //  required 
+    //
+    String	    value; //  required 
 };
 struct XOSC_EXPORT ParameterAssignments   
 {
 /**/
 public:
-	ParameterAssignments(){};
-	ParameterAssignments(pugi::xml_node node);
+    ParameterAssignments(){};
+    ParameterAssignments(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterAssignments(){};
+    virtual ~ParameterAssignments(){};
 public: 
     std::vector<std::shared_ptr<ParameterAssignment>>                 m_ParameterAssignments; //xs:element
 };
@@ -2544,42 +2544,42 @@ struct XOSC_EXPORT ParameterCondition
 {
 /**/
 public:
-	ParameterCondition(){};
-	ParameterCondition(pugi::xml_node node);
+    ParameterCondition(){};
+    ParameterCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterCondition(){};
+    virtual ~ParameterCondition(){};
 public: 
-	//
-	String	    parameterRef; //  required 
-	//
-	Rule	    rule; //  required 
-	//
-	String	    value; //  required 
+    //
+    String	    parameterRef; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    String	    value; //  required 
 };
 struct XOSC_EXPORT ParameterDeclaration   
 {
 /**/
 public:
-	ParameterDeclaration(){};
-	ParameterDeclaration(pugi::xml_node node);
+    ParameterDeclaration(){};
+    ParameterDeclaration(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterDeclaration(){};
+    virtual ~ParameterDeclaration(){};
 public: 
-	//
-	String	    name; //  required 
-	//
-	ParameterType	    parameterType; //  required 
-	//
-	String	    value; //  required 
+    //
+    String	    name; //  required 
+    //
+    ParameterType	    parameterType; //  required 
+    //
+    String	    value; //  required 
 };
 struct XOSC_EXPORT ParameterDeclarations   
 {
 /**/
 public:
-	ParameterDeclarations(){};
-	ParameterDeclarations(pugi::xml_node node);
+    ParameterDeclarations(){};
+    ParameterDeclarations(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterDeclarations(){};
+    virtual ~ParameterDeclarations(){};
 public: 
     std::vector<std::shared_ptr<ParameterDeclaration>>                 m_ParameterDeclarations; //xs:element
 };
@@ -2587,10 +2587,10 @@ struct XOSC_EXPORT ParameterModifyAction
 {
 /**/
 public:
-	ParameterModifyAction(){};
-	ParameterModifyAction(pugi::xml_node node);
+    ParameterModifyAction(){};
+    ParameterModifyAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterModifyAction(){};
+    virtual ~ParameterModifyAction(){};
 public: 
     std::shared_ptr<ModifyRule>                 m_Rule; //xs:element
 };
@@ -2598,43 +2598,43 @@ struct XOSC_EXPORT ParameterMultiplyByValueRule
 {
 /**/
 public:
-	ParameterMultiplyByValueRule(){};
-	ParameterMultiplyByValueRule(pugi::xml_node node);
+    ParameterMultiplyByValueRule(){};
+    ParameterMultiplyByValueRule(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterMultiplyByValueRule(){};
+    virtual ~ParameterMultiplyByValueRule(){};
 public: 
-	//
-	Double	    value; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT ParameterSetAction   
 {
 /**/
 public:
-	ParameterSetAction(){};
-	ParameterSetAction(pugi::xml_node node);
+    ParameterSetAction(){};
+    ParameterSetAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ParameterSetAction(){};
+    virtual ~ParameterSetAction(){};
 public: 
-	//
-	String	    value; //  required 
+    //
+    String	    value; //  required 
 };
 struct XOSC_EXPORT Pedestrian   
 {
 /**/
 public:
-	Pedestrian(){};
-	Pedestrian(pugi::xml_node node);
+    Pedestrian(){};
+    Pedestrian(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Pedestrian(){};
+    virtual ~Pedestrian(){};
 public: 
-	//
-	Double	    mass; //  required 
-	//
-	String	    model; //  required 
-	//
-	String	    name; //  required 
-	//
-	PedestrianCategory	    pedestrianCategory; //  required 
+    //
+    Double	    mass; //  required 
+    //
+    String	    model; //  required 
+    //
+    String	    name; //  required 
+    //
+    PedestrianCategory	    pedestrianCategory; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
@@ -2643,10 +2643,10 @@ struct XOSC_EXPORT PedestrianCatalogLocation
 {
 /**/
 public:
-	PedestrianCatalogLocation(){};
-	PedestrianCatalogLocation(pugi::xml_node node);
+    PedestrianCatalogLocation(){};
+    PedestrianCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~PedestrianCatalogLocation(){};
+    virtual ~PedestrianCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -2654,41 +2654,41 @@ struct XOSC_EXPORT Performance
 {
 /**/
 public:
-	Performance(){};
-	Performance(pugi::xml_node node);
+    Performance(){};
+    Performance(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Performance(){};
+    virtual ~Performance(){};
 public: 
-	//
-	Double	    maxAcceleration; //  required 
-	//
-	Double	    maxDeceleration; //  required 
-	//
-	Double	    maxSpeed; //  required 
+    //
+    Double	    maxAcceleration; //  required 
+    //
+    Double	    maxDeceleration; //  required 
+    //
+    Double	    maxSpeed; //  required 
 };
 struct XOSC_EXPORT Phase   
 {
 /**/
 public:
-	Phase(){};
-	Phase(pugi::xml_node node);
+    Phase(){};
+    Phase(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Phase(){};
+    virtual ~Phase(){};
 public: 
-	//
-	Double	    duration; //  required 
-	//
-	String	    name; //  required 
+    //
+    Double	    duration; //  required 
+    //
+    String	    name; //  required 
     std::vector<std::shared_ptr<TrafficSignalState>>                 m_TrafficSignalStates; //xs:element
 };
 struct XOSC_EXPORT Polyline   
 {
 /**/
 public:
-	Polyline(){};
-	Polyline(pugi::xml_node node);
+    Polyline(){};
+    Polyline(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Polyline(){};
+    virtual ~Polyline(){};
 public: 
     std::vector<std::shared_ptr<Vertex>>                 m_Vertexs; //xs:element
 };
@@ -2696,10 +2696,10 @@ struct XOSC_EXPORT Position
 {
 /**/
 public:
-	Position(){};
-	Position(pugi::xml_node node);
+    Position(){};
+    Position(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Position(){};
+    virtual ~Position(){};
 public: 
     std::shared_ptr<Position_U>                 m_Position; //xs:element
 };
@@ -2707,79 +2707,79 @@ struct XOSC_EXPORT PositionInLaneCoordinates
 {
 /**/
 public:
-	PositionInLaneCoordinates(){};
-	PositionInLaneCoordinates(pugi::xml_node node);
+    PositionInLaneCoordinates(){};
+    PositionInLaneCoordinates(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~PositionInLaneCoordinates(){};
+    virtual ~PositionInLaneCoordinates(){};
 public: 
-	//
-	String	    laneId; //  required 
-	//
-	Double	    laneOffset; //   
-	//
-	Double	    pathS; //  required 
+    //
+    String	    laneId; //  required 
+    //
+    Double	    laneOffset; //   
+    //
+    Double	    pathS; //  required 
 };
 struct XOSC_EXPORT PositionInRoadCoordinates   
 {
 /**/
 public:
-	PositionInRoadCoordinates(){};
-	PositionInRoadCoordinates(pugi::xml_node node);
+    PositionInRoadCoordinates(){};
+    PositionInRoadCoordinates(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~PositionInRoadCoordinates(){};
+    virtual ~PositionInRoadCoordinates(){};
 public: 
-	//
-	Double	    pathS; //  required 
-	//
-	Double	    t; //  required 
+    //
+    Double	    pathS; //  required 
+    //
+    Double	    t; //  required 
 };
 struct XOSC_EXPORT PositionOfCurrentEntity   
 {
 /**/
 public:
-	PositionOfCurrentEntity(){};
-	PositionOfCurrentEntity(pugi::xml_node node);
+    PositionOfCurrentEntity(){};
+    PositionOfCurrentEntity(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~PositionOfCurrentEntity(){};
+    virtual ~PositionOfCurrentEntity(){};
 public: 
-	//
-	String	    entityRef; //  required 
+    //
+    String	    entityRef; //  required 
 };
 struct XOSC_EXPORT Precipitation   
 {
 /**/
 public:
-	Precipitation(){};
-	Precipitation(pugi::xml_node node);
+    Precipitation(){};
+    Precipitation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Precipitation(){};
+    virtual ~Precipitation(){};
 public: 
-	//
-	Double	    intensity; //  required 
-	//
-	PrecipitationType	    precipitationType; //  required 
+    //
+    Double	    intensity; //  required 
+    //
+    PrecipitationType	    precipitationType; //  required 
 };
 struct XOSC_EXPORT Private   
 {
 /**/
 public:
-	Private(){};
-	Private(pugi::xml_node node);
+    Private(){};
+    Private(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Private(){};
+    virtual ~Private(){};
 public: 
-	//
-	String	    entityRef; //  required 
+    //
+    String	    entityRef; //  required 
     std::vector<std::shared_ptr<PrivateAction>>                 m_PrivateActions; //xs:element
 };
 struct XOSC_EXPORT PrivateAction   
 {
 /**/
 public:
-	PrivateAction(){};
-	PrivateAction(pugi::xml_node node);
+    PrivateAction(){};
+    PrivateAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~PrivateAction(){};
+    virtual ~PrivateAction(){};
 public: 
     std::shared_ptr<PrivateAction_U>                 m_PrivateAction; //xs:element
 };
@@ -2787,10 +2787,10 @@ struct XOSC_EXPORT Properties
 {
 /**/
 public:
-	Properties(){};
-	Properties(pugi::xml_node node);
+    Properties(){};
+    Properties(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Properties(){};
+    virtual ~Properties(){};
 public: 
     std::vector<std::shared_ptr<Property>>                 m_Propertys; //xs:element
     std::vector<std::shared_ptr<File>>                 m_Files; //xs:element
@@ -2799,220 +2799,220 @@ struct XOSC_EXPORT Property
 {
 /**/
 public:
-	Property(){};
-	Property(pugi::xml_node node);
+    Property(){};
+    Property(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Property(){};
+    virtual ~Property(){};
 public: 
-	//
-	String	    name; //  required 
-	//
-	String	    value; //  required 
+    //
+    String	    name; //  required 
+    //
+    String	    value; //  required 
 };
 struct XOSC_EXPORT ReachPositionCondition   
 {
 /**/
 public:
-	ReachPositionCondition(){};
-	ReachPositionCondition(pugi::xml_node node);
+    ReachPositionCondition(){};
+    ReachPositionCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ReachPositionCondition(){};
+    virtual ~ReachPositionCondition(){};
 public: 
-	//
-	Double	    tolerance; //  required 
+    //
+    Double	    tolerance; //  required 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
 struct XOSC_EXPORT RelativeDistanceCondition   
 {
 /**/
 public:
-	RelativeDistanceCondition(){};
-	RelativeDistanceCondition(pugi::xml_node node);
+    RelativeDistanceCondition(){};
+    RelativeDistanceCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeDistanceCondition(){};
+    virtual ~RelativeDistanceCondition(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Boolean	    freespace; //  required 
-	//
-	RelativeDistanceType	    relativeDistanceType; //  required 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Boolean	    freespace; //  required 
+    //
+    RelativeDistanceType	    relativeDistanceType; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT RelativeLanePosition   
 {
 /**/
 public:
-	RelativeLanePosition(){};
-	RelativeLanePosition(pugi::xml_node node);
+    RelativeLanePosition(){};
+    RelativeLanePosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeLanePosition(){};
+    virtual ~RelativeLanePosition(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Int	    dLane; //  required 
-	//
-	Double	    ds; //  required 
-	//
-	Double	    offset; //   
+    //
+    String	    entityRef; //  required 
+    //
+    Int	    dLane; //  required 
+    //
+    Double	    ds; //  required 
+    //
+    Double	    offset; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
 struct XOSC_EXPORT RelativeObjectPosition   
 {
 /**/
 public:
-	RelativeObjectPosition(){};
-	RelativeObjectPosition(pugi::xml_node node);
+    RelativeObjectPosition(){};
+    RelativeObjectPosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeObjectPosition(){};
+    virtual ~RelativeObjectPosition(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Double	    dx; //  required 
-	//
-	Double	    dy; //  required 
-	//
-	Double	    dz; //   
+    //
+    String	    entityRef; //  required 
+    //
+    Double	    dx; //  required 
+    //
+    Double	    dy; //  required 
+    //
+    Double	    dz; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
 struct XOSC_EXPORT RelativeRoadPosition   
 {
 /**/
 public:
-	RelativeRoadPosition(){};
-	RelativeRoadPosition(pugi::xml_node node);
+    RelativeRoadPosition(){};
+    RelativeRoadPosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeRoadPosition(){};
+    virtual ~RelativeRoadPosition(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Double	    ds; //  required 
-	//
-	Double	    dt; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Double	    ds; //  required 
+    //
+    Double	    dt; //  required 
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
 struct XOSC_EXPORT RelativeSpeedCondition   
 {
 /**/
 public:
-	RelativeSpeedCondition(){};
-	RelativeSpeedCondition(pugi::xml_node node);
+    RelativeSpeedCondition(){};
+    RelativeSpeedCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeSpeedCondition(){};
+    virtual ~RelativeSpeedCondition(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT RelativeSpeedToMaster   
 {
 /**/
 public:
-	RelativeSpeedToMaster(){};
-	RelativeSpeedToMaster(pugi::xml_node node);
+    RelativeSpeedToMaster(){};
+    RelativeSpeedToMaster(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeSpeedToMaster(){};
+    virtual ~RelativeSpeedToMaster(){};
 public: 
-	//
-	SpeedTargetValueType	    speedTargetValueType; //  required 
-	//
-	Double	    value; //  required 
+    //
+    SpeedTargetValueType	    speedTargetValueType; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT RelativeTargetLane   
 {
 /**/
 public:
-	RelativeTargetLane(){};
-	RelativeTargetLane(pugi::xml_node node);
+    RelativeTargetLane(){};
+    RelativeTargetLane(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeTargetLane(){};
+    virtual ~RelativeTargetLane(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Int	    value; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Int	    value; //  required 
 };
 struct XOSC_EXPORT RelativeTargetLaneOffset   
 {
 /**/
 public:
-	RelativeTargetLaneOffset(){};
-	RelativeTargetLaneOffset(pugi::xml_node node);
+    RelativeTargetLaneOffset(){};
+    RelativeTargetLaneOffset(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeTargetLaneOffset(){};
+    virtual ~RelativeTargetLaneOffset(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Double	    value; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT RelativeTargetSpeed   
 {
 /**/
 public:
-	RelativeTargetSpeed(){};
-	RelativeTargetSpeed(pugi::xml_node node);
+    RelativeTargetSpeed(){};
+    RelativeTargetSpeed(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeTargetSpeed(){};
+    virtual ~RelativeTargetSpeed(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Boolean	    continuous; //  required 
-	//
-	SpeedTargetValueType	    speedTargetValueType; //  required 
-	//
-	Double	    value; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Boolean	    continuous; //  required 
+    //
+    SpeedTargetValueType	    speedTargetValueType; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT RelativeWorldPosition   
 {
 /**/
 public:
-	RelativeWorldPosition(){};
-	RelativeWorldPosition(pugi::xml_node node);
+    RelativeWorldPosition(){};
+    RelativeWorldPosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RelativeWorldPosition(){};
+    virtual ~RelativeWorldPosition(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Double	    dx; //  required 
-	//
-	Double	    dy; //  required 
-	//
-	Double	    dz; //   
+    //
+    String	    entityRef; //  required 
+    //
+    Double	    dx; //  required 
+    //
+    Double	    dy; //  required 
+    //
+    Double	    dz; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
 struct XOSC_EXPORT RoadCondition   
 {
 /**/
 public:
-	RoadCondition(){};
-	RoadCondition(pugi::xml_node node);
+    RoadCondition(){};
+    RoadCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RoadCondition(){};
+    virtual ~RoadCondition(){};
 public: 
-	//
-	Double	    frictionScaleFactor; //  required 
+    //
+    Double	    frictionScaleFactor; //  required 
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
 struct XOSC_EXPORT RoadNetwork   
 {
 /**/
 public:
-	RoadNetwork(){};
-	RoadNetwork(pugi::xml_node node);
+    RoadNetwork(){};
+    RoadNetwork(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RoadNetwork(){};
+    virtual ~RoadNetwork(){};
 public: 
     std::shared_ptr<File>                 m_LogicFile; //xs:element
     std::shared_ptr<File>                 m_SceneGraphFile; //xs:element
@@ -3022,32 +3022,32 @@ struct XOSC_EXPORT RoadPosition
 {
 /**/
 public:
-	RoadPosition(){};
-	RoadPosition(pugi::xml_node node);
+    RoadPosition(){};
+    RoadPosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RoadPosition(){};
+    virtual ~RoadPosition(){};
 public: 
-	//
-	String	    roadId; //  required 
-	//
-	Double	    s; //  required 
-	//
-	Double	    t; //  required 
+    //
+    String	    roadId; //  required 
+    //
+    Double	    s; //  required 
+    //
+    Double	    t; //  required 
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
 struct XOSC_EXPORT Route   
 {
 /**/
 public:
-	Route(){};
-	Route(pugi::xml_node node);
+    Route(){};
+    Route(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Route(){};
+    virtual ~Route(){};
 public: 
-	//
-	Boolean	    closed; //  required 
-	//
-	String	    name; //  required 
+    //
+    Boolean	    closed; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::vector<std::shared_ptr<Waypoint>>                 m_Waypoints; //xs:element
 };
@@ -3055,10 +3055,10 @@ struct XOSC_EXPORT RouteCatalogLocation
 {
 /**/
 public:
-	RouteCatalogLocation(){};
-	RouteCatalogLocation(pugi::xml_node node);
+    RouteCatalogLocation(){};
+    RouteCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RouteCatalogLocation(){};
+    virtual ~RouteCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -3066,10 +3066,10 @@ struct XOSC_EXPORT RoutePosition
 {
 /**/
 public:
-	RoutePosition(){};
-	RoutePosition(pugi::xml_node node);
+    RoutePosition(){};
+    RoutePosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RoutePosition(){};
+    virtual ~RoutePosition(){};
 public: 
     std::shared_ptr<RouteRef>                 m_RouteRef; //xs:element
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
@@ -3079,10 +3079,10 @@ struct XOSC_EXPORT RouteRef
 {
 /**/
 public:
-	RouteRef(){};
-	RouteRef(pugi::xml_node node);
+    RouteRef(){};
+    RouteRef(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RouteRef(){};
+    virtual ~RouteRef(){};
 public: 
     std::shared_ptr<RouteRef_U>                 m_RouteRef; //xs:element
 };
@@ -3090,10 +3090,10 @@ struct XOSC_EXPORT RoutingAction
 {
 /**/
 public:
-	RoutingAction(){};
-	RoutingAction(pugi::xml_node node);
+    RoutingAction(){};
+    RoutingAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~RoutingAction(){};
+    virtual ~RoutingAction(){};
 public: 
     std::shared_ptr<RoutingAction_U>                 m_RoutingAction; //xs:element
 };
@@ -3101,13 +3101,13 @@ struct XOSC_EXPORT ScenarioObject
 {
 /**/
 public:
-	ScenarioObject(){};
-	ScenarioObject(pugi::xml_node node);
+    ScenarioObject(){};
+    ScenarioObject(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ScenarioObject(){};
+    virtual ~ScenarioObject(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ObjectController>                 m_ObjectController; //xs:element
     std::shared_ptr<EntityObject>                 m_EntityObject; //xs:groupent
 };
@@ -3115,10 +3115,10 @@ struct XOSC_EXPORT SelectedEntities
 {
 /**/
 public:
-	SelectedEntities(){};
-	SelectedEntities(pugi::xml_node node);
+    SelectedEntities(){};
+    SelectedEntities(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~SelectedEntities(){};
+    virtual ~SelectedEntities(){};
 public: 
     std::shared_ptr<SelectedEntities_U>                 m_SelectedEntities; //xs:element
 };
@@ -3126,10 +3126,10 @@ struct XOSC_EXPORT Shape
 {
 /**/
 public:
-	Shape(){};
-	Shape(pugi::xml_node node);
+    Shape(){};
+    Shape(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Shape(){};
+    virtual ~Shape(){};
 public: 
     std::shared_ptr<Shape_U>                 m_Shape; //xs:element
 };
@@ -3137,24 +3137,24 @@ struct XOSC_EXPORT SimulationTimeCondition
 {
 /**/
 public:
-	SimulationTimeCondition(){};
-	SimulationTimeCondition(pugi::xml_node node);
+    SimulationTimeCondition(){};
+    SimulationTimeCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~SimulationTimeCondition(){};
+    virtual ~SimulationTimeCondition(){};
 public: 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT SpeedAction   
 {
 /**/
 public:
-	SpeedAction(){};
-	SpeedAction(pugi::xml_node node);
+    SpeedAction(){};
+    SpeedAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~SpeedAction(){};
+    virtual ~SpeedAction(){};
 public: 
     std::shared_ptr<TransitionDynamics>                 m_SpeedActionDynamics; //xs:element
     std::shared_ptr<SpeedActionTarget>                 m_SpeedActionTarget; //xs:element
@@ -3163,10 +3163,10 @@ struct XOSC_EXPORT SpeedActionTarget
 {
 /**/
 public:
-	SpeedActionTarget(){};
-	SpeedActionTarget(pugi::xml_node node);
+    SpeedActionTarget(){};
+    SpeedActionTarget(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~SpeedActionTarget(){};
+    virtual ~SpeedActionTarget(){};
 public: 
     std::shared_ptr<SpeedActionTarget_U>                 m_SpeedActionTarget; //xs:element
 };
@@ -3174,39 +3174,39 @@ struct XOSC_EXPORT SpeedCondition
 {
 /**/
 public:
-	SpeedCondition(){};
-	SpeedCondition(pugi::xml_node node);
+    SpeedCondition(){};
+    SpeedCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~SpeedCondition(){};
+    virtual ~SpeedCondition(){};
 public: 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT StandStillCondition   
 {
 /**/
 public:
-	StandStillCondition(){};
-	StandStillCondition(pugi::xml_node node);
+    StandStillCondition(){};
+    StandStillCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~StandStillCondition(){};
+    virtual ~StandStillCondition(){};
 public: 
-	//
-	Double	    duration; //  required 
+    //
+    Double	    duration; //  required 
 };
 struct XOSC_EXPORT Story   
 {
 /**/
 public:
-	Story(){};
-	Story(pugi::xml_node node);
+    Story(){};
+    Story(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Story(){};
+    virtual ~Story(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::vector<std::shared_ptr<Act>>                 m_Acts; //xs:element
 };
@@ -3214,10 +3214,10 @@ struct XOSC_EXPORT Storyboard
 {
 /**/
 public:
-	Storyboard(){};
-	Storyboard(pugi::xml_node node);
+    Storyboard(){};
+    Storyboard(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Storyboard(){};
+    virtual ~Storyboard(){};
 public: 
     std::shared_ptr<Init>                 m_Init; //xs:element
     std::vector<std::shared_ptr<Story>>                 m_Storys; //xs:element
@@ -3227,45 +3227,45 @@ struct XOSC_EXPORT StoryboardElementStateCondition
 {
 /**/
 public:
-	StoryboardElementStateCondition(){};
-	StoryboardElementStateCondition(pugi::xml_node node);
+    StoryboardElementStateCondition(){};
+    StoryboardElementStateCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~StoryboardElementStateCondition(){};
+    virtual ~StoryboardElementStateCondition(){};
 public: 
-	//
-	String	    storyboardElementRef; //  required 
-	//
-	StoryboardElementState	    state; //  required 
-	//
-	StoryboardElementType	    storyboardElementType; //  required 
+    //
+    String	    storyboardElementRef; //  required 
+    //
+    StoryboardElementState	    state; //  required 
+    //
+    StoryboardElementType	    storyboardElementType; //  required 
 };
 struct XOSC_EXPORT Sun   
 {
 /**/
 public:
-	Sun(){};
-	Sun(pugi::xml_node node);
+    Sun(){};
+    Sun(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Sun(){};
+    virtual ~Sun(){};
 public: 
-	//
-	Double	    azimuth; //  required 
-	//
-	Double	    elevation; //  required 
-	//
-	Double	    intensity; //  required 
+    //
+    Double	    azimuth; //  required 
+    //
+    Double	    elevation; //  required 
+    //
+    Double	    intensity; //  required 
 };
 struct XOSC_EXPORT SynchronizeAction   
 {
 /**/
 public:
-	SynchronizeAction(){};
-	SynchronizeAction(pugi::xml_node node);
+    SynchronizeAction(){};
+    SynchronizeAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~SynchronizeAction(){};
+    virtual ~SynchronizeAction(){};
 public: 
-	//
-	String	    masterEntityRef; //  required 
+    //
+    String	    masterEntityRef; //  required 
     std::shared_ptr<Position>                 m_TargetPositionMaster; //xs:element
     std::shared_ptr<Position>                 m_TargetPosition; //xs:element
     std::shared_ptr<FinalSpeed>                 m_FinalSpeed; //xs:element
@@ -3274,10 +3274,10 @@ struct XOSC_EXPORT TeleportAction
 {
 /**/
 public:
-	TeleportAction(){};
-	TeleportAction(pugi::xml_node node);
+    TeleportAction(){};
+    TeleportAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TeleportAction(){};
+    virtual ~TeleportAction(){};
 public: 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
@@ -3285,58 +3285,58 @@ struct XOSC_EXPORT TimeHeadwayCondition
 {
 /**/
 public:
-	TimeHeadwayCondition(){};
-	TimeHeadwayCondition(pugi::xml_node node);
+    TimeHeadwayCondition(){};
+    TimeHeadwayCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TimeHeadwayCondition(){};
+    virtual ~TimeHeadwayCondition(){};
 public: 
-	//
-	String	    entityRef; //  required 
-	//
-	Boolean	    alongRoute; //  required 
-	//
-	Boolean	    freespace; //  required 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    String	    entityRef; //  required 
+    //
+    Boolean	    alongRoute; //  required 
+    //
+    Boolean	    freespace; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT TimeOfDay   
 {
 /**/
 public:
-	TimeOfDay(){};
-	TimeOfDay(pugi::xml_node node);
+    TimeOfDay(){};
+    TimeOfDay(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TimeOfDay(){};
+    virtual ~TimeOfDay(){};
 public: 
-	//
-	Boolean	    animation; //  required 
-	//
-	DateTime	    dateTime; //  required 
+    //
+    Boolean	    animation; //  required 
+    //
+    DateTime	    dateTime; //  required 
 };
 struct XOSC_EXPORT TimeOfDayCondition   
 {
 /**/
 public:
-	TimeOfDayCondition(){};
-	TimeOfDayCondition(pugi::xml_node node);
+    TimeOfDayCondition(){};
+    TimeOfDayCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TimeOfDayCondition(){};
+    virtual ~TimeOfDayCondition(){};
 public: 
-	//
-	DateTime	    dateTime; //  required 
-	//
-	Rule	    rule; //  required 
+    //
+    DateTime	    dateTime; //  required 
+    //
+    Rule	    rule; //  required 
 };
 struct XOSC_EXPORT TimeReference   
 {
 /**/
 public:
-	TimeReference(){};
-	TimeReference(pugi::xml_node node);
+    TimeReference(){};
+    TimeReference(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TimeReference(){};
+    virtual ~TimeReference(){};
 public: 
     std::shared_ptr<TimeReference_U>                 m_TimeReference; //xs:element
 };
@@ -3344,29 +3344,29 @@ struct XOSC_EXPORT TimeToCollisionCondition
 {
 /**/
 public:
-	TimeToCollisionCondition(){};
-	TimeToCollisionCondition(pugi::xml_node node);
+    TimeToCollisionCondition(){};
+    TimeToCollisionCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TimeToCollisionCondition(){};
+    virtual ~TimeToCollisionCondition(){};
 public: 
-	//
-	Boolean	    alongRoute; //  required 
-	//
-	Boolean	    freespace; //  required 
-	//
-	Rule	    rule; //  required 
-	//
-	Double	    value; //  required 
+    //
+    Boolean	    alongRoute; //  required 
+    //
+    Boolean	    freespace; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    Double	    value; //  required 
     std::shared_ptr<TimeToCollisionConditionTarget>                 m_TimeToCollisionConditionTarget; //xs:element
 };
 struct XOSC_EXPORT TimeToCollisionConditionTarget   
 {
 /**/
 public:
-	TimeToCollisionConditionTarget(){};
-	TimeToCollisionConditionTarget(pugi::xml_node node);
+    TimeToCollisionConditionTarget(){};
+    TimeToCollisionConditionTarget(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TimeToCollisionConditionTarget(){};
+    virtual ~TimeToCollisionConditionTarget(){};
 public: 
     std::shared_ptr<TimeToCollisionConditionTarget_U>                 m_TimeToCollisionConditionTarget; //xs:element
 };
@@ -3374,26 +3374,26 @@ struct XOSC_EXPORT Timing
 {
 /**/
 public:
-	Timing(){};
-	Timing(pugi::xml_node node);
+    Timing(){};
+    Timing(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Timing(){};
+    virtual ~Timing(){};
 public: 
-	//
-	ReferenceContext	    domainAbsoluteRelative; //  required 
-	//
-	Double	    offset; //  required 
-	//
-	Double	    scale; //  required 
+    //
+    ReferenceContext	    domainAbsoluteRelative; //  required 
+    //
+    Double	    offset; //  required 
+    //
+    Double	    scale; //  required 
 };
 struct XOSC_EXPORT TrafficAction   
 {
 /**/
 public:
-	TrafficAction(){};
-	TrafficAction(pugi::xml_node node);
+    TrafficAction(){};
+    TrafficAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficAction(){};
+    virtual ~TrafficAction(){};
 public: 
     std::shared_ptr<TrafficAction_U>                 m_TrafficAction; //xs:element
 };
@@ -3401,13 +3401,13 @@ struct XOSC_EXPORT TrafficDefinition
 {
 /**/
 public:
-	TrafficDefinition(){};
-	TrafficDefinition(pugi::xml_node node);
+    TrafficDefinition(){};
+    TrafficDefinition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficDefinition(){};
+    virtual ~TrafficDefinition(){};
 public: 
-	//
-	String	    name; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<VehicleCategoryDistribution>                 m_VehicleCategoryDistribution; //xs:element
     std::shared_ptr<ControllerDistribution>                 m_ControllerDistribution; //xs:element
 };
@@ -3415,10 +3415,10 @@ struct XOSC_EXPORT TrafficSignalAction
 {
 /**/
 public:
-	TrafficSignalAction(){};
-	TrafficSignalAction(pugi::xml_node node);
+    TrafficSignalAction(){};
+    TrafficSignalAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignalAction(){};
+    virtual ~TrafficSignalAction(){};
 public: 
     std::shared_ptr<TrafficSignalAction_U>                 m_TrafficSignalAction; //xs:element
 };
@@ -3426,41 +3426,41 @@ struct XOSC_EXPORT TrafficSignalCondition
 {
 /**/
 public:
-	TrafficSignalCondition(){};
-	TrafficSignalCondition(pugi::xml_node node);
+    TrafficSignalCondition(){};
+    TrafficSignalCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignalCondition(){};
+    virtual ~TrafficSignalCondition(){};
 public: 
-	//
-	String	    name; //  required 
-	//
-	String	    state; //  required 
+    //
+    String	    name; //  required 
+    //
+    String	    state; //  required 
 };
 struct XOSC_EXPORT TrafficSignalController   
 {
 /**/
 public:
-	TrafficSignalController(){};
-	TrafficSignalController(pugi::xml_node node);
+    TrafficSignalController(){};
+    TrafficSignalController(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignalController(){};
+    virtual ~TrafficSignalController(){};
 public: 
-	//
-	Double	    delay; //   
-	//
-	String	    name; //  required 
-	//
-	String	    reference; //   
+    //
+    Double	    delay; //   
+    //
+    String	    name; //  required 
+    //
+    String	    reference; //   
     std::vector<std::shared_ptr<Phase>>                 m_Phases; //xs:element
 };
 struct XOSC_EXPORT TrafficSignals   
 {
 /**/
 public:
-	TrafficSignals(){};
-	TrafficSignals(pugi::xml_node node);
+    TrafficSignals(){};
+    TrafficSignals(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignals(){};
+    virtual ~TrafficSignals(){};
 public: 
     std::vector<std::shared_ptr<TrafficSignalController>>                 m_TrafficSignalControllers; //xs:element
 };
@@ -3468,71 +3468,71 @@ struct XOSC_EXPORT TrafficSignalControllerAction
 {
 /**/
 public:
-	TrafficSignalControllerAction(){};
-	TrafficSignalControllerAction(pugi::xml_node node);
+    TrafficSignalControllerAction(){};
+    TrafficSignalControllerAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignalControllerAction(){};
+    virtual ~TrafficSignalControllerAction(){};
 public: 
-	//
-	String	    trafficSignalControllerRef; //  required 
-	//
-	String	    phase; //  required 
+    //
+    String	    trafficSignalControllerRef; //  required 
+    //
+    String	    phase; //  required 
 };
 struct XOSC_EXPORT TrafficSignalControllerCondition   
 {
 /**/
 public:
-	TrafficSignalControllerCondition(){};
-	TrafficSignalControllerCondition(pugi::xml_node node);
+    TrafficSignalControllerCondition(){};
+    TrafficSignalControllerCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignalControllerCondition(){};
+    virtual ~TrafficSignalControllerCondition(){};
 public: 
-	//
-	String	    trafficSignalControllerRef; //  required 
-	//
-	String	    phase; //  required 
+    //
+    String	    trafficSignalControllerRef; //  required 
+    //
+    String	    phase; //  required 
 };
 struct XOSC_EXPORT TrafficSignalState   
 {
 /**/
 public:
-	TrafficSignalState(){};
-	TrafficSignalState(pugi::xml_node node);
+    TrafficSignalState(){};
+    TrafficSignalState(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignalState(){};
+    virtual ~TrafficSignalState(){};
 public: 
-	//
-	String	    state; //  required 
-	//
-	String	    trafficSignalId; //  required 
+    //
+    String	    state; //  required 
+    //
+    String	    trafficSignalId; //  required 
 };
 struct XOSC_EXPORT TrafficSignalStateAction   
 {
 /**/
 public:
-	TrafficSignalStateAction(){};
-	TrafficSignalStateAction(pugi::xml_node node);
+    TrafficSignalStateAction(){};
+    TrafficSignalStateAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSignalStateAction(){};
+    virtual ~TrafficSignalStateAction(){};
 public: 
-	//
-	String	    name; //  required 
-	//
-	String	    state; //  required 
+    //
+    String	    name; //  required 
+    //
+    String	    state; //  required 
 };
 struct XOSC_EXPORT TrafficSinkAction   
 {
 /**/
 public:
-	TrafficSinkAction(){};
-	TrafficSinkAction(pugi::xml_node node);
+    TrafficSinkAction(){};
+    TrafficSinkAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSinkAction(){};
+    virtual ~TrafficSinkAction(){};
 public: 
-	//
-	Double	    radius; //  required 
-	//
-	Double	    rate; //   
+    //
+    Double	    radius; //  required 
+    //
+    Double	    rate; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
 };
@@ -3540,17 +3540,17 @@ struct XOSC_EXPORT TrafficSourceAction
 {
 /**/
 public:
-	TrafficSourceAction(){};
-	TrafficSourceAction(pugi::xml_node node);
+    TrafficSourceAction(){};
+    TrafficSourceAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSourceAction(){};
+    virtual ~TrafficSourceAction(){};
 public: 
-	//
-	Double	    radius; //  required 
-	//
-	Double	    rate; //  required 
-	//
-	Double	    velocity; //   
+    //
+    Double	    radius; //  required 
+    //
+    Double	    rate; //  required 
+    //
+    Double	    velocity; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
 };
@@ -3558,23 +3558,23 @@ struct XOSC_EXPORT TrafficSwarmAction
 {
 /**/
 public:
-	TrafficSwarmAction(){};
-	TrafficSwarmAction(pugi::xml_node node);
+    TrafficSwarmAction(){};
+    TrafficSwarmAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrafficSwarmAction(){};
+    virtual ~TrafficSwarmAction(){};
 public: 
-	//
-	Double	    innerRadius; //  required 
-	//
-	UnsignedInt	    numberOfVehicles; //  required 
-	//
-	Double	    offset; //  required 
-	//
-	Double	    semiMajorAxis; //  required 
-	//
-	Double	    semiMinorAxis; //  required 
-	//
-	Double	    velocity; //   
+    //
+    Double	    innerRadius; //  required 
+    //
+    UnsignedInt	    numberOfVehicles; //  required 
+    //
+    Double	    offset; //  required 
+    //
+    Double	    semiMajorAxis; //  required 
+    //
+    Double	    semiMinorAxis; //  required 
+    //
+    Double	    velocity; //   
     std::shared_ptr<CentralSwarmObject>                 m_CentralObject; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
 };
@@ -3582,15 +3582,15 @@ struct XOSC_EXPORT Trajectory
 {
 /**/
 public:
-	Trajectory(){};
-	Trajectory(pugi::xml_node node);
+    Trajectory(){};
+    Trajectory(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Trajectory(){};
+    virtual ~Trajectory(){};
 public: 
-	//
-	Boolean	    closed; //  required 
-	//
-	String	    name; //  required 
+    //
+    Boolean	    closed; //  required 
+    //
+    String	    name; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<Shape>                 m_Shape; //xs:element
 };
@@ -3598,10 +3598,10 @@ struct XOSC_EXPORT TrajectoryCatalogLocation
 {
 /**/
 public:
-	TrajectoryCatalogLocation(){};
-	TrajectoryCatalogLocation(pugi::xml_node node);
+    TrajectoryCatalogLocation(){};
+    TrajectoryCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrajectoryCatalogLocation(){};
+    virtual ~TrajectoryCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -3609,50 +3609,50 @@ struct XOSC_EXPORT TrajectoryFollowingMode
 {
 /**/
 public:
-	TrajectoryFollowingMode(){};
-	TrajectoryFollowingMode(pugi::xml_node node);
+    TrajectoryFollowingMode(){};
+    TrajectoryFollowingMode(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TrajectoryFollowingMode(){};
+    virtual ~TrajectoryFollowingMode(){};
 public: 
-	//
-	FollowingMode	    followingMode; //  required 
+    //
+    FollowingMode	    followingMode; //  required 
 };
 struct XOSC_EXPORT TransitionDynamics   
 {
 /**/
 public:
-	TransitionDynamics(){};
-	TransitionDynamics(pugi::xml_node node);
+    TransitionDynamics(){};
+    TransitionDynamics(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TransitionDynamics(){};
+    virtual ~TransitionDynamics(){};
 public: 
-	//
-	DynamicsDimension	    dynamicsDimension; //  required 
-	//
-	DynamicsShape	    dynamicsShape; //  required 
-	//
-	Double	    value; //  required 
+    //
+    DynamicsDimension	    dynamicsDimension; //  required 
+    //
+    DynamicsShape	    dynamicsShape; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT TraveledDistanceCondition   
 {
 /**/
 public:
-	TraveledDistanceCondition(){};
-	TraveledDistanceCondition(pugi::xml_node node);
+    TraveledDistanceCondition(){};
+    TraveledDistanceCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TraveledDistanceCondition(){};
+    virtual ~TraveledDistanceCondition(){};
 public: 
-	//
-	Double	    value; //  required 
+    //
+    Double	    value; //  required 
 };
 struct XOSC_EXPORT Trigger   
 {
 /**/
 public:
-	Trigger(){};
-	Trigger(pugi::xml_node node);
+    Trigger(){};
+    Trigger(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Trigger(){};
+    virtual ~Trigger(){};
 public: 
     std::vector<std::shared_ptr<ConditionGroup>>                 m_ConditionGroups; //xs:element
 };
@@ -3660,23 +3660,23 @@ struct XOSC_EXPORT TriggeringEntities
 {
 /**/
 public:
-	TriggeringEntities(){};
-	TriggeringEntities(pugi::xml_node node);
+    TriggeringEntities(){};
+    TriggeringEntities(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~TriggeringEntities(){};
+    virtual ~TriggeringEntities(){};
 public: 
-	//
-	TriggeringEntitiesRule	    triggeringEntitiesRule; //  required 
+    //
+    TriggeringEntitiesRule	    triggeringEntitiesRule; //  required 
     std::vector<std::shared_ptr<EntityRef>>                 m_EntityRefs; //xs:element
 };
 struct XOSC_EXPORT UserDefinedAction   
 {
 /**/
 public:
-	UserDefinedAction(){};
-	UserDefinedAction(pugi::xml_node node);
+    UserDefinedAction(){};
+    UserDefinedAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~UserDefinedAction(){};
+    virtual ~UserDefinedAction(){};
 public: 
     std::shared_ptr<CustomCommandAction>                 m_CustomCommandAction; //xs:element
 };
@@ -3684,31 +3684,31 @@ struct XOSC_EXPORT UserDefinedValueCondition
 {
 /**/
 public:
-	UserDefinedValueCondition(){};
-	UserDefinedValueCondition(pugi::xml_node node);
+    UserDefinedValueCondition(){};
+    UserDefinedValueCondition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~UserDefinedValueCondition(){};
+    virtual ~UserDefinedValueCondition(){};
 public: 
-	//
-	String	    name; //  required 
-	//
-	Rule	    rule; //  required 
-	//
-	String	    value; //  required 
+    //
+    String	    name; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    String	    value; //  required 
 };
 struct XOSC_EXPORT Vehicle   
 {
 /**/
 public:
-	Vehicle(){};
-	Vehicle(pugi::xml_node node);
+    Vehicle(){};
+    Vehicle(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Vehicle(){};
+    virtual ~Vehicle(){};
 public: 
-	//
-	String	    name; //  required 
-	//
-	VehicleCategory	    vehicleCategory; //  required 
+    //
+    String	    name; //  required 
+    //
+    VehicleCategory	    vehicleCategory; //  required 
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
     std::shared_ptr<Performance>                 m_Performance; //xs:element
@@ -3719,10 +3719,10 @@ struct XOSC_EXPORT VehicleCatalogLocation
 {
 /**/
 public:
-	VehicleCatalogLocation(){};
-	VehicleCatalogLocation(pugi::xml_node node);
+    VehicleCatalogLocation(){};
+    VehicleCatalogLocation(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~VehicleCatalogLocation(){};
+    virtual ~VehicleCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
@@ -3730,10 +3730,10 @@ struct XOSC_EXPORT VehicleCategoryDistribution
 {
 /**/
 public:
-	VehicleCategoryDistribution(){};
-	VehicleCategoryDistribution(pugi::xml_node node);
+    VehicleCategoryDistribution(){};
+    VehicleCategoryDistribution(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~VehicleCategoryDistribution(){};
+    virtual ~VehicleCategoryDistribution(){};
 public: 
     std::vector<std::shared_ptr<VehicleCategoryDistributionEntry>>                 m_VehicleCategoryDistributionEntrys; //xs:element
 };
@@ -3741,69 +3741,69 @@ struct XOSC_EXPORT VehicleCategoryDistributionEntry
 {
 /**/
 public:
-	VehicleCategoryDistributionEntry(){};
-	VehicleCategoryDistributionEntry(pugi::xml_node node);
+    VehicleCategoryDistributionEntry(){};
+    VehicleCategoryDistributionEntry(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~VehicleCategoryDistributionEntry(){};
+    virtual ~VehicleCategoryDistributionEntry(){};
 public: 
-	//
-	VehicleCategory	    category; //  required 
-	//
-	Double	    weight; //  required 
+    //
+    VehicleCategory	    category; //  required 
+    //
+    Double	    weight; //  required 
 };
 struct XOSC_EXPORT Vertex   
 {
 /**/
 public:
-	Vertex(){};
-	Vertex(pugi::xml_node node);
+    Vertex(){};
+    Vertex(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Vertex(){};
+    virtual ~Vertex(){};
 public: 
-	//
-	Double	    time; //  required 
+    //
+    Double	    time; //  required 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
 struct XOSC_EXPORT VisibilityAction   
 {
 /**/
 public:
-	VisibilityAction(){};
-	VisibilityAction(pugi::xml_node node);
+    VisibilityAction(){};
+    VisibilityAction(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~VisibilityAction(){};
+    virtual ~VisibilityAction(){};
 public: 
-	//
-	Boolean	    graphics; //  required 
-	//
-	Boolean	    sensors; //  required 
-	//
-	Boolean	    traffic; //  required 
+    //
+    Boolean	    graphics; //  required 
+    //
+    Boolean	    sensors; //  required 
+    //
+    Boolean	    traffic; //  required 
 };
 struct XOSC_EXPORT Waypoint   
 {
 /**/
 public:
-	Waypoint(){};
-	Waypoint(pugi::xml_node node);
+    Waypoint(){};
+    Waypoint(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Waypoint(){};
+    virtual ~Waypoint(){};
 public: 
-	//
-	RouteStrategy	    routeStrategy; //  required 
+    //
+    RouteStrategy	    routeStrategy; //  required 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
 struct XOSC_EXPORT Weather   
 {
 /**/
 public:
-	Weather(){};
-	Weather(pugi::xml_node node);
+    Weather(){};
+    Weather(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~Weather(){};
+    virtual ~Weather(){};
 public: 
-	//
-	CloudState	    cloudState; //  required 
+    //
+    CloudState	    cloudState; //  required 
     std::shared_ptr<Sun>                 m_Sun; //xs:element
     std::shared_ptr<Fog>                 m_Fog; //xs:element
     std::shared_ptr<Precipitation>                 m_Precipitation; //xs:element
@@ -3812,32 +3812,32 @@ struct XOSC_EXPORT WorldPosition
 {
 /**/
 public:
-	WorldPosition(){};
-	WorldPosition(pugi::xml_node node);
+    WorldPosition(){};
+    WorldPosition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~WorldPosition(){};
+    virtual ~WorldPosition(){};
 public: 
-	//
-	Double	    h; //   
-	//
-	Double	    p; //   
-	//
-	Double	    r; //   
-	//
-	Double	    x; //  required 
-	//
-	Double	    y; //  required 
-	//
-	Double	    z; //   
+    //
+    Double	    h; //   
+    //
+    Double	    p; //   
+    //
+    Double	    r; //   
+    //
+    Double	    x; //  required 
+    //
+    Double	    y; //  required 
+    //
+    Double	    z; //   
 };
 // xs:group -> aliased to group definition
 struct XOSC_EXPORT CatalogDefinition
 {
 public:
-	CatalogDefinition(){};
-	CatalogDefinition(pugi::xml_node node);
+    CatalogDefinition(){};
+    CatalogDefinition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~CatalogDefinition(){};
+    virtual ~CatalogDefinition(){};
 public:
     std::shared_ptr<Catalog>                 m_Catalog; //xs:element
 };
@@ -3845,10 +3845,10 @@ public:
 struct XOSC_EXPORT EntityObject
 {
 public:
-	EntityObject(){};
-	EntityObject(pugi::xml_node node);
+    EntityObject(){};
+    EntityObject(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~EntityObject(){};
+    virtual ~EntityObject(){};
 public:
     std::shared_ptr<CatalogReference>                 m_CatalogReference; //xs:element
     std::shared_ptr<Vehicle>                 m_Vehicle; //xs:element
@@ -3859,10 +3859,10 @@ public:
 struct XOSC_EXPORT OpenScenarioCategory
 {
 public:
-	OpenScenarioCategory(){};
-	OpenScenarioCategory(pugi::xml_node node);
+    OpenScenarioCategory(){};
+    OpenScenarioCategory(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~OpenScenarioCategory(){};
+    virtual ~OpenScenarioCategory(){};
 public:
     std::shared_ptr<ScenarioDefinition>                 m_ScenarioDefinition; //xs:groupent
     std::shared_ptr<CatalogDefinition>                 m_CatalogDefinition; //xs:groupent
@@ -3871,10 +3871,10 @@ public:
 struct XOSC_EXPORT ScenarioDefinition
 {
 public:
-	ScenarioDefinition(){};
-	ScenarioDefinition(pugi::xml_node node);
+    ScenarioDefinition(){};
+    ScenarioDefinition(pugi::xml_node node);
     void save(pugi::xml_node node);
-	virtual ~ScenarioDefinition(){};
+    virtual ~ScenarioDefinition(){};
 public:
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<CatalogLocations>                 m_CatalogLocations; //xs:element
@@ -3891,7 +3891,7 @@ private:
     pugi::xml_document m_doc;
     pugi::xml_node m_root;
 public:
-	std::shared_ptr<OpenSCENARIO>    m_OpenSCENARIO;
+    std::shared_ptr<OpenSCENARIO>    m_OpenSCENARIO;
 public:
     void load(std::string xoscfilename);
     void parse();
