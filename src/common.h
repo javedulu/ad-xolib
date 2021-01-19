@@ -1,7 +1,7 @@
 //
 //  Created by Javed Shaik on Mon Jan 18 21:29:49 2021
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 986986ab-9025-4091-8192-9feb848c9f85 --
+//  -- UUIDv4 : 78a6864d-cfec-4801-8799-10eb4b8ed2f2 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 #ifndef _XOLIB_COMMON_H_
@@ -20,39 +20,39 @@ template <typename EnumT> std::vector<std::pair<std::string, EnumT>> enum_map();
 template <typename EnumT>
 inline EnumT str2enum(const std::string& v)
 {
-	for (const auto&p : enum_map<EnumT>())
-		if (p.first == v)
-			return p.second;
+    for (const auto&p : enum_map<EnumT>())
+        if (p.first == v)
+            return p.second;
     char buf[256]; snprintf(buf,sizeof(buf), "Enum: Couldn't match enum with name : <%s> : %s \n", typeid(EnumT).name(), v.c_str());
-	throw std::runtime_error(buf);
-	return static_cast<EnumT>(-1);
+    throw std::runtime_error(buf);
+    return static_cast<EnumT>(-1);
 }
 //
 template<typename EnumT>
 inline std::string enum2str(const EnumT v)
 {
-	for (const auto&p : enum_map<EnumT>())
-		if (p.second == v)
-			return p.first;
-	throw std::runtime_error("ENUM: Couldn't convert enum to string , is map() defined ?");
-	return "INVALID";
+    for (const auto&p : enum_map<EnumT>())
+        if (p.second == v)
+            return p.first;
+    throw std::runtime_error("ENUM: Couldn't convert enum to string , is map() defined ?");
+    return "INVALID";
 }
 //
 template <typename EnumT>
 inline bool isvalid(const std::string& v)
 {
-	for (const auto&p : enum_map<EnumT>())
-		if (p.first == v)
-			return true;
-	return false;
+    for (const auto&p : enum_map<EnumT>())
+        if (p.first == v)
+            return true;
+    return false;
 }
 template <typename EnumT>
 inline bool isdefined(const EnumT v)
 {
-	for (const auto &p : enum_map<EnumT>())
-		if (p.second == v) 
-			return true;
-		return false;
+    for (const auto &p : enum_map<EnumT>())
+        if (p.second == v) 
+            return true;
+        return false;
 }
 //
 struct t_datetime
@@ -92,30 +92,30 @@ struct t_patternstr
         return false;
     }
     const char* value() { return _val.c_str(); }
-	operator bool() const 
-	{
-		if (_val.empty()) return false;
-		return true;
+    operator bool() const 
+    {
+        if (_val.empty()) return false;
+        return true;
     }
 };
 template<typename T, int Tmin, int Tmax>
 struct t_typevar
 {
-	T _val= static_cast<T>(Tmin);
-	bool operator=(T value)
-	{
-		if (value <= Tmax && value >=Tmin) 
-		{
-			_val = value; 
-			return true;
-		}
-		return false;
-	}
-	operator bool() const
-	{
-		if (_val <= Tmax && _val >=Tmin) return true;
-		return false;
-	}
+    T _val= static_cast<T>(Tmin);
+    bool operator=(T value)
+    {
+        if (value <= Tmax && value >=Tmin) 
+        {
+            _val = value; 
+            return true;
+        }
+        return false;
+    }
+    operator bool() const
+    {
+        if (_val <= Tmax && _val >=Tmin) return true;
+        return false;
+    }
     const T value() { return _val; }
 };
 template <typename T>
