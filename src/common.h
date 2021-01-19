@@ -1,10 +1,20 @@
-#ifndef _COMMON_H_
-#define _COMMON_H_
-
+//
+//  Created by Javed Shaik on Mon Jan 18 21:29:49 2021
+//  # AUTO-GENERATED FILE - DO NOT EDIT!!
+//  -- UUIDv4 : 986986ab-9025-4091-8192-9feb848c9f85 --
+//  All BUGS are Credited to ME :) - javedulu@gmail.com
+//
+#ifndef _XOLIB_COMMON_H_
+#define _XOLIB_COMMON_H_
+//
 #include <iostream>
 #include <cstdio>
-
-
+#include <typeinfo>
+#include <ctime>
+#include <regex>
+//
+#pragma once 
+//
 template <typename EnumT> std::vector<std::pair<std::string, EnumT>> enum_map();
 //
 template <typename EnumT>
@@ -36,6 +46,14 @@ inline bool isvalid(const std::string& v)
 			return true;
 	return false;
 }
+template <typename EnumT>
+inline bool isdefined(const EnumT v)
+{
+	for (const auto &p : enum_map<EnumT>())
+		if (p.second == v) 
+			return true;
+		return false;
+}
 //
 struct t_datetime
 {
@@ -48,7 +66,14 @@ struct t_datetime
         ss >> std::get_time(&tm, format.c_str());
         t = mktime(&tm);
     }
+    operator bool() const 
+    {
+        if (t) return true;
+        return false;
+    }
 };
+// GCC doesnt accept std::string for const expr and without constexpr we cant use it as template pattern
+// for  sake of GCC moving it to char *
 template <const char* pattern>
 struct t_patternstr
 {
@@ -61,27 +86,59 @@ struct t_patternstr
         std::regex_search(tval,m,r);
         if (m.size() > 0)
         {
-            _val = m[0]; // Only selecting first match
+            _val = m[0]; // Only selecting first match 
             return true;
         }
         return false;
     }
+    const char* value() { return _val.c_str(); }
+	operator bool() const 
+	{
+		if (_val.empty()) return false;
+		return true;
+    }
 };
-template<typename T>
+template<typename T, int Tmin, int Tmax>
 struct t_typevar
 {
-	T _val;
+	T _val= static_cast<T>(Tmin);
 	bool operator=(T value)
 	{
-		_val = value; // TODO: If from string convert to actual datatype and return true.
-		return true;
+		if (value <= Tmax && value >=Tmin) 
+		{
+			_val = value; 
+			return true;
+		}
+		return false;
 	}
+	operator bool() const
+	{
+		if (_val <= Tmax && _val >=Tmin) return true;
+		return false;
+	}
+    const T value() { return _val; }
 };
+template <typename T>
+inline std::string to_str(T const & in_val)
+{
+    return std::to_string(in_val);
+}
+template<>
+inline std::string to_str(std::string const & in_val)
+{
+    return in_val;
+}
+// Specialization for boolean type to force "true"/"false"
+template<>
+inline std::string to_str(bool const & in_val)
+{
+    std::ostringstream oss;
+    oss << std::boolalpha << in_val;
+    return oss.str();
+}
 //Example USAGE
-// // typedef t_patternstr<std::string,std::string(".*")> t_parameter; //C++ doesnt allow literals as template parameters
+// // typedef t_patternstr<std::string,std::string(".*")> t_parameter; //C++ doesnt allow literals as template parameters 
 //const std::string pattern = "[$][A-Za-z_][A-Za-z0-9_]";
 //typedef t_patternstr<pattern> t_patterneter;
-//Example USAGE
 //
-
-#endif // _COMMON_H_
+#endif //_XOLIB_COMMON_H_

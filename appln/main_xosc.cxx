@@ -13,6 +13,8 @@ int main (int argc , char **argv)
     _osc.load(filename);
     _osc.parse();
 
+    _osc.save("xosc_save.xml");
+
     std::cout<<"Done parsing filename .. "<<filename<<std::endl;
     return 0;
 }
