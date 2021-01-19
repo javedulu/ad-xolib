@@ -62,7 +62,8 @@ Don't edit them directly .
  ![alt text](https://github.com/javedulu/ad-xolib/blob/openscenario/nodes.png?raw=true)
  
 ## Future Requests <a name="future"></a>
- - Save to xo[dr,sc] from c++  
+ - Meta manager to handle OpenDrive & OpenScenario -- In Progress
+ - ~~Save to xo[dr,sc] from c++~~
  - Javascript porting using emcc -- In Progress.
  - Visual Graph based Editing (Web Browser Based) -- In Progress
  - ~~Python binding [XODR]~~ DONE
