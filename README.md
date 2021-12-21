@@ -1,12 +1,12 @@
 
 # ad-xolib (OpenScenario & OpenDrive Parser in C++ & Python)
-C++ library for Parsing OpenScenario (1.0.0) & OpenDrive format files (1.6) with Python bindings for 3.+ 
+C++ library for Parsing OpenScenario (1.0.0) & OpenDrive format files (1.7) with Python bindings for 3.+ 
 
 ## Introduction <a name="introduction"></a>
 
 This repository provides a library for reading ASAM's OpenStandards OpenScenario & OpenDrive Data files, the parsing conforms to
 
-[ASAM OpenDRIVE 1.6
+[ASAM OpenDRIVE 1.7
 Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=3495&token=56b15ffd9dfe23ad8f759523c806fc1f1a90a0e8)
 
 [ASAM OpenScenario 1.0.0
@@ -67,7 +67,7 @@ Don't edit them directly .
  - Javascript porting using emcc -- In Progress.
  - Visual Graph based Editing (Web Browser Based) -- In Progress
  - ~~Python binding [XODR]~~ DONE
- - ~~Bump the format to 1.6 of OpenDrive~~ DONE
+ - ~~Bump the format to 1.7 of OpenDrive~~ DONE
  - ~~OpenScenario c++ parsing based on OpenScenario-1.0~~ DONE
  - ~~Python binding for OpenScenario [XOSC]~~ DONE
  - OpenScenario Manager to manage simulations with External Simulator's - Web Based :) - Challenging
