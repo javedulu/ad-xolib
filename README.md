@@ -7,10 +7,10 @@ C++ library for Parsing OpenScenario (1.1.0) & OpenDrive format files (1.7) with
 This repository provides a library for reading ASAM's OpenStandards OpenScenario & OpenDrive Data files, the parsing conforms to
 
 [ASAM OpenDRIVE 1.7
-Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=3495&token=56b15ffd9dfe23ad8f759523c806fc1f1a90a0e8)
+Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4422&token=e590561f3c39aa2260e5442e29e93f6693d1cccd)
 
-[ASAM OpenScenario 1.1.0
-Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=3496&token=df4fdaf41a8463e585495001cc3db3298b57d426)
+[ASAM OpenScenario 1.1.1
+Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4596&token=55bca7d8439f2bae072c4dffd1ee544a6d76b786)
 
 ![Image of asam-logo](https://www.asam.net/typo3conf/ext/asam_cms/Resources/Public/Images/asam-logo.svg)
 
@@ -64,11 +64,11 @@ Don't edit them directly .
 ## Future Requests <a name="future"></a>
  - Meta manager to handle OpenDrive & OpenScenario -- In Progress
  - ~~Save to xo[dr,sc] from c++~~ [ 01-18-2021 ] 
- - Javascript porting using emcc -- In Progress.
+ - ~~Javascript porting using emcc~~
  - Visual Graph based Editing (Web Browser Based) -- In Progress
  - ~~Python binding [XODR]~~ DONE
  - ~~Bump the format to 1.7 of OpenDrive~~ DONE
  - ~~OpenScenario c++ parsing based on OpenScenario-1.0~~ DONE
  - ~~Python binding for OpenScenario [XOSC]~~ DONE
  - OpenScenario Manager to manage simulations with External Simulator's - Web Based :) - Challenging
- - OpenScenario 2.0 [Awaiting specification ] 
+ - OpenScenario 2.0 [specification](https://asam-ev.github.io/public_release_candidate/asam-openscenario/2.0.0/welcome.html) -- In Progress **
