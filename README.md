@@ -1,6 +1,6 @@
 
 # ad-xolib (OpenScenario & OpenDrive Parser in C++ & Python)
-C++ library for Parsing OpenScenario (1.1.0) & OpenDrive format files (1.7) with Python bindings for 3.+ 
+C++ library for Parsing OpenScenario (1.1.1) & OpenDrive format files (1.7) with Python bindings for 3.+ 
 
 ## Introduction <a name="introduction"></a>
 
