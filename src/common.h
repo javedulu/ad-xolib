@@ -57,7 +57,8 @@ inline bool isdefined(const EnumT v)
 //
 struct t_datetime
 {
-    std::string format = "%FT%T.000%z'";
+//    std::string format = "%FT%T.000%z'";
+    std::string format = "%Y-%m-%dT%H:%M:%S";
     std::time_t t;
     void operator=(std::string tval)
     {
@@ -135,6 +136,17 @@ inline std::string to_str(bool const & in_val)
     std::ostringstream oss;
     oss << std::boolalpha << in_val;
     return oss.str();
+}
+
+template<>
+inline std::string to_str(t_datetime const & in_val)
+{
+    tm _tm;
+    localtime_r(&in_val.t, &_tm);
+
+    char buffer[80];
+    std::strftime(buffer, sizeof(buffer), in_val.format.c_str(), &_tm);
+    return std::string(buffer);
 }
 //Example USAGE
 // // typedef t_patternstr<std::string,std::string(".*")> t_parameter; //C++ doesnt allow literals as template parameters 
