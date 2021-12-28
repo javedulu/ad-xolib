@@ -2,9 +2,9 @@
 //  OpenSCENARIO.h
 //  xsd2cxx- for OpenSCENARIO CXX classes
 //
-//  Created by Javed Shaik on Mon Jan 18 21:29:49 2021
+//  Created by Javed Shaik on Mon Dec 20 22:11:30 2021
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 78a6864d-cfec-4801-8799-10eb4b8ed2f2 --
+//  -- UUIDv4 : 09256c1c-7d11-46ed-b8bc-cfa78175a801 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 #ifndef _OPENSCENARIO_H_
@@ -20,11 +20,13 @@
 //
 #include "pugixml.hpp"
 #include "common.h"
-#include "xosc_export.h"
+//#include "xosc_export.h"
 //
 // Typedefs 
 const constexpr char parameter_pattern[] = "[$][A-Za-z_][A-Za-z0-9_]*"; 
 typedef t_patternstr<parameter_pattern> parameter;
+const constexpr char expression_pattern[] = "[$][{][ A-Za-z0-9_\+\-\*/%$\(\)\.,]*[\}]"; 
+typedef t_patternstr<expression_pattern> expression;
 // Enumerations 
 enum class e_CloudState : std::uint8_t  
 {
@@ -40,6 +42,13 @@ enum class e_ConditionEdge : std::uint8_t
       NONE,               //none 
       RISING,               //rising 
       RISINGORFALLING               //risingOrFalling 
+};
+enum class e_CoordinateSystem : std::uint8_t  
+{
+      ENTITY,               //entity 
+      LANE,               //lane 
+      ROAD,               //road 
+      TRAJECTORY               //trajectory 
 };
 enum class e_DynamicsDimension : std::uint8_t  
 {
@@ -58,6 +67,18 @@ enum class e_FollowingMode : std::uint8_t
 {
       FOLLOW,               //follow 
       POSITION               //position 
+};
+enum class e_LateralDisplacement : std::uint8_t  
+{
+      ANY,               //any 
+      LEFTTOREFERENCEDENTITY,               //leftToReferencedEntity 
+      RIGHTTOREFERENCEDENTITY               //rightToReferencedEntity 
+};
+enum class e_LongitudinalDisplacement : std::uint8_t  
+{
+      ANY,               //any 
+      TRAILINGREFERENCEDENTITY,               //trailingReferencedEntity 
+      LEADINGREFERENCEDENTITY               //leadingReferencedEntity 
 };
 enum class e_MiscObjectCategory : std::uint8_t  
 {
@@ -83,7 +104,8 @@ enum class e_ObjectType : std::uint8_t
 {
       MISCELLANEOUS,               //miscellaneous 
       PEDESTRIAN,               //pedestrian 
-      VEHICLE               //vehicle 
+      VEHICLE,               //vehicle 
+      EXTERNAL               //external 
 };
 enum class e_ParameterType : std::uint8_t  
 {
@@ -120,9 +142,10 @@ enum class e_ReferenceContext : std::uint8_t
 };
 enum class e_RelativeDistanceType : std::uint8_t  
 {
-      CARTESIANDISTANCE,               //cartesianDistance 
       LATERAL,               //lateral 
-      LONGITUDINAL               //longitudinal 
+      LONGITUDINAL,               //longitudinal 
+      CARTESIANDISTANCE,               //cartesianDistance 
+      EUCLIDIANDISTANCE               //euclidianDistance 
 };
 enum class e_RouteStrategy : std::uint8_t  
 {
@@ -135,7 +158,10 @@ enum class e_Rule : std::uint8_t
 {
       EQUALTO,               //equalTo 
       GREATERTHAN,               //greaterThan 
-      LESSTHAN               //lessThan 
+      LESSTHAN,               //lessThan 
+      GREATEROREQUAL,               //greaterOrEqual 
+      LESSOREQUAL,               //lessOrEqual 
+      NOTEQUALTO               //notEqualTo 
 };
 enum class e_SpeedTargetValueType : std::uint8_t  
 {
@@ -180,9 +206,10 @@ enum class e_VehicleCategory : std::uint8_t
       VAN               //van 
 };
 // Union Defintions
-struct XOSC_EXPORT Boolean	// TODO: >> Should be union - will have to handle properly 
+struct  Boolean	// TODO: >> Should be union - will have to handle properly 
 {
 public:
+      expression  m_expression;
       parameter  m_parameter;
       bool  m_boolean;
 public:
@@ -191,7 +218,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~Boolean(){};
 };
-struct XOSC_EXPORT DateTime	// TODO: >> Should be union - will have to handle properly 
+struct  DateTime	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -202,9 +229,10 @@ public:
     void save(pugi::xml_attribute attr);
     ~DateTime(){};
 };
-struct XOSC_EXPORT Double	// TODO: >> Should be union - will have to handle properly 
+struct  Double	// TODO: >> Should be union - will have to handle properly 
 {
 public:
+      expression  m_expression;
       parameter  m_parameter;
       double  m_double;
 public:
@@ -213,9 +241,10 @@ public:
     void save(pugi::xml_attribute attr);
     ~Double(){};
 };
-struct XOSC_EXPORT Int	// TODO: >> Should be union - will have to handle properly 
+struct  Int	// TODO: >> Should be union - will have to handle properly 
 {
 public:
+      expression  m_expression;
       parameter  m_parameter;
       int  m_int;
 public:
@@ -224,7 +253,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~Int(){};
 };
-struct XOSC_EXPORT String	// TODO: >> Should be union - will have to handle properly 
+struct  String	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -235,9 +264,10 @@ public:
     void save(pugi::xml_attribute attr);
     ~String(){};
 };
-struct XOSC_EXPORT UnsignedInt	// TODO: >> Should be union - will have to handle properly 
+struct  UnsignedInt	// TODO: >> Should be union - will have to handle properly 
 {
 public:
+      expression  m_expression;
       parameter  m_parameter;
       uint64_t  m_unsignedInt;
 public:
@@ -246,9 +276,10 @@ public:
     void save(pugi::xml_attribute attr);
     ~UnsignedInt(){};
 };
-struct XOSC_EXPORT UnsignedShort	// TODO: >> Should be union - will have to handle properly 
+struct  UnsignedShort	// TODO: >> Should be union - will have to handle properly 
 {
 public:
+      expression  m_expression;
       parameter  m_parameter;
       uint64_t  m_unsignedShort;
 public:
@@ -257,7 +288,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~UnsignedShort(){};
 };
-struct XOSC_EXPORT CloudState	// TODO: >> Should be union - will have to handle properly 
+struct  CloudState	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -268,7 +299,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~CloudState(){};
 };
-struct XOSC_EXPORT ConditionEdge	// TODO: >> Should be union - will have to handle properly 
+struct  ConditionEdge	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -279,7 +310,18 @@ public:
     void save(pugi::xml_attribute attr);
     ~ConditionEdge(){};
 };
-struct XOSC_EXPORT DynamicsDimension	// TODO: >> Should be union - will have to handle properly 
+struct  CoordinateSystem	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_CoordinateSystem  coordinateSystem;
+public:
+    CoordinateSystem(){};
+    CoordinateSystem(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~CoordinateSystem(){};
+};
+struct  DynamicsDimension	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -290,7 +332,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~DynamicsDimension(){};
 };
-struct XOSC_EXPORT DynamicsShape	// TODO: >> Should be union - will have to handle properly 
+struct  DynamicsShape	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -301,7 +343,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~DynamicsShape(){};
 };
-struct XOSC_EXPORT FollowingMode	// TODO: >> Should be union - will have to handle properly 
+struct  FollowingMode	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -312,7 +354,29 @@ public:
     void save(pugi::xml_attribute attr);
     ~FollowingMode(){};
 };
-struct XOSC_EXPORT MiscObjectCategory	// TODO: >> Should be union - will have to handle properly 
+struct  LateralDisplacement	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_LateralDisplacement  lateralDisplacement;
+public:
+    LateralDisplacement(){};
+    LateralDisplacement(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~LateralDisplacement(){};
+};
+struct  LongitudinalDisplacement	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_LongitudinalDisplacement  longitudinalDisplacement;
+public:
+    LongitudinalDisplacement(){};
+    LongitudinalDisplacement(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~LongitudinalDisplacement(){};
+};
+struct  MiscObjectCategory	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -323,7 +387,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~MiscObjectCategory(){};
 };
-struct XOSC_EXPORT ObjectType	// TODO: >> Should be union - will have to handle properly 
+struct  ObjectType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -334,7 +398,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~ObjectType(){};
 };
-struct XOSC_EXPORT ParameterType	// TODO: >> Should be union - will have to handle properly 
+struct  ParameterType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -345,7 +409,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~ParameterType(){};
 };
-struct XOSC_EXPORT PedestrianCategory	// TODO: >> Should be union - will have to handle properly 
+struct  PedestrianCategory	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -356,7 +420,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~PedestrianCategory(){};
 };
-struct XOSC_EXPORT PrecipitationType	// TODO: >> Should be union - will have to handle properly 
+struct  PrecipitationType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -367,7 +431,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~PrecipitationType(){};
 };
-struct XOSC_EXPORT Priority	// TODO: >> Should be union - will have to handle properly 
+struct  Priority	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -378,7 +442,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~Priority(){};
 };
-struct XOSC_EXPORT ReferenceContext	// TODO: >> Should be union - will have to handle properly 
+struct  ReferenceContext	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -389,7 +453,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~ReferenceContext(){};
 };
-struct XOSC_EXPORT RelativeDistanceType	// TODO: >> Should be union - will have to handle properly 
+struct  RelativeDistanceType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -400,7 +464,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~RelativeDistanceType(){};
 };
-struct XOSC_EXPORT RouteStrategy	// TODO: >> Should be union - will have to handle properly 
+struct  RouteStrategy	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -411,7 +475,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~RouteStrategy(){};
 };
-struct XOSC_EXPORT Rule	// TODO: >> Should be union - will have to handle properly 
+struct  Rule	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -422,7 +486,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~Rule(){};
 };
-struct XOSC_EXPORT SpeedTargetValueType	// TODO: >> Should be union - will have to handle properly 
+struct  SpeedTargetValueType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -433,7 +497,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~SpeedTargetValueType(){};
 };
-struct XOSC_EXPORT StoryboardElementState	// TODO: >> Should be union - will have to handle properly 
+struct  StoryboardElementState	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -444,7 +508,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~StoryboardElementState(){};
 };
-struct XOSC_EXPORT StoryboardElementType	// TODO: >> Should be union - will have to handle properly 
+struct  StoryboardElementType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -455,7 +519,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~StoryboardElementType(){};
 };
-struct XOSC_EXPORT TriggeringEntitiesRule	// TODO: >> Should be union - will have to handle properly 
+struct  TriggeringEntitiesRule	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -466,7 +530,7 @@ public:
     void save(pugi::xml_attribute attr);
     ~TriggeringEntitiesRule(){};
 };
-struct XOSC_EXPORT VehicleCategory	// TODO: >> Should be union - will have to handle properly 
+struct  VehicleCategory	// TODO: >> Should be union - will have to handle properly 
 {
 public:
       parameter  m_parameter;
@@ -500,6 +564,16 @@ inline std::vector<std::pair<std::string, e_ConditionEdge>>enum_map()
     };
 }
 template<>
+inline std::vector<std::pair<std::string, e_CoordinateSystem>>enum_map()
+{
+    return {
+        { "entity", e_CoordinateSystem::ENTITY } , 
+        { "lane", e_CoordinateSystem::LANE } , 
+        { "road", e_CoordinateSystem::ROAD } , 
+        { "trajectory", e_CoordinateSystem::TRAJECTORY }  
+    };
+}
+template<>
 inline std::vector<std::pair<std::string, e_DynamicsDimension>>enum_map()
 {
     return {
@@ -524,6 +598,24 @@ inline std::vector<std::pair<std::string, e_FollowingMode>>enum_map()
     return {
         { "follow", e_FollowingMode::FOLLOW } , 
         { "position", e_FollowingMode::POSITION }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_LateralDisplacement>>enum_map()
+{
+    return {
+        { "any", e_LateralDisplacement::ANY } , 
+        { "leftToReferencedEntity", e_LateralDisplacement::LEFTTOREFERENCEDENTITY } , 
+        { "rightToReferencedEntity", e_LateralDisplacement::RIGHTTOREFERENCEDENTITY }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_LongitudinalDisplacement>>enum_map()
+{
+    return {
+        { "any", e_LongitudinalDisplacement::ANY } , 
+        { "trailingReferencedEntity", e_LongitudinalDisplacement::TRAILINGREFERENCEDENTITY } , 
+        { "leadingReferencedEntity", e_LongitudinalDisplacement::LEADINGREFERENCEDENTITY }  
     };
 }
 template<>
@@ -555,7 +647,8 @@ inline std::vector<std::pair<std::string, e_ObjectType>>enum_map()
     return {
         { "miscellaneous", e_ObjectType::MISCELLANEOUS } , 
         { "pedestrian", e_ObjectType::PEDESTRIAN } , 
-        { "vehicle", e_ObjectType::VEHICLE }  
+        { "vehicle", e_ObjectType::VEHICLE } , 
+        { "external", e_ObjectType::EXTERNAL }  
     };
 }
 template<>
@@ -610,9 +703,10 @@ template<>
 inline std::vector<std::pair<std::string, e_RelativeDistanceType>>enum_map()
 {
     return {
-        { "cartesianDistance", e_RelativeDistanceType::CARTESIANDISTANCE } , 
         { "lateral", e_RelativeDistanceType::LATERAL } , 
-        { "longitudinal", e_RelativeDistanceType::LONGITUDINAL }  
+        { "longitudinal", e_RelativeDistanceType::LONGITUDINAL } , 
+        { "cartesianDistance", e_RelativeDistanceType::CARTESIANDISTANCE } , 
+        { "euclidianDistance", e_RelativeDistanceType::EUCLIDIANDISTANCE }  
     };
 }
 template<>
@@ -631,7 +725,10 @@ inline std::vector<std::pair<std::string, e_Rule>>enum_map()
     return {
         { "equalTo", e_Rule::EQUALTO } , 
         { "greaterThan", e_Rule::GREATERTHAN } , 
-        { "lessThan", e_Rule::LESSTHAN }  
+        { "lessThan", e_Rule::LESSTHAN } , 
+        { "greaterOrEqual", e_Rule::GREATEROREQUAL } , 
+        { "lessOrEqual", e_Rule::LESSOREQUAL } , 
+        { "notEqualTo", e_Rule::NOTEQUALTO }  
     };
 }
 template<>
@@ -729,9 +826,15 @@ struct ControllerDistributionEntry;
 struct ControlPoint;
 struct CustomCommandAction;
 struct DeleteEntityAction;
+struct Deterministic;
+struct DeterministicMultiParameterDistribution;
+struct DeterministicSingleParameterDistribution;
 struct Dimensions;
 struct Directory;
 struct DistanceCondition;
+struct DistributionRange;
+struct DistributionSet;
+struct DistributionSetElement;
 struct DynamicConstraints;
 struct EndOfRoadCondition;
 struct Entities;
@@ -743,12 +846,16 @@ struct Environment;
 struct EnvironmentAction;
 struct EnvironmentCatalogLocation;
 struct Event;
+struct ExternalObjectReference;
 struct File;
 struct FileHeader;
 struct FinalSpeed;
 struct Fog;
 struct FollowTrajectoryAction;
+struct GeoPosition;
 struct GlobalAction;
+struct Histogram;
+struct HistogramBin;
 struct InfrastructureAction;
 struct Init;
 struct InitActions;
@@ -762,6 +869,7 @@ struct LaneOffsetTarget;
 struct LanePosition;
 struct LateralAction;
 struct LateralDistanceAction;
+struct License;
 struct LongitudinalAction;
 struct LongitudinalDistanceAction;
 struct Maneuver;
@@ -771,6 +879,7 @@ struct MiscObject;
 struct MiscObjectCatalogLocation;
 struct ModifyRule;
 struct None;
+struct NormalDistribution;
 struct Nurbs;
 struct ObjectController;
 struct OffroadCondition;
@@ -793,10 +902,13 @@ struct ParameterDeclarations;
 struct ParameterModifyAction;
 struct ParameterMultiplyByValueRule;
 struct ParameterSetAction;
+struct ParameterValueDistribution;
+struct ParameterValueSet;
 struct Pedestrian;
 struct PedestrianCatalogLocation;
 struct Performance;
 struct Phase;
+struct PoissonDistribution;
 struct Polyline;
 struct Position;
 struct PositionInLaneCoordinates;
@@ -805,8 +917,11 @@ struct PositionOfCurrentEntity;
 struct Precipitation;
 struct Private;
 struct PrivateAction;
+struct ProbabilityDistributionSet;
+struct ProbabilityDistributionSetElement;
 struct Properties;
 struct Property;
+struct Range;
 struct ReachPositionCondition;
 struct RelativeDistanceCondition;
 struct RelativeLanePosition;
@@ -834,11 +949,15 @@ struct SpeedAction;
 struct SpeedActionTarget;
 struct SpeedCondition;
 struct StandStillCondition;
+struct Stochastic;
+struct StochasticDistribution;
 struct Story;
 struct Storyboard;
 struct StoryboardElementStateCondition;
 struct Sun;
 struct SynchronizeAction;
+struct TargetDistanceSteadyState;
+struct TargetTimeSteadyState;
 struct TeleportAction;
 struct TimeHeadwayCondition;
 struct TimeOfDay;
@@ -859,16 +978,25 @@ struct TrafficSignalState;
 struct TrafficSignalStateAction;
 struct TrafficSinkAction;
 struct TrafficSourceAction;
+struct TrafficStopAction;
 struct TrafficSwarmAction;
 struct Trajectory;
 struct TrajectoryCatalogLocation;
 struct TrajectoryFollowingMode;
+struct TrajectoryPosition;
+struct TrajectoryRef;
 struct TransitionDynamics;
 struct TraveledDistanceCondition;
 struct Trigger;
 struct TriggeringEntities;
+struct UniformDistribution;
+struct UsedArea;
 struct UserDefinedAction;
+struct UserDefinedDistribution;
 struct UserDefinedValueCondition;
+struct ValueConstraint;
+struct ValueConstraintGroup;
+struct ValueSetDistribution;
 struct Vehicle;
 struct VehicleCatalogLocation;
 struct VehicleCategoryDistribution;
@@ -877,14 +1005,22 @@ struct Vertex;
 struct VisibilityAction;
 struct Waypoint;
 struct Weather;
+struct Wind;
 struct WorldPosition;
 // xs:group -> aliased to group definition
 struct CatalogDefinition;
+struct DeterministicMultiParameterDistributionType;
+struct DeterministicParameterDistribution;
+struct DeterministicSingleParameterDistributionType;
+struct DistributionDefinition;
 struct EntityObject;
 struct OpenScenarioCategory;
+struct ParameterValueDistributionDefinition;
 struct ScenarioDefinition;
+struct SteadyState;
+struct StochasticDistributionType;
 //End Forward Declarations
-struct XOSC_EXPORT Action_U	// TODO: >> Should be union - will have to handle properly 
+struct  Action_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<GlobalAction>                 m_GlobalAction; //xs:element
@@ -896,7 +1032,7 @@ public:
     void save(pugi::xml_node node);
     ~Action_U(){};
 };
-struct XOSC_EXPORT AssignControllerAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  AssignControllerAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<Controller>                 m_Controller; //xs:element
@@ -907,7 +1043,7 @@ public:
     void save(pugi::xml_node node);
     ~AssignControllerAction_U(){};
 };
-struct XOSC_EXPORT AssignRouteAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  AssignRouteAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<Route>                 m_Route; //xs:element
@@ -918,7 +1054,7 @@ public:
     void save(pugi::xml_node node);
     ~AssignRouteAction_U(){};
 };
-struct XOSC_EXPORT ByValueCondition_U	// TODO: >> Should be union - will have to handle properly 
+struct  ByValueCondition_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<ParameterCondition>                 m_ParameterCondition; //xs:element
@@ -934,7 +1070,7 @@ public:
     void save(pugi::xml_node node);
     ~ByValueCondition_U(){};
 };
-struct XOSC_EXPORT CollisionCondition_U	// TODO: >> Should be union - will have to handle properly 
+struct  CollisionCondition_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<EntityRef>                 m_EntityRef; //xs:element
@@ -945,7 +1081,7 @@ public:
     void save(pugi::xml_node node);
     ~CollisionCondition_U(){};
 };
-struct XOSC_EXPORT Condition_U	// TODO: >> Should be union - will have to handle properly 
+struct  Condition_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<ByEntityCondition>                 m_ByEntityCondition; //xs:element
@@ -956,7 +1092,7 @@ public:
     void save(pugi::xml_node node);
     ~Condition_U(){};
 };
-struct XOSC_EXPORT ControllerDistributionEntry_U	// TODO: >> Should be union - will have to handle properly 
+struct  ControllerDistributionEntry_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<Controller>                 m_Controller; //xs:element
@@ -967,7 +1103,7 @@ public:
     void save(pugi::xml_node node);
     ~ControllerDistributionEntry_U(){};
 };
-struct XOSC_EXPORT EntityAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  EntityAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<AddEntityAction>                 m_AddEntityAction; //xs:element
@@ -978,7 +1114,7 @@ public:
     void save(pugi::xml_node node);
     ~EntityAction_U(){};
 };
-struct XOSC_EXPORT EntityCondition_U	// TODO: >> Should be union - will have to handle properly 
+struct  EntityCondition_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<EndOfRoadCondition>                 m_EndOfRoadCondition; //xs:element
@@ -1000,7 +1136,7 @@ public:
     void save(pugi::xml_node node);
     ~EntityCondition_U(){};
 };
-struct XOSC_EXPORT EnvironmentAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  EnvironmentAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<Environment>                 m_Environment; //xs:element
@@ -1011,7 +1147,7 @@ public:
     void save(pugi::xml_node node);
     ~EnvironmentAction_U(){};
 };
-struct XOSC_EXPORT FinalSpeed_U	// TODO: >> Should be union - will have to handle properly 
+struct  FinalSpeed_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<AbsoluteSpeed>                 m_AbsoluteSpeed; //xs:element
@@ -1022,7 +1158,7 @@ public:
     void save(pugi::xml_node node);
     ~FinalSpeed_U(){};
 };
-struct XOSC_EXPORT GlobalAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  GlobalAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<EnvironmentAction>                 m_EnvironmentAction; //xs:element
@@ -1036,7 +1172,7 @@ public:
     void save(pugi::xml_node node);
     ~GlobalAction_U(){};
 };
-struct XOSC_EXPORT InRoutePosition_U	// TODO: >> Should be union - will have to handle properly 
+struct  InRoutePosition_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<PositionOfCurrentEntity>                 m_FromCurrentEntity; //xs:element
@@ -1048,7 +1184,7 @@ public:
     void save(pugi::xml_node node);
     ~InRoutePosition_U(){};
 };
-struct XOSC_EXPORT LaneChangeTarget_U	// TODO: >> Should be union - will have to handle properly 
+struct  LaneChangeTarget_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<RelativeTargetLane>                 m_RelativeTargetLane; //xs:element
@@ -1059,7 +1195,7 @@ public:
     void save(pugi::xml_node node);
     ~LaneChangeTarget_U(){};
 };
-struct XOSC_EXPORT LaneOffsetTarget_U	// TODO: >> Should be union - will have to handle properly 
+struct  LaneOffsetTarget_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<RelativeTargetLaneOffset>                 m_RelativeTargetLaneOffset; //xs:element
@@ -1070,7 +1206,7 @@ public:
     void save(pugi::xml_node node);
     ~LaneOffsetTarget_U(){};
 };
-struct XOSC_EXPORT LateralAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  LateralAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<LaneChangeAction>                 m_LaneChangeAction; //xs:element
@@ -1082,7 +1218,7 @@ public:
     void save(pugi::xml_node node);
     ~LateralAction_U(){};
 };
-struct XOSC_EXPORT LongitudinalAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  LongitudinalAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<SpeedAction>                 m_SpeedAction; //xs:element
@@ -1093,7 +1229,7 @@ public:
     void save(pugi::xml_node node);
     ~LongitudinalAction_U(){};
 };
-struct XOSC_EXPORT ModifyRule_U	// TODO: >> Should be union - will have to handle properly 
+struct  ModifyRule_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<ParameterAddValueRule>                 m_AddValue; //xs:element
@@ -1104,7 +1240,7 @@ public:
     void save(pugi::xml_node node);
     ~ModifyRule_U(){};
 };
-struct XOSC_EXPORT ObjectController_U	// TODO: >> Should be union - will have to handle properly 
+struct  ObjectController_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<CatalogReference>                 m_CatalogReference; //xs:element
@@ -1115,7 +1251,7 @@ public:
     void save(pugi::xml_node node);
     ~ObjectController_U(){};
 };
-struct XOSC_EXPORT ParameterAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  ParameterAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<ParameterSetAction>                 m_SetAction; //xs:element
@@ -1126,7 +1262,7 @@ public:
     void save(pugi::xml_node node);
     ~ParameterAction_U(){};
 };
-struct XOSC_EXPORT Position_U	// TODO: >> Should be union - will have to handle properly 
+struct  Position_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<WorldPosition>                 m_WorldPosition; //xs:element
@@ -1137,13 +1273,15 @@ public:
     std::shared_ptr<LanePosition>                 m_LanePosition; //xs:element
     std::shared_ptr<RelativeLanePosition>                 m_RelativeLanePosition; //xs:element
     std::shared_ptr<RoutePosition>                 m_RoutePosition; //xs:element
+    std::shared_ptr<GeoPosition>                 m_GeoPosition; //xs:element
+    std::shared_ptr<TrajectoryPosition>                 m_TrajectoryPosition; //xs:element
 public:
     Position_U(){};
     Position_U(pugi::xml_node node);
     void save(pugi::xml_node node);
     ~Position_U(){};
 };
-struct XOSC_EXPORT PrivateAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  PrivateAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<LongitudinalAction>                 m_LongitudinalAction; //xs:element
@@ -1160,7 +1298,7 @@ public:
     void save(pugi::xml_node node);
     ~PrivateAction_U(){};
 };
-struct XOSC_EXPORT RouteRef_U	// TODO: >> Should be union - will have to handle properly 
+struct  RouteRef_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<Route>                 m_Route; //xs:element
@@ -1171,7 +1309,7 @@ public:
     void save(pugi::xml_node node);
     ~RouteRef_U(){};
 };
-struct XOSC_EXPORT RoutingAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  RoutingAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<AssignRouteAction>                 m_AssignRouteAction; //xs:element
@@ -1183,7 +1321,7 @@ public:
     void save(pugi::xml_node node);
     ~RoutingAction_U(){};
 };
-struct XOSC_EXPORT SelectedEntities_U	// TODO: >> Should be union - will have to handle properly 
+struct  SelectedEntities_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::vector<std::shared_ptr<EntityRef>>                 m_EntityRefs; //xs:element
@@ -1194,7 +1332,7 @@ public:
     void save(pugi::xml_node node);
     ~SelectedEntities_U(){};
 };
-struct XOSC_EXPORT Shape_U	// TODO: >> Should be union - will have to handle properly 
+struct  Shape_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<Polyline>                 m_Polyline; //xs:element
@@ -1206,7 +1344,7 @@ public:
     void save(pugi::xml_node node);
     ~Shape_U(){};
 };
-struct XOSC_EXPORT SpeedActionTarget_U	// TODO: >> Should be union - will have to handle properly 
+struct  SpeedActionTarget_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<RelativeTargetSpeed>                 m_RelativeTargetSpeed; //xs:element
@@ -1217,7 +1355,7 @@ public:
     void save(pugi::xml_node node);
     ~SpeedActionTarget_U(){};
 };
-struct XOSC_EXPORT TimeReference_U	// TODO: >> Should be union - will have to handle properly 
+struct  TimeReference_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<None>                 m_None; //xs:element
@@ -1228,7 +1366,7 @@ public:
     void save(pugi::xml_node node);
     ~TimeReference_U(){};
 };
-struct XOSC_EXPORT TimeToCollisionConditionTarget_U	// TODO: >> Should be union - will have to handle properly 
+struct  TimeToCollisionConditionTarget_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<Position>                 m_Position; //xs:element
@@ -1239,19 +1377,20 @@ public:
     void save(pugi::xml_node node);
     ~TimeToCollisionConditionTarget_U(){};
 };
-struct XOSC_EXPORT TrafficAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  TrafficAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<TrafficSourceAction>                 m_TrafficSourceAction; //xs:element
     std::shared_ptr<TrafficSinkAction>                 m_TrafficSinkAction; //xs:element
     std::shared_ptr<TrafficSwarmAction>                 m_TrafficSwarmAction; //xs:element
+    std::shared_ptr<TrafficStopAction>                 m_TrafficStopAction; //xs:element
 public:
     TrafficAction_U(){};
     TrafficAction_U(pugi::xml_node node);
     void save(pugi::xml_node node);
     ~TrafficAction_U(){};
 };
-struct XOSC_EXPORT TrafficSignalAction_U	// TODO: >> Should be union - will have to handle properly 
+struct  TrafficSignalAction_U	// TODO: >> Should be union - will have to handle properly 
 {
 public:
     std::shared_ptr<TrafficSignalControllerAction>                 m_TrafficSignalControllerAction; //xs:element
@@ -1262,7 +1401,18 @@ public:
     void save(pugi::xml_node node);
     ~TrafficSignalAction_U(){};
 };
-struct XOSC_EXPORT AbsoluteSpeed   
+struct  TrajectoryRef_U	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+    std::shared_ptr<Trajectory>                 m_Trajectory; //xs:element
+    std::shared_ptr<CatalogReference>                 m_CatalogReference; //xs:element
+public:
+    TrajectoryRef_U(){};
+    TrajectoryRef_U(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    ~TrajectoryRef_U(){};
+};
+struct  AbsoluteSpeed   
 {
 /**/
 public:
@@ -1273,8 +1423,9 @@ public:
 public: 
     //
     Double	    value; //  required 
+    std::shared_ptr<SteadyState>                 m_SteadyState; //xs:groupent
 };
-struct XOSC_EXPORT AbsoluteTargetLane   
+struct  AbsoluteTargetLane   
 {
 /**/
 public:
@@ -1286,7 +1437,7 @@ public:
     //
     String	    value; //  required 
 };
-struct XOSC_EXPORT AbsoluteTargetLaneOffset   
+struct  AbsoluteTargetLaneOffset   
 {
 /**/
 public:
@@ -1298,7 +1449,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT AbsoluteTargetSpeed   
+struct  AbsoluteTargetSpeed   
 {
 /**/
 public:
@@ -1310,7 +1461,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT AccelerationCondition   
+struct  AccelerationCondition   
 {
 /**/
 public:
@@ -1324,7 +1475,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT AcquirePositionAction   
+struct  AcquirePositionAction   
 {
 /**/
 public:
@@ -1335,7 +1486,7 @@ public:
 public: 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT Act   
+struct  Act   
 {
 /**/
 public:
@@ -1350,7 +1501,7 @@ public:
     std::shared_ptr<Trigger>                 m_StartTrigger; //xs:element
     std::shared_ptr<Trigger>                 m_StopTrigger; //xs:element
 };
-struct XOSC_EXPORT Action   
+struct  Action   
 {
 /**/
 public:
@@ -1363,7 +1514,7 @@ public:
     String	    name; //  required 
     std::shared_ptr<Action_U>                 m_Action; //xs:element
 };
-struct XOSC_EXPORT ActivateControllerAction   
+struct  ActivateControllerAction   
 {
 /**/
 public:
@@ -1377,7 +1528,7 @@ public:
     //
     Boolean	    longitudinal; //   
 };
-struct XOSC_EXPORT Actors   
+struct  Actors   
 {
 /**/
 public:
@@ -1390,7 +1541,7 @@ public:
     Boolean	    selectTriggeringEntities; //  required 
     std::vector<std::shared_ptr<EntityRef>>                 m_EntityRefs; //xs:element
 };
-struct XOSC_EXPORT AddEntityAction   
+struct  AddEntityAction   
 {
 /**/
 public:
@@ -1401,7 +1552,7 @@ public:
 public: 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT AssignControllerAction   
+struct  AssignControllerAction   
 {
 /**/
 public:
@@ -1410,9 +1561,13 @@ public:
     void save(pugi::xml_node node);
     virtual ~AssignControllerAction(){};
 public: 
+    //
+    Boolean	    activateLateral; //   
+    //
+    Boolean	    activateLongitudinal; //   
     std::shared_ptr<AssignControllerAction_U>                 m_AssignControllerAction; //xs:element
 };
-struct XOSC_EXPORT AssignRouteAction   
+struct  AssignRouteAction   
 {
 /**/
 public:
@@ -1423,7 +1578,7 @@ public:
 public: 
     std::shared_ptr<AssignRouteAction_U>                 m_AssignRouteAction; //xs:element
 };
-struct XOSC_EXPORT Axle   
+struct  Axle   
 {
 /**/
 public:
@@ -1443,7 +1598,7 @@ public:
     //
     Double	    wheelDiameter; //  required 
 };
-struct XOSC_EXPORT Axles   
+struct  Axles   
 {
 /**/
 public:
@@ -1456,7 +1611,7 @@ public:
     std::shared_ptr<Axle>                 m_RearAxle; //xs:element
     std::vector<std::shared_ptr<Axle>>                 m_AdditionalAxles; //xs:element
 };
-struct XOSC_EXPORT BoundingBox   
+struct  BoundingBox   
 {
 /**/
 public:
@@ -1468,7 +1623,7 @@ public:
     std::shared_ptr<Center>                 m_Center; //xs:element
     std::shared_ptr<Dimensions>                 m_Dimensions; //xs:element
 };
-struct XOSC_EXPORT ByEntityCondition   
+struct  ByEntityCondition   
 {
 /**/
 public:
@@ -1480,7 +1635,7 @@ public:
     std::shared_ptr<TriggeringEntities>                 m_TriggeringEntities; //xs:element
     std::shared_ptr<EntityCondition>                 m_EntityCondition; //xs:element
 };
-struct XOSC_EXPORT ByObjectType   
+struct  ByObjectType   
 {
 /**/
 public:
@@ -1492,7 +1647,7 @@ public:
     //
     ObjectType	    type; //  required 
 };
-struct XOSC_EXPORT ByType   
+struct  ByType   
 {
 /**/
 public:
@@ -1504,7 +1659,7 @@ public:
     //
     ObjectType	    objectType; //  required 
 };
-struct XOSC_EXPORT ByValueCondition   
+struct  ByValueCondition   
 {
 /**/
 public:
@@ -1515,7 +1670,7 @@ public:
 public: 
     std::shared_ptr<ByValueCondition_U>                 m_ByValueCondition; //xs:element
 };
-struct XOSC_EXPORT Catalog   
+struct  Catalog   
 {
 /**/
 public:
@@ -1535,7 +1690,7 @@ public:
     std::vector<std::shared_ptr<Trajectory>>                 m_Trajectorys; //xs:element
     std::vector<std::shared_ptr<Route>>                 m_Routes; //xs:element
 };
-struct XOSC_EXPORT CatalogLocations   
+struct  CatalogLocations   
 {
 /**/
 public:
@@ -1553,7 +1708,7 @@ public:
     std::shared_ptr<TrajectoryCatalogLocation>                 m_TrajectoryCatalog; //xs:element
     std::shared_ptr<RouteCatalogLocation>                 m_RouteCatalog; //xs:element
 };
-struct XOSC_EXPORT CatalogReference   
+struct  CatalogReference   
 {
 /**/
 public:
@@ -1568,7 +1723,7 @@ public:
     String	    entryName; //  required 
     std::shared_ptr<ParameterAssignments>                 m_ParameterAssignments; //xs:element
 };
-struct XOSC_EXPORT Center   
+struct  Center   
 {
 /**/
 public:
@@ -1584,7 +1739,7 @@ public:
     //
     Double	    z; //  required 
 };
-struct XOSC_EXPORT CentralSwarmObject   
+struct  CentralSwarmObject   
 {
 /**/
 public:
@@ -1596,7 +1751,7 @@ public:
     //
     String	    entityRef; //  required 
 };
-struct XOSC_EXPORT Clothoid   
+struct  Clothoid   
 {
 /**/
 public:
@@ -1608,16 +1763,18 @@ public:
     //
     Double	    curvature; //  required 
     //
-    Double	    curvatureDot; //  required 
+    Double	    curvatureDot; //   
     //
     Double	    length; //  required 
     //
     Double	    startTime; //   
     //
     Double	    stopTime; //   
+    //
+    Double	    curvaturePrime; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT CollisionCondition   
+struct  CollisionCondition   
 {
 /**/
 public:
@@ -1628,7 +1785,7 @@ public:
 public: 
     std::shared_ptr<CollisionCondition_U>                 m_CollisionCondition; //xs:element
 };
-struct XOSC_EXPORT Condition   
+struct  Condition   
 {
 /**/
 public:
@@ -1645,7 +1802,7 @@ public:
     String	    name; //  required 
     std::shared_ptr<Condition_U>                 m_Condition; //xs:element
 };
-struct XOSC_EXPORT ConditionGroup   
+struct  ConditionGroup   
 {
 /**/
 public:
@@ -1656,7 +1813,7 @@ public:
 public: 
     std::vector<std::shared_ptr<Condition>>                 m_Conditions; //xs:element
 };
-struct XOSC_EXPORT Controller   
+struct  Controller   
 {
 /**/
 public:
@@ -1670,7 +1827,7 @@ public:
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
-struct XOSC_EXPORT ControllerAction   
+struct  ControllerAction   
 {
 /**/
 public:
@@ -1681,8 +1838,9 @@ public:
 public: 
     std::shared_ptr<AssignControllerAction>                 m_AssignControllerAction; //xs:element
     std::shared_ptr<OverrideControllerValueAction>                 m_OverrideControllerValueAction; //xs:element
+    std::shared_ptr<ActivateControllerAction>                 m_ActivateControllerAction; //xs:element
 };
-struct XOSC_EXPORT ControllerCatalogLocation   
+struct  ControllerCatalogLocation   
 {
 /**/
 public:
@@ -1693,7 +1851,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT ControllerDistribution   
+struct  ControllerDistribution   
 {
 /**/
 public:
@@ -1704,7 +1862,7 @@ public:
 public: 
     std::vector<std::shared_ptr<ControllerDistributionEntry>>                 m_ControllerDistributionEntrys; //xs:element
 };
-struct XOSC_EXPORT ControllerDistributionEntry   
+struct  ControllerDistributionEntry   
 {
 /**/
 public:
@@ -1717,7 +1875,7 @@ public:
     Double	    weight; //  required 
     std::shared_ptr<ControllerDistributionEntry_U>                 m_ControllerDistributionEntry; //xs:element
 };
-struct XOSC_EXPORT ControlPoint   
+struct  ControlPoint   
 {
 /**/
 public:
@@ -1732,7 +1890,7 @@ public:
     Double	    weight; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT CustomCommandAction   
+struct  CustomCommandAction   
 {
 /**/
 public:
@@ -1744,7 +1902,7 @@ public:
     //
     String	    type; //  required 
 };
-struct XOSC_EXPORT DeleteEntityAction   
+struct  DeleteEntityAction   
 {
 /**/
 public:
@@ -1754,7 +1912,42 @@ public:
     virtual ~DeleteEntityAction(){};
 public: 
 };
-struct XOSC_EXPORT Dimensions   
+struct  Deterministic   
+{
+/**/
+public:
+    Deterministic(){};
+    Deterministic(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Deterministic(){};
+public: 
+    std::shared_ptr<DeterministicParameterDistribution>                 m_DeterministicParameterDistribution; //xs:groupent
+};
+struct  DeterministicMultiParameterDistribution   
+{
+/**/
+public:
+    DeterministicMultiParameterDistribution(){};
+    DeterministicMultiParameterDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DeterministicMultiParameterDistribution(){};
+public: 
+    std::shared_ptr<DeterministicMultiParameterDistributionType>                 m_DeterministicMultiParameterDistributionType; //xs:groupent
+};
+struct  DeterministicSingleParameterDistribution   
+{
+/**/
+public:
+    DeterministicSingleParameterDistribution(){};
+    DeterministicSingleParameterDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DeterministicSingleParameterDistribution(){};
+public: 
+    //
+    String	    parameterName; //  required 
+    std::shared_ptr<DeterministicSingleParameterDistributionType>                 m_DeterministicSingleParameterDistributionType; //xs:groupent
+};
+struct  Dimensions   
 {
 /**/
 public:
@@ -1770,7 +1963,7 @@ public:
     //
     Double	    width; //  required 
 };
-struct XOSC_EXPORT Directory   
+struct  Directory   
 {
 /**/
 public:
@@ -1782,7 +1975,7 @@ public:
     //
     String	    path; //  required 
 };
-struct XOSC_EXPORT DistanceCondition   
+struct  DistanceCondition   
 {
 /**/
 public:
@@ -1792,16 +1985,56 @@ public:
     virtual ~DistanceCondition(){};
 public: 
     //
-    Boolean	    alongRoute; //  required 
+    Boolean	    alongRoute; //   
     //
     Boolean	    freespace; //  required 
     //
     Rule	    rule; //  required 
     //
     Double	    value; //  required 
+    //
+    CoordinateSystem	    coordinateSystem; //   
+    //
+    RelativeDistanceType	    relativeDistanceType; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT DynamicConstraints   
+struct  DistributionRange   
+{
+/**/
+public:
+    DistributionRange(){};
+    DistributionRange(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DistributionRange(){};
+public: 
+    //
+    Double	    stepWidth; //  required 
+    std::shared_ptr<Range>                 m_Range; //xs:element
+};
+struct  DistributionSet   
+{
+/**/
+public:
+    DistributionSet(){};
+    DistributionSet(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DistributionSet(){};
+public: 
+    std::vector<std::shared_ptr<DistributionSetElement>>                 m_Elements; //xs:element
+};
+struct  DistributionSetElement   
+{
+/**/
+public:
+    DistributionSetElement(){};
+    DistributionSetElement(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DistributionSetElement(){};
+public: 
+    //
+    String	    value; //  required 
+};
+struct  DynamicConstraints   
 {
 /**/
 public:
@@ -1817,7 +2050,7 @@ public:
     //
     Double	    maxSpeed; //   
 };
-struct XOSC_EXPORT EndOfRoadCondition   
+struct  EndOfRoadCondition   
 {
 /**/
 public:
@@ -1829,7 +2062,7 @@ public:
     //
     Double	    duration; //  required 
 };
-struct XOSC_EXPORT Entities   
+struct  Entities   
 {
 /**/
 public:
@@ -1841,7 +2074,7 @@ public:
     std::vector<std::shared_ptr<ScenarioObject>>                 m_ScenarioObjects; //xs:element
     std::vector<std::shared_ptr<EntitySelection>>                 m_EntitySelections; //xs:element
 };
-struct XOSC_EXPORT EntityAction   
+struct  EntityAction   
 {
 /**/
 public:
@@ -1854,7 +2087,7 @@ public:
     String	    entityRef; //  required 
     std::shared_ptr<EntityAction_U>                 m_EntityAction; //xs:element
 };
-struct XOSC_EXPORT EntityCondition   
+struct  EntityCondition   
 {
 /**/
 public:
@@ -1865,7 +2098,7 @@ public:
 public: 
     std::shared_ptr<EntityCondition_U>                 m_EntityCondition; //xs:element
 };
-struct XOSC_EXPORT EntityRef   
+struct  EntityRef   
 {
 /**/
 public:
@@ -1877,7 +2110,7 @@ public:
     //
     String	    entityRef; //  required 
 };
-struct XOSC_EXPORT EntitySelection   
+struct  EntitySelection   
 {
 /**/
 public:
@@ -1890,7 +2123,7 @@ public:
     String	    name; //  required 
     std::shared_ptr<SelectedEntities>                 m_Members; //xs:element
 };
-struct XOSC_EXPORT Environment   
+struct  Environment   
 {
 /**/
 public:
@@ -1906,7 +2139,7 @@ public:
     std::shared_ptr<Weather>                 m_Weather; //xs:element
     std::shared_ptr<RoadCondition>                 m_RoadCondition; //xs:element
 };
-struct XOSC_EXPORT EnvironmentAction   
+struct  EnvironmentAction   
 {
 /**/
 public:
@@ -1917,7 +2150,7 @@ public:
 public: 
     std::shared_ptr<EnvironmentAction_U>                 m_EnvironmentAction; //xs:element
 };
-struct XOSC_EXPORT EnvironmentCatalogLocation   
+struct  EnvironmentCatalogLocation   
 {
 /**/
 public:
@@ -1928,7 +2161,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT Event   
+struct  Event   
 {
 /**/
 public:
@@ -1946,7 +2179,19 @@ public:
     std::vector<std::shared_ptr<Action>>                 m_Actions; //xs:element
     std::shared_ptr<Trigger>                 m_StartTrigger; //xs:element
 };
-struct XOSC_EXPORT File   
+struct  ExternalObjectReference   
+{
+/**/
+public:
+    ExternalObjectReference(){};
+    ExternalObjectReference(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ExternalObjectReference(){};
+public: 
+    //
+    String	    name; //  required 
+};
+struct  File   
 {
 /**/
 public:
@@ -1958,7 +2203,7 @@ public:
     //
     String	    filepath; //  required 
 };
-struct XOSC_EXPORT FileHeader   
+struct  FileHeader   
 {
 /**/
 public:
@@ -1977,8 +2222,9 @@ public:
     UnsignedShort	    revMajor; //  required 
     //
     UnsignedShort	    revMinor; //  required 
+    std::shared_ptr<License>                 m_License; //xs:element
 };
-struct XOSC_EXPORT FinalSpeed   
+struct  FinalSpeed   
 {
 /**/
 public:
@@ -1989,7 +2235,7 @@ public:
 public: 
     std::shared_ptr<FinalSpeed_U>                 m_FinalSpeed; //xs:element
 };
-struct XOSC_EXPORT Fog   
+struct  Fog   
 {
 /**/
 public:
@@ -2002,7 +2248,7 @@ public:
     Double	    visualRange; //  required 
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
 };
-struct XOSC_EXPORT FollowTrajectoryAction   
+struct  FollowTrajectoryAction   
 {
 /**/
 public:
@@ -2011,12 +2257,32 @@ public:
     void save(pugi::xml_node node);
     virtual ~FollowTrajectoryAction(){};
 public: 
+    //
+    Double	    initialDistanceOffset; //   
     std::shared_ptr<Trajectory>                 m_Trajectory; //xs:element
     std::shared_ptr<CatalogReference>                 m_CatalogReference; //xs:element
     std::shared_ptr<TimeReference>                 m_TimeReference; //xs:element
     std::shared_ptr<TrajectoryFollowingMode>                 m_TrajectoryFollowingMode; //xs:element
+    std::shared_ptr<TrajectoryRef>                 m_TrajectoryRef; //xs:element
 };
-struct XOSC_EXPORT GlobalAction   
+struct  GeoPosition   
+{
+/**/
+public:
+    GeoPosition(){};
+    GeoPosition(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~GeoPosition(){};
+public: 
+    //
+    Double	    latitude; //  required 
+    //
+    Double	    longitude; //  required 
+    //
+    Double	    height; //   
+    std::shared_ptr<Orientation>                 m_Orientation; //xs:element
+};
+struct  GlobalAction   
 {
 /**/
 public:
@@ -2027,7 +2293,31 @@ public:
 public: 
     std::shared_ptr<GlobalAction_U>                 m_GlobalAction; //xs:element
 };
-struct XOSC_EXPORT InfrastructureAction   
+struct  Histogram   
+{
+/**/
+public:
+    Histogram(){};
+    Histogram(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Histogram(){};
+public: 
+    std::vector<std::shared_ptr<HistogramBin>>                 m_Bins; //xs:element
+};
+struct  HistogramBin   
+{
+/**/
+public:
+    HistogramBin(){};
+    HistogramBin(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~HistogramBin(){};
+public: 
+    //
+    Double	    weight; //  required 
+    std::shared_ptr<Range>                 m_Range; //xs:element
+};
+struct  InfrastructureAction   
 {
 /**/
 public:
@@ -2038,7 +2328,7 @@ public:
 public: 
     std::shared_ptr<TrafficSignalAction>                 m_TrafficSignalAction; //xs:element
 };
-struct XOSC_EXPORT Init   
+struct  Init   
 {
 /**/
 public:
@@ -2049,7 +2339,7 @@ public:
 public: 
     std::shared_ptr<InitActions>                 m_Actions; //xs:element
 };
-struct XOSC_EXPORT InitActions   
+struct  InitActions   
 {
 /**/
 public:
@@ -2062,7 +2352,7 @@ public:
     std::vector<std::shared_ptr<UserDefinedAction>>                 m_UserDefinedActions; //xs:element
     std::vector<std::shared_ptr<Private>>                 m_Privates; //xs:element
 };
-struct XOSC_EXPORT InRoutePosition   
+struct  InRoutePosition   
 {
 /**/
 public:
@@ -2073,7 +2363,7 @@ public:
 public: 
     std::shared_ptr<InRoutePosition_U>                 m_InRoutePosition; //xs:element
 };
-struct XOSC_EXPORT Knot   
+struct  Knot   
 {
 /**/
 public:
@@ -2085,7 +2375,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT LaneChangeAction   
+struct  LaneChangeAction   
 {
 /**/
 public:
@@ -2099,7 +2389,7 @@ public:
     std::shared_ptr<TransitionDynamics>                 m_LaneChangeActionDynamics; //xs:element
     std::shared_ptr<LaneChangeTarget>                 m_LaneChangeTarget; //xs:element
 };
-struct XOSC_EXPORT LaneChangeTarget   
+struct  LaneChangeTarget   
 {
 /**/
 public:
@@ -2110,7 +2400,7 @@ public:
 public: 
     std::shared_ptr<LaneChangeTarget_U>                 m_LaneChangeTarget; //xs:element
 };
-struct XOSC_EXPORT LaneOffsetAction   
+struct  LaneOffsetAction   
 {
 /**/
 public:
@@ -2124,7 +2414,7 @@ public:
     std::shared_ptr<LaneOffsetActionDynamics>                 m_LaneOffsetActionDynamics; //xs:element
     std::shared_ptr<LaneOffsetTarget>                 m_LaneOffsetTarget; //xs:element
 };
-struct XOSC_EXPORT LaneOffsetActionDynamics   
+struct  LaneOffsetActionDynamics   
 {
 /**/
 public:
@@ -2138,7 +2428,7 @@ public:
     //
     Double	    maxLateralAcc; //   
 };
-struct XOSC_EXPORT LaneOffsetTarget   
+struct  LaneOffsetTarget   
 {
 /**/
 public:
@@ -2149,7 +2439,7 @@ public:
 public: 
     std::shared_ptr<LaneOffsetTarget_U>                 m_LaneOffsetTarget; //xs:element
 };
-struct XOSC_EXPORT LanePosition   
+struct  LanePosition   
 {
 /**/
 public:
@@ -2168,7 +2458,7 @@ public:
     Double	    s; //  required 
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
-struct XOSC_EXPORT LateralAction   
+struct  LateralAction   
 {
 /**/
 public:
@@ -2179,7 +2469,7 @@ public:
 public: 
     std::shared_ptr<LateralAction_U>                 m_LateralAction; //xs:element
 };
-struct XOSC_EXPORT LateralDistanceAction   
+struct  LateralDistanceAction   
 {
 /**/
 public:
@@ -2196,9 +2486,29 @@ public:
     Double	    distance; //   
     //
     Boolean	    freespace; //  required 
+    //
+    LateralDisplacement	    displacement; //   
+    //
+    CoordinateSystem	    coordinateSystem; //   
     std::shared_ptr<DynamicConstraints>                 m_DynamicConstraints; //xs:element
 };
-struct XOSC_EXPORT LongitudinalAction   
+struct  License   
+{
+/**/
+public:
+    License(){};
+    License(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~License(){};
+public: 
+    //
+    String	    name; //  required 
+    //
+    String	    resource; //   
+    //
+    String	    spdxId; //   
+};
+struct  LongitudinalAction   
 {
 /**/
 public:
@@ -2209,7 +2519,7 @@ public:
 public: 
     std::shared_ptr<LongitudinalAction_U>                 m_LongitudinalAction; //xs:element
 };
-struct XOSC_EXPORT LongitudinalDistanceAction   
+struct  LongitudinalDistanceAction   
 {
 /**/
 public:
@@ -2228,9 +2538,13 @@ public:
     Boolean	    freespace; //  required 
     //
     Double	    timeGap; //   
+    //
+    LongitudinalDisplacement	    displacement; //   
+    //
+    CoordinateSystem	    coordinateSystem; //   
     std::shared_ptr<DynamicConstraints>                 m_DynamicConstraints; //xs:element
 };
-struct XOSC_EXPORT Maneuver   
+struct  Maneuver   
 {
 /**/
 public:
@@ -2244,7 +2558,7 @@ public:
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::vector<std::shared_ptr<Event>>                 m_Events; //xs:element
 };
-struct XOSC_EXPORT ManeuverCatalogLocation   
+struct  ManeuverCatalogLocation   
 {
 /**/
 public:
@@ -2255,7 +2569,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT ManeuverGroup   
+struct  ManeuverGroup   
 {
 /**/
 public:
@@ -2272,7 +2586,7 @@ public:
     std::vector<std::shared_ptr<CatalogReference>>                 m_CatalogReferences; //xs:element
     std::vector<std::shared_ptr<Maneuver>>                 m_Maneuvers; //xs:element
 };
-struct XOSC_EXPORT MiscObject   
+struct  MiscObject   
 {
 /**/
 public:
@@ -2287,11 +2601,13 @@ public:
     MiscObjectCategory	    miscObjectCategory; //  required 
     //
     String	    name; //  required 
+    //
+    String	    model3d; //   
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
-struct XOSC_EXPORT MiscObjectCatalogLocation   
+struct  MiscObjectCatalogLocation   
 {
 /**/
 public:
@@ -2302,7 +2618,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT ModifyRule   
+struct  ModifyRule   
 {
 /**/
 public:
@@ -2313,7 +2629,7 @@ public:
 public: 
     std::shared_ptr<ModifyRule_U>                 m_ModifyRule; //xs:element
 };
-struct XOSC_EXPORT None   
+struct  None   
 {
 /**/
 public:
@@ -2323,7 +2639,22 @@ public:
     virtual ~None(){};
 public: 
 };
-struct XOSC_EXPORT Nurbs   
+struct  NormalDistribution   
+{
+/**/
+public:
+    NormalDistribution(){};
+    NormalDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~NormalDistribution(){};
+public: 
+    //
+    Double	    expectedValue; //  required 
+    //
+    Double	    variance; //  required 
+    std::shared_ptr<Range>                 m_Range; //xs:element
+};
+struct  Nurbs   
 {
 /**/
 public:
@@ -2337,7 +2668,7 @@ public:
     std::vector<std::shared_ptr<ControlPoint>>                 m_ControlPoints; //xs:element
     std::vector<std::shared_ptr<Knot>>                 m_Knots; //xs:element
 };
-struct XOSC_EXPORT ObjectController   
+struct  ObjectController   
 {
 /**/
 public:
@@ -2348,7 +2679,7 @@ public:
 public: 
     std::shared_ptr<ObjectController_U>                 m_ObjectController; //xs:element
 };
-struct XOSC_EXPORT OffroadCondition   
+struct  OffroadCondition   
 {
 /**/
 public:
@@ -2360,7 +2691,7 @@ public:
     //
     Double	    duration; //  required 
 };
-struct XOSC_EXPORT OpenScenario   
+struct  OpenScenario   
 {
 /**/
 public:
@@ -2372,7 +2703,7 @@ public:
     std::shared_ptr<FileHeader>                 m_FileHeader; //xs:element
     std::shared_ptr<OpenScenarioCategory>                 m_OpenScenarioCategory; //xs:groupent
 };
-struct XOSC_EXPORT Orientation   
+struct  Orientation   
 {
 /**/
 public:
@@ -2390,7 +2721,7 @@ public:
     //
     ReferenceContext	    type; //   
 };
-struct XOSC_EXPORT OverrideBrakeAction   
+struct  OverrideBrakeAction   
 {
 /**/
 public:
@@ -2404,7 +2735,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT OverrideClutchAction   
+struct  OverrideClutchAction   
 {
 /**/
 public:
@@ -2418,7 +2749,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT OverrideControllerValueAction   
+struct  OverrideControllerValueAction   
 {
 /**/
 public:
@@ -2434,7 +2765,7 @@ public:
     std::shared_ptr<OverrideSteeringWheelAction>                 m_SteeringWheel; //xs:element
     std::shared_ptr<OverrideGearAction>                 m_Gear; //xs:element
 };
-struct XOSC_EXPORT OverrideGearAction   
+struct  OverrideGearAction   
 {
 /**/
 public:
@@ -2448,7 +2779,7 @@ public:
     //
     Double	    number; //  required 
 };
-struct XOSC_EXPORT OverrideParkingBrakeAction   
+struct  OverrideParkingBrakeAction   
 {
 /**/
 public:
@@ -2462,7 +2793,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT OverrideSteeringWheelAction   
+struct  OverrideSteeringWheelAction   
 {
 /**/
 public:
@@ -2476,7 +2807,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT OverrideThrottleAction   
+struct  OverrideThrottleAction   
 {
 /**/
 public:
@@ -2490,7 +2821,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT ParameterAction   
+struct  ParameterAction   
 {
 /**/
 public:
@@ -2503,7 +2834,7 @@ public:
     String	    parameterRef; //  required 
     std::shared_ptr<ParameterAction_U>                 m_ParameterAction; //xs:element
 };
-struct XOSC_EXPORT ParameterAddValueRule   
+struct  ParameterAddValueRule   
 {
 /**/
 public:
@@ -2515,7 +2846,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT ParameterAssignment   
+struct  ParameterAssignment   
 {
 /**/
 public:
@@ -2529,7 +2860,7 @@ public:
     //
     String	    value; //  required 
 };
-struct XOSC_EXPORT ParameterAssignments   
+struct  ParameterAssignments   
 {
 /**/
 public:
@@ -2540,7 +2871,7 @@ public:
 public: 
     std::vector<std::shared_ptr<ParameterAssignment>>                 m_ParameterAssignments; //xs:element
 };
-struct XOSC_EXPORT ParameterCondition   
+struct  ParameterCondition   
 {
 /**/
 public:
@@ -2556,7 +2887,7 @@ public:
     //
     String	    value; //  required 
 };
-struct XOSC_EXPORT ParameterDeclaration   
+struct  ParameterDeclaration   
 {
 /**/
 public:
@@ -2571,8 +2902,9 @@ public:
     ParameterType	    parameterType; //  required 
     //
     String	    value; //  required 
+    std::vector<std::shared_ptr<ValueConstraintGroup>>                 m_ConstraintGroups; //xs:element
 };
-struct XOSC_EXPORT ParameterDeclarations   
+struct  ParameterDeclarations   
 {
 /**/
 public:
@@ -2583,7 +2915,7 @@ public:
 public: 
     std::vector<std::shared_ptr<ParameterDeclaration>>                 m_ParameterDeclarations; //xs:element
 };
-struct XOSC_EXPORT ParameterModifyAction   
+struct  ParameterModifyAction   
 {
 /**/
 public:
@@ -2594,7 +2926,7 @@ public:
 public: 
     std::shared_ptr<ModifyRule>                 m_Rule; //xs:element
 };
-struct XOSC_EXPORT ParameterMultiplyByValueRule   
+struct  ParameterMultiplyByValueRule   
 {
 /**/
 public:
@@ -2606,7 +2938,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT ParameterSetAction   
+struct  ParameterSetAction   
 {
 /**/
 public:
@@ -2618,7 +2950,30 @@ public:
     //
     String	    value; //  required 
 };
-struct XOSC_EXPORT Pedestrian   
+struct  ParameterValueDistribution   
+{
+/**/
+public:
+    ParameterValueDistribution(){};
+    ParameterValueDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ParameterValueDistribution(){};
+public: 
+    std::shared_ptr<File>                 m_ScenarioFile; //xs:element
+    std::shared_ptr<DistributionDefinition>                 m_DistributionDefinition; //xs:groupent
+};
+struct  ParameterValueSet   
+{
+/**/
+public:
+    ParameterValueSet(){};
+    ParameterValueSet(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ParameterValueSet(){};
+public: 
+    std::vector<std::shared_ptr<ParameterAssignment>>                 m_ParameterAssignments; //xs:element
+};
+struct  Pedestrian   
 {
 /**/
 public:
@@ -2630,16 +2985,18 @@ public:
     //
     Double	    mass; //  required 
     //
-    String	    model; //  required 
+    String	    model; //   
     //
     String	    name; //  required 
     //
     PedestrianCategory	    pedestrianCategory; //  required 
+    //
+    String	    model3d; //   
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
-struct XOSC_EXPORT PedestrianCatalogLocation   
+struct  PedestrianCatalogLocation   
 {
 /**/
 public:
@@ -2650,7 +3007,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT Performance   
+struct  Performance   
 {
 /**/
 public:
@@ -2666,7 +3023,7 @@ public:
     //
     Double	    maxSpeed; //  required 
 };
-struct XOSC_EXPORT Phase   
+struct  Phase   
 {
 /**/
 public:
@@ -2681,7 +3038,20 @@ public:
     String	    name; //  required 
     std::vector<std::shared_ptr<TrafficSignalState>>                 m_TrafficSignalStates; //xs:element
 };
-struct XOSC_EXPORT Polyline   
+struct  PoissonDistribution   
+{
+/**/
+public:
+    PoissonDistribution(){};
+    PoissonDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~PoissonDistribution(){};
+public: 
+    //
+    Double	    expectedValue; //  required 
+    std::shared_ptr<Range>                 m_Range; //xs:element
+};
+struct  Polyline   
 {
 /**/
 public:
@@ -2692,7 +3062,7 @@ public:
 public: 
     std::vector<std::shared_ptr<Vertex>>                 m_Vertexs; //xs:element
 };
-struct XOSC_EXPORT Position   
+struct  Position   
 {
 /**/
 public:
@@ -2703,7 +3073,7 @@ public:
 public: 
     std::shared_ptr<Position_U>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT PositionInLaneCoordinates   
+struct  PositionInLaneCoordinates   
 {
 /**/
 public:
@@ -2719,7 +3089,7 @@ public:
     //
     Double	    pathS; //  required 
 };
-struct XOSC_EXPORT PositionInRoadCoordinates   
+struct  PositionInRoadCoordinates   
 {
 /**/
 public:
@@ -2733,7 +3103,7 @@ public:
     //
     Double	    t; //  required 
 };
-struct XOSC_EXPORT PositionOfCurrentEntity   
+struct  PositionOfCurrentEntity   
 {
 /**/
 public:
@@ -2745,7 +3115,7 @@ public:
     //
     String	    entityRef; //  required 
 };
-struct XOSC_EXPORT Precipitation   
+struct  Precipitation   
 {
 /**/
 public:
@@ -2755,11 +3125,13 @@ public:
     virtual ~Precipitation(){};
 public: 
     //
-    Double	    intensity; //  required 
+    Double	    intensity; //   
     //
     PrecipitationType	    precipitationType; //  required 
+    //
+    Double	    precipitationIntensity; //   
 };
-struct XOSC_EXPORT Private   
+struct  Private   
 {
 /**/
 public:
@@ -2772,7 +3144,7 @@ public:
     String	    entityRef; //  required 
     std::vector<std::shared_ptr<PrivateAction>>                 m_PrivateActions; //xs:element
 };
-struct XOSC_EXPORT PrivateAction   
+struct  PrivateAction   
 {
 /**/
 public:
@@ -2783,7 +3155,32 @@ public:
 public: 
     std::shared_ptr<PrivateAction_U>                 m_PrivateAction; //xs:element
 };
-struct XOSC_EXPORT Properties   
+struct  ProbabilityDistributionSet   
+{
+/**/
+public:
+    ProbabilityDistributionSet(){};
+    ProbabilityDistributionSet(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ProbabilityDistributionSet(){};
+public: 
+    std::vector<std::shared_ptr<ProbabilityDistributionSetElement>>                 m_Elements; //xs:element
+};
+struct  ProbabilityDistributionSetElement   
+{
+/**/
+public:
+    ProbabilityDistributionSetElement(){};
+    ProbabilityDistributionSetElement(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ProbabilityDistributionSetElement(){};
+public: 
+    //
+    String	    value; //  required 
+    //
+    Double	    weight; //  required 
+};
+struct  Properties   
 {
 /**/
 public:
@@ -2795,7 +3192,7 @@ public:
     std::vector<std::shared_ptr<Property>>                 m_Propertys; //xs:element
     std::vector<std::shared_ptr<File>>                 m_Files; //xs:element
 };
-struct XOSC_EXPORT Property   
+struct  Property   
 {
 /**/
 public:
@@ -2809,7 +3206,21 @@ public:
     //
     String	    value; //  required 
 };
-struct XOSC_EXPORT ReachPositionCondition   
+struct  Range   
+{
+/**/
+public:
+    Range(){};
+    Range(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Range(){};
+public: 
+    //
+    Double	    lowerLimit; //  required 
+    //
+    Double	    upperLimit; //  required 
+};
+struct  ReachPositionCondition   
 {
 /**/
 public:
@@ -2822,7 +3233,7 @@ public:
     Double	    tolerance; //  required 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT RelativeDistanceCondition   
+struct  RelativeDistanceCondition   
 {
 /**/
 public:
@@ -2841,8 +3252,10 @@ public:
     Rule	    rule; //  required 
     //
     Double	    value; //  required 
+    //
+    CoordinateSystem	    coordinateSystem; //   
 };
-struct XOSC_EXPORT RelativeLanePosition   
+struct  RelativeLanePosition   
 {
 /**/
 public:
@@ -2856,12 +3269,14 @@ public:
     //
     Int	    dLane; //  required 
     //
-    Double	    ds; //  required 
+    Double	    ds; //   
     //
     Double	    offset; //   
+    //
+    Double	    dsLane; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
-struct XOSC_EXPORT RelativeObjectPosition   
+struct  RelativeObjectPosition   
 {
 /**/
 public:
@@ -2880,7 +3295,7 @@ public:
     Double	    dz; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
-struct XOSC_EXPORT RelativeRoadPosition   
+struct  RelativeRoadPosition   
 {
 /**/
 public:
@@ -2897,7 +3312,7 @@ public:
     Double	    dt; //  required 
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
-struct XOSC_EXPORT RelativeSpeedCondition   
+struct  RelativeSpeedCondition   
 {
 /**/
 public:
@@ -2913,7 +3328,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT RelativeSpeedToMaster   
+struct  RelativeSpeedToMaster   
 {
 /**/
 public:
@@ -2926,8 +3341,9 @@ public:
     SpeedTargetValueType	    speedTargetValueType; //  required 
     //
     Double	    value; //  required 
+    std::shared_ptr<SteadyState>                 m_SteadyState; //xs:groupent
 };
-struct XOSC_EXPORT RelativeTargetLane   
+struct  RelativeTargetLane   
 {
 /**/
 public:
@@ -2941,7 +3357,7 @@ public:
     //
     Int	    value; //  required 
 };
-struct XOSC_EXPORT RelativeTargetLaneOffset   
+struct  RelativeTargetLaneOffset   
 {
 /**/
 public:
@@ -2955,7 +3371,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT RelativeTargetSpeed   
+struct  RelativeTargetSpeed   
 {
 /**/
 public:
@@ -2973,7 +3389,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT RelativeWorldPosition   
+struct  RelativeWorldPosition   
 {
 /**/
 public:
@@ -2992,7 +3408,7 @@ public:
     Double	    dz; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
-struct XOSC_EXPORT RoadCondition   
+struct  RoadCondition   
 {
 /**/
 public:
@@ -3005,7 +3421,7 @@ public:
     Double	    frictionScaleFactor; //  required 
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
-struct XOSC_EXPORT RoadNetwork   
+struct  RoadNetwork   
 {
 /**/
 public:
@@ -3017,8 +3433,9 @@ public:
     std::shared_ptr<File>                 m_LogicFile; //xs:element
     std::shared_ptr<File>                 m_SceneGraphFile; //xs:element
     std::shared_ptr<TrafficSignals>                 m_TrafficSignals; //xs:element
+    std::shared_ptr<UsedArea>                 m_UsedArea; //xs:element
 };
-struct XOSC_EXPORT RoadPosition   
+struct  RoadPosition   
 {
 /**/
 public:
@@ -3035,7 +3452,7 @@ public:
     Double	    t; //  required 
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
-struct XOSC_EXPORT Route   
+struct  Route   
 {
 /**/
 public:
@@ -3051,7 +3468,7 @@ public:
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::vector<std::shared_ptr<Waypoint>>                 m_Waypoints; //xs:element
 };
-struct XOSC_EXPORT RouteCatalogLocation   
+struct  RouteCatalogLocation   
 {
 /**/
 public:
@@ -3062,7 +3479,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT RoutePosition   
+struct  RoutePosition   
 {
 /**/
 public:
@@ -3075,7 +3492,7 @@ public:
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
     std::shared_ptr<InRoutePosition>                 m_InRoutePosition; //xs:element
 };
-struct XOSC_EXPORT RouteRef   
+struct  RouteRef   
 {
 /**/
 public:
@@ -3086,7 +3503,7 @@ public:
 public: 
     std::shared_ptr<RouteRef_U>                 m_RouteRef; //xs:element
 };
-struct XOSC_EXPORT RoutingAction   
+struct  RoutingAction   
 {
 /**/
 public:
@@ -3097,7 +3514,7 @@ public:
 public: 
     std::shared_ptr<RoutingAction_U>                 m_RoutingAction; //xs:element
 };
-struct XOSC_EXPORT ScenarioObject   
+struct  ScenarioObject   
 {
 /**/
 public:
@@ -3111,7 +3528,7 @@ public:
     std::shared_ptr<ObjectController>                 m_ObjectController; //xs:element
     std::shared_ptr<EntityObject>                 m_EntityObject; //xs:groupent
 };
-struct XOSC_EXPORT SelectedEntities   
+struct  SelectedEntities   
 {
 /**/
 public:
@@ -3122,7 +3539,7 @@ public:
 public: 
     std::shared_ptr<SelectedEntities_U>                 m_SelectedEntities; //xs:element
 };
-struct XOSC_EXPORT Shape   
+struct  Shape   
 {
 /**/
 public:
@@ -3133,7 +3550,7 @@ public:
 public: 
     std::shared_ptr<Shape_U>                 m_Shape; //xs:element
 };
-struct XOSC_EXPORT SimulationTimeCondition   
+struct  SimulationTimeCondition   
 {
 /**/
 public:
@@ -3147,7 +3564,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT SpeedAction   
+struct  SpeedAction   
 {
 /**/
 public:
@@ -3159,7 +3576,7 @@ public:
     std::shared_ptr<TransitionDynamics>                 m_SpeedActionDynamics; //xs:element
     std::shared_ptr<SpeedActionTarget>                 m_SpeedActionTarget; //xs:element
 };
-struct XOSC_EXPORT SpeedActionTarget   
+struct  SpeedActionTarget   
 {
 /**/
 public:
@@ -3170,7 +3587,7 @@ public:
 public: 
     std::shared_ptr<SpeedActionTarget_U>                 m_SpeedActionTarget; //xs:element
 };
-struct XOSC_EXPORT SpeedCondition   
+struct  SpeedCondition   
 {
 /**/
 public:
@@ -3184,7 +3601,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT StandStillCondition   
+struct  StandStillCondition   
 {
 /**/
 public:
@@ -3196,7 +3613,35 @@ public:
     //
     Double	    duration; //  required 
 };
-struct XOSC_EXPORT Story   
+struct  Stochastic   
+{
+/**/
+public:
+    Stochastic(){};
+    Stochastic(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Stochastic(){};
+public: 
+    //
+    UnsignedInt	    numberOfTestRuns; //  required 
+    //
+    Double	    randomSeed; //   
+    std::vector<std::shared_ptr<StochasticDistribution>>                 m_StochasticDistributions; //xs:element
+};
+struct  StochasticDistribution   
+{
+/**/
+public:
+    StochasticDistribution(){};
+    StochasticDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~StochasticDistribution(){};
+public: 
+    //
+    String	    parameterName; //  required 
+    std::shared_ptr<StochasticDistributionType>                 m_StochasticDistributionType; //xs:groupent
+};
+struct  Story   
 {
 /**/
 public:
@@ -3210,7 +3655,7 @@ public:
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::vector<std::shared_ptr<Act>>                 m_Acts; //xs:element
 };
-struct XOSC_EXPORT Storyboard   
+struct  Storyboard   
 {
 /**/
 public:
@@ -3223,7 +3668,7 @@ public:
     std::vector<std::shared_ptr<Story>>                 m_Storys; //xs:element
     std::shared_ptr<Trigger>                 m_StopTrigger; //xs:element
 };
-struct XOSC_EXPORT StoryboardElementStateCondition   
+struct  StoryboardElementStateCondition   
 {
 /**/
 public:
@@ -3239,7 +3684,7 @@ public:
     //
     StoryboardElementType	    storyboardElementType; //  required 
 };
-struct XOSC_EXPORT Sun   
+struct  Sun   
 {
 /**/
 public:
@@ -3255,7 +3700,7 @@ public:
     //
     Double	    intensity; //  required 
 };
-struct XOSC_EXPORT SynchronizeAction   
+struct  SynchronizeAction   
 {
 /**/
 public:
@@ -3266,11 +3711,39 @@ public:
 public: 
     //
     String	    masterEntityRef; //  required 
+    //
+    Double	    targetToleranceMaster; //   
+    //
+    Double	    targetTolerance; //   
     std::shared_ptr<Position>                 m_TargetPositionMaster; //xs:element
     std::shared_ptr<Position>                 m_TargetPosition; //xs:element
     std::shared_ptr<FinalSpeed>                 m_FinalSpeed; //xs:element
 };
-struct XOSC_EXPORT TeleportAction   
+struct  TargetDistanceSteadyState   
+{
+/**/
+public:
+    TargetDistanceSteadyState(){};
+    TargetDistanceSteadyState(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~TargetDistanceSteadyState(){};
+public: 
+    //
+    Double	    distance; //  required 
+};
+struct  TargetTimeSteadyState   
+{
+/**/
+public:
+    TargetTimeSteadyState(){};
+    TargetTimeSteadyState(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~TargetTimeSteadyState(){};
+public: 
+    //
+    Double	    time; //  required 
+};
+struct  TeleportAction   
 {
 /**/
 public:
@@ -3281,7 +3754,7 @@ public:
 public: 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT TimeHeadwayCondition   
+struct  TimeHeadwayCondition   
 {
 /**/
 public:
@@ -3293,15 +3766,19 @@ public:
     //
     String	    entityRef; //  required 
     //
-    Boolean	    alongRoute; //  required 
+    Boolean	    alongRoute; //   
     //
     Boolean	    freespace; //  required 
     //
     Rule	    rule; //  required 
     //
     Double	    value; //  required 
+    //
+    CoordinateSystem	    coordinateSystem; //   
+    //
+    RelativeDistanceType	    relativeDistanceType; //   
 };
-struct XOSC_EXPORT TimeOfDay   
+struct  TimeOfDay   
 {
 /**/
 public:
@@ -3315,7 +3792,7 @@ public:
     //
     DateTime	    dateTime; //  required 
 };
-struct XOSC_EXPORT TimeOfDayCondition   
+struct  TimeOfDayCondition   
 {
 /**/
 public:
@@ -3329,7 +3806,7 @@ public:
     //
     Rule	    rule; //  required 
 };
-struct XOSC_EXPORT TimeReference   
+struct  TimeReference   
 {
 /**/
 public:
@@ -3340,7 +3817,7 @@ public:
 public: 
     std::shared_ptr<TimeReference_U>                 m_TimeReference; //xs:element
 };
-struct XOSC_EXPORT TimeToCollisionCondition   
+struct  TimeToCollisionCondition   
 {
 /**/
 public:
@@ -3350,16 +3827,20 @@ public:
     virtual ~TimeToCollisionCondition(){};
 public: 
     //
-    Boolean	    alongRoute; //  required 
+    Boolean	    alongRoute; //   
     //
     Boolean	    freespace; //  required 
     //
     Rule	    rule; //  required 
     //
     Double	    value; //  required 
+    //
+    RelativeDistanceType	    relativeDistanceType; //   
+    //
+    CoordinateSystem	    coordinateSystem; //   
     std::shared_ptr<TimeToCollisionConditionTarget>                 m_TimeToCollisionConditionTarget; //xs:element
 };
-struct XOSC_EXPORT TimeToCollisionConditionTarget   
+struct  TimeToCollisionConditionTarget   
 {
 /**/
 public:
@@ -3370,7 +3851,7 @@ public:
 public: 
     std::shared_ptr<TimeToCollisionConditionTarget_U>                 m_TimeToCollisionConditionTarget; //xs:element
 };
-struct XOSC_EXPORT Timing   
+struct  Timing   
 {
 /**/
 public:
@@ -3386,7 +3867,7 @@ public:
     //
     Double	    scale; //  required 
 };
-struct XOSC_EXPORT TrafficAction   
+struct  TrafficAction   
 {
 /**/
 public:
@@ -3395,9 +3876,11 @@ public:
     void save(pugi::xml_node node);
     virtual ~TrafficAction(){};
 public: 
+    //
+    String	    trafficName; //   
     std::shared_ptr<TrafficAction_U>                 m_TrafficAction; //xs:element
 };
-struct XOSC_EXPORT TrafficDefinition   
+struct  TrafficDefinition   
 {
 /**/
 public:
@@ -3411,7 +3894,7 @@ public:
     std::shared_ptr<VehicleCategoryDistribution>                 m_VehicleCategoryDistribution; //xs:element
     std::shared_ptr<ControllerDistribution>                 m_ControllerDistribution; //xs:element
 };
-struct XOSC_EXPORT TrafficSignalAction   
+struct  TrafficSignalAction   
 {
 /**/
 public:
@@ -3422,7 +3905,7 @@ public:
 public: 
     std::shared_ptr<TrafficSignalAction_U>                 m_TrafficSignalAction; //xs:element
 };
-struct XOSC_EXPORT TrafficSignalCondition   
+struct  TrafficSignalCondition   
 {
 /**/
 public:
@@ -3436,7 +3919,7 @@ public:
     //
     String	    state; //  required 
 };
-struct XOSC_EXPORT TrafficSignalController   
+struct  TrafficSignalController   
 {
 /**/
 public:
@@ -3453,7 +3936,7 @@ public:
     String	    reference; //   
     std::vector<std::shared_ptr<Phase>>                 m_Phases; //xs:element
 };
-struct XOSC_EXPORT TrafficSignals   
+struct  TrafficSignals   
 {
 /**/
 public:
@@ -3464,7 +3947,7 @@ public:
 public: 
     std::vector<std::shared_ptr<TrafficSignalController>>                 m_TrafficSignalControllers; //xs:element
 };
-struct XOSC_EXPORT TrafficSignalControllerAction   
+struct  TrafficSignalControllerAction   
 {
 /**/
 public:
@@ -3478,7 +3961,7 @@ public:
     //
     String	    phase; //  required 
 };
-struct XOSC_EXPORT TrafficSignalControllerCondition   
+struct  TrafficSignalControllerCondition   
 {
 /**/
 public:
@@ -3492,7 +3975,7 @@ public:
     //
     String	    phase; //  required 
 };
-struct XOSC_EXPORT TrafficSignalState   
+struct  TrafficSignalState   
 {
 /**/
 public:
@@ -3506,7 +3989,7 @@ public:
     //
     String	    trafficSignalId; //  required 
 };
-struct XOSC_EXPORT TrafficSignalStateAction   
+struct  TrafficSignalStateAction   
 {
 /**/
 public:
@@ -3520,7 +4003,7 @@ public:
     //
     String	    state; //  required 
 };
-struct XOSC_EXPORT TrafficSinkAction   
+struct  TrafficSinkAction   
 {
 /**/
 public:
@@ -3536,7 +4019,7 @@ public:
     std::shared_ptr<Position>                 m_Position; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
 };
-struct XOSC_EXPORT TrafficSourceAction   
+struct  TrafficSourceAction   
 {
 /**/
 public:
@@ -3554,7 +4037,17 @@ public:
     std::shared_ptr<Position>                 m_Position; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
 };
-struct XOSC_EXPORT TrafficSwarmAction   
+struct  TrafficStopAction   
+{
+/**/
+public:
+    TrafficStopAction(){};
+    TrafficStopAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~TrafficStopAction(){};
+public: 
+};
+struct  TrafficSwarmAction   
 {
 /**/
 public:
@@ -3578,7 +4071,7 @@ public:
     std::shared_ptr<CentralSwarmObject>                 m_CentralObject; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
 };
-struct XOSC_EXPORT Trajectory   
+struct  Trajectory   
 {
 /**/
 public:
@@ -3594,7 +4087,7 @@ public:
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<Shape>                 m_Shape; //xs:element
 };
-struct XOSC_EXPORT TrajectoryCatalogLocation   
+struct  TrajectoryCatalogLocation   
 {
 /**/
 public:
@@ -3605,7 +4098,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT TrajectoryFollowingMode   
+struct  TrajectoryFollowingMode   
 {
 /**/
 public:
@@ -3617,7 +4110,34 @@ public:
     //
     FollowingMode	    followingMode; //  required 
 };
-struct XOSC_EXPORT TransitionDynamics   
+struct  TrajectoryPosition   
+{
+/**/
+public:
+    TrajectoryPosition(){};
+    TrajectoryPosition(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~TrajectoryPosition(){};
+public: 
+    //
+    Double	    s; //  required 
+    //
+    Double	    t; //   
+    std::shared_ptr<Orientation>                 m_Orientation; //xs:element
+    std::shared_ptr<TrajectoryRef>                 m_TrajectoryRef; //xs:element
+};
+struct  TrajectoryRef   
+{
+/**/
+public:
+    TrajectoryRef(){};
+    TrajectoryRef(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~TrajectoryRef(){};
+public: 
+    std::shared_ptr<TrajectoryRef_U>                 m_TrajectoryRef; //xs:element
+};
+struct  TransitionDynamics   
 {
 /**/
 public:
@@ -3633,7 +4153,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT TraveledDistanceCondition   
+struct  TraveledDistanceCondition   
 {
 /**/
 public:
@@ -3645,7 +4165,7 @@ public:
     //
     Double	    value; //  required 
 };
-struct XOSC_EXPORT Trigger   
+struct  Trigger   
 {
 /**/
 public:
@@ -3656,7 +4176,7 @@ public:
 public: 
     std::vector<std::shared_ptr<ConditionGroup>>                 m_ConditionGroups; //xs:element
 };
-struct XOSC_EXPORT TriggeringEntities   
+struct  TriggeringEntities   
 {
 /**/
 public:
@@ -3669,7 +4189,29 @@ public:
     TriggeringEntitiesRule	    triggeringEntitiesRule; //  required 
     std::vector<std::shared_ptr<EntityRef>>                 m_EntityRefs; //xs:element
 };
-struct XOSC_EXPORT UserDefinedAction   
+struct  UniformDistribution   
+{
+/**/
+public:
+    UniformDistribution(){};
+    UniformDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~UniformDistribution(){};
+public: 
+    std::shared_ptr<Range>                 m_Range; //xs:element
+};
+struct  UsedArea   
+{
+/**/
+public:
+    UsedArea(){};
+    UsedArea(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~UsedArea(){};
+public: 
+    std::vector<std::shared_ptr<Position>>                 m_Positions; //xs:element
+};
+struct  UserDefinedAction   
 {
 /**/
 public:
@@ -3680,7 +4222,19 @@ public:
 public: 
     std::shared_ptr<CustomCommandAction>                 m_CustomCommandAction; //xs:element
 };
-struct XOSC_EXPORT UserDefinedValueCondition   
+struct  UserDefinedDistribution   
+{
+/**/
+public:
+    UserDefinedDistribution(){};
+    UserDefinedDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~UserDefinedDistribution(){};
+public: 
+    //
+    String	    type; //  required 
+};
+struct  UserDefinedValueCondition   
 {
 /**/
 public:
@@ -3696,7 +4250,43 @@ public:
     //
     String	    value; //  required 
 };
-struct XOSC_EXPORT Vehicle   
+struct  ValueConstraint   
+{
+/**/
+public:
+    ValueConstraint(){};
+    ValueConstraint(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ValueConstraint(){};
+public: 
+    //
+    Rule	    rule; //  required 
+    //
+    String	    value; //  required 
+};
+struct  ValueConstraintGroup   
+{
+/**/
+public:
+    ValueConstraintGroup(){};
+    ValueConstraintGroup(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ValueConstraintGroup(){};
+public: 
+    std::vector<std::shared_ptr<ValueConstraint>>                 m_ValueConstraints; //xs:element
+};
+struct  ValueSetDistribution   
+{
+/**/
+public:
+    ValueSetDistribution(){};
+    ValueSetDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ValueSetDistribution(){};
+public: 
+    std::vector<std::shared_ptr<ParameterValueSet>>                 m_ParameterValueSets; //xs:element
+};
+struct  Vehicle   
 {
 /**/
 public:
@@ -3709,13 +4299,17 @@ public:
     String	    name; //  required 
     //
     VehicleCategory	    vehicleCategory; //  required 
+    //
+    Double	    mass; //   
+    //
+    String	    model3d; //   
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
     std::shared_ptr<Performance>                 m_Performance; //xs:element
     std::shared_ptr<Axles>                 m_Axles; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
-struct XOSC_EXPORT VehicleCatalogLocation   
+struct  VehicleCatalogLocation   
 {
 /**/
 public:
@@ -3726,7 +4320,7 @@ public:
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
 };
-struct XOSC_EXPORT VehicleCategoryDistribution   
+struct  VehicleCategoryDistribution   
 {
 /**/
 public:
@@ -3737,7 +4331,7 @@ public:
 public: 
     std::vector<std::shared_ptr<VehicleCategoryDistributionEntry>>                 m_VehicleCategoryDistributionEntrys; //xs:element
 };
-struct XOSC_EXPORT VehicleCategoryDistributionEntry   
+struct  VehicleCategoryDistributionEntry   
 {
 /**/
 public:
@@ -3751,7 +4345,7 @@ public:
     //
     Double	    weight; //  required 
 };
-struct XOSC_EXPORT Vertex   
+struct  Vertex   
 {
 /**/
 public:
@@ -3761,10 +4355,10 @@ public:
     virtual ~Vertex(){};
 public: 
     //
-    Double	    time; //  required 
+    Double	    time; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT VisibilityAction   
+struct  VisibilityAction   
 {
 /**/
 public:
@@ -3780,7 +4374,7 @@ public:
     //
     Boolean	    traffic; //  required 
 };
-struct XOSC_EXPORT Waypoint   
+struct  Waypoint   
 {
 /**/
 public:
@@ -3793,7 +4387,7 @@ public:
     RouteStrategy	    routeStrategy; //  required 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
-struct XOSC_EXPORT Weather   
+struct  Weather   
 {
 /**/
 public:
@@ -3803,12 +4397,31 @@ public:
     virtual ~Weather(){};
 public: 
     //
-    CloudState	    cloudState; //  required 
+    CloudState	    cloudState; //   
+    //
+    Double	    atmosphericPressure; //   
+    //
+    Double	    temperature; //   
     std::shared_ptr<Sun>                 m_Sun; //xs:element
     std::shared_ptr<Fog>                 m_Fog; //xs:element
     std::shared_ptr<Precipitation>                 m_Precipitation; //xs:element
+    std::shared_ptr<Wind>                 m_Wind; //xs:element
 };
-struct XOSC_EXPORT WorldPosition   
+struct  Wind   
+{
+/**/
+public:
+    Wind(){};
+    Wind(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Wind(){};
+public: 
+    //
+    Double	    direction; //  required 
+    //
+    Double	    speed; //  required 
+};
+struct  WorldPosition   
 {
 /**/
 public:
@@ -3831,7 +4444,7 @@ public:
     Double	    z; //   
 };
 // xs:group -> aliased to group definition
-struct XOSC_EXPORT CatalogDefinition
+struct  CatalogDefinition
 {
 public:
     CatalogDefinition(){};
@@ -3842,7 +4455,55 @@ public:
     std::shared_ptr<Catalog>                 m_Catalog; //xs:element
 };
 // xs:group -> aliased to group definition
-struct XOSC_EXPORT EntityObject
+struct  DeterministicMultiParameterDistributionType
+{
+public:
+    DeterministicMultiParameterDistributionType(){};
+    DeterministicMultiParameterDistributionType(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DeterministicMultiParameterDistributionType(){};
+public:
+    std::shared_ptr<ValueSetDistribution>                 m_ValueSetDistribution; //xs:element
+};
+// xs:group -> aliased to group definition
+struct  DeterministicParameterDistribution
+{
+public:
+    DeterministicParameterDistribution(){};
+    DeterministicParameterDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DeterministicParameterDistribution(){};
+public:
+    std::shared_ptr<DeterministicMultiParameterDistribution>                 m_DeterministicMultiParameterDistribution; //xs:element
+    std::shared_ptr<DeterministicSingleParameterDistribution>                 m_DeterministicSingleParameterDistribution; //xs:element
+};
+// xs:group -> aliased to group definition
+struct  DeterministicSingleParameterDistributionType
+{
+public:
+    DeterministicSingleParameterDistributionType(){};
+    DeterministicSingleParameterDistributionType(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DeterministicSingleParameterDistributionType(){};
+public:
+    std::shared_ptr<DistributionSet>                 m_DistributionSet; //xs:element
+    std::shared_ptr<DistributionRange>                 m_DistributionRange; //xs:element
+    std::shared_ptr<UserDefinedDistribution>                 m_UserDefinedDistribution; //xs:element
+};
+// xs:group -> aliased to group definition
+struct  DistributionDefinition
+{
+public:
+    DistributionDefinition(){};
+    DistributionDefinition(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DistributionDefinition(){};
+public:
+    std::shared_ptr<Deterministic>                 m_Deterministic; //xs:element
+    std::shared_ptr<Stochastic>                 m_Stochastic; //xs:element
+};
+// xs:group -> aliased to group definition
+struct  EntityObject
 {
 public:
     EntityObject(){};
@@ -3854,9 +4515,10 @@ public:
     std::shared_ptr<Vehicle>                 m_Vehicle; //xs:element
     std::shared_ptr<Pedestrian>                 m_Pedestrian; //xs:element
     std::shared_ptr<MiscObject>                 m_MiscObject; //xs:element
+    std::shared_ptr<ExternalObjectReference>                 m_ExternalObjectReference; //xs:element
 };
 // xs:group -> aliased to group definition
-struct XOSC_EXPORT OpenScenarioCategory
+struct  OpenScenarioCategory
 {
 public:
     OpenScenarioCategory(){};
@@ -3866,9 +4528,21 @@ public:
 public:
     std::shared_ptr<ScenarioDefinition>                 m_ScenarioDefinition; //xs:groupent
     std::shared_ptr<CatalogDefinition>                 m_CatalogDefinition; //xs:groupent
+    std::shared_ptr<ParameterValueDistributionDefinition>                 m_ParameterValueDistributionDefinition; //xs:groupent
 };
 // xs:group -> aliased to group definition
-struct XOSC_EXPORT ScenarioDefinition
+struct  ParameterValueDistributionDefinition
+{
+public:
+    ParameterValueDistributionDefinition(){};
+    ParameterValueDistributionDefinition(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ParameterValueDistributionDefinition(){};
+public:
+    std::shared_ptr<ParameterValueDistribution>                 m_ParameterValueDistribution; //xs:element
+};
+// xs:group -> aliased to group definition
+struct  ScenarioDefinition
 {
 public:
     ScenarioDefinition(){};
@@ -3882,10 +4556,46 @@ public:
     std::shared_ptr<Entities>                 m_Entities; //xs:element
     std::shared_ptr<Storyboard>                 m_Storyboard; //xs:element
 };
+// xs:group -> aliased to group definition
+struct  SteadyState
+{
+public:
+    SteadyState(){};
+    SteadyState(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~SteadyState(){};
+public:
+    std::shared_ptr<TargetDistanceSteadyState>                 m_TargetDistanceSteadyState; //xs:element
+    std::shared_ptr<TargetTimeSteadyState>                 m_TargetTimeSteadyState; //xs:element
+};
+// xs:group -> aliased to group definition
+struct  StochasticDistributionType
+{
+public:
+    StochasticDistributionType(){};
+    StochasticDistributionType(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~StochasticDistributionType(){};
+public:
+    std::shared_ptr<ProbabilityDistributionSet>                 m_ProbabilityDistributionSet; //xs:element
+    std::shared_ptr<NormalDistribution>                 m_NormalDistribution; //xs:element
+    std::shared_ptr<UniformDistribution>                 m_UniformDistribution; //xs:element
+    std::shared_ptr<PoissonDistribution>                 m_PoissonDistribution; //xs:element
+    std::shared_ptr<Histogram>                 m_Histogram; //xs:element
+    std::shared_ptr<UserDefinedDistribution>                 m_UserDefinedDistribution; //xs:element
+};
 // xs:element -> main  as clazz definition
-using OpenSCENARIO = OpenScenario; 
+class  OpenSCENARIO
+{
+public:
+public:
+    OpenSCENARIO(){};
+    OpenSCENARIO(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~OpenSCENARIO(){};
+};
 //
-class XOSC_EXPORT xosc
+class  xosc
 {
 private:
     pugi::xml_document m_doc;

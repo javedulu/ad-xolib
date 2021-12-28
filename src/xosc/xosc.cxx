@@ -1,19 +1,21 @@
 //
 //  OpenSCENARIO.cxx
-//  Created by Javed Shaik on Mon Jan 18 21:29:49 2021
+//  Created by Javed Shaik on Mon Dec 20 22:11:30 2021
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 78a6864d-cfec-4801-8799-10eb4b8ed2f2 --
+//  -- UUIDv4 : 09256c1c-7d11-46ed-b8bc-cfa78175a801 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
 #include "xosc.h"
 Boolean::Boolean(pugi::xml_attribute attr)
 {
+    if (  (m_expression = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     m_boolean = attr.as_bool(); 
 }
 void Boolean::save(pugi::xml_attribute attr) 
 {
+    if (m_expression) { attr = m_expression.value(); }  
     if (m_parameter) { attr = m_parameter.value(); }  
     { attr = to_str(m_boolean).c_str(); }   
 }
@@ -29,21 +31,25 @@ void DateTime::save(pugi::xml_attribute attr)
 }
 Double::Double(pugi::xml_attribute attr)
 {
+    if (  (m_expression = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     m_double = attr.as_double(); 
 }
 void Double::save(pugi::xml_attribute attr) 
 {
+    if (m_expression) { attr = m_expression.value(); }  
     if (m_parameter) { attr = m_parameter.value(); }  
     { attr = to_str(m_double).c_str(); }   
 }
 Int::Int(pugi::xml_attribute attr)
 {
+    if (  (m_expression = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     m_int = attr.as_int(); 
 }
 void Int::save(pugi::xml_attribute attr) 
 {
+    if (m_expression) { attr = m_expression.value(); }  
     if (m_parameter) { attr = m_parameter.value(); }  
     { attr = to_str(m_int).c_str(); }   
 }
@@ -59,21 +65,25 @@ void String::save(pugi::xml_attribute attr)
 }
 UnsignedInt::UnsignedInt(pugi::xml_attribute attr)
 {
+    if (  (m_expression = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     m_unsignedInt = attr.as_ullong(); 
 }
 void UnsignedInt::save(pugi::xml_attribute attr) 
 {
+    if (m_expression) { attr = m_expression.value(); }  
     if (m_parameter) { attr = m_parameter.value(); }  
     { attr = to_str(m_unsignedInt).c_str(); }   
 }
 UnsignedShort::UnsignedShort(pugi::xml_attribute attr)
 {
+    if (  (m_expression = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
     m_unsignedShort = attr.as_ullong(); 
 }
 void UnsignedShort::save(pugi::xml_attribute attr) 
 {
+    if (m_expression) { attr = m_expression.value(); }  
     if (m_parameter) { attr = m_parameter.value(); }  
     { attr = to_str(m_unsignedShort).c_str(); }   
 }
@@ -96,6 +106,16 @@ void ConditionEdge::save(pugi::xml_attribute attr)
 {
     if (m_parameter) { attr = m_parameter.value(); }  
     if (isdefined<e_ConditionEdge>(conditionEdge)) attr = enum2str<e_ConditionEdge>(conditionEdge).c_str();  
+}
+CoordinateSystem::CoordinateSystem(pugi::xml_attribute attr)
+{
+    if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+    if (isvalid<e_CoordinateSystem>(attr.as_string())) { coordinateSystem = str2enum<e_CoordinateSystem>(attr.as_string()); }
+}
+void CoordinateSystem::save(pugi::xml_attribute attr) 
+{
+    if (m_parameter) { attr = m_parameter.value(); }  
+    if (isdefined<e_CoordinateSystem>(coordinateSystem)) attr = enum2str<e_CoordinateSystem>(coordinateSystem).c_str();  
 }
 DynamicsDimension::DynamicsDimension(pugi::xml_attribute attr)
 {
@@ -126,6 +146,26 @@ void FollowingMode::save(pugi::xml_attribute attr)
 {
     if (m_parameter) { attr = m_parameter.value(); }  
     if (isdefined<e_FollowingMode>(followingMode)) attr = enum2str<e_FollowingMode>(followingMode).c_str();  
+}
+LateralDisplacement::LateralDisplacement(pugi::xml_attribute attr)
+{
+    if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+    if (isvalid<e_LateralDisplacement>(attr.as_string())) { lateralDisplacement = str2enum<e_LateralDisplacement>(attr.as_string()); }
+}
+void LateralDisplacement::save(pugi::xml_attribute attr) 
+{
+    if (m_parameter) { attr = m_parameter.value(); }  
+    if (isdefined<e_LateralDisplacement>(lateralDisplacement)) attr = enum2str<e_LateralDisplacement>(lateralDisplacement).c_str();  
+}
+LongitudinalDisplacement::LongitudinalDisplacement(pugi::xml_attribute attr)
+{
+    if (  (m_parameter = attr.as_string())  ) { return ; }   // Typedef redirected to read value
+    if (isvalid<e_LongitudinalDisplacement>(attr.as_string())) { longitudinalDisplacement = str2enum<e_LongitudinalDisplacement>(attr.as_string()); }
+}
+void LongitudinalDisplacement::save(pugi::xml_attribute attr) 
+{
+    if (m_parameter) { attr = m_parameter.value(); }  
+    if (isdefined<e_LongitudinalDisplacement>(longitudinalDisplacement)) attr = enum2str<e_LongitudinalDisplacement>(longitudinalDisplacement).c_str();  
 }
 MiscObjectCategory::MiscObjectCategory(pugi::xml_attribute attr)
 {
@@ -531,6 +571,8 @@ Position_U::Position_U(pugi::xml_node node)
     if (strcmp(node.name(),"LanePosition")==0) { m_LanePosition = std::make_shared<LanePosition>(node); }  
     if (strcmp(node.name(),"RelativeLanePosition")==0) { m_RelativeLanePosition = std::make_shared<RelativeLanePosition>(node); }  
     if (strcmp(node.name(),"RoutePosition")==0) { m_RoutePosition = std::make_shared<RoutePosition>(node); }  
+    if (strcmp(node.name(),"GeoPosition")==0) { m_GeoPosition = std::make_shared<GeoPosition>(node); }  
+    if (strcmp(node.name(),"TrajectoryPosition")==0) { m_TrajectoryPosition = std::make_shared<TrajectoryPosition>(node); }  
 }
 void Position_U::save(pugi::xml_node node)
 {
@@ -542,6 +584,8 @@ void Position_U::save(pugi::xml_node node)
     if ( m_LanePosition ) { m_LanePosition->save(node.append_child("LanePosition")); }  
     if ( m_RelativeLanePosition ) { m_RelativeLanePosition->save(node.append_child("RelativeLanePosition")); }  
     if ( m_RoutePosition ) { m_RoutePosition->save(node.append_child("RoutePosition")); }  
+    if ( m_GeoPosition ) { m_GeoPosition->save(node.append_child("GeoPosition")); }  
+    if ( m_TrajectoryPosition ) { m_TrajectoryPosition->save(node.append_child("TrajectoryPosition")); }  
 }
 PrivateAction_U::PrivateAction_U(pugi::xml_node node)
 {
@@ -664,12 +708,14 @@ TrafficAction_U::TrafficAction_U(pugi::xml_node node)
     if (strcmp(node.name(),"TrafficSourceAction")==0) { m_TrafficSourceAction = std::make_shared<TrafficSourceAction>(node); }  
     if (strcmp(node.name(),"TrafficSinkAction")==0) { m_TrafficSinkAction = std::make_shared<TrafficSinkAction>(node); }  
     if (strcmp(node.name(),"TrafficSwarmAction")==0) { m_TrafficSwarmAction = std::make_shared<TrafficSwarmAction>(node); }  
+    if (strcmp(node.name(),"TrafficStopAction")==0) { m_TrafficStopAction = std::make_shared<TrafficStopAction>(node); }  
 }
 void TrafficAction_U::save(pugi::xml_node node)
 {
     if ( m_TrafficSourceAction ) { m_TrafficSourceAction->save(node.append_child("TrafficSourceAction")); }  
     if ( m_TrafficSinkAction ) { m_TrafficSinkAction->save(node.append_child("TrafficSinkAction")); }  
     if ( m_TrafficSwarmAction ) { m_TrafficSwarmAction->save(node.append_child("TrafficSwarmAction")); }  
+    if ( m_TrafficStopAction ) { m_TrafficStopAction->save(node.append_child("TrafficStopAction")); }  
 }
 TrafficSignalAction_U::TrafficSignalAction_U(pugi::xml_node node)
 {
@@ -681,13 +727,25 @@ void TrafficSignalAction_U::save(pugi::xml_node node)
     if ( m_TrafficSignalControllerAction ) { m_TrafficSignalControllerAction->save(node.append_child("TrafficSignalControllerAction")); }  
     if ( m_TrafficSignalStateAction ) { m_TrafficSignalStateAction->save(node.append_child("TrafficSignalStateAction")); }  
 }
+TrajectoryRef_U::TrajectoryRef_U(pugi::xml_node node)
+{
+    if (strcmp(node.name(),"Trajectory")==0) { m_Trajectory = std::make_shared<Trajectory>(node); }  
+    if (strcmp(node.name(),"CatalogReference")==0) { m_CatalogReference = std::make_shared<CatalogReference>(node); }  
+}
+void TrajectoryRef_U::save(pugi::xml_node node)
+{
+    if ( m_Trajectory ) { m_Trajectory->save(node.append_child("Trajectory")); }  
+    if ( m_CatalogReference ) { m_CatalogReference->save(node.append_child("CatalogReference")); }  
+}
 AbsoluteSpeed::AbsoluteSpeed(pugi::xml_node node) 
 {
     if (node.attribute("value")) { value = Double(node.attribute("value")); }  // >> union - handle properly
+    { m_SteadyState = std::make_shared<SteadyState>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 void AbsoluteSpeed::save(pugi::xml_node node)
 {
     value.save(node.append_attribute("value")); 
+    { if (m_SteadyState ) { m_SteadyState->save(node); } } // Node has no xml def, same node passes through until it finds an element.
 }
 AbsoluteTargetLane::AbsoluteTargetLane(pugi::xml_node node) 
 {
@@ -791,10 +849,14 @@ void AddEntityAction::save(pugi::xml_node node)
 }
 AssignControllerAction::AssignControllerAction(pugi::xml_node node) 
 {
+    if (node.attribute("activateLateral")) { activateLateral = Boolean(node.attribute("activateLateral")); }  // >> union - handle properly
+    if (node.attribute("activateLongitudinal")) { activateLongitudinal = Boolean(node.attribute("activateLongitudinal")); }  // >> union - handle properly
     if (node.first_child()) { m_AssignControllerAction = std::make_shared<AssignControllerAction_U>(node.first_child()); }  
 }
 void AssignControllerAction::save(pugi::xml_node node)
 {
+    activateLateral.save(node.append_attribute("activateLateral")); 
+    activateLongitudinal.save(node.append_attribute("activateLongitudinal")); 
     if (m_AssignControllerAction) { m_AssignControllerAction->save(node); }  
 }
 AssignRouteAction::AssignRouteAction(pugi::xml_node node) 
@@ -989,6 +1051,7 @@ Clothoid::Clothoid(pugi::xml_node node)
     if (node.attribute("length")) { length = Double(node.attribute("length")); }  // >> union - handle properly
     if (node.attribute("startTime")) { startTime = Double(node.attribute("startTime")); }  // >> union - handle properly
     if (node.attribute("stopTime")) { stopTime = Double(node.attribute("stopTime")); }  // >> union - handle properly
+    if (node.attribute("curvaturePrime")) { curvaturePrime = Double(node.attribute("curvaturePrime")); }  // >> union - handle properly
     if (node.child("Position")) { m_Position = std::make_shared<Position>(node.child("Position")); }  
 }
 void Clothoid::save(pugi::xml_node node)
@@ -998,6 +1061,7 @@ void Clothoid::save(pugi::xml_node node)
     length.save(node.append_attribute("length")); 
     startTime.save(node.append_attribute("startTime")); 
     stopTime.save(node.append_attribute("stopTime")); 
+    curvaturePrime.save(node.append_attribute("curvaturePrime")); 
     if (m_Position ) { m_Position->save(node.append_child("Position")); }   
 }
 CollisionCondition::CollisionCondition(pugi::xml_node node) 
@@ -1049,11 +1113,13 @@ ControllerAction::ControllerAction(pugi::xml_node node)
 {
     if (node.child("AssignControllerAction")) { m_AssignControllerAction = std::make_shared<AssignControllerAction>(node.child("AssignControllerAction")); }  
     if (node.child("OverrideControllerValueAction")) { m_OverrideControllerValueAction = std::make_shared<OverrideControllerValueAction>(node.child("OverrideControllerValueAction")); }  
+    if (node.child("ActivateControllerAction")) { m_ActivateControllerAction = std::make_shared<ActivateControllerAction>(node.child("ActivateControllerAction")); }  
 }
 void ControllerAction::save(pugi::xml_node node)
 {
     if (m_AssignControllerAction ) { m_AssignControllerAction->save(node.append_child("AssignControllerAction")); }   
     if (m_OverrideControllerValueAction ) { m_OverrideControllerValueAction->save(node.append_child("OverrideControllerValueAction")); }   
+    if (m_ActivateControllerAction ) { m_ActivateControllerAction->save(node.append_child("ActivateControllerAction")); }   
 }
 ControllerCatalogLocation::ControllerCatalogLocation(pugi::xml_node node) 
 {
@@ -1110,6 +1176,32 @@ DeleteEntityAction::DeleteEntityAction(pugi::xml_node node)
 void DeleteEntityAction::save(pugi::xml_node node)
 {
 }
+Deterministic::Deterministic(pugi::xml_node node) 
+{
+    { m_DeterministicParameterDistribution = std::make_shared<DeterministicParameterDistribution>(node); } // Node has no xml def, same node passes through until it finds an element.
+}
+void Deterministic::save(pugi::xml_node node)
+{
+    { if (m_DeterministicParameterDistribution ) { m_DeterministicParameterDistribution->save(node); } } // Node has no xml def, same node passes through until it finds an element.
+}
+DeterministicMultiParameterDistribution::DeterministicMultiParameterDistribution(pugi::xml_node node) 
+{
+    { m_DeterministicMultiParameterDistributionType = std::make_shared<DeterministicMultiParameterDistributionType>(node); } // Node has no xml def, same node passes through until it finds an element.
+}
+void DeterministicMultiParameterDistribution::save(pugi::xml_node node)
+{
+    { if (m_DeterministicMultiParameterDistributionType ) { m_DeterministicMultiParameterDistributionType->save(node); } } // Node has no xml def, same node passes through until it finds an element.
+}
+DeterministicSingleParameterDistribution::DeterministicSingleParameterDistribution(pugi::xml_node node) 
+{
+    if (node.attribute("parameterName")) { parameterName = String(node.attribute("parameterName")); }  // >> union - handle properly
+    { m_DeterministicSingleParameterDistributionType = std::make_shared<DeterministicSingleParameterDistributionType>(node); } // Node has no xml def, same node passes through until it finds an element.
+}
+void DeterministicSingleParameterDistribution::save(pugi::xml_node node)
+{
+    parameterName.save(node.append_attribute("parameterName")); 
+    { if (m_DeterministicSingleParameterDistributionType ) { m_DeterministicSingleParameterDistributionType->save(node); } } // Node has no xml def, same node passes through until it finds an element.
+}
 Dimensions::Dimensions(pugi::xml_node node) 
 {
     if (node.attribute("height")) { height = Double(node.attribute("height")); }  // >> union - handle properly
@@ -1136,6 +1228,8 @@ DistanceCondition::DistanceCondition(pugi::xml_node node)
     if (node.attribute("freespace")) { freespace = Boolean(node.attribute("freespace")); }  // >> union - handle properly
     if (node.attribute("rule")) { rule = Rule(node.attribute("rule")); }  // >> union - handle properly
     if (node.attribute("value")) { value = Double(node.attribute("value")); }  // >> union - handle properly
+    if (node.attribute("coordinateSystem")) { coordinateSystem = CoordinateSystem(node.attribute("coordinateSystem")); }  // >> union - handle properly
+    if (node.attribute("relativeDistanceType")) { relativeDistanceType = RelativeDistanceType(node.attribute("relativeDistanceType")); }  // >> union - handle properly
     if (node.child("Position")) { m_Position = std::make_shared<Position>(node.child("Position")); }  
 }
 void DistanceCondition::save(pugi::xml_node node)
@@ -1144,7 +1238,38 @@ void DistanceCondition::save(pugi::xml_node node)
     freespace.save(node.append_attribute("freespace")); 
     rule.save(node.append_attribute("rule")); 
     value.save(node.append_attribute("value")); 
+    coordinateSystem.save(node.append_attribute("coordinateSystem")); 
+    relativeDistanceType.save(node.append_attribute("relativeDistanceType")); 
     if (m_Position ) { m_Position->save(node.append_child("Position")); }   
+}
+DistributionRange::DistributionRange(pugi::xml_node node) 
+{
+    if (node.attribute("stepWidth")) { stepWidth = Double(node.attribute("stepWidth")); }  // >> union - handle properly
+    if (node.child("Range")) { m_Range = std::make_shared<Range>(node.child("Range")); }  
+}
+void DistributionRange::save(pugi::xml_node node)
+{
+    stepWidth.save(node.append_attribute("stepWidth")); 
+    if (m_Range ) { m_Range->save(node.append_child("Range")); }   
+}
+DistributionSet::DistributionSet(pugi::xml_node node) 
+{
+    for (pugi::xml_node e_Element = node.child("Element"); e_Element; e_Element= e_Element.next_sibling("Element"))
+    {
+        m_Elements.push_back(std::make_shared<DistributionSetElement>(e_Element));
+    }
+}
+void DistributionSet::save(pugi::xml_node node)
+{
+    for (std::shared_ptr<DistributionSetElement> m_Element : m_Elements ){ m_Element->save(node.append_child("Element")); } 
+}
+DistributionSetElement::DistributionSetElement(pugi::xml_node node) 
+{
+    if (node.attribute("value")) { value = String(node.attribute("value")); }  // >> union - handle properly
+}
+void DistributionSetElement::save(pugi::xml_node node)
+{
+    value.save(node.append_attribute("value")); 
 }
 DynamicConstraints::DynamicConstraints(pugi::xml_node node) 
 {
@@ -1269,6 +1394,14 @@ void Event::save(pugi::xml_node node)
     for (std::shared_ptr<Action> m_Action : m_Actions ){ m_Action->save(node.append_child("Action")); } 
     if (m_StartTrigger ) { m_StartTrigger->save(node.append_child("StartTrigger")); }   
 }
+ExternalObjectReference::ExternalObjectReference(pugi::xml_node node) 
+{
+    if (node.attribute("name")) { name = String(node.attribute("name")); }  // >> union - handle properly
+}
+void ExternalObjectReference::save(pugi::xml_node node)
+{
+    name.save(node.append_attribute("name")); 
+}
 File::File(pugi::xml_node node) 
 {
     if (node.attribute("filepath")) { filepath = String(node.attribute("filepath")); }  // >> union - handle properly
@@ -1284,6 +1417,7 @@ FileHeader::FileHeader(pugi::xml_node node)
     if (node.attribute("description")) { description = String(node.attribute("description")); }  // >> union - handle properly
     if (node.attribute("revMajor")) { revMajor = UnsignedShort(node.attribute("revMajor")); }  // >> union - handle properly
     if (node.attribute("revMinor")) { revMinor = UnsignedShort(node.attribute("revMinor")); }  // >> union - handle properly
+    if (node.child("License")) { m_License = std::make_shared<License>(node.child("License")); }  
 }
 void FileHeader::save(pugi::xml_node node)
 {
@@ -1292,6 +1426,7 @@ void FileHeader::save(pugi::xml_node node)
     description.save(node.append_attribute("description")); 
     revMajor.save(node.append_attribute("revMajor")); 
     revMinor.save(node.append_attribute("revMinor")); 
+    if (m_License ) { m_License->save(node.append_child("License")); }   
 }
 FinalSpeed::FinalSpeed(pugi::xml_node node) 
 {
@@ -1313,17 +1448,35 @@ void Fog::save(pugi::xml_node node)
 }
 FollowTrajectoryAction::FollowTrajectoryAction(pugi::xml_node node) 
 {
+    if (node.attribute("initialDistanceOffset")) { initialDistanceOffset = Double(node.attribute("initialDistanceOffset")); }  // >> union - handle properly
     if (node.child("Trajectory")) { m_Trajectory = std::make_shared<Trajectory>(node.child("Trajectory")); }  
     if (node.child("CatalogReference")) { m_CatalogReference = std::make_shared<CatalogReference>(node.child("CatalogReference")); }  
     if (node.child("TimeReference")) { m_TimeReference = std::make_shared<TimeReference>(node.child("TimeReference")); }  
     if (node.child("TrajectoryFollowingMode")) { m_TrajectoryFollowingMode = std::make_shared<TrajectoryFollowingMode>(node.child("TrajectoryFollowingMode")); }  
+    if (node.child("TrajectoryRef")) { m_TrajectoryRef = std::make_shared<TrajectoryRef>(node.child("TrajectoryRef")); }  
 }
 void FollowTrajectoryAction::save(pugi::xml_node node)
 {
+    initialDistanceOffset.save(node.append_attribute("initialDistanceOffset")); 
     if (m_Trajectory ) { m_Trajectory->save(node.append_child("Trajectory")); }   
     if (m_CatalogReference ) { m_CatalogReference->save(node.append_child("CatalogReference")); }   
     if (m_TimeReference ) { m_TimeReference->save(node.append_child("TimeReference")); }   
     if (m_TrajectoryFollowingMode ) { m_TrajectoryFollowingMode->save(node.append_child("TrajectoryFollowingMode")); }   
+    if (m_TrajectoryRef ) { m_TrajectoryRef->save(node.append_child("TrajectoryRef")); }   
+}
+GeoPosition::GeoPosition(pugi::xml_node node) 
+{
+    if (node.attribute("latitude")) { latitude = Double(node.attribute("latitude")); }  // >> union - handle properly
+    if (node.attribute("longitude")) { longitude = Double(node.attribute("longitude")); }  // >> union - handle properly
+    if (node.attribute("height")) { height = Double(node.attribute("height")); }  // >> union - handle properly
+    if (node.child("Orientation")) { m_Orientation = std::make_shared<Orientation>(node.child("Orientation")); }  
+}
+void GeoPosition::save(pugi::xml_node node)
+{
+    latitude.save(node.append_attribute("latitude")); 
+    longitude.save(node.append_attribute("longitude")); 
+    height.save(node.append_attribute("height")); 
+    if (m_Orientation ) { m_Orientation->save(node.append_child("Orientation")); }   
 }
 GlobalAction::GlobalAction(pugi::xml_node node) 
 {
@@ -1332,6 +1485,27 @@ GlobalAction::GlobalAction(pugi::xml_node node)
 void GlobalAction::save(pugi::xml_node node)
 {
     if (m_GlobalAction) { m_GlobalAction->save(node); }  
+}
+Histogram::Histogram(pugi::xml_node node) 
+{
+    for (pugi::xml_node e_Bin = node.child("Bin"); e_Bin; e_Bin= e_Bin.next_sibling("Bin"))
+    {
+        m_Bins.push_back(std::make_shared<HistogramBin>(e_Bin));
+    }
+}
+void Histogram::save(pugi::xml_node node)
+{
+    for (std::shared_ptr<HistogramBin> m_Bin : m_Bins ){ m_Bin->save(node.append_child("Bin")); } 
+}
+HistogramBin::HistogramBin(pugi::xml_node node) 
+{
+    if (node.attribute("weight")) { weight = Double(node.attribute("weight")); }  // >> union - handle properly
+    if (node.child("Range")) { m_Range = std::make_shared<Range>(node.child("Range")); }  
+}
+void HistogramBin::save(pugi::xml_node node)
+{
+    weight.save(node.append_attribute("weight")); 
+    if (m_Range ) { m_Range->save(node.append_child("Range")); }   
 }
 InfrastructureAction::InfrastructureAction(pugi::xml_node node) 
 {
@@ -1466,6 +1640,8 @@ LateralDistanceAction::LateralDistanceAction(pugi::xml_node node)
     if (node.attribute("continuous")) { continuous = Boolean(node.attribute("continuous")); }  // >> union - handle properly
     if (node.attribute("distance")) { distance = Double(node.attribute("distance")); }  // >> union - handle properly
     if (node.attribute("freespace")) { freespace = Boolean(node.attribute("freespace")); }  // >> union - handle properly
+    if (node.attribute("displacement")) { displacement = LateralDisplacement(node.attribute("displacement")); }  // >> union - handle properly
+    if (node.attribute("coordinateSystem")) { coordinateSystem = CoordinateSystem(node.attribute("coordinateSystem")); }  // >> union - handle properly
     if (node.child("DynamicConstraints")) { m_DynamicConstraints = std::make_shared<DynamicConstraints>(node.child("DynamicConstraints")); }  
 }
 void LateralDistanceAction::save(pugi::xml_node node)
@@ -1474,7 +1650,21 @@ void LateralDistanceAction::save(pugi::xml_node node)
     continuous.save(node.append_attribute("continuous")); 
     distance.save(node.append_attribute("distance")); 
     freespace.save(node.append_attribute("freespace")); 
+    displacement.save(node.append_attribute("displacement")); 
+    coordinateSystem.save(node.append_attribute("coordinateSystem")); 
     if (m_DynamicConstraints ) { m_DynamicConstraints->save(node.append_child("DynamicConstraints")); }   
+}
+License::License(pugi::xml_node node) 
+{
+    if (node.attribute("name")) { name = String(node.attribute("name")); }  // >> union - handle properly
+    if (node.attribute("resource")) { resource = String(node.attribute("resource")); }  // >> union - handle properly
+    if (node.attribute("spdxId")) { spdxId = String(node.attribute("spdxId")); }  // >> union - handle properly
+}
+void License::save(pugi::xml_node node)
+{
+    name.save(node.append_attribute("name")); 
+    resource.save(node.append_attribute("resource")); 
+    spdxId.save(node.append_attribute("spdxId")); 
 }
 LongitudinalAction::LongitudinalAction(pugi::xml_node node) 
 {
@@ -1491,6 +1681,8 @@ LongitudinalDistanceAction::LongitudinalDistanceAction(pugi::xml_node node)
     if (node.attribute("distance")) { distance = Double(node.attribute("distance")); }  // >> union - handle properly
     if (node.attribute("freespace")) { freespace = Boolean(node.attribute("freespace")); }  // >> union - handle properly
     if (node.attribute("timeGap")) { timeGap = Double(node.attribute("timeGap")); }  // >> union - handle properly
+    if (node.attribute("displacement")) { displacement = LongitudinalDisplacement(node.attribute("displacement")); }  // >> union - handle properly
+    if (node.attribute("coordinateSystem")) { coordinateSystem = CoordinateSystem(node.attribute("coordinateSystem")); }  // >> union - handle properly
     if (node.child("DynamicConstraints")) { m_DynamicConstraints = std::make_shared<DynamicConstraints>(node.child("DynamicConstraints")); }  
 }
 void LongitudinalDistanceAction::save(pugi::xml_node node)
@@ -1500,6 +1692,8 @@ void LongitudinalDistanceAction::save(pugi::xml_node node)
     distance.save(node.append_attribute("distance")); 
     freespace.save(node.append_attribute("freespace")); 
     timeGap.save(node.append_attribute("timeGap")); 
+    displacement.save(node.append_attribute("displacement")); 
+    coordinateSystem.save(node.append_attribute("coordinateSystem")); 
     if (m_DynamicConstraints ) { m_DynamicConstraints->save(node.append_child("DynamicConstraints")); }   
 }
 Maneuver::Maneuver(pugi::xml_node node) 
@@ -1552,6 +1746,7 @@ MiscObject::MiscObject(pugi::xml_node node)
     if (node.attribute("mass")) { mass = Double(node.attribute("mass")); }  // >> union - handle properly
     if (node.attribute("miscObjectCategory")) { miscObjectCategory = MiscObjectCategory(node.attribute("miscObjectCategory")); }  // >> union - handle properly
     if (node.attribute("name")) { name = String(node.attribute("name")); }  // >> union - handle properly
+    if (node.attribute("model3d")) { model3d = String(node.attribute("model3d")); }  // >> union - handle properly
     if (node.child("ParameterDeclarations")) { m_ParameterDeclarations = std::make_shared<ParameterDeclarations>(node.child("ParameterDeclarations")); }  
     if (node.child("BoundingBox")) { m_BoundingBox = std::make_shared<BoundingBox>(node.child("BoundingBox")); }  
     if (node.child("Properties")) { m_Properties = std::make_shared<Properties>(node.child("Properties")); }  
@@ -1561,6 +1756,7 @@ void MiscObject::save(pugi::xml_node node)
     mass.save(node.append_attribute("mass")); 
     miscObjectCategory.save(node.append_attribute("miscObjectCategory")); 
     name.save(node.append_attribute("name")); 
+    model3d.save(node.append_attribute("model3d")); 
     if (m_ParameterDeclarations ) { m_ParameterDeclarations->save(node.append_child("ParameterDeclarations")); }   
     if (m_BoundingBox ) { m_BoundingBox->save(node.append_child("BoundingBox")); }   
     if (m_Properties ) { m_Properties->save(node.append_child("Properties")); }   
@@ -1586,6 +1782,18 @@ None::None(pugi::xml_node node)
 }
 void None::save(pugi::xml_node node)
 {
+}
+NormalDistribution::NormalDistribution(pugi::xml_node node) 
+{
+    if (node.attribute("expectedValue")) { expectedValue = Double(node.attribute("expectedValue")); }  // >> union - handle properly
+    if (node.attribute("variance")) { variance = Double(node.attribute("variance")); }  // >> union - handle properly
+    if (node.child("Range")) { m_Range = std::make_shared<Range>(node.child("Range")); }  
+}
+void NormalDistribution::save(pugi::xml_node node)
+{
+    expectedValue.save(node.append_attribute("expectedValue")); 
+    variance.save(node.append_attribute("variance")); 
+    if (m_Range ) { m_Range->save(node.append_child("Range")); }   
 }
 Nurbs::Nurbs(pugi::xml_node node) 
 {
@@ -1779,12 +1987,17 @@ ParameterDeclaration::ParameterDeclaration(pugi::xml_node node)
     if (node.attribute("name")) { name = String(node.attribute("name")); }  // >> union - handle properly
     if (node.attribute("parameterType")) { parameterType = ParameterType(node.attribute("parameterType")); }  // >> union - handle properly
     if (node.attribute("value")) { value = String(node.attribute("value")); }  // >> union - handle properly
+    for (pugi::xml_node e_ConstraintGroup = node.child("ConstraintGroup"); e_ConstraintGroup; e_ConstraintGroup= e_ConstraintGroup.next_sibling("ConstraintGroup"))
+    {
+        m_ConstraintGroups.push_back(std::make_shared<ValueConstraintGroup>(e_ConstraintGroup));
+    }
 }
 void ParameterDeclaration::save(pugi::xml_node node)
 {
     name.save(node.append_attribute("name")); 
     parameterType.save(node.append_attribute("parameterType")); 
     value.save(node.append_attribute("value")); 
+    for (std::shared_ptr<ValueConstraintGroup> m_ConstraintGroup : m_ConstraintGroups ){ m_ConstraintGroup->save(node.append_child("ConstraintGroup")); } 
 }
 ParameterDeclarations::ParameterDeclarations(pugi::xml_node node) 
 {
@@ -1821,12 +2034,34 @@ void ParameterSetAction::save(pugi::xml_node node)
 {
     value.save(node.append_attribute("value")); 
 }
+ParameterValueDistribution::ParameterValueDistribution(pugi::xml_node node) 
+{
+    if (node.child("ScenarioFile")) { m_ScenarioFile = std::make_shared<File>(node.child("ScenarioFile")); }  
+    { m_DistributionDefinition = std::make_shared<DistributionDefinition>(node); } // Node has no xml def, same node passes through until it finds an element.
+}
+void ParameterValueDistribution::save(pugi::xml_node node)
+{
+    if (m_ScenarioFile ) { m_ScenarioFile->save(node.append_child("ScenarioFile")); }   
+    { if (m_DistributionDefinition ) { m_DistributionDefinition->save(node); } } // Node has no xml def, same node passes through until it finds an element.
+}
+ParameterValueSet::ParameterValueSet(pugi::xml_node node) 
+{
+    for (pugi::xml_node e_ParameterAssignment = node.child("ParameterAssignment"); e_ParameterAssignment; e_ParameterAssignment= e_ParameterAssignment.next_sibling("ParameterAssignment"))
+    {
+        m_ParameterAssignments.push_back(std::make_shared<ParameterAssignment>(e_ParameterAssignment));
+    }
+}
+void ParameterValueSet::save(pugi::xml_node node)
+{
+    for (std::shared_ptr<ParameterAssignment> m_ParameterAssignment : m_ParameterAssignments ){ m_ParameterAssignment->save(node.append_child("ParameterAssignment")); } 
+}
 Pedestrian::Pedestrian(pugi::xml_node node) 
 {
     if (node.attribute("mass")) { mass = Double(node.attribute("mass")); }  // >> union - handle properly
     if (node.attribute("model")) { model = String(node.attribute("model")); }  // >> union - handle properly
     if (node.attribute("name")) { name = String(node.attribute("name")); }  // >> union - handle properly
     if (node.attribute("pedestrianCategory")) { pedestrianCategory = PedestrianCategory(node.attribute("pedestrianCategory")); }  // >> union - handle properly
+    if (node.attribute("model3d")) { model3d = String(node.attribute("model3d")); }  // >> union - handle properly
     if (node.child("ParameterDeclarations")) { m_ParameterDeclarations = std::make_shared<ParameterDeclarations>(node.child("ParameterDeclarations")); }  
     if (node.child("BoundingBox")) { m_BoundingBox = std::make_shared<BoundingBox>(node.child("BoundingBox")); }  
     if (node.child("Properties")) { m_Properties = std::make_shared<Properties>(node.child("Properties")); }  
@@ -1837,6 +2072,7 @@ void Pedestrian::save(pugi::xml_node node)
     model.save(node.append_attribute("model")); 
     name.save(node.append_attribute("name")); 
     pedestrianCategory.save(node.append_attribute("pedestrianCategory")); 
+    model3d.save(node.append_attribute("model3d")); 
     if (m_ParameterDeclarations ) { m_ParameterDeclarations->save(node.append_child("ParameterDeclarations")); }   
     if (m_BoundingBox ) { m_BoundingBox->save(node.append_child("BoundingBox")); }   
     if (m_Properties ) { m_Properties->save(node.append_child("Properties")); }   
@@ -1875,6 +2111,16 @@ void Phase::save(pugi::xml_node node)
     duration.save(node.append_attribute("duration")); 
     name.save(node.append_attribute("name")); 
     for (std::shared_ptr<TrafficSignalState> m_TrafficSignalState : m_TrafficSignalStates ){ m_TrafficSignalState->save(node.append_child("TrafficSignalState")); } 
+}
+PoissonDistribution::PoissonDistribution(pugi::xml_node node) 
+{
+    if (node.attribute("expectedValue")) { expectedValue = Double(node.attribute("expectedValue")); }  // >> union - handle properly
+    if (node.child("Range")) { m_Range = std::make_shared<Range>(node.child("Range")); }  
+}
+void PoissonDistribution::save(pugi::xml_node node)
+{
+    expectedValue.save(node.append_attribute("expectedValue")); 
+    if (m_Range ) { m_Range->save(node.append_child("Range")); }   
 }
 Polyline::Polyline(pugi::xml_node node) 
 {
@@ -1929,11 +2175,13 @@ Precipitation::Precipitation(pugi::xml_node node)
 {
     if (node.attribute("intensity")) { intensity = Double(node.attribute("intensity")); }  // >> union - handle properly
     if (node.attribute("precipitationType")) { precipitationType = PrecipitationType(node.attribute("precipitationType")); }  // >> union - handle properly
+    if (node.attribute("precipitationIntensity")) { precipitationIntensity = Double(node.attribute("precipitationIntensity")); }  // >> union - handle properly
 }
 void Precipitation::save(pugi::xml_node node)
 {
     intensity.save(node.append_attribute("intensity")); 
     precipitationType.save(node.append_attribute("precipitationType")); 
+    precipitationIntensity.save(node.append_attribute("precipitationIntensity")); 
 }
 Private::Private(pugi::xml_node node) 
 {
@@ -1955,6 +2203,27 @@ PrivateAction::PrivateAction(pugi::xml_node node)
 void PrivateAction::save(pugi::xml_node node)
 {
     if (m_PrivateAction) { m_PrivateAction->save(node); }  
+}
+ProbabilityDistributionSet::ProbabilityDistributionSet(pugi::xml_node node) 
+{
+    for (pugi::xml_node e_Element = node.child("Element"); e_Element; e_Element= e_Element.next_sibling("Element"))
+    {
+        m_Elements.push_back(std::make_shared<ProbabilityDistributionSetElement>(e_Element));
+    }
+}
+void ProbabilityDistributionSet::save(pugi::xml_node node)
+{
+    for (std::shared_ptr<ProbabilityDistributionSetElement> m_Element : m_Elements ){ m_Element->save(node.append_child("Element")); } 
+}
+ProbabilityDistributionSetElement::ProbabilityDistributionSetElement(pugi::xml_node node) 
+{
+    if (node.attribute("value")) { value = String(node.attribute("value")); }  // >> union - handle properly
+    if (node.attribute("weight")) { weight = Double(node.attribute("weight")); }  // >> union - handle properly
+}
+void ProbabilityDistributionSetElement::save(pugi::xml_node node)
+{
+    value.save(node.append_attribute("value")); 
+    weight.save(node.append_attribute("weight")); 
 }
 Properties::Properties(pugi::xml_node node) 
 {
@@ -1982,6 +2251,16 @@ void Property::save(pugi::xml_node node)
     name.save(node.append_attribute("name")); 
     value.save(node.append_attribute("value")); 
 }
+Range::Range(pugi::xml_node node) 
+{
+    if (node.attribute("lowerLimit")) { lowerLimit = Double(node.attribute("lowerLimit")); }  // >> union - handle properly
+    if (node.attribute("upperLimit")) { upperLimit = Double(node.attribute("upperLimit")); }  // >> union - handle properly
+}
+void Range::save(pugi::xml_node node)
+{
+    lowerLimit.save(node.append_attribute("lowerLimit")); 
+    upperLimit.save(node.append_attribute("upperLimit")); 
+}
 ReachPositionCondition::ReachPositionCondition(pugi::xml_node node) 
 {
     if (node.attribute("tolerance")) { tolerance = Double(node.attribute("tolerance")); }  // >> union - handle properly
@@ -1999,6 +2278,7 @@ RelativeDistanceCondition::RelativeDistanceCondition(pugi::xml_node node)
     if (node.attribute("relativeDistanceType")) { relativeDistanceType = RelativeDistanceType(node.attribute("relativeDistanceType")); }  // >> union - handle properly
     if (node.attribute("rule")) { rule = Rule(node.attribute("rule")); }  // >> union - handle properly
     if (node.attribute("value")) { value = Double(node.attribute("value")); }  // >> union - handle properly
+    if (node.attribute("coordinateSystem")) { coordinateSystem = CoordinateSystem(node.attribute("coordinateSystem")); }  // >> union - handle properly
 }
 void RelativeDistanceCondition::save(pugi::xml_node node)
 {
@@ -2007,6 +2287,7 @@ void RelativeDistanceCondition::save(pugi::xml_node node)
     relativeDistanceType.save(node.append_attribute("relativeDistanceType")); 
     rule.save(node.append_attribute("rule")); 
     value.save(node.append_attribute("value")); 
+    coordinateSystem.save(node.append_attribute("coordinateSystem")); 
 }
 RelativeLanePosition::RelativeLanePosition(pugi::xml_node node) 
 {
@@ -2014,6 +2295,7 @@ RelativeLanePosition::RelativeLanePosition(pugi::xml_node node)
     if (node.attribute("dLane")) { dLane = Int(node.attribute("dLane")); }  // >> union - handle properly
     if (node.attribute("ds")) { ds = Double(node.attribute("ds")); }  // >> union - handle properly
     if (node.attribute("offset")) { offset = Double(node.attribute("offset")); }  // >> union - handle properly
+    if (node.attribute("dsLane")) { dsLane = Double(node.attribute("dsLane")); }  // >> union - handle properly
     if (node.child("Orientation")) { m_Orientation = std::make_shared<Orientation>(node.child("Orientation")); }  
 }
 void RelativeLanePosition::save(pugi::xml_node node)
@@ -2022,6 +2304,7 @@ void RelativeLanePosition::save(pugi::xml_node node)
     dLane.save(node.append_attribute("dLane")); 
     ds.save(node.append_attribute("ds")); 
     offset.save(node.append_attribute("offset")); 
+    dsLane.save(node.append_attribute("dsLane")); 
     if (m_Orientation ) { m_Orientation->save(node.append_child("Orientation")); }   
 }
 RelativeObjectPosition::RelativeObjectPosition(pugi::xml_node node) 
@@ -2070,11 +2353,13 @@ RelativeSpeedToMaster::RelativeSpeedToMaster(pugi::xml_node node)
 {
     if (node.attribute("speedTargetValueType")) { speedTargetValueType = SpeedTargetValueType(node.attribute("speedTargetValueType")); }  // >> union - handle properly
     if (node.attribute("value")) { value = Double(node.attribute("value")); }  // >> union - handle properly
+    { m_SteadyState = std::make_shared<SteadyState>(node); } // Node has no xml def, same node passes through until it finds an element.
 }
 void RelativeSpeedToMaster::save(pugi::xml_node node)
 {
     speedTargetValueType.save(node.append_attribute("speedTargetValueType")); 
     value.save(node.append_attribute("value")); 
+    { if (m_SteadyState ) { m_SteadyState->save(node); } } // Node has no xml def, same node passes through until it finds an element.
 }
 RelativeTargetLane::RelativeTargetLane(pugi::xml_node node) 
 {
@@ -2141,12 +2426,14 @@ RoadNetwork::RoadNetwork(pugi::xml_node node)
     if (node.child("LogicFile")) { m_LogicFile = std::make_shared<File>(node.child("LogicFile")); }  
     if (node.child("SceneGraphFile")) { m_SceneGraphFile = std::make_shared<File>(node.child("SceneGraphFile")); }  
     if (node.child("TrafficSignals")) { m_TrafficSignals = std::make_shared<TrafficSignals>(node.child("TrafficSignals")); }  
+    if (node.child("UsedArea")) { m_UsedArea = std::make_shared<UsedArea>(node.child("UsedArea")); }  
 }
 void RoadNetwork::save(pugi::xml_node node)
 {
     if (m_LogicFile ) { m_LogicFile->save(node.append_child("LogicFile")); }   
     if (m_SceneGraphFile ) { m_SceneGraphFile->save(node.append_child("SceneGraphFile")); }   
     if (m_TrafficSignals ) { m_TrafficSignals->save(node.append_child("TrafficSignals")); }   
+    if (m_UsedArea ) { m_UsedArea->save(node.append_child("UsedArea")); }   
 }
 RoadPosition::RoadPosition(pugi::xml_node node) 
 {
@@ -2289,6 +2576,31 @@ void StandStillCondition::save(pugi::xml_node node)
 {
     duration.save(node.append_attribute("duration")); 
 }
+Stochastic::Stochastic(pugi::xml_node node) 
+{
+    if (node.attribute("numberOfTestRuns")) { numberOfTestRuns = UnsignedInt(node.attribute("numberOfTestRuns")); }  // >> union - handle properly
+    if (node.attribute("randomSeed")) { randomSeed = Double(node.attribute("randomSeed")); }  // >> union - handle properly
+    for (pugi::xml_node e_StochasticDistribution = node.child("StochasticDistribution"); e_StochasticDistribution; e_StochasticDistribution= e_StochasticDistribution.next_sibling("StochasticDistribution"))
+    {
+        m_StochasticDistributions.push_back(std::make_shared<StochasticDistribution>(e_StochasticDistribution));
+    }
+}
+void Stochastic::save(pugi::xml_node node)
+{
+    numberOfTestRuns.save(node.append_attribute("numberOfTestRuns")); 
+    randomSeed.save(node.append_attribute("randomSeed")); 
+    for (std::shared_ptr<StochasticDistribution> m_StochasticDistribution : m_StochasticDistributions ){ m_StochasticDistribution->save(node.append_child("StochasticDistribution")); } 
+}
+StochasticDistribution::StochasticDistribution(pugi::xml_node node) 
+{
+    if (node.attribute("parameterName")) { parameterName = String(node.attribute("parameterName")); }  // >> union - handle properly
+    { m_StochasticDistributionType = std::make_shared<StochasticDistributionType>(node); } // Node has no xml def, same node passes through until it finds an element.
+}
+void StochasticDistribution::save(pugi::xml_node node)
+{
+    parameterName.save(node.append_attribute("parameterName")); 
+    { if (m_StochasticDistributionType ) { m_StochasticDistributionType->save(node); } } // Node has no xml def, same node passes through until it finds an element.
+}
 Story::Story(pugi::xml_node node) 
 {
     if (node.attribute("name")) { name = String(node.attribute("name")); }  // >> union - handle properly
@@ -2346,6 +2658,8 @@ void Sun::save(pugi::xml_node node)
 SynchronizeAction::SynchronizeAction(pugi::xml_node node) 
 {
     if (node.attribute("masterEntityRef")) { masterEntityRef = String(node.attribute("masterEntityRef")); }  // >> union - handle properly
+    if (node.attribute("targetToleranceMaster")) { targetToleranceMaster = Double(node.attribute("targetToleranceMaster")); }  // >> union - handle properly
+    if (node.attribute("targetTolerance")) { targetTolerance = Double(node.attribute("targetTolerance")); }  // >> union - handle properly
     if (node.child("TargetPositionMaster")) { m_TargetPositionMaster = std::make_shared<Position>(node.child("TargetPositionMaster")); }  
     if (node.child("TargetPosition")) { m_TargetPosition = std::make_shared<Position>(node.child("TargetPosition")); }  
     if (node.child("FinalSpeed")) { m_FinalSpeed = std::make_shared<FinalSpeed>(node.child("FinalSpeed")); }  
@@ -2353,9 +2667,27 @@ SynchronizeAction::SynchronizeAction(pugi::xml_node node)
 void SynchronizeAction::save(pugi::xml_node node)
 {
     masterEntityRef.save(node.append_attribute("masterEntityRef")); 
+    targetToleranceMaster.save(node.append_attribute("targetToleranceMaster")); 
+    targetTolerance.save(node.append_attribute("targetTolerance")); 
     if (m_TargetPositionMaster ) { m_TargetPositionMaster->save(node.append_child("TargetPositionMaster")); }   
     if (m_TargetPosition ) { m_TargetPosition->save(node.append_child("TargetPosition")); }   
     if (m_FinalSpeed ) { m_FinalSpeed->save(node.append_child("FinalSpeed")); }   
+}
+TargetDistanceSteadyState::TargetDistanceSteadyState(pugi::xml_node node) 
+{
+    if (node.attribute("distance")) { distance = Double(node.attribute("distance")); }  // >> union - handle properly
+}
+void TargetDistanceSteadyState::save(pugi::xml_node node)
+{
+    distance.save(node.append_attribute("distance")); 
+}
+TargetTimeSteadyState::TargetTimeSteadyState(pugi::xml_node node) 
+{
+    if (node.attribute("time")) { time = Double(node.attribute("time")); }  // >> union - handle properly
+}
+void TargetTimeSteadyState::save(pugi::xml_node node)
+{
+    time.save(node.append_attribute("time")); 
 }
 TeleportAction::TeleportAction(pugi::xml_node node) 
 {
@@ -2372,6 +2704,8 @@ TimeHeadwayCondition::TimeHeadwayCondition(pugi::xml_node node)
     if (node.attribute("freespace")) { freespace = Boolean(node.attribute("freespace")); }  // >> union - handle properly
     if (node.attribute("rule")) { rule = Rule(node.attribute("rule")); }  // >> union - handle properly
     if (node.attribute("value")) { value = Double(node.attribute("value")); }  // >> union - handle properly
+    if (node.attribute("coordinateSystem")) { coordinateSystem = CoordinateSystem(node.attribute("coordinateSystem")); }  // >> union - handle properly
+    if (node.attribute("relativeDistanceType")) { relativeDistanceType = RelativeDistanceType(node.attribute("relativeDistanceType")); }  // >> union - handle properly
 }
 void TimeHeadwayCondition::save(pugi::xml_node node)
 {
@@ -2380,6 +2714,8 @@ void TimeHeadwayCondition::save(pugi::xml_node node)
     freespace.save(node.append_attribute("freespace")); 
     rule.save(node.append_attribute("rule")); 
     value.save(node.append_attribute("value")); 
+    coordinateSystem.save(node.append_attribute("coordinateSystem")); 
+    relativeDistanceType.save(node.append_attribute("relativeDistanceType")); 
 }
 TimeOfDay::TimeOfDay(pugi::xml_node node) 
 {
@@ -2415,6 +2751,8 @@ TimeToCollisionCondition::TimeToCollisionCondition(pugi::xml_node node)
     if (node.attribute("freespace")) { freespace = Boolean(node.attribute("freespace")); }  // >> union - handle properly
     if (node.attribute("rule")) { rule = Rule(node.attribute("rule")); }  // >> union - handle properly
     if (node.attribute("value")) { value = Double(node.attribute("value")); }  // >> union - handle properly
+    if (node.attribute("relativeDistanceType")) { relativeDistanceType = RelativeDistanceType(node.attribute("relativeDistanceType")); }  // >> union - handle properly
+    if (node.attribute("coordinateSystem")) { coordinateSystem = CoordinateSystem(node.attribute("coordinateSystem")); }  // >> union - handle properly
     if (node.child("TimeToCollisionConditionTarget")) { m_TimeToCollisionConditionTarget = std::make_shared<TimeToCollisionConditionTarget>(node.child("TimeToCollisionConditionTarget")); }  
 }
 void TimeToCollisionCondition::save(pugi::xml_node node)
@@ -2423,6 +2761,8 @@ void TimeToCollisionCondition::save(pugi::xml_node node)
     freespace.save(node.append_attribute("freespace")); 
     rule.save(node.append_attribute("rule")); 
     value.save(node.append_attribute("value")); 
+    relativeDistanceType.save(node.append_attribute("relativeDistanceType")); 
+    coordinateSystem.save(node.append_attribute("coordinateSystem")); 
     if (m_TimeToCollisionConditionTarget ) { m_TimeToCollisionConditionTarget->save(node.append_child("TimeToCollisionConditionTarget")); }   
 }
 TimeToCollisionConditionTarget::TimeToCollisionConditionTarget(pugi::xml_node node) 
@@ -2447,10 +2787,12 @@ void Timing::save(pugi::xml_node node)
 }
 TrafficAction::TrafficAction(pugi::xml_node node) 
 {
+    if (node.attribute("trafficName")) { trafficName = String(node.attribute("trafficName")); }  // >> union - handle properly
     if (node.first_child()) { m_TrafficAction = std::make_shared<TrafficAction_U>(node.first_child()); }  
 }
 void TrafficAction::save(pugi::xml_node node)
 {
+    trafficName.save(node.append_attribute("trafficName")); 
     if (m_TrafficAction) { m_TrafficAction->save(node); }  
 }
 TrafficDefinition::TrafficDefinition(pugi::xml_node node) 
@@ -2581,6 +2923,12 @@ void TrafficSourceAction::save(pugi::xml_node node)
     if (m_Position ) { m_Position->save(node.append_child("Position")); }   
     if (m_TrafficDefinition ) { m_TrafficDefinition->save(node.append_child("TrafficDefinition")); }   
 }
+TrafficStopAction::TrafficStopAction(pugi::xml_node node) 
+{
+}
+void TrafficStopAction::save(pugi::xml_node node)
+{
+}
 TrafficSwarmAction::TrafficSwarmAction(pugi::xml_node node) 
 {
     if (node.attribute("innerRadius")) { innerRadius = Double(node.attribute("innerRadius")); }  // >> union - handle properly
@@ -2633,6 +2981,28 @@ void TrajectoryFollowingMode::save(pugi::xml_node node)
 {
     followingMode.save(node.append_attribute("followingMode")); 
 }
+TrajectoryPosition::TrajectoryPosition(pugi::xml_node node) 
+{
+    if (node.attribute("s")) { s = Double(node.attribute("s")); }  // >> union - handle properly
+    if (node.attribute("t")) { t = Double(node.attribute("t")); }  // >> union - handle properly
+    if (node.child("Orientation")) { m_Orientation = std::make_shared<Orientation>(node.child("Orientation")); }  
+    if (node.child("TrajectoryRef")) { m_TrajectoryRef = std::make_shared<TrajectoryRef>(node.child("TrajectoryRef")); }  
+}
+void TrajectoryPosition::save(pugi::xml_node node)
+{
+    s.save(node.append_attribute("s")); 
+    t.save(node.append_attribute("t")); 
+    if (m_Orientation ) { m_Orientation->save(node.append_child("Orientation")); }   
+    if (m_TrajectoryRef ) { m_TrajectoryRef->save(node.append_child("TrajectoryRef")); }   
+}
+TrajectoryRef::TrajectoryRef(pugi::xml_node node) 
+{
+    if (node.first_child()) { m_TrajectoryRef = std::make_shared<TrajectoryRef_U>(node.first_child()); }  
+}
+void TrajectoryRef::save(pugi::xml_node node)
+{
+    if (m_TrajectoryRef) { m_TrajectoryRef->save(node); }  
+}
 TransitionDynamics::TransitionDynamics(pugi::xml_node node) 
 {
     if (node.attribute("dynamicsDimension")) { dynamicsDimension = DynamicsDimension(node.attribute("dynamicsDimension")); }  // >> union - handle properly
@@ -2677,6 +3047,25 @@ void TriggeringEntities::save(pugi::xml_node node)
     triggeringEntitiesRule.save(node.append_attribute("triggeringEntitiesRule")); 
     for (std::shared_ptr<EntityRef> m_EntityRef : m_EntityRefs ){ m_EntityRef->save(node.append_child("EntityRef")); } 
 }
+UniformDistribution::UniformDistribution(pugi::xml_node node) 
+{
+    if (node.child("Range")) { m_Range = std::make_shared<Range>(node.child("Range")); }  
+}
+void UniformDistribution::save(pugi::xml_node node)
+{
+    if (m_Range ) { m_Range->save(node.append_child("Range")); }   
+}
+UsedArea::UsedArea(pugi::xml_node node) 
+{
+    for (pugi::xml_node e_Position = node.child("Position"); e_Position; e_Position= e_Position.next_sibling("Position"))
+    {
+        m_Positions.push_back(std::make_shared<Position>(e_Position));
+    }
+}
+void UsedArea::save(pugi::xml_node node)
+{
+    for (std::shared_ptr<Position> m_Position : m_Positions ){ m_Position->save(node.append_child("Position")); } 
+}
 UserDefinedAction::UserDefinedAction(pugi::xml_node node) 
 {
     if (node.child("CustomCommandAction")) { m_CustomCommandAction = std::make_shared<CustomCommandAction>(node.child("CustomCommandAction")); }  
@@ -2684,6 +3073,14 @@ UserDefinedAction::UserDefinedAction(pugi::xml_node node)
 void UserDefinedAction::save(pugi::xml_node node)
 {
     if (m_CustomCommandAction ) { m_CustomCommandAction->save(node.append_child("CustomCommandAction")); }   
+}
+UserDefinedDistribution::UserDefinedDistribution(pugi::xml_node node) 
+{
+    if (node.attribute("type")) { type = String(node.attribute("type")); }  // >> union - handle properly
+}
+void UserDefinedDistribution::save(pugi::xml_node node)
+{
+    type.save(node.append_attribute("type")); 
 }
 UserDefinedValueCondition::UserDefinedValueCondition(pugi::xml_node node) 
 {
@@ -2697,10 +3094,44 @@ void UserDefinedValueCondition::save(pugi::xml_node node)
     rule.save(node.append_attribute("rule")); 
     value.save(node.append_attribute("value")); 
 }
+ValueConstraint::ValueConstraint(pugi::xml_node node) 
+{
+    if (node.attribute("rule")) { rule = Rule(node.attribute("rule")); }  // >> union - handle properly
+    if (node.attribute("value")) { value = String(node.attribute("value")); }  // >> union - handle properly
+}
+void ValueConstraint::save(pugi::xml_node node)
+{
+    rule.save(node.append_attribute("rule")); 
+    value.save(node.append_attribute("value")); 
+}
+ValueConstraintGroup::ValueConstraintGroup(pugi::xml_node node) 
+{
+    for (pugi::xml_node e_ValueConstraint = node.child("ValueConstraint"); e_ValueConstraint; e_ValueConstraint= e_ValueConstraint.next_sibling("ValueConstraint"))
+    {
+        m_ValueConstraints.push_back(std::make_shared<ValueConstraint>(e_ValueConstraint));
+    }
+}
+void ValueConstraintGroup::save(pugi::xml_node node)
+{
+    for (std::shared_ptr<ValueConstraint> m_ValueConstraint : m_ValueConstraints ){ m_ValueConstraint->save(node.append_child("ValueConstraint")); } 
+}
+ValueSetDistribution::ValueSetDistribution(pugi::xml_node node) 
+{
+    for (pugi::xml_node e_ParameterValueSet = node.child("ParameterValueSet"); e_ParameterValueSet; e_ParameterValueSet= e_ParameterValueSet.next_sibling("ParameterValueSet"))
+    {
+        m_ParameterValueSets.push_back(std::make_shared<ParameterValueSet>(e_ParameterValueSet));
+    }
+}
+void ValueSetDistribution::save(pugi::xml_node node)
+{
+    for (std::shared_ptr<ParameterValueSet> m_ParameterValueSet : m_ParameterValueSets ){ m_ParameterValueSet->save(node.append_child("ParameterValueSet")); } 
+}
 Vehicle::Vehicle(pugi::xml_node node) 
 {
     if (node.attribute("name")) { name = String(node.attribute("name")); }  // >> union - handle properly
     if (node.attribute("vehicleCategory")) { vehicleCategory = VehicleCategory(node.attribute("vehicleCategory")); }  // >> union - handle properly
+    if (node.attribute("mass")) { mass = Double(node.attribute("mass")); }  // >> union - handle properly
+    if (node.attribute("model3d")) { model3d = String(node.attribute("model3d")); }  // >> union - handle properly
     if (node.child("ParameterDeclarations")) { m_ParameterDeclarations = std::make_shared<ParameterDeclarations>(node.child("ParameterDeclarations")); }  
     if (node.child("BoundingBox")) { m_BoundingBox = std::make_shared<BoundingBox>(node.child("BoundingBox")); }  
     if (node.child("Performance")) { m_Performance = std::make_shared<Performance>(node.child("Performance")); }  
@@ -2711,6 +3142,8 @@ void Vehicle::save(pugi::xml_node node)
 {
     name.save(node.append_attribute("name")); 
     vehicleCategory.save(node.append_attribute("vehicleCategory")); 
+    mass.save(node.append_attribute("mass")); 
+    model3d.save(node.append_attribute("model3d")); 
     if (m_ParameterDeclarations ) { m_ParameterDeclarations->save(node.append_child("ParameterDeclarations")); }   
     if (m_BoundingBox ) { m_BoundingBox->save(node.append_child("BoundingBox")); }   
     if (m_Performance ) { m_Performance->save(node.append_child("Performance")); }   
@@ -2781,16 +3214,32 @@ void Waypoint::save(pugi::xml_node node)
 Weather::Weather(pugi::xml_node node) 
 {
     if (node.attribute("cloudState")) { cloudState = CloudState(node.attribute("cloudState")); }  // >> union - handle properly
+    if (node.attribute("atmosphericPressure")) { atmosphericPressure = Double(node.attribute("atmosphericPressure")); }  // >> union - handle properly
+    if (node.attribute("temperature")) { temperature = Double(node.attribute("temperature")); }  // >> union - handle properly
     if (node.child("Sun")) { m_Sun = std::make_shared<Sun>(node.child("Sun")); }  
     if (node.child("Fog")) { m_Fog = std::make_shared<Fog>(node.child("Fog")); }  
     if (node.child("Precipitation")) { m_Precipitation = std::make_shared<Precipitation>(node.child("Precipitation")); }  
+    if (node.child("Wind")) { m_Wind = std::make_shared<Wind>(node.child("Wind")); }  
 }
 void Weather::save(pugi::xml_node node)
 {
     cloudState.save(node.append_attribute("cloudState")); 
+    atmosphericPressure.save(node.append_attribute("atmosphericPressure")); 
+    temperature.save(node.append_attribute("temperature")); 
     if (m_Sun ) { m_Sun->save(node.append_child("Sun")); }   
     if (m_Fog ) { m_Fog->save(node.append_child("Fog")); }   
     if (m_Precipitation ) { m_Precipitation->save(node.append_child("Precipitation")); }   
+    if (m_Wind ) { m_Wind->save(node.append_child("Wind")); }   
+}
+Wind::Wind(pugi::xml_node node) 
+{
+    if (node.attribute("direction")) { direction = Double(node.attribute("direction")); }  // >> union - handle properly
+    if (node.attribute("speed")) { speed = Double(node.attribute("speed")); }  // >> union - handle properly
+}
+void Wind::save(pugi::xml_node node)
+{
+    direction.save(node.append_attribute("direction")); 
+    speed.save(node.append_attribute("speed")); 
 }
 WorldPosition::WorldPosition(pugi::xml_node node) 
 {
@@ -2816,18 +3265,49 @@ CatalogDefinition::CatalogDefinition(pugi::xml_node node)
     if (node.child("Catalog")) { m_Catalog = std::make_shared<Catalog>(node.child("Catalog")); }  
 }
 // xs:group -> aliased to group definition
+DeterministicMultiParameterDistributionType::DeterministicMultiParameterDistributionType(pugi::xml_node node)
+{
+    if (node.child("ValueSetDistribution")) { m_ValueSetDistribution = std::make_shared<ValueSetDistribution>(node.child("ValueSetDistribution")); }  
+}
+// xs:group -> aliased to group definition
+DeterministicParameterDistribution::DeterministicParameterDistribution(pugi::xml_node node)
+{
+    if (node.child("DeterministicMultiParameterDistribution")) { m_DeterministicMultiParameterDistribution = std::make_shared<DeterministicMultiParameterDistribution>(node.child("DeterministicMultiParameterDistribution")); }  
+    if (node.child("DeterministicSingleParameterDistribution")) { m_DeterministicSingleParameterDistribution = std::make_shared<DeterministicSingleParameterDistribution>(node.child("DeterministicSingleParameterDistribution")); }  
+}
+// xs:group -> aliased to group definition
+DeterministicSingleParameterDistributionType::DeterministicSingleParameterDistributionType(pugi::xml_node node)
+{
+    if (node.child("DistributionSet")) { m_DistributionSet = std::make_shared<DistributionSet>(node.child("DistributionSet")); }  
+    if (node.child("DistributionRange")) { m_DistributionRange = std::make_shared<DistributionRange>(node.child("DistributionRange")); }  
+    if (node.child("UserDefinedDistribution")) { m_UserDefinedDistribution = std::make_shared<UserDefinedDistribution>(node.child("UserDefinedDistribution")); }  
+}
+// xs:group -> aliased to group definition
+DistributionDefinition::DistributionDefinition(pugi::xml_node node)
+{
+    if (node.child("Deterministic")) { m_Deterministic = std::make_shared<Deterministic>(node.child("Deterministic")); }  
+    if (node.child("Stochastic")) { m_Stochastic = std::make_shared<Stochastic>(node.child("Stochastic")); }  
+}
+// xs:group -> aliased to group definition
 EntityObject::EntityObject(pugi::xml_node node)
 {
     if (node.child("CatalogReference")) { m_CatalogReference = std::make_shared<CatalogReference>(node.child("CatalogReference")); }  
     if (node.child("Vehicle")) { m_Vehicle = std::make_shared<Vehicle>(node.child("Vehicle")); }  
     if (node.child("Pedestrian")) { m_Pedestrian = std::make_shared<Pedestrian>(node.child("Pedestrian")); }  
     if (node.child("MiscObject")) { m_MiscObject = std::make_shared<MiscObject>(node.child("MiscObject")); }  
+    if (node.child("ExternalObjectReference")) { m_ExternalObjectReference = std::make_shared<ExternalObjectReference>(node.child("ExternalObjectReference")); }  
 }
 // xs:group -> aliased to group definition
 OpenScenarioCategory::OpenScenarioCategory(pugi::xml_node node)
 {
     { m_ScenarioDefinition = std::make_shared<ScenarioDefinition>(node); } // Node has no xml def, same node passes through until it finds an element.
     { m_CatalogDefinition = std::make_shared<CatalogDefinition>(node); } // Node has no xml def, same node passes through until it finds an element.
+    { m_ParameterValueDistributionDefinition = std::make_shared<ParameterValueDistributionDefinition>(node); } // Node has no xml def, same node passes through until it finds an element.
+}
+// xs:group -> aliased to group definition
+ParameterValueDistributionDefinition::ParameterValueDistributionDefinition(pugi::xml_node node)
+{
+    if (node.child("ParameterValueDistribution")) { m_ParameterValueDistribution = std::make_shared<ParameterValueDistribution>(node.child("ParameterValueDistribution")); }  
 }
 // xs:group -> aliased to group definition
 ScenarioDefinition::ScenarioDefinition(pugi::xml_node node)
@@ -2839,9 +3319,49 @@ ScenarioDefinition::ScenarioDefinition(pugi::xml_node node)
     if (node.child("Storyboard")) { m_Storyboard = std::make_shared<Storyboard>(node.child("Storyboard")); }  
 }
 // xs:group -> aliased to group definition
+SteadyState::SteadyState(pugi::xml_node node)
+{
+    if (node.child("TargetDistanceSteadyState")) { m_TargetDistanceSteadyState = std::make_shared<TargetDistanceSteadyState>(node.child("TargetDistanceSteadyState")); }  
+    if (node.child("TargetTimeSteadyState")) { m_TargetTimeSteadyState = std::make_shared<TargetTimeSteadyState>(node.child("TargetTimeSteadyState")); }  
+}
+// xs:group -> aliased to group definition
+StochasticDistributionType::StochasticDistributionType(pugi::xml_node node)
+{
+    if (node.child("ProbabilityDistributionSet")) { m_ProbabilityDistributionSet = std::make_shared<ProbabilityDistributionSet>(node.child("ProbabilityDistributionSet")); }  
+    if (node.child("NormalDistribution")) { m_NormalDistribution = std::make_shared<NormalDistribution>(node.child("NormalDistribution")); }  
+    if (node.child("UniformDistribution")) { m_UniformDistribution = std::make_shared<UniformDistribution>(node.child("UniformDistribution")); }  
+    if (node.child("PoissonDistribution")) { m_PoissonDistribution = std::make_shared<PoissonDistribution>(node.child("PoissonDistribution")); }  
+    if (node.child("Histogram")) { m_Histogram = std::make_shared<Histogram>(node.child("Histogram")); }  
+    if (node.child("UserDefinedDistribution")) { m_UserDefinedDistribution = std::make_shared<UserDefinedDistribution>(node.child("UserDefinedDistribution")); }  
+}
+// xs:group -> aliased to group definition
 void CatalogDefinition::save(pugi::xml_node node)
 {
     if (m_Catalog ) { m_Catalog->save(node.append_child("Catalog")); }   
+}
+// xs:group -> aliased to group definition
+void DeterministicMultiParameterDistributionType::save(pugi::xml_node node)
+{
+    if (m_ValueSetDistribution ) { m_ValueSetDistribution->save(node.append_child("ValueSetDistribution")); }   
+}
+// xs:group -> aliased to group definition
+void DeterministicParameterDistribution::save(pugi::xml_node node)
+{
+    if (m_DeterministicMultiParameterDistribution ) { m_DeterministicMultiParameterDistribution->save(node.append_child("DeterministicMultiParameterDistribution")); }   
+    if (m_DeterministicSingleParameterDistribution ) { m_DeterministicSingleParameterDistribution->save(node.append_child("DeterministicSingleParameterDistribution")); }   
+}
+// xs:group -> aliased to group definition
+void DeterministicSingleParameterDistributionType::save(pugi::xml_node node)
+{
+    if (m_DistributionSet ) { m_DistributionSet->save(node.append_child("DistributionSet")); }   
+    if (m_DistributionRange ) { m_DistributionRange->save(node.append_child("DistributionRange")); }   
+    if (m_UserDefinedDistribution ) { m_UserDefinedDistribution->save(node.append_child("UserDefinedDistribution")); }   
+}
+// xs:group -> aliased to group definition
+void DistributionDefinition::save(pugi::xml_node node)
+{
+    if (m_Deterministic ) { m_Deterministic->save(node.append_child("Deterministic")); }   
+    if (m_Stochastic ) { m_Stochastic->save(node.append_child("Stochastic")); }   
 }
 // xs:group -> aliased to group definition
 void EntityObject::save(pugi::xml_node node)
@@ -2850,12 +3370,19 @@ void EntityObject::save(pugi::xml_node node)
     if (m_Vehicle ) { m_Vehicle->save(node.append_child("Vehicle")); }   
     if (m_Pedestrian ) { m_Pedestrian->save(node.append_child("Pedestrian")); }   
     if (m_MiscObject ) { m_MiscObject->save(node.append_child("MiscObject")); }   
+    if (m_ExternalObjectReference ) { m_ExternalObjectReference->save(node.append_child("ExternalObjectReference")); }   
 }
 // xs:group -> aliased to group definition
 void OpenScenarioCategory::save(pugi::xml_node node)
 {
     { if (m_ScenarioDefinition ) { m_ScenarioDefinition->save(node); } } // Node has no xml def, same node passes through until it finds an element.
     { if (m_CatalogDefinition ) { m_CatalogDefinition->save(node); } } // Node has no xml def, same node passes through until it finds an element.
+    { if (m_ParameterValueDistributionDefinition ) { m_ParameterValueDistributionDefinition->save(node); } } // Node has no xml def, same node passes through until it finds an element.
+}
+// xs:group -> aliased to group definition
+void ParameterValueDistributionDefinition::save(pugi::xml_node node)
+{
+    if (m_ParameterValueDistribution ) { m_ParameterValueDistribution->save(node.append_child("ParameterValueDistribution")); }   
 }
 // xs:group -> aliased to group definition
 void ScenarioDefinition::save(pugi::xml_node node)
@@ -2865,6 +3392,31 @@ void ScenarioDefinition::save(pugi::xml_node node)
     if (m_RoadNetwork ) { m_RoadNetwork->save(node.append_child("RoadNetwork")); }   
     if (m_Entities ) { m_Entities->save(node.append_child("Entities")); }   
     if (m_Storyboard ) { m_Storyboard->save(node.append_child("Storyboard")); }   
+}
+// xs:group -> aliased to group definition
+void SteadyState::save(pugi::xml_node node)
+{
+    if (m_TargetDistanceSteadyState ) { m_TargetDistanceSteadyState->save(node.append_child("TargetDistanceSteadyState")); }   
+    if (m_TargetTimeSteadyState ) { m_TargetTimeSteadyState->save(node.append_child("TargetTimeSteadyState")); }   
+}
+// xs:group -> aliased to group definition
+void StochasticDistributionType::save(pugi::xml_node node)
+{
+    if (m_ProbabilityDistributionSet ) { m_ProbabilityDistributionSet->save(node.append_child("ProbabilityDistributionSet")); }   
+    if (m_NormalDistribution ) { m_NormalDistribution->save(node.append_child("NormalDistribution")); }   
+    if (m_UniformDistribution ) { m_UniformDistribution->save(node.append_child("UniformDistribution")); }   
+    if (m_PoissonDistribution ) { m_PoissonDistribution->save(node.append_child("PoissonDistribution")); }   
+    if (m_Histogram ) { m_Histogram->save(node.append_child("Histogram")); }   
+    if (m_UserDefinedDistribution ) { m_UserDefinedDistribution->save(node.append_child("UserDefinedDistribution")); }   
+}
+OpenSCENARIO::OpenSCENARIO(pugi::xml_node node)
+{
+#ifdef __DEBUG__
+    std::cout<<*this<<std::endl;
+#endif 
+}
+void OpenSCENARIO::save(pugi::xml_node node)
+{
 }
 xosc::xosc()
 {

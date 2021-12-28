@@ -106,3 +106,4 @@ doc/code/cxx-doc
 *.sublime-workspace
 *.swp
 PaxHeader
+.cache/
