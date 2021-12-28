@@ -1,14 +1,14 @@
 //
-//  OpenSCENARIO.h
-//  xsd2cxx- for OpenSCENARIO CXX classes
+//  OpenSCENARIO_v1.1.1.h
+//  xsd2cxx- for OpenSCENARIO_v1.1.1 CXX classes
 //
-//  Created by Javed Shaik on Mon Dec 20 22:11:30 2021
+//  Created by Javed Shaik on Mon Dec 27 22:11:37 2021
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 09256c1c-7d11-46ed-b8bc-cfa78175a801 --
+//  -- UUIDv4 : bbf119ed-5063-4f32-8378-5ee454c5df9e --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
-#ifndef _OPENSCENARIO_H_
-#define _OPENSCENARIO_H_
+#ifndef _OPENSCENARIO_V1_1_1_H_
+#define _OPENSCENARIO_V1_1_1_H_
 #pragma once 
 #include <iostream>
 #include <iomanip>
@@ -4585,15 +4585,7 @@ public:
     std::shared_ptr<UserDefinedDistribution>                 m_UserDefinedDistribution; //xs:element
 };
 // xs:element -> main  as clazz definition
-class  OpenSCENARIO
-{
-public:
-public:
-    OpenSCENARIO(){};
-    OpenSCENARIO(pugi::xml_node node);
-    void save(pugi::xml_node node);
-    virtual ~OpenSCENARIO(){};
-};
+using OpenSCENARIO = OpenScenario; 
 //
 class  xosc
 {
@@ -4610,4 +4602,4 @@ public:
     xosc();
     ~xosc();
 };
-#endif //_OPENSCENARIO_H_
+#endif //_OPENSCENARIO_V1_1_1_H_

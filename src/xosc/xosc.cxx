@@ -1,8 +1,8 @@
 //
-//  OpenSCENARIO.cxx
-//  Created by Javed Shaik on Mon Dec 20 22:11:30 2021
+//  OpenSCENARIO_v1.1.1.cxx
+//  Created by Javed Shaik on Mon Dec 27 22:11:37 2021
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 09256c1c-7d11-46ed-b8bc-cfa78175a801 --
+//  -- UUIDv4 : bbf119ed-5063-4f32-8378-5ee454c5df9e --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -3408,15 +3408,6 @@ void StochasticDistributionType::save(pugi::xml_node node)
     if (m_PoissonDistribution ) { m_PoissonDistribution->save(node.append_child("PoissonDistribution")); }   
     if (m_Histogram ) { m_Histogram->save(node.append_child("Histogram")); }   
     if (m_UserDefinedDistribution ) { m_UserDefinedDistribution->save(node.append_child("UserDefinedDistribution")); }   
-}
-OpenSCENARIO::OpenSCENARIO(pugi::xml_node node)
-{
-#ifdef __DEBUG__
-    std::cout<<*this<<std::endl;
-#endif 
-}
-void OpenSCENARIO::save(pugi::xml_node node)
-{
 }
 xosc::xosc()
 {
