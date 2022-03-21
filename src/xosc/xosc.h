@@ -25,7 +25,7 @@
 // Typedefs 
 const constexpr char parameter_pattern[] = "[$][A-Za-z_][A-Za-z0-9_]*"; 
 typedef t_patternstr<parameter_pattern> parameter;
-const constexpr char expression_pattern[] = "[$][{][ A-Za-z0-9_\+\-\*/%$\(\)\.,]*[\}]"; 
+const constexpr char expression_pattern[] = "[$][{][ A-Za-z0-9_\\+\\-\\*/%$\\(\\)\\.,]*[\\}]";
 typedef t_patternstr<expression_pattern> expression;
 // Enumerations 
 enum class e_CloudState : std::uint8_t  
