@@ -11,7 +11,14 @@ int main (int argc , char **argv)
     
     xosc _osc;
     _osc.load(filename);
-    _osc.parse();
+    try{
+        _osc.parse();
+        std::cout << "OpenSCENARIO parse successfully " << _osc.m_OpenSCENARIO<< std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "ERROR :Exception .. " << e.what() << std::endl;
+    }
 
     _osc.save("xosc_save.xml");
 

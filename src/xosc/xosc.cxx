@@ -3428,14 +3428,7 @@ void xosc::load(std::string xoscfilename )
 }
 void xosc::parse()
 {
-    try {
-        m_OpenSCENARIO = std::make_shared<OpenSCENARIO>(m_root.child("OpenSCENARIO"));
-        std::cout << "OpenSCENARIO parse successfully " << m_OpenSCENARIO<< std::endl;
-    }
-    catch (std::exception &e)
-    {
-        std::cout << "ERROR :Exception .. " << e.what() << std::endl;
-    }
+    m_OpenSCENARIO = std::make_shared<OpenSCENARIO>(m_root.child("OpenSCENARIO"));
 }
 void xosc::save(std::string filename)
 {
