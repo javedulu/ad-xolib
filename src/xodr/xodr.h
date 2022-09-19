@@ -17,6 +17,7 @@
 #include <cstring>
 #include <string>
 #include <vector>
+#include <limits>
 //
 #include "pugixml.hpp"
 #include "common.h"
