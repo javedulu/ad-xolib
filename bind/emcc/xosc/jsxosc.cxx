@@ -1,8 +1,8 @@
 //
-//  OpenSCENARIO_v1.1.1_js.cxx
-//  Created by Javed Shaik on Mon Dec 27 22:11:37 2021
+//  OpenSCENARIO_v1.2_js.cxx
+//  Created by Javed Shaik on Mon Dec 26 09:49:16 2022
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : bbf119ed-5063-4f32-8378-5ee454c5df9e --
+//  -- UUIDv4 : 486a545d-cc8f-47ca-89a0-0a4f9294aca8 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -19,6 +19,13 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("GlobalAction", &Action_U::m_GlobalAction ) //GlobalAction
         .property("UserDefinedAction", &Action_U::m_UserDefinedAction ) //UserDefinedAction
         .property("PrivateAction", &Action_U::m_PrivateAction ) //PrivateAction
+;
+    class_<AnimationType_U>("AnimationType_U")
+        .smart_ptr_constructor("AnimationType_U",&std::make_shared<AnimationType_U>)
+        .property("ComponentAnimation", &AnimationType_U::m_ComponentAnimation ) //ComponentAnimation
+        .property("PedestrianAnimation", &AnimationType_U::m_PedestrianAnimation ) //PedestrianAnimation
+        .property("AnimationFile", &AnimationType_U::m_AnimationFile ) //AnimationFile
+        .property("UserDefinedAnimation", &AnimationType_U::m_UserDefinedAnimation ) //UserDefinedAnimation
 ;
     class_<AssignControllerAction_U>("AssignControllerAction_U")
         .smart_ptr_constructor("AssignControllerAction_U",&std::make_shared<AssignControllerAction_U>)
@@ -39,11 +46,17 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("UserDefinedValueCondition", &ByValueCondition_U::m_UserDefinedValueCondition ) //UserDefinedValueCondition
         .property("TrafficSignalCondition", &ByValueCondition_U::m_TrafficSignalCondition ) //TrafficSignalCondition
         .property("TrafficSignalControllerCondition", &ByValueCondition_U::m_TrafficSignalControllerCondition ) //TrafficSignalControllerCondition
+        .property("VariableCondition", &ByValueCondition_U::m_VariableCondition ) //VariableCondition
 ;
     class_<CollisionCondition_U>("CollisionCondition_U")
         .smart_ptr_constructor("CollisionCondition_U",&std::make_shared<CollisionCondition_U>)
         .property("EntityRef", &CollisionCondition_U::m_EntityRef ) //EntityRef
         .property("ByType", &CollisionCondition_U::m_ByType ) //ByObjectType
+;
+    class_<Color_U>("Color_U")
+        .smart_ptr_constructor("Color_U",&std::make_shared<Color_U>)
+        .property("ColorRgb", &Color_U::m_ColorRgb ) //ColorRgb
+        .property("ColorCmyk", &Color_U::m_ColorCmyk ) //ColorCmyk
 ;
     class_<Condition_U>("Condition_U")
         .smart_ptr_constructor("Condition_U",&std::make_shared<Condition_U>)
@@ -75,6 +88,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("ReachPositionCondition", &EntityCondition_U::m_ReachPositionCondition ) //ReachPositionCondition
         .property("DistanceCondition", &EntityCondition_U::m_DistanceCondition ) //DistanceCondition
         .property("RelativeDistanceCondition", &EntityCondition_U::m_RelativeDistanceCondition ) //RelativeDistanceCondition
+        .property("RelativeClearanceCondition", &EntityCondition_U::m_RelativeClearanceCondition ) //RelativeClearanceCondition
 ;
     class_<EnvironmentAction_U>("EnvironmentAction_U")
         .smart_ptr_constructor("EnvironmentAction_U",&std::make_shared<EnvironmentAction_U>)
@@ -93,6 +107,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("ParameterAction", &GlobalAction_U::m_ParameterAction ) //ParameterAction
         .property("InfrastructureAction", &GlobalAction_U::m_InfrastructureAction ) //InfrastructureAction
         .property("TrafficAction", &GlobalAction_U::m_TrafficAction ) //TrafficAction
+        .property("VariableAction", &GlobalAction_U::m_VariableAction ) //VariableAction
 ;
     class_<InRoutePosition_U>("InRoutePosition_U")
         .smart_ptr_constructor("InRoutePosition_U",&std::make_shared<InRoutePosition_U>)
@@ -120,6 +135,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("LongitudinalAction_U",&std::make_shared<LongitudinalAction_U>)
         .property("SpeedAction", &LongitudinalAction_U::m_SpeedAction ) //SpeedAction
         .property("LongitudinalDistanceAction", &LongitudinalAction_U::m_LongitudinalDistanceAction ) //LongitudinalDistanceAction
+        .property("SpeedProfileAction", &LongitudinalAction_U::m_SpeedProfileAction ) //SpeedProfileAction
 ;
     class_<ModifyRule_U>("ModifyRule_U")
         .smart_ptr_constructor("ModifyRule_U",&std::make_shared<ModifyRule_U>)
@@ -159,6 +175,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("ControllerAction", &PrivateAction_U::m_ControllerAction ) //ControllerAction
         .property("TeleportAction", &PrivateAction_U::m_TeleportAction ) //TeleportAction
         .property("RoutingAction", &PrivateAction_U::m_RoutingAction ) //RoutingAction
+        .property("AppearanceAction", &PrivateAction_U::m_AppearanceAction ) //AppearanceAction
 ;
     class_<RouteRef_U>("RouteRef_U")
         .smart_ptr_constructor("RouteRef_U",&std::make_shared<RouteRef_U>)
@@ -216,6 +233,16 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("Trajectory", &TrajectoryRef_U::m_Trajectory ) //Trajectory
         .property("CatalogReference", &TrajectoryRef_U::m_CatalogReference ) //CatalogReference
 ;
+    class_<VariableAction_U>("VariableAction_U")
+        .smart_ptr_constructor("VariableAction_U",&std::make_shared<VariableAction_U>)
+        .property("SetAction", &VariableAction_U::m_SetAction ) //VariableSetAction
+        .property("ModifyAction", &VariableAction_U::m_ModifyAction ) //VariableModifyAction
+;
+    class_<VariableModifyRule_U>("VariableModifyRule_U")
+        .smart_ptr_constructor("VariableModifyRule_U",&std::make_shared<VariableModifyRule_U>)
+        .property("AddValue", &VariableModifyRule_U::m_AddValue ) //VariableAddValueRule
+        .property("MultiplyByValue", &VariableModifyRule_U::m_MultiplyByValue ) //VariableMultiplyByValueRule
+;
 //
     class_<AbsoluteSpeed>("AbsoluteSpeed") 
         .smart_ptr_constructor("AbsoluteSpeed",&std::make_shared<AbsoluteSpeed>) 
@@ -242,6 +269,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("AccelerationCondition",&std::make_shared<AccelerationCondition>) 
         .property("rule", &AccelerationCondition::rule) 
         .property("value", &AccelerationCondition::value) 
+        .property("direction", &AccelerationCondition::direction) 
 ; 
 //
     class_<AcquirePositionAction>("AcquirePositionAction") 
@@ -266,8 +294,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 //
     class_<ActivateControllerAction>("ActivateControllerAction") 
         .smart_ptr_constructor("ActivateControllerAction",&std::make_shared<ActivateControllerAction>) 
+        .property("controllerRef", &ActivateControllerAction::controllerRef) 
         .property("lateral", &ActivateControllerAction::lateral) 
         .property("longitudinal", &ActivateControllerAction::longitudinal) 
+        .property("animation", &ActivateControllerAction::animation) 
+        .property("lighting", &ActivateControllerAction::lighting) 
 ; 
 //
     class_<Actors>("Actors") 
@@ -282,16 +313,53 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("Position", &AddEntityAction::m_Position ) //Position
 ; 
 //
+    class_<AnimationAction>("AnimationAction") 
+        .smart_ptr_constructor("AnimationAction",&std::make_shared<AnimationAction>) 
+        .property("loop", &AnimationAction::loop) 
+        .property("animationDuration", &AnimationAction::animationDuration) 
+        .property("AnimationType", &AnimationAction::m_AnimationType ) //AnimationType
+        .property("AnimationState", &AnimationAction::m_AnimationState ) //AnimationState
+; 
+//
+    class_<AnimationFile>("AnimationFile") 
+        .smart_ptr_constructor("AnimationFile",&std::make_shared<AnimationFile>) 
+        .property("timeOffset", &AnimationFile::timeOffset) 
+        .property("File", &AnimationFile::m_File ) //File
+; 
+//
+    class_<AnimationState>("AnimationState") 
+        .smart_ptr_constructor("AnimationState",&std::make_shared<AnimationState>) 
+        .property("state", &AnimationState::state) 
+; 
+//
+    class_<AnimationType>("AnimationType") 
+        .smart_ptr_constructor("AnimationType",&std::make_shared<AnimationType>) 
+        .property("AnimationType_U", &AnimationType::m_AnimationType ) //
+; 
+//
+    class_<AppearanceAction>("AppearanceAction") 
+        .smart_ptr_constructor("AppearanceAction",&std::make_shared<AppearanceAction>) 
+        .property("LightStateAction", &AppearanceAction::m_LightStateAction ) //LightStateAction
+        .property("AnimationAction", &AppearanceAction::m_AnimationAction ) //AnimationAction
+; 
+//
     class_<AssignControllerAction>("AssignControllerAction") 
         .smart_ptr_constructor("AssignControllerAction",&std::make_shared<AssignControllerAction>) 
         .property("activateLateral", &AssignControllerAction::activateLateral) 
         .property("activateLongitudinal", &AssignControllerAction::activateLongitudinal) 
+        .property("activateAnimation", &AssignControllerAction::activateAnimation) 
+        .property("activateLighting", &AssignControllerAction::activateLighting) 
         .property("AssignControllerAction_U", &AssignControllerAction::m_AssignControllerAction ) //
 ; 
 //
     class_<AssignRouteAction>("AssignRouteAction") 
         .smart_ptr_constructor("AssignRouteAction",&std::make_shared<AssignRouteAction>) 
         .property("AssignRouteAction_U", &AssignRouteAction::m_AssignRouteAction ) //
+; 
+//
+    class_<AutomaticGear>("AutomaticGear") 
+        .smart_ptr_constructor("AutomaticGear",&std::make_shared<AutomaticGear>) 
+        .property("gear", &AutomaticGear::gear) 
 ; 
 //
     class_<Axle>("Axle") 
@@ -315,6 +383,12 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("BoundingBox",&std::make_shared<BoundingBox>) 
         .property("Center", &BoundingBox::m_Center ) //Center
         .property("Dimensions", &BoundingBox::m_Dimensions ) //Dimensions
+; 
+//
+    class_<Brake>("Brake") 
+        .smart_ptr_constructor("Brake",&std::make_shared<Brake>) 
+        .property("value", &Brake::value) 
+        .property("maxRate", &Brake::maxRate) 
 ; 
 //
     class_<ByEntityCondition>("ByEntityCondition") 
@@ -406,6 +480,33 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("CollisionCondition_U", &CollisionCondition::m_CollisionCondition ) //
 ; 
 //
+    class_<Color>("Color") 
+        .smart_ptr_constructor("Color",&std::make_shared<Color>) 
+        .property("colorType", &Color::colorType) 
+        .property("Color_U", &Color::m_Color ) //
+; 
+//
+    class_<ColorCmyk>("ColorCmyk") 
+        .smart_ptr_constructor("ColorCmyk",&std::make_shared<ColorCmyk>) 
+        .property("cyan", &ColorCmyk::cyan) 
+        .property("magenta", &ColorCmyk::magenta) 
+        .property("yellow", &ColorCmyk::yellow) 
+        .property("key", &ColorCmyk::key) 
+; 
+//
+    class_<ColorRgb>("ColorRgb") 
+        .smart_ptr_constructor("ColorRgb",&std::make_shared<ColorRgb>) 
+        .property("red", &ColorRgb::red) 
+        .property("green", &ColorRgb::green) 
+        .property("blue", &ColorRgb::blue) 
+; 
+//
+    class_<ComponentAnimation>("ComponentAnimation") 
+        .smart_ptr_constructor("ComponentAnimation",&std::make_shared<ComponentAnimation>) 
+        .property("VehicleComponent", &ComponentAnimation::m_VehicleComponent ) //VehicleComponent
+        .property("UserDefinedComponent", &ComponentAnimation::m_UserDefinedComponent ) //UserDefinedComponent
+; 
+//
     class_<Condition>("Condition") 
         .smart_ptr_constructor("Condition",&std::make_shared<Condition>) 
         .property("conditionEdge", &Condition::conditionEdge) 
@@ -423,6 +524,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
     class_<Controller>("Controller") 
         .smart_ptr_constructor("Controller",&std::make_shared<Controller>) 
         .property("name", &Controller::name) 
+        .property("controllerType", &Controller::controllerType) 
         .property("ParameterDeclarations", &Controller::m_ParameterDeclarations ) //ParameterDeclarations
         .property("Properties", &Controller::m_Properties ) //Properties
 ; 
@@ -463,6 +565,10 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("type", &CustomCommandAction::type) 
 ; 
 //
+    class_<CustomContent>("CustomContent") 
+        .smart_ptr_constructor("CustomContent",&std::make_shared<CustomContent>) 
+; 
+//
     class_<DeleteEntityAction>("DeleteEntityAction") 
         .smart_ptr_constructor("DeleteEntityAction",&std::make_shared<DeleteEntityAction>) 
 ; 
@@ -490,6 +596,12 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("width", &Dimensions::width) 
 ; 
 //
+    class_<DirectionOfTravelDistribution>("DirectionOfTravelDistribution") 
+        .smart_ptr_constructor("DirectionOfTravelDistribution",&std::make_shared<DirectionOfTravelDistribution>) 
+        .property("same", &DirectionOfTravelDistribution::same) 
+        .property("opposite", &DirectionOfTravelDistribution::opposite) 
+; 
+//
     class_<Directory>("Directory") 
         .smart_ptr_constructor("Directory",&std::make_shared<Directory>) 
         .property("path", &Directory::path) 
@@ -503,6 +615,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("value", &DistanceCondition::value) 
         .property("coordinateSystem", &DistanceCondition::coordinateSystem) 
         .property("relativeDistanceType", &DistanceCondition::relativeDistanceType) 
+        .property("routingAlgorithm", &DistanceCondition::routingAlgorithm) 
         .property("Position", &DistanceCondition::m_Position ) //Position
 ; 
 //
@@ -523,10 +636,18 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("value", &DistributionSetElement::value) 
 ; 
 //
+    class_<DomeImage>("DomeImage") 
+        .smart_ptr_constructor("DomeImage",&std::make_shared<DomeImage>) 
+        .property("azimuthOffset", &DomeImage::azimuthOffset) 
+        .property("DomeFile", &DomeImage::m_DomeFile ) //File
+; 
+//
     class_<DynamicConstraints>("DynamicConstraints") 
         .smart_ptr_constructor("DynamicConstraints",&std::make_shared<DynamicConstraints>) 
         .property("maxAcceleration", &DynamicConstraints::maxAcceleration) 
+        .property("maxAccelerationRate", &DynamicConstraints::maxAccelerationRate) 
         .property("maxDeceleration", &DynamicConstraints::maxDeceleration) 
+        .property("maxDecelerationRate", &DynamicConstraints::maxDecelerationRate) 
         .property("maxSpeed", &DynamicConstraints::maxSpeed) 
 ; 
 //
@@ -612,6 +733,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("revMajor", &FileHeader::revMajor) 
         .property("revMinor", &FileHeader::revMinor) 
         .property("License", &FileHeader::m_License ) //License
+        .property("Properties", &FileHeader::m_Properties ) //Properties
 ; 
 //
     class_<FinalSpeed>("FinalSpeed") 
@@ -640,6 +762,9 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("latitude", &GeoPosition::latitude) 
         .property("longitude", &GeoPosition::longitude) 
         .property("height", &GeoPosition::height) 
+        .property("latitudeDeg", &GeoPosition::latitudeDeg) 
+        .property("longitudeDeg", &GeoPosition::longitudeDeg) 
+        .property("altitude", &GeoPosition::altitude) 
         .property("Orientation", &GeoPosition::m_Orientation ) //Orientation
 ; 
 //
@@ -752,6 +877,28 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("spdxId", &License::spdxId) 
 ; 
 //
+    class_<LightState>("LightState") 
+        .smart_ptr_constructor("LightState",&std::make_shared<LightState>) 
+        .property("mode", &LightState::mode) 
+        .property("luminousIntensity", &LightState::luminousIntensity) 
+        .property("flashingOnDuration", &LightState::flashingOnDuration) 
+        .property("flashingOffDuration", &LightState::flashingOffDuration) 
+        .property("Color", &LightState::m_Color ) //Color
+; 
+//
+    class_<LightStateAction>("LightStateAction") 
+        .smart_ptr_constructor("LightStateAction",&std::make_shared<LightStateAction>) 
+        .property("transitionTime", &LightStateAction::transitionTime) 
+        .property("LightType", &LightStateAction::m_LightType ) //LightType
+        .property("LightState", &LightStateAction::m_LightState ) //LightState
+; 
+//
+    class_<LightType>("LightType") 
+        .smart_ptr_constructor("LightType",&std::make_shared<LightType>) 
+        .property("VehicleLight", &LightType::m_VehicleLight ) //VehicleLight
+        .property("UserDefinedLight", &LightType::m_UserDefinedLight ) //UserDefinedLight
+; 
+//
     class_<LongitudinalAction>("LongitudinalAction") 
         .smart_ptr_constructor("LongitudinalAction",&std::make_shared<LongitudinalAction>) 
         .property("LongitudinalAction_U", &LongitudinalAction::m_LongitudinalAction ) //
@@ -792,6 +939,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 ; 
         register_vector<std::shared_ptr<CatalogReference>>("vector<CatalogReference>"); //CatalogReference
         register_vector<std::shared_ptr<Maneuver>>("vector<Maneuver>"); //Maneuver
+//
+    class_<ManualGear>("ManualGear") 
+        .smart_ptr_constructor("ManualGear",&std::make_shared<ManualGear>) 
+        .property("number", &ManualGear::number) 
+; 
 //
     class_<MiscObject>("MiscObject") 
         .smart_ptr_constructor("MiscObject",&std::make_shared<MiscObject>) 
@@ -862,12 +1014,14 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("OverrideBrakeAction",&std::make_shared<OverrideBrakeAction>) 
         .property("active", &OverrideBrakeAction::active) 
         .property("value", &OverrideBrakeAction::value) 
+    .property("BrakeInput", &OverrideBrakeAction::m_BrakeInput ) // group read 
 ; 
 //
     class_<OverrideClutchAction>("OverrideClutchAction") 
         .smart_ptr_constructor("OverrideClutchAction",&std::make_shared<OverrideClutchAction>) 
         .property("active", &OverrideClutchAction::active) 
         .property("value", &OverrideClutchAction::value) 
+        .property("maxRate", &OverrideClutchAction::maxRate) 
 ; 
 //
     class_<OverrideControllerValueAction>("OverrideControllerValueAction") 
@@ -884,24 +1038,29 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("OverrideGearAction",&std::make_shared<OverrideGearAction>) 
         .property("active", &OverrideGearAction::active) 
         .property("number", &OverrideGearAction::number) 
+    .property("Gear", &OverrideGearAction::m_Gear ) // group read 
 ; 
 //
     class_<OverrideParkingBrakeAction>("OverrideParkingBrakeAction") 
         .smart_ptr_constructor("OverrideParkingBrakeAction",&std::make_shared<OverrideParkingBrakeAction>) 
         .property("active", &OverrideParkingBrakeAction::active) 
         .property("value", &OverrideParkingBrakeAction::value) 
+    .property("BrakeInput", &OverrideParkingBrakeAction::m_BrakeInput ) // group read 
 ; 
 //
     class_<OverrideSteeringWheelAction>("OverrideSteeringWheelAction") 
         .smart_ptr_constructor("OverrideSteeringWheelAction",&std::make_shared<OverrideSteeringWheelAction>) 
         .property("active", &OverrideSteeringWheelAction::active) 
         .property("value", &OverrideSteeringWheelAction::value) 
+        .property("maxRate", &OverrideSteeringWheelAction::maxRate) 
+        .property("maxTorque", &OverrideSteeringWheelAction::maxTorque) 
 ; 
 //
     class_<OverrideThrottleAction>("OverrideThrottleAction") 
         .smart_ptr_constructor("OverrideThrottleAction",&std::make_shared<OverrideThrottleAction>) 
         .property("active", &OverrideThrottleAction::active) 
         .property("value", &OverrideThrottleAction::value) 
+        .property("maxRate", &OverrideThrottleAction::maxRate) 
 ; 
 //
     class_<ParameterAction>("ParameterAction") 
@@ -983,20 +1142,36 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("name", &Pedestrian::name) 
         .property("pedestrianCategory", &Pedestrian::pedestrianCategory) 
         .property("model3d", &Pedestrian::model3d) 
+        .property("role", &Pedestrian::role) 
         .property("ParameterDeclarations", &Pedestrian::m_ParameterDeclarations ) //ParameterDeclarations
         .property("BoundingBox", &Pedestrian::m_BoundingBox ) //BoundingBox
         .property("Properties", &Pedestrian::m_Properties ) //Properties
 ; 
+//
+    class_<PedestrianAnimation>("PedestrianAnimation") 
+        .smart_ptr_constructor("PedestrianAnimation",&std::make_shared<PedestrianAnimation>) 
+        .property("motion", &PedestrianAnimation::motion) 
+        .property("userDefinedPedestrianAnimation", &PedestrianAnimation::userDefinedPedestrianAnimation) 
+        .property("PedestrianGesture", &PedestrianAnimation::m_PedestrianGestures ) //PedestrianGesture 
+; 
+        register_vector<std::shared_ptr<PedestrianGesture>>("vector<PedestrianGesture>"); //PedestrianGesture
 //
     class_<PedestrianCatalogLocation>("PedestrianCatalogLocation") 
         .smart_ptr_constructor("PedestrianCatalogLocation",&std::make_shared<PedestrianCatalogLocation>) 
         .property("Directory", &PedestrianCatalogLocation::m_Directory ) //Directory
 ; 
 //
+    class_<PedestrianGesture>("PedestrianGesture") 
+        .smart_ptr_constructor("PedestrianGesture",&std::make_shared<PedestrianGesture>) 
+        .property("gesture", &PedestrianGesture::gesture) 
+; 
+//
     class_<Performance>("Performance") 
         .smart_ptr_constructor("Performance",&std::make_shared<Performance>) 
         .property("maxAcceleration", &Performance::maxAcceleration) 
+        .property("maxAccelerationRate", &Performance::maxAccelerationRate) 
         .property("maxDeceleration", &Performance::maxDeceleration) 
+        .property("maxDecelerationRate", &Performance::maxDecelerationRate) 
         .property("maxSpeed", &Performance::maxSpeed) 
 ; 
 //
@@ -1005,6 +1180,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("duration", &Phase::duration) 
         .property("name", &Phase::name) 
         .property("TrafficSignalState", &Phase::m_TrafficSignalStates ) //TrafficSignalState 
+        .property("TrafficeSignalGroupState", &Phase::m_TrafficeSignalGroupState ) //TrafficSignalGroupState
 ; 
         register_vector<std::shared_ptr<TrafficSignalState>>("vector<TrafficSignalState>"); //TrafficSignalState
 //
@@ -1078,9 +1254,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("Properties",&std::make_shared<Properties>) 
         .property("Property", &Properties::m_Propertys ) //Property 
         .property("File", &Properties::m_Files ) //File 
+        .property("CustomContent", &Properties::m_CustomContents ) //CustomContent 
 ; 
         register_vector<std::shared_ptr<Property>>("vector<Property>"); //Property
         register_vector<std::shared_ptr<File>>("vector<File>"); //File
+        register_vector<std::shared_ptr<CustomContent>>("vector<CustomContent>"); //CustomContent
 //
     class_<Property>("Property") 
         .smart_ptr_constructor("Property",&std::make_shared<Property>) 
@@ -1100,6 +1278,18 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("Position", &ReachPositionCondition::m_Position ) //Position
 ; 
 //
+    class_<RelativeClearanceCondition>("RelativeClearanceCondition") 
+        .smart_ptr_constructor("RelativeClearanceCondition",&std::make_shared<RelativeClearanceCondition>) 
+        .property("oppositeLanes", &RelativeClearanceCondition::oppositeLanes) 
+        .property("distanceForward", &RelativeClearanceCondition::distanceForward) 
+        .property("distanceBackward", &RelativeClearanceCondition::distanceBackward) 
+        .property("freeSpace", &RelativeClearanceCondition::freeSpace) 
+        .property("RelativeLaneRange", &RelativeClearanceCondition::m_RelativeLaneRanges ) //RelativeLaneRange 
+        .property("EntityRef", &RelativeClearanceCondition::m_EntityRefs ) //EntityRef 
+; 
+        register_vector<std::shared_ptr<RelativeLaneRange>>("vector<RelativeLaneRange>"); //RelativeLaneRange
+        register_vector<std::shared_ptr<EntityRef>>("vector<EntityRef>"); //EntityRef
+//
     class_<RelativeDistanceCondition>("RelativeDistanceCondition") 
         .smart_ptr_constructor("RelativeDistanceCondition",&std::make_shared<RelativeDistanceCondition>) 
         .property("entityRef", &RelativeDistanceCondition::entityRef) 
@@ -1108,6 +1298,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("rule", &RelativeDistanceCondition::rule) 
         .property("value", &RelativeDistanceCondition::value) 
         .property("coordinateSystem", &RelativeDistanceCondition::coordinateSystem) 
+        .property("routingAlgorithm", &RelativeDistanceCondition::routingAlgorithm) 
 ; 
 //
     class_<RelativeLanePosition>("RelativeLanePosition") 
@@ -1118,6 +1309,12 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("offset", &RelativeLanePosition::offset) 
         .property("dsLane", &RelativeLanePosition::dsLane) 
         .property("Orientation", &RelativeLanePosition::m_Orientation ) //Orientation
+; 
+//
+    class_<RelativeLaneRange>("RelativeLaneRange") 
+        .smart_ptr_constructor("RelativeLaneRange",&std::make_shared<RelativeLaneRange>) 
+        .property("from", &RelativeLaneRange::from) 
+        .property("to", &RelativeLaneRange::to) 
 ; 
 //
     class_<RelativeObjectPosition>("RelativeObjectPosition") 
@@ -1142,6 +1339,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("entityRef", &RelativeSpeedCondition::entityRef) 
         .property("rule", &RelativeSpeedCondition::rule) 
         .property("value", &RelativeSpeedCondition::value) 
+        .property("direction", &RelativeSpeedCondition::direction) 
 ; 
 //
     class_<RelativeSpeedToMaster>("RelativeSpeedToMaster") 
@@ -1183,6 +1381,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
     class_<RoadCondition>("RoadCondition") 
         .smart_ptr_constructor("RoadCondition",&std::make_shared<RoadCondition>) 
         .property("frictionScaleFactor", &RoadCondition::frictionScaleFactor) 
+        .property("wetness", &RoadCondition::wetness) 
         .property("Properties", &RoadCondition::m_Properties ) //Properties
 ; 
 //
@@ -1236,14 +1435,26 @@ EMSCRIPTEN_BINDINGS(jsxosc)
     class_<ScenarioObject>("ScenarioObject") 
         .smart_ptr_constructor("ScenarioObject",&std::make_shared<ScenarioObject>) 
         .property("name", &ScenarioObject::name) 
-        .property("ObjectController", &ScenarioObject::m_ObjectController ) //ObjectController
+        .property("ObjectController", &ScenarioObject::m_ObjectControllers ) //ObjectController 
     .property("EntityObject", &ScenarioObject::m_EntityObject ) // group read 
 ; 
+        register_vector<std::shared_ptr<ObjectController>>("vector<ObjectController>"); //ObjectController
 //
     class_<SelectedEntities>("SelectedEntities") 
         .smart_ptr_constructor("SelectedEntities",&std::make_shared<SelectedEntities>) 
         .property("SelectedEntities_U", &SelectedEntities::m_SelectedEntities ) //
 ; 
+//
+    class_<SensorReference>("SensorReference") 
+        .smart_ptr_constructor("SensorReference",&std::make_shared<SensorReference>) 
+        .property("name", &SensorReference::name) 
+; 
+//
+    class_<SensorReferenceSet>("SensorReferenceSet") 
+        .smart_ptr_constructor("SensorReferenceSet",&std::make_shared<SensorReferenceSet>) 
+        .property("SensorReference", &SensorReferenceSet::m_SensorReferences ) //SensorReference 
+; 
+        register_vector<std::shared_ptr<SensorReference>>("vector<SensorReference>"); //SensorReference
 //
     class_<Shape>("Shape") 
         .smart_ptr_constructor("Shape",&std::make_shared<Shape>) 
@@ -1271,6 +1482,22 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("SpeedCondition",&std::make_shared<SpeedCondition>) 
         .property("rule", &SpeedCondition::rule) 
         .property("value", &SpeedCondition::value) 
+        .property("direction", &SpeedCondition::direction) 
+; 
+//
+    class_<SpeedProfileAction>("SpeedProfileAction") 
+        .smart_ptr_constructor("SpeedProfileAction",&std::make_shared<SpeedProfileAction>) 
+        .property("entityRef", &SpeedProfileAction::entityRef) 
+        .property("followingMode", &SpeedProfileAction::followingMode) 
+        .property("DynamicConstraints", &SpeedProfileAction::m_DynamicConstraints ) //DynamicConstraints
+        .property("SpeedProfileEntry", &SpeedProfileAction::m_SpeedProfileEntrys ) //SpeedProfileEntry 
+; 
+        register_vector<std::shared_ptr<SpeedProfileEntry>>("vector<SpeedProfileEntry>"); //SpeedProfileEntry
+//
+    class_<SpeedProfileEntry>("SpeedProfileEntry") 
+        .smart_ptr_constructor("SpeedProfileEntry",&std::make_shared<SpeedProfileEntry>) 
+        .property("speed", &SpeedProfileEntry::speed) 
+        .property("time", &SpeedProfileEntry::time) 
 ; 
 //
     class_<StandStillCondition>("StandStillCondition") 
@@ -1320,6 +1547,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("azimuth", &Sun::azimuth) 
         .property("elevation", &Sun::elevation) 
         .property("intensity", &Sun::intensity) 
+        .property("illuminance", &Sun::illuminance) 
 ; 
 //
     class_<SynchronizeAction>("SynchronizeAction") 
@@ -1356,6 +1584,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("value", &TimeHeadwayCondition::value) 
         .property("coordinateSystem", &TimeHeadwayCondition::coordinateSystem) 
         .property("relativeDistanceType", &TimeHeadwayCondition::relativeDistanceType) 
+        .property("routingAlgorithm", &TimeHeadwayCondition::routingAlgorithm) 
 ; 
 //
     class_<TimeOfDay>("TimeOfDay") 
@@ -1383,6 +1612,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("value", &TimeToCollisionCondition::value) 
         .property("relativeDistanceType", &TimeToCollisionCondition::relativeDistanceType) 
         .property("coordinateSystem", &TimeToCollisionCondition::coordinateSystem) 
+        .property("routingAlgorithm", &TimeToCollisionCondition::routingAlgorithm) 
         .property("TimeToCollisionConditionTarget", &TimeToCollisionCondition::m_TimeToCollisionConditionTarget ) //TimeToCollisionConditionTarget
 ; 
 //
@@ -1408,6 +1638,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("TrafficDefinition",&std::make_shared<TrafficDefinition>) 
         .property("name", &TrafficDefinition::name) 
         .property("VehicleCategoryDistribution", &TrafficDefinition::m_VehicleCategoryDistribution ) //VehicleCategoryDistribution
+        .property("VehicleRoleDistribution", &TrafficDefinition::m_VehicleRoleDistribution ) //VehicleRoleDistribution
         .property("ControllerDistribution", &TrafficDefinition::m_ControllerDistribution ) //ControllerDistribution
 ; 
 //
@@ -1449,6 +1680,11 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("phase", &TrafficSignalControllerCondition::phase) 
 ; 
 //
+    class_<TrafficSignalGroupState>("TrafficSignalGroupState") 
+        .smart_ptr_constructor("TrafficSignalGroupState",&std::make_shared<TrafficSignalGroupState>) 
+        .property("state", &TrafficSignalGroupState::state) 
+; 
+//
     class_<TrafficSignalState>("TrafficSignalState") 
         .smart_ptr_constructor("TrafficSignalState",&std::make_shared<TrafficSignalState>) 
         .property("state", &TrafficSignalState::state) 
@@ -1474,6 +1710,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("radius", &TrafficSourceAction::radius) 
         .property("rate", &TrafficSourceAction::rate) 
         .property("velocity", &TrafficSourceAction::velocity) 
+        .property("speed", &TrafficSourceAction::speed) 
         .property("Position", &TrafficSourceAction::m_Position ) //Position
         .property("TrafficDefinition", &TrafficSourceAction::m_TrafficDefinition ) //TrafficDefinition
 ; 
@@ -1492,6 +1729,8 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("velocity", &TrafficSwarmAction::velocity) 
         .property("CentralObject", &TrafficSwarmAction::m_CentralObject ) //CentralSwarmObject
         .property("TrafficDefinition", &TrafficSwarmAction::m_TrafficDefinition ) //TrafficDefinition
+        .property("InitialSpeedRange", &TrafficSwarmAction::m_InitialSpeedRange ) //Range
+        .property("DirectionOfTravelDistribution", &TrafficSwarmAction::m_DirectionOfTravelDistribution ) //DirectionOfTravelDistribution
 ; 
 //
     class_<Trajectory>("Trajectory") 
@@ -1529,6 +1768,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("TransitionDynamics",&std::make_shared<TransitionDynamics>) 
         .property("dynamicsDimension", &TransitionDynamics::dynamicsDimension) 
         .property("dynamicsShape", &TransitionDynamics::dynamicsShape) 
+        .property("followingMode", &TransitionDynamics::followingMode) 
         .property("value", &TransitionDynamics::value) 
 ; 
 //
@@ -1566,9 +1806,24 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("CustomCommandAction", &UserDefinedAction::m_CustomCommandAction ) //CustomCommandAction
 ; 
 //
+    class_<UserDefinedAnimation>("UserDefinedAnimation") 
+        .smart_ptr_constructor("UserDefinedAnimation",&std::make_shared<UserDefinedAnimation>) 
+        .property("userDefinedAnimationType", &UserDefinedAnimation::userDefinedAnimationType) 
+; 
+//
+    class_<UserDefinedComponent>("UserDefinedComponent") 
+        .smart_ptr_constructor("UserDefinedComponent",&std::make_shared<UserDefinedComponent>) 
+        .property("userDefinedComponentType", &UserDefinedComponent::userDefinedComponentType) 
+; 
+//
     class_<UserDefinedDistribution>("UserDefinedDistribution") 
         .smart_ptr_constructor("UserDefinedDistribution",&std::make_shared<UserDefinedDistribution>) 
         .property("type", &UserDefinedDistribution::type) 
+; 
+//
+    class_<UserDefinedLight>("UserDefinedLight") 
+        .smart_ptr_constructor("UserDefinedLight",&std::make_shared<UserDefinedLight>) 
+        .property("userDefinedLightType", &UserDefinedLight::userDefinedLightType) 
 ; 
 //
     class_<UserDefinedValueCondition>("UserDefinedValueCondition") 
@@ -1596,10 +1851,62 @@ EMSCRIPTEN_BINDINGS(jsxosc)
 ; 
         register_vector<std::shared_ptr<ParameterValueSet>>("vector<ParameterValueSet>"); //ParameterValueSet
 //
+    class_<VariableAction>("VariableAction") 
+        .smart_ptr_constructor("VariableAction",&std::make_shared<VariableAction>) 
+        .property("variableRef", &VariableAction::variableRef) 
+        .property("VariableAction_U", &VariableAction::m_VariableAction ) //
+; 
+//
+    class_<VariableAddValueRule>("VariableAddValueRule") 
+        .smart_ptr_constructor("VariableAddValueRule",&std::make_shared<VariableAddValueRule>) 
+        .property("value", &VariableAddValueRule::value) 
+; 
+//
+    class_<VariableCondition>("VariableCondition") 
+        .smart_ptr_constructor("VariableCondition",&std::make_shared<VariableCondition>) 
+        .property("variableRef", &VariableCondition::variableRef) 
+        .property("rule", &VariableCondition::rule) 
+        .property("value", &VariableCondition::value) 
+; 
+//
+    class_<VariableDeclaration>("VariableDeclaration") 
+        .smart_ptr_constructor("VariableDeclaration",&std::make_shared<VariableDeclaration>) 
+        .property("name", &VariableDeclaration::name) 
+        .property("variableType", &VariableDeclaration::variableType) 
+        .property("value", &VariableDeclaration::value) 
+; 
+//
+    class_<VariableDeclarations>("VariableDeclarations") 
+        .smart_ptr_constructor("VariableDeclarations",&std::make_shared<VariableDeclarations>) 
+        .property("VariableDeclaration", &VariableDeclarations::m_VariableDeclarations ) //VariableDeclaration 
+; 
+        register_vector<std::shared_ptr<VariableDeclaration>>("vector<VariableDeclaration>"); //VariableDeclaration
+//
+    class_<VariableModifyAction>("VariableModifyAction") 
+        .smart_ptr_constructor("VariableModifyAction",&std::make_shared<VariableModifyAction>) 
+        .property("Rule", &VariableModifyAction::m_Rule ) //VariableModifyRule
+; 
+//
+    class_<VariableModifyRule>("VariableModifyRule") 
+        .smart_ptr_constructor("VariableModifyRule",&std::make_shared<VariableModifyRule>) 
+        .property("VariableModifyRule_U", &VariableModifyRule::m_VariableModifyRule ) //
+; 
+//
+    class_<VariableMultiplyByValueRule>("VariableMultiplyByValueRule") 
+        .smart_ptr_constructor("VariableMultiplyByValueRule",&std::make_shared<VariableMultiplyByValueRule>) 
+        .property("value", &VariableMultiplyByValueRule::value) 
+; 
+//
+    class_<VariableSetAction>("VariableSetAction") 
+        .smart_ptr_constructor("VariableSetAction",&std::make_shared<VariableSetAction>) 
+        .property("value", &VariableSetAction::value) 
+; 
+//
     class_<Vehicle>("Vehicle") 
         .smart_ptr_constructor("Vehicle",&std::make_shared<Vehicle>) 
         .property("name", &Vehicle::name) 
         .property("vehicleCategory", &Vehicle::vehicleCategory) 
+        .property("role", &Vehicle::role) 
         .property("mass", &Vehicle::mass) 
         .property("model3d", &Vehicle::model3d) 
         .property("ParameterDeclarations", &Vehicle::m_ParameterDeclarations ) //ParameterDeclarations
@@ -1626,6 +1933,28 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("weight", &VehicleCategoryDistributionEntry::weight) 
 ; 
 //
+    class_<VehicleComponent>("VehicleComponent") 
+        .smart_ptr_constructor("VehicleComponent",&std::make_shared<VehicleComponent>) 
+        .property("vehicleComponentType", &VehicleComponent::vehicleComponentType) 
+; 
+//
+    class_<VehicleLight>("VehicleLight") 
+        .smart_ptr_constructor("VehicleLight",&std::make_shared<VehicleLight>) 
+        .property("vehicleLightType", &VehicleLight::vehicleLightType) 
+; 
+//
+    class_<VehicleRoleDistribution>("VehicleRoleDistribution") 
+        .smart_ptr_constructor("VehicleRoleDistribution",&std::make_shared<VehicleRoleDistribution>) 
+        .property("VehicleRoleDistributionEntry", &VehicleRoleDistribution::m_VehicleRoleDistributionEntrys ) //VehicleRoleDistributionEntry 
+; 
+        register_vector<std::shared_ptr<VehicleRoleDistributionEntry>>("vector<VehicleRoleDistributionEntry>"); //VehicleRoleDistributionEntry
+//
+    class_<VehicleRoleDistributionEntry>("VehicleRoleDistributionEntry") 
+        .smart_ptr_constructor("VehicleRoleDistributionEntry",&std::make_shared<VehicleRoleDistributionEntry>) 
+        .property("role", &VehicleRoleDistributionEntry::role) 
+        .property("weight", &VehicleRoleDistributionEntry::weight) 
+; 
+//
     class_<Vertex>("Vertex") 
         .smart_ptr_constructor("Vertex",&std::make_shared<Vertex>) 
         .property("time", &Vertex::time) 
@@ -1637,6 +1966,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("graphics", &VisibilityAction::graphics) 
         .property("sensors", &VisibilityAction::sensors) 
         .property("traffic", &VisibilityAction::traffic) 
+        .property("SensorReferenceSet", &VisibilityAction::m_SensorReferenceSet ) //SensorReferenceSet
 ; 
 //
     class_<Waypoint>("Waypoint") 
@@ -1650,10 +1980,12 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("cloudState", &Weather::cloudState) 
         .property("atmosphericPressure", &Weather::atmosphericPressure) 
         .property("temperature", &Weather::temperature) 
+        .property("fractionalCloudCover", &Weather::fractionalCloudCover) 
         .property("Sun", &Weather::m_Sun ) //Sun
         .property("Fog", &Weather::m_Fog ) //Fog
         .property("Precipitation", &Weather::m_Precipitation ) //Precipitation
         .property("Wind", &Weather::m_Wind ) //Wind
+        .property("DomeImage", &Weather::m_DomeImage ) //DomeImage
 ; 
 //
     class_<Wind>("Wind") 
@@ -1671,6 +2003,12 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("y", &WorldPosition::y) 
         .property("z", &WorldPosition::z) 
 ; 
+    // xs:group -> aliased to group definition
+    class_<BrakeInput>("BrakeInput")  // Group BrakeInput
+        .smart_ptr_constructor("BrakeInput",&std::make_shared<BrakeInput>) 
+        .property("BrakePercent", &BrakeInput::m_BrakePercent ) //Brake
+        .property("BrakeForce", &BrakeInput::m_BrakeForce ) //Brake
+    ;
     // xs:group -> aliased to group definition
     class_<CatalogDefinition>("CatalogDefinition")  // Group CatalogDefinition
         .smart_ptr_constructor("CatalogDefinition",&std::make_shared<CatalogDefinition>) 
@@ -1710,6 +2048,12 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("ExternalObjectReference", &EntityObject::m_ExternalObjectReference ) //ExternalObjectReference
     ;
     // xs:group -> aliased to group definition
+    class_<Gear>("Gear")  // Group Gear
+        .smart_ptr_constructor("Gear",&std::make_shared<Gear>) 
+        .property("ManualGear", &Gear::m_ManualGear ) //ManualGear
+        .property("AutomaticGear", &Gear::m_AutomaticGear ) //AutomaticGear
+    ;
+    // xs:group -> aliased to group definition
     class_<OpenScenarioCategory>("OpenScenarioCategory")  // Group OpenScenarioCategory
         .smart_ptr_constructor("OpenScenarioCategory",&std::make_shared<OpenScenarioCategory>) 
     .property("ScenarioDefinition", &OpenScenarioCategory::m_ScenarioDefinition ) // group read 
@@ -1725,6 +2069,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
     class_<ScenarioDefinition>("ScenarioDefinition")  // Group ScenarioDefinition
         .smart_ptr_constructor("ScenarioDefinition",&std::make_shared<ScenarioDefinition>) 
         .property("ParameterDeclarations", &ScenarioDefinition::m_ParameterDeclarations ) //ParameterDeclarations
+        .property("VariableDeclarations", &ScenarioDefinition::m_VariableDeclarations ) //VariableDeclarations
         .property("CatalogLocations", &ScenarioDefinition::m_CatalogLocations ) //CatalogLocations
         .property("RoadNetwork", &ScenarioDefinition::m_RoadNetwork ) //RoadNetwork
         .property("Entities", &ScenarioDefinition::m_Entities ) //Entities
@@ -1747,6 +2092,13 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("UserDefinedDistribution", &StochasticDistributionType::m_UserDefinedDistribution ) //UserDefinedDistribution
     ;
 //
+    //@js::enum_<e_AutomaticGearType>(m,"e_AutomaticGearType", js::arithmetic(),"")
+    enum_<e_AutomaticGearType>("e_AutomaticGearType")  //""
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::N).c_str(),e_AutomaticGearType::N)            //n
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::P).c_str(),e_AutomaticGearType::P)            //p
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::R).c_str(),e_AutomaticGearType::R)            //r
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::D).c_str(),e_AutomaticGearType::D);            //d
+    ;
     //@js::enum_<e_CloudState>(m,"e_CloudState", js::arithmetic(),"")
     enum_<e_CloudState>("e_CloudState")  //""
         .value(enum2str<e_CloudState>(e_CloudState::CLOUDY).c_str(),e_CloudState::CLOUDY)            //cloudy
@@ -1755,6 +2107,20 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .value(enum2str<e_CloudState>(e_CloudState::RAINY).c_str(),e_CloudState::RAINY)            //rainy
         .value(enum2str<e_CloudState>(e_CloudState::SKYOFF).c_str(),e_CloudState::SKYOFF);            //skyOff
     ;
+    //@js::enum_<e_ColorType>(m,"e_ColorType", js::arithmetic(),"")
+    enum_<e_ColorType>("e_ColorType")  //""
+        .value(enum2str<e_ColorType>(e_ColorType::OTHER).c_str(),e_ColorType::OTHER)            //other
+        .value(enum2str<e_ColorType>(e_ColorType::RED).c_str(),e_ColorType::RED)            //red
+        .value(enum2str<e_ColorType>(e_ColorType::YELLOW).c_str(),e_ColorType::YELLOW)            //yellow
+        .value(enum2str<e_ColorType>(e_ColorType::GREEN).c_str(),e_ColorType::GREEN)            //green
+        .value(enum2str<e_ColorType>(e_ColorType::BLUE).c_str(),e_ColorType::BLUE)            //blue
+        .value(enum2str<e_ColorType>(e_ColorType::VIOLET).c_str(),e_ColorType::VIOLET)            //violet
+        .value(enum2str<e_ColorType>(e_ColorType::ORANGE).c_str(),e_ColorType::ORANGE)            //orange
+        .value(enum2str<e_ColorType>(e_ColorType::BROWN).c_str(),e_ColorType::BROWN)            //brown
+        .value(enum2str<e_ColorType>(e_ColorType::BLACK).c_str(),e_ColorType::BLACK)            //black
+        .value(enum2str<e_ColorType>(e_ColorType::GREY).c_str(),e_ColorType::GREY)            //grey
+        .value(enum2str<e_ColorType>(e_ColorType::WHITE).c_str(),e_ColorType::WHITE);            //white
+    ;
     //@js::enum_<e_ConditionEdge>(m,"e_ConditionEdge", js::arithmetic(),"")
     enum_<e_ConditionEdge>("e_ConditionEdge")  //""
         .value(enum2str<e_ConditionEdge>(e_ConditionEdge::FALLING).c_str(),e_ConditionEdge::FALLING)            //falling
@@ -1762,12 +2128,28 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .value(enum2str<e_ConditionEdge>(e_ConditionEdge::RISING).c_str(),e_ConditionEdge::RISING)            //rising
         .value(enum2str<e_ConditionEdge>(e_ConditionEdge::RISINGORFALLING).c_str(),e_ConditionEdge::RISINGORFALLING);            //risingOrFalling
     ;
+    //@js::enum_<e_ControllerType>(m,"e_ControllerType", js::arithmetic(),"")
+    enum_<e_ControllerType>("e_ControllerType")  //""
+        .value(enum2str<e_ControllerType>(e_ControllerType::LATERAL).c_str(),e_ControllerType::LATERAL)            //lateral
+        .value(enum2str<e_ControllerType>(e_ControllerType::LONGITUDINAL).c_str(),e_ControllerType::LONGITUDINAL)            //longitudinal
+        .value(enum2str<e_ControllerType>(e_ControllerType::LIGHTING).c_str(),e_ControllerType::LIGHTING)            //lighting
+        .value(enum2str<e_ControllerType>(e_ControllerType::ANIMATION).c_str(),e_ControllerType::ANIMATION)            //animation
+        .value(enum2str<e_ControllerType>(e_ControllerType::MOVEMENT).c_str(),e_ControllerType::MOVEMENT)            //movement
+        .value(enum2str<e_ControllerType>(e_ControllerType::APPEARANCE).c_str(),e_ControllerType::APPEARANCE)            //appearance
+        .value(enum2str<e_ControllerType>(e_ControllerType::ALL).c_str(),e_ControllerType::ALL);            //all
+    ;
     //@js::enum_<e_CoordinateSystem>(m,"e_CoordinateSystem", js::arithmetic(),"")
     enum_<e_CoordinateSystem>("e_CoordinateSystem")  //""
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::ENTITY).c_str(),e_CoordinateSystem::ENTITY)            //entity
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::LANE).c_str(),e_CoordinateSystem::LANE)            //lane
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::ROAD).c_str(),e_CoordinateSystem::ROAD)            //road
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::TRAJECTORY).c_str(),e_CoordinateSystem::TRAJECTORY);            //trajectory
+    ;
+    //@js::enum_<e_DirectionalDimension>(m,"e_DirectionalDimension", js::arithmetic(),"")
+    enum_<e_DirectionalDimension>("e_DirectionalDimension")  //""
+        .value(enum2str<e_DirectionalDimension>(e_DirectionalDimension::LONGITUDINAL).c_str(),e_DirectionalDimension::LONGITUDINAL)            //longitudinal
+        .value(enum2str<e_DirectionalDimension>(e_DirectionalDimension::LATERAL).c_str(),e_DirectionalDimension::LATERAL)            //lateral
+        .value(enum2str<e_DirectionalDimension>(e_DirectionalDimension::VERTICAL).c_str(),e_DirectionalDimension::VERTICAL);            //vertical
     ;
     //@js::enum_<e_DynamicsDimension>(m,"e_DynamicsDimension", js::arithmetic(),"")
     enum_<e_DynamicsDimension>("e_DynamicsDimension")  //""
@@ -1787,11 +2169,30 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .value(enum2str<e_FollowingMode>(e_FollowingMode::FOLLOW).c_str(),e_FollowingMode::FOLLOW)            //follow
         .value(enum2str<e_FollowingMode>(e_FollowingMode::POSITION).c_str(),e_FollowingMode::POSITION);            //position
     ;
+    //@js::enum_<e_FractionalCloudCover>(m,"e_FractionalCloudCover", js::arithmetic(),"")
+    enum_<e_FractionalCloudCover>("e_FractionalCloudCover")  //""
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::ZEROOKTAS).c_str(),e_FractionalCloudCover::ZEROOKTAS)            //zeroOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::ONEOKTAS).c_str(),e_FractionalCloudCover::ONEOKTAS)            //oneOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::TWOOKTAS).c_str(),e_FractionalCloudCover::TWOOKTAS)            //twoOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::THREEOKTAS).c_str(),e_FractionalCloudCover::THREEOKTAS)            //threeOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::FOUROKTAS).c_str(),e_FractionalCloudCover::FOUROKTAS)            //fourOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::FIVEOKTAS).c_str(),e_FractionalCloudCover::FIVEOKTAS)            //fiveOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::SIXOKTAS).c_str(),e_FractionalCloudCover::SIXOKTAS)            //sixOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::SEVENOKTAS).c_str(),e_FractionalCloudCover::SEVENOKTAS)            //sevenOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::EIGHTOKTAS).c_str(),e_FractionalCloudCover::EIGHTOKTAS)            //eightOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::NINEOKTAS).c_str(),e_FractionalCloudCover::NINEOKTAS);            //nineOktas
+    ;
     //@js::enum_<e_LateralDisplacement>(m,"e_LateralDisplacement", js::arithmetic(),"")
     enum_<e_LateralDisplacement>("e_LateralDisplacement")  //""
         .value(enum2str<e_LateralDisplacement>(e_LateralDisplacement::ANY).c_str(),e_LateralDisplacement::ANY)            //any
         .value(enum2str<e_LateralDisplacement>(e_LateralDisplacement::LEFTTOREFERENCEDENTITY).c_str(),e_LateralDisplacement::LEFTTOREFERENCEDENTITY)            //leftToReferencedEntity
         .value(enum2str<e_LateralDisplacement>(e_LateralDisplacement::RIGHTTOREFERENCEDENTITY).c_str(),e_LateralDisplacement::RIGHTTOREFERENCEDENTITY);            //rightToReferencedEntity
+    ;
+    //@js::enum_<e_LightMode>(m,"e_LightMode", js::arithmetic(),"")
+    enum_<e_LightMode>("e_LightMode")  //""
+        .value(enum2str<e_LightMode>(e_LightMode::ON).c_str(),e_LightMode::ON)            //on
+        .value(enum2str<e_LightMode>(e_LightMode::OFF).c_str(),e_LightMode::OFF)            //off
+        .value(enum2str<e_LightMode>(e_LightMode::FLASHING).c_str(),e_LightMode::FLASHING);            //flashing
     ;
     //@js::enum_<e_LongitudinalDisplacement>(m,"e_LongitudinalDisplacement", js::arithmetic(),"")
     enum_<e_LongitudinalDisplacement>("e_LongitudinalDisplacement")  //""
@@ -1834,13 +2235,45 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .value(enum2str<e_ParameterType>(e_ParameterType::INTEGER).c_str(),e_ParameterType::INTEGER)            //integer
         .value(enum2str<e_ParameterType>(e_ParameterType::STRING).c_str(),e_ParameterType::STRING)            //string
         .value(enum2str<e_ParameterType>(e_ParameterType::UNSIGNEDINT).c_str(),e_ParameterType::UNSIGNEDINT)            //unsignedInt
-        .value(enum2str<e_ParameterType>(e_ParameterType::UNSIGNEDSHORT).c_str(),e_ParameterType::UNSIGNEDSHORT);            //unsignedShort
+        .value(enum2str<e_ParameterType>(e_ParameterType::UNSIGNEDSHORT).c_str(),e_ParameterType::UNSIGNEDSHORT)            //unsignedShort
+        .value(enum2str<e_ParameterType>(e_ParameterType::INT).c_str(),e_ParameterType::INT);            //int
     ;
     //@js::enum_<e_PedestrianCategory>(m,"e_PedestrianCategory", js::arithmetic(),"")
     enum_<e_PedestrianCategory>("e_PedestrianCategory")  //""
         .value(enum2str<e_PedestrianCategory>(e_PedestrianCategory::ANIMAL).c_str(),e_PedestrianCategory::ANIMAL)            //animal
         .value(enum2str<e_PedestrianCategory>(e_PedestrianCategory::PEDESTRIAN).c_str(),e_PedestrianCategory::PEDESTRIAN)            //pedestrian
         .value(enum2str<e_PedestrianCategory>(e_PedestrianCategory::WHEELCHAIR).c_str(),e_PedestrianCategory::WHEELCHAIR);            //wheelchair
+    ;
+    //@js::enum_<e_PedestrianGestureType>(m,"e_PedestrianGestureType", js::arithmetic(),"")
+    enum_<e_PedestrianGestureType>("e_PedestrianGestureType")  //""
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONECALLRIGHTHAND).c_str(),e_PedestrianGestureType::PHONECALLRIGHTHAND)            //phoneCallRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONECALLLEFTHAND).c_str(),e_PedestrianGestureType::PHONECALLLEFTHAND)            //phoneCallLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONETEXTRIGHTHAND).c_str(),e_PedestrianGestureType::PHONETEXTRIGHTHAND)            //phoneTextRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONETEXTLEFTHAND).c_str(),e_PedestrianGestureType::PHONETEXTLEFTHAND)            //phoneTextLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::WAVINGRIGHTARM).c_str(),e_PedestrianGestureType::WAVINGRIGHTARM)            //wavingRightArm
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::WAVINGLEFTARM).c_str(),e_PedestrianGestureType::WAVINGLEFTARM)            //wavingLeftArm
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::UMBRELLARIGHTHAND).c_str(),e_PedestrianGestureType::UMBRELLARIGHTHAND)            //umbrellaRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::UMBRELLALEFTHAND).c_str(),e_PedestrianGestureType::UMBRELLALEFTHAND)            //umbrellaLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::CROSSARMS).c_str(),e_PedestrianGestureType::CROSSARMS)            //crossArms
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::COFFEERIGHTHAND).c_str(),e_PedestrianGestureType::COFFEERIGHTHAND)            //coffeeRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::COFFEELEFTHAND).c_str(),e_PedestrianGestureType::COFFEELEFTHAND)            //coffeeLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::SANDWICHRIGHTHAND).c_str(),e_PedestrianGestureType::SANDWICHRIGHTHAND)            //sandwichRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::SANDWICHLEFTHAND).c_str(),e_PedestrianGestureType::SANDWICHLEFTHAND);            //sandwichLeftHand
+    ;
+    //@js::enum_<e_PedestrianMotionType>(m,"e_PedestrianMotionType", js::arithmetic(),"")
+    enum_<e_PedestrianMotionType>("e_PedestrianMotionType")  //""
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::STANDING).c_str(),e_PedestrianMotionType::STANDING)            //standing
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::SITTING).c_str(),e_PedestrianMotionType::SITTING)            //sitting
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::LYING).c_str(),e_PedestrianMotionType::LYING)            //lying
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::SQUATTING).c_str(),e_PedestrianMotionType::SQUATTING)            //squatting
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::WALKING).c_str(),e_PedestrianMotionType::WALKING)            //walking
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::RUNNING).c_str(),e_PedestrianMotionType::RUNNING)            //running
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::REELING).c_str(),e_PedestrianMotionType::REELING)            //reeling
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::CRAWLING).c_str(),e_PedestrianMotionType::CRAWLING)            //crawling
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::CYCLING).c_str(),e_PedestrianMotionType::CYCLING)            //cycling
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::JUMPING).c_str(),e_PedestrianMotionType::JUMPING)            //jumping
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::DUCKING).c_str(),e_PedestrianMotionType::DUCKING)            //ducking
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::BENDINGDOWN).c_str(),e_PedestrianMotionType::BENDINGDOWN);            //bendingDown
     ;
     //@js::enum_<e_PrecipitationType>(m,"e_PrecipitationType", js::arithmetic(),"")
     enum_<e_PrecipitationType>("e_PrecipitationType")  //""
@@ -1851,6 +2284,7 @@ EMSCRIPTEN_BINDINGS(jsxosc)
     //@js::enum_<e_Priority>(m,"e_Priority", js::arithmetic(),"")
     enum_<e_Priority>("e_Priority")  //""
         .value(enum2str<e_Priority>(e_Priority::OVERWRITE).c_str(),e_Priority::OVERWRITE)            //overwrite
+        .value(enum2str<e_Priority>(e_Priority::OVERRIDE).c_str(),e_Priority::OVERRIDE)            //override
         .value(enum2str<e_Priority>(e_Priority::PARALLEL).c_str(),e_Priority::PARALLEL)            //parallel
         .value(enum2str<e_Priority>(e_Priority::SKIP).c_str(),e_Priority::SKIP);            //skip
     ;
@@ -1866,12 +2300,31 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .value(enum2str<e_RelativeDistanceType>(e_RelativeDistanceType::CARTESIANDISTANCE).c_str(),e_RelativeDistanceType::CARTESIANDISTANCE)            //cartesianDistance
         .value(enum2str<e_RelativeDistanceType>(e_RelativeDistanceType::EUCLIDIANDISTANCE).c_str(),e_RelativeDistanceType::EUCLIDIANDISTANCE);            //euclidianDistance
     ;
+    //@js::enum_<e_Role>(m,"e_Role", js::arithmetic(),"")
+    enum_<e_Role>("e_Role")  //""
+        .value(enum2str<e_Role>(e_Role::NONE).c_str(),e_Role::NONE)            //none
+        .value(enum2str<e_Role>(e_Role::AMBULANCE).c_str(),e_Role::AMBULANCE)            //ambulance
+        .value(enum2str<e_Role>(e_Role::CIVIL).c_str(),e_Role::CIVIL)            //civil
+        .value(enum2str<e_Role>(e_Role::FIRE).c_str(),e_Role::FIRE)            //fire
+        .value(enum2str<e_Role>(e_Role::MILITARY).c_str(),e_Role::MILITARY)            //military
+        .value(enum2str<e_Role>(e_Role::POLICE).c_str(),e_Role::POLICE)            //police
+        .value(enum2str<e_Role>(e_Role::PUBLICTRANSPORT).c_str(),e_Role::PUBLICTRANSPORT)            //publicTransport
+        .value(enum2str<e_Role>(e_Role::ROADASSISTANCE).c_str(),e_Role::ROADASSISTANCE);            //roadAssistance
+    ;
     //@js::enum_<e_RouteStrategy>(m,"e_RouteStrategy", js::arithmetic(),"")
     enum_<e_RouteStrategy>("e_RouteStrategy")  //""
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::FASTEST).c_str(),e_RouteStrategy::FASTEST)            //fastest
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::LEASTINTERSECTIONS).c_str(),e_RouteStrategy::LEASTINTERSECTIONS)            //leastIntersections
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::RANDOM).c_str(),e_RouteStrategy::RANDOM)            //random
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::SHORTEST).c_str(),e_RouteStrategy::SHORTEST);            //shortest
+    ;
+    //@js::enum_<e_RoutingAlgorithm>(m,"e_RoutingAlgorithm", js::arithmetic(),"")
+    enum_<e_RoutingAlgorithm>("e_RoutingAlgorithm")  //""
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::ASSIGNEDROUTE).c_str(),e_RoutingAlgorithm::ASSIGNEDROUTE)            //assignedRoute
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::FASTEST).c_str(),e_RoutingAlgorithm::FASTEST)            //fastest
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::LEASTINTERSECTIONS).c_str(),e_RoutingAlgorithm::LEASTINTERSECTIONS)            //leastIntersections
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::SHORTEST).c_str(),e_RoutingAlgorithm::SHORTEST)            //shortest
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::UNDEFINED).c_str(),e_RoutingAlgorithm::UNDEFINED);            //undefined
     ;
     //@js::enum_<e_Rule>(m,"e_Rule", js::arithmetic(),"")
     enum_<e_Rule>("e_Rule")  //""
@@ -1924,6 +2377,46 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .value(enum2str<e_VehicleCategory>(e_VehicleCategory::TRUCK).c_str(),e_VehicleCategory::TRUCK)            //truck
         .value(enum2str<e_VehicleCategory>(e_VehicleCategory::VAN).c_str(),e_VehicleCategory::VAN);            //van
     ;
+    //@js::enum_<e_VehicleComponentType>(m,"e_VehicleComponentType", js::arithmetic(),"")
+    enum_<e_VehicleComponentType>("e_VehicleComponentType")  //""
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::HOOD).c_str(),e_VehicleComponentType::HOOD)            //hood
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::TRUNK).c_str(),e_VehicleComponentType::TRUNK)            //trunk
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORFRONTRIGHT).c_str(),e_VehicleComponentType::DOORFRONTRIGHT)            //doorFrontRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORFRONTLEFT).c_str(),e_VehicleComponentType::DOORFRONTLEFT)            //doorFrontLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORREARRIGHT).c_str(),e_VehicleComponentType::DOORREARRIGHT)            //doorRearRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORREARLEFT).c_str(),e_VehicleComponentType::DOORREARLEFT)            //doorRearLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWFRONTRIGHT).c_str(),e_VehicleComponentType::WINDOWFRONTRIGHT)            //windowFrontRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWFRONTLEFT).c_str(),e_VehicleComponentType::WINDOWFRONTLEFT)            //windowFrontLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWREARRIGHT).c_str(),e_VehicleComponentType::WINDOWREARRIGHT)            //windowRearRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWREARLEFT).c_str(),e_VehicleComponentType::WINDOWREARLEFT)            //windowRearLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::SIDEMIRRORS).c_str(),e_VehicleComponentType::SIDEMIRRORS)            //sideMirrors
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::SIDEMIRRORRIGHT).c_str(),e_VehicleComponentType::SIDEMIRRORRIGHT)            //sideMirrorRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::SIDEMIRRORLEFT).c_str(),e_VehicleComponentType::SIDEMIRRORLEFT);            //sideMirrorLeft
+    ;
+    //@js::enum_<e_VehicleLightType>(m,"e_VehicleLightType", js::arithmetic(),"")
+    enum_<e_VehicleLightType>("e_VehicleLightType")  //""
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::DAYTIMERUNNINGLIGHTS).c_str(),e_VehicleLightType::DAYTIMERUNNINGLIGHTS)            //daytimeRunningLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::LOWBEAM).c_str(),e_VehicleLightType::LOWBEAM)            //lowBeam
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::HIGHBEAM).c_str(),e_VehicleLightType::HIGHBEAM)            //highBeam
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::FOGLIGHTS).c_str(),e_VehicleLightType::FOGLIGHTS)            //fogLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::FOGLIGHTSFRONT).c_str(),e_VehicleLightType::FOGLIGHTSFRONT)            //fogLightsFront
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::FOGLIGHTSREAR).c_str(),e_VehicleLightType::FOGLIGHTSREAR)            //fogLightsRear
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::BRAKELIGHTS).c_str(),e_VehicleLightType::BRAKELIGHTS)            //brakeLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::WARNINGLIGHTS).c_str(),e_VehicleLightType::WARNINGLIGHTS)            //warningLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::INDICATORLEFT).c_str(),e_VehicleLightType::INDICATORLEFT)            //indicatorLeft
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::INDICATORRIGHT).c_str(),e_VehicleLightType::INDICATORRIGHT)            //indicatorRight
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::REVERSINGLIGHTS).c_str(),e_VehicleLightType::REVERSINGLIGHTS)            //reversingLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::LICENSEPLATEILLUMINATION).c_str(),e_VehicleLightType::LICENSEPLATEILLUMINATION)            //licensePlateIllumination
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::SPECIALPURPOSELIGHTS).c_str(),e_VehicleLightType::SPECIALPURPOSELIGHTS);            //specialPurposeLights
+    ;
+    //@js::enum_<e_Wetness>(m,"e_Wetness", js::arithmetic(),"")
+    enum_<e_Wetness>("e_Wetness")  //""
+        .value(enum2str<e_Wetness>(e_Wetness::DRY).c_str(),e_Wetness::DRY)            //dry
+        .value(enum2str<e_Wetness>(e_Wetness::MOIST).c_str(),e_Wetness::MOIST)            //moist
+        .value(enum2str<e_Wetness>(e_Wetness::WETWITHPUDDLES).c_str(),e_Wetness::WETWITHPUDDLES)            //wetWithPuddles
+        .value(enum2str<e_Wetness>(e_Wetness::LOWFLOODED).c_str(),e_Wetness::LOWFLOODED)            //lowFlooded
+        .value(enum2str<e_Wetness>(e_Wetness::HIGHFLOODED).c_str(),e_Wetness::HIGHFLOODED);            //highFlooded
+    ;
     class_<Boolean>("Boolean") // union definition
         .smart_ptr_constructor("Boolean",&std::make_shared<Boolean>) 
         .property("m_expression",&Boolean::m_expression)
@@ -1964,20 +2457,40 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("m_parameter",&UnsignedShort::m_parameter)
         .property("m_unsignedShort",&UnsignedShort::m_unsignedShort)
     ;
+    class_<AutomaticGearType>("AutomaticGearType") // union definition
+        .smart_ptr_constructor("AutomaticGearType",&std::make_shared<AutomaticGearType>) 
+        .property("m_parameter",&AutomaticGearType::m_parameter)
+        .property("automaticGearType",&AutomaticGearType::automaticGearType)
+    ;
     class_<CloudState>("CloudState") // union definition
         .smart_ptr_constructor("CloudState",&std::make_shared<CloudState>) 
         .property("m_parameter",&CloudState::m_parameter)
         .property("cloudState",&CloudState::cloudState)
+    ;
+    class_<ColorType>("ColorType") // union definition
+        .smart_ptr_constructor("ColorType",&std::make_shared<ColorType>) 
+        .property("m_parameter",&ColorType::m_parameter)
+        .property("colorType",&ColorType::colorType)
     ;
     class_<ConditionEdge>("ConditionEdge") // union definition
         .smart_ptr_constructor("ConditionEdge",&std::make_shared<ConditionEdge>) 
         .property("m_parameter",&ConditionEdge::m_parameter)
         .property("conditionEdge",&ConditionEdge::conditionEdge)
     ;
+    class_<ControllerType>("ControllerType") // union definition
+        .smart_ptr_constructor("ControllerType",&std::make_shared<ControllerType>) 
+        .property("m_parameter",&ControllerType::m_parameter)
+        .property("controllerType",&ControllerType::controllerType)
+    ;
     class_<CoordinateSystem>("CoordinateSystem") // union definition
         .smart_ptr_constructor("CoordinateSystem",&std::make_shared<CoordinateSystem>) 
         .property("m_parameter",&CoordinateSystem::m_parameter)
         .property("coordinateSystem",&CoordinateSystem::coordinateSystem)
+    ;
+    class_<DirectionalDimension>("DirectionalDimension") // union definition
+        .smart_ptr_constructor("DirectionalDimension",&std::make_shared<DirectionalDimension>) 
+        .property("m_parameter",&DirectionalDimension::m_parameter)
+        .property("directionalDimension",&DirectionalDimension::directionalDimension)
     ;
     class_<DynamicsDimension>("DynamicsDimension") // union definition
         .smart_ptr_constructor("DynamicsDimension",&std::make_shared<DynamicsDimension>) 
@@ -1994,10 +2507,20 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("m_parameter",&FollowingMode::m_parameter)
         .property("followingMode",&FollowingMode::followingMode)
     ;
+    class_<FractionalCloudCover>("FractionalCloudCover") // union definition
+        .smart_ptr_constructor("FractionalCloudCover",&std::make_shared<FractionalCloudCover>) 
+        .property("m_parameter",&FractionalCloudCover::m_parameter)
+        .property("fractionalCloudCover",&FractionalCloudCover::fractionalCloudCover)
+    ;
     class_<LateralDisplacement>("LateralDisplacement") // union definition
         .smart_ptr_constructor("LateralDisplacement",&std::make_shared<LateralDisplacement>) 
         .property("m_parameter",&LateralDisplacement::m_parameter)
         .property("lateralDisplacement",&LateralDisplacement::lateralDisplacement)
+    ;
+    class_<LightMode>("LightMode") // union definition
+        .smart_ptr_constructor("LightMode",&std::make_shared<LightMode>) 
+        .property("m_parameter",&LightMode::m_parameter)
+        .property("lightMode",&LightMode::lightMode)
     ;
     class_<LongitudinalDisplacement>("LongitudinalDisplacement") // union definition
         .smart_ptr_constructor("LongitudinalDisplacement",&std::make_shared<LongitudinalDisplacement>) 
@@ -2024,6 +2547,16 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("m_parameter",&PedestrianCategory::m_parameter)
         .property("pedestrianCategory",&PedestrianCategory::pedestrianCategory)
     ;
+    class_<PedestrianGestureType>("PedestrianGestureType") // union definition
+        .smart_ptr_constructor("PedestrianGestureType",&std::make_shared<PedestrianGestureType>) 
+        .property("m_parameter",&PedestrianGestureType::m_parameter)
+        .property("pedestrianGestureType",&PedestrianGestureType::pedestrianGestureType)
+    ;
+    class_<PedestrianMotionType>("PedestrianMotionType") // union definition
+        .smart_ptr_constructor("PedestrianMotionType",&std::make_shared<PedestrianMotionType>) 
+        .property("m_parameter",&PedestrianMotionType::m_parameter)
+        .property("pedestrianMotionType",&PedestrianMotionType::pedestrianMotionType)
+    ;
     class_<PrecipitationType>("PrecipitationType") // union definition
         .smart_ptr_constructor("PrecipitationType",&std::make_shared<PrecipitationType>) 
         .property("m_parameter",&PrecipitationType::m_parameter)
@@ -2044,10 +2577,20 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .property("m_parameter",&RelativeDistanceType::m_parameter)
         .property("relativeDistanceType",&RelativeDistanceType::relativeDistanceType)
     ;
+    class_<Role>("Role") // union definition
+        .smart_ptr_constructor("Role",&std::make_shared<Role>) 
+        .property("m_parameter",&Role::m_parameter)
+        .property("role",&Role::role)
+    ;
     class_<RouteStrategy>("RouteStrategy") // union definition
         .smart_ptr_constructor("RouteStrategy",&std::make_shared<RouteStrategy>) 
         .property("m_parameter",&RouteStrategy::m_parameter)
         .property("routeStrategy",&RouteStrategy::routeStrategy)
+    ;
+    class_<RoutingAlgorithm>("RoutingAlgorithm") // union definition
+        .smart_ptr_constructor("RoutingAlgorithm",&std::make_shared<RoutingAlgorithm>) 
+        .property("m_parameter",&RoutingAlgorithm::m_parameter)
+        .property("routingAlgorithm",&RoutingAlgorithm::routingAlgorithm)
     ;
     class_<Rule>("Rule") // union definition
         .smart_ptr_constructor("Rule",&std::make_shared<Rule>) 
@@ -2078,6 +2621,21 @@ EMSCRIPTEN_BINDINGS(jsxosc)
         .smart_ptr_constructor("VehicleCategory",&std::make_shared<VehicleCategory>) 
         .property("m_parameter",&VehicleCategory::m_parameter)
         .property("vehicleCategory",&VehicleCategory::vehicleCategory)
+    ;
+    class_<VehicleComponentType>("VehicleComponentType") // union definition
+        .smart_ptr_constructor("VehicleComponentType",&std::make_shared<VehicleComponentType>) 
+        .property("m_parameter",&VehicleComponentType::m_parameter)
+        .property("vehicleComponentType",&VehicleComponentType::vehicleComponentType)
+    ;
+    class_<VehicleLightType>("VehicleLightType") // union definition
+        .smart_ptr_constructor("VehicleLightType",&std::make_shared<VehicleLightType>) 
+        .property("m_parameter",&VehicleLightType::m_parameter)
+        .property("vehicleLightType",&VehicleLightType::vehicleLightType)
+    ;
+    class_<Wetness>("Wetness") // union definition
+        .smart_ptr_constructor("Wetness",&std::make_shared<Wetness>) 
+        .property("m_parameter",&Wetness::m_parameter)
+        .property("wetness",&Wetness::wetness)
     ;
 //
     class_<OpenSCENARIO>("OpenSCENARIO") 

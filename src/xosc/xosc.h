@@ -1,14 +1,14 @@
 //
-//  OpenSCENARIO_v1.1.1.h
-//  xsd2cxx- for OpenSCENARIO_v1.1.1 CXX classes
+//  OpenSCENARIO_v1.2.h
+//  xsd2cxx- for OpenSCENARIO_v1.2 CXX classes
 //
-//  Created by Javed Shaik on Mon Dec 27 22:11:37 2021
+//  Created by Javed Shaik on Mon Dec 26 09:49:16 2022
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : bbf119ed-5063-4f32-8378-5ee454c5df9e --
+//  -- UUIDv4 : 486a545d-cc8f-47ca-89a0-0a4f9294aca8 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
-#ifndef _OPENSCENARIO_V1_1_1_H_
-#define _OPENSCENARIO_V1_1_1_H_
+#ifndef _OPENSCENARIO_V1_2_H_
+#define _OPENSCENARIO_V1_2_H_
 #pragma once 
 #include <iostream>
 #include <iomanip>
@@ -17,6 +17,7 @@
 #include <cstring>
 #include <string>
 #include <vector>
+#include <limits>
 //
 #include "pugixml.hpp"
 #include "common.h"
@@ -25,9 +26,16 @@
 // Typedefs 
 const constexpr char parameter_pattern[] = "[$][A-Za-z_][A-Za-z0-9_]*"; 
 typedef t_patternstr<parameter_pattern> parameter;
-const constexpr char expression_pattern[] = "[$][{][ A-Za-z0-9_\\+\\-\\*/%$\\(\\)\\.,]*[\\}]";
+const constexpr char expression_pattern[] = "[$][{][ A-Za-z0-9_\\+\\-\\*/%$\\(\\)\\.,]*[\\}]"; 
 typedef t_patternstr<expression_pattern> expression;
 // Enumerations 
+enum class e_AutomaticGearType : std::uint8_t  
+{
+      N,               //n 
+      P,               //p 
+      R,               //r 
+      D               //d 
+};
 enum class e_CloudState : std::uint8_t  
 {
       CLOUDY,               //cloudy 
@@ -36,6 +44,20 @@ enum class e_CloudState : std::uint8_t
       RAINY,               //rainy 
       SKYOFF               //skyOff 
 };
+enum class e_ColorType : std::uint8_t  
+{
+      OTHER,               //other 
+      RED,               //red 
+      YELLOW,               //yellow 
+      GREEN,               //green 
+      BLUE,               //blue 
+      VIOLET,               //violet 
+      ORANGE,               //orange 
+      BROWN,               //brown 
+      BLACK,               //black 
+      GREY,               //grey 
+      WHITE               //white 
+};
 enum class e_ConditionEdge : std::uint8_t  
 {
       FALLING,               //falling 
@@ -43,12 +65,28 @@ enum class e_ConditionEdge : std::uint8_t
       RISING,               //rising 
       RISINGORFALLING               //risingOrFalling 
 };
+enum class e_ControllerType : std::uint8_t  
+{
+      LATERAL,               //lateral 
+      LONGITUDINAL,               //longitudinal 
+      LIGHTING,               //lighting 
+      ANIMATION,               //animation 
+      MOVEMENT,               //movement 
+      APPEARANCE,               //appearance 
+      ALL               //all 
+};
 enum class e_CoordinateSystem : std::uint8_t  
 {
       ENTITY,               //entity 
       LANE,               //lane 
       ROAD,               //road 
       TRAJECTORY               //trajectory 
+};
+enum class e_DirectionalDimension : std::uint8_t  
+{
+      LONGITUDINAL,               //longitudinal 
+      LATERAL,               //lateral 
+      VERTICAL               //vertical 
 };
 enum class e_DynamicsDimension : std::uint8_t  
 {
@@ -68,11 +106,30 @@ enum class e_FollowingMode : std::uint8_t
       FOLLOW,               //follow 
       POSITION               //position 
 };
+enum class e_FractionalCloudCover : std::uint8_t  
+{
+      ZEROOKTAS,               //zeroOktas 
+      ONEOKTAS,               //oneOktas 
+      TWOOKTAS,               //twoOktas 
+      THREEOKTAS,               //threeOktas 
+      FOUROKTAS,               //fourOktas 
+      FIVEOKTAS,               //fiveOktas 
+      SIXOKTAS,               //sixOktas 
+      SEVENOKTAS,               //sevenOktas 
+      EIGHTOKTAS,               //eightOktas 
+      NINEOKTAS               //nineOktas 
+};
 enum class e_LateralDisplacement : std::uint8_t  
 {
       ANY,               //any 
       LEFTTOREFERENCEDENTITY,               //leftToReferencedEntity 
       RIGHTTOREFERENCEDENTITY               //rightToReferencedEntity 
+};
+enum class e_LightMode : std::uint8_t  
+{
+      ON,               //on 
+      OFF,               //off 
+      FLASHING               //flashing 
 };
 enum class e_LongitudinalDisplacement : std::uint8_t  
 {
@@ -115,13 +172,45 @@ enum class e_ParameterType : std::uint8_t
       INTEGER,               //integer 
       STRING,               //string 
       UNSIGNEDINT,               //unsignedInt 
-      UNSIGNEDSHORT               //unsignedShort 
+      UNSIGNEDSHORT,               //unsignedShort 
+      INT               //int 
 };
 enum class e_PedestrianCategory : std::uint8_t  
 {
       ANIMAL,               //animal 
       PEDESTRIAN,               //pedestrian 
       WHEELCHAIR               //wheelchair 
+};
+enum class e_PedestrianGestureType : std::uint8_t  
+{
+      PHONECALLRIGHTHAND,               //phoneCallRightHand 
+      PHONECALLLEFTHAND,               //phoneCallLeftHand 
+      PHONETEXTRIGHTHAND,               //phoneTextRightHand 
+      PHONETEXTLEFTHAND,               //phoneTextLeftHand 
+      WAVINGRIGHTARM,               //wavingRightArm 
+      WAVINGLEFTARM,               //wavingLeftArm 
+      UMBRELLARIGHTHAND,               //umbrellaRightHand 
+      UMBRELLALEFTHAND,               //umbrellaLeftHand 
+      CROSSARMS,               //crossArms 
+      COFFEERIGHTHAND,               //coffeeRightHand 
+      COFFEELEFTHAND,               //coffeeLeftHand 
+      SANDWICHRIGHTHAND,               //sandwichRightHand 
+      SANDWICHLEFTHAND               //sandwichLeftHand 
+};
+enum class e_PedestrianMotionType : std::uint8_t  
+{
+      STANDING,               //standing 
+      SITTING,               //sitting 
+      LYING,               //lying 
+      SQUATTING,               //squatting 
+      WALKING,               //walking 
+      RUNNING,               //running 
+      REELING,               //reeling 
+      CRAWLING,               //crawling 
+      CYCLING,               //cycling 
+      JUMPING,               //jumping 
+      DUCKING,               //ducking 
+      BENDINGDOWN               //bendingDown 
 };
 enum class e_PrecipitationType : std::uint8_t  
 {
@@ -132,6 +221,7 @@ enum class e_PrecipitationType : std::uint8_t
 enum class e_Priority : std::uint8_t  
 {
       OVERWRITE,               //overwrite 
+      OVERRIDE,               //override 
       PARALLEL,               //parallel 
       SKIP               //skip 
 };
@@ -147,12 +237,31 @@ enum class e_RelativeDistanceType : std::uint8_t
       CARTESIANDISTANCE,               //cartesianDistance 
       EUCLIDIANDISTANCE               //euclidianDistance 
 };
+enum class e_Role : std::uint8_t  
+{
+      NONE,               //none 
+      AMBULANCE,               //ambulance 
+      CIVIL,               //civil 
+      FIRE,               //fire 
+      MILITARY,               //military 
+      POLICE,               //police 
+      PUBLICTRANSPORT,               //publicTransport 
+      ROADASSISTANCE               //roadAssistance 
+};
 enum class e_RouteStrategy : std::uint8_t  
 {
       FASTEST,               //fastest 
       LEASTINTERSECTIONS,               //leastIntersections 
       RANDOM,               //random 
       SHORTEST               //shortest 
+};
+enum class e_RoutingAlgorithm : std::uint8_t  
+{
+      ASSIGNEDROUTE,               //assignedRoute 
+      FASTEST,               //fastest 
+      LEASTINTERSECTIONS,               //leastIntersections 
+      SHORTEST,               //shortest 
+      UNDEFINED               //undefined 
 };
 enum class e_Rule : std::uint8_t  
 {
@@ -204,6 +313,46 @@ enum class e_VehicleCategory : std::uint8_t
       TRAM,               //tram 
       TRUCK,               //truck 
       VAN               //van 
+};
+enum class e_VehicleComponentType : std::uint8_t  
+{
+      HOOD,               //hood 
+      TRUNK,               //trunk 
+      DOORFRONTRIGHT,               //doorFrontRight 
+      DOORFRONTLEFT,               //doorFrontLeft 
+      DOORREARRIGHT,               //doorRearRight 
+      DOORREARLEFT,               //doorRearLeft 
+      WINDOWFRONTRIGHT,               //windowFrontRight 
+      WINDOWFRONTLEFT,               //windowFrontLeft 
+      WINDOWREARRIGHT,               //windowRearRight 
+      WINDOWREARLEFT,               //windowRearLeft 
+      SIDEMIRRORS,               //sideMirrors 
+      SIDEMIRRORRIGHT,               //sideMirrorRight 
+      SIDEMIRRORLEFT               //sideMirrorLeft 
+};
+enum class e_VehicleLightType : std::uint8_t  
+{
+      DAYTIMERUNNINGLIGHTS,               //daytimeRunningLights 
+      LOWBEAM,               //lowBeam 
+      HIGHBEAM,               //highBeam 
+      FOGLIGHTS,               //fogLights 
+      FOGLIGHTSFRONT,               //fogLightsFront 
+      FOGLIGHTSREAR,               //fogLightsRear 
+      BRAKELIGHTS,               //brakeLights 
+      WARNINGLIGHTS,               //warningLights 
+      INDICATORLEFT,               //indicatorLeft 
+      INDICATORRIGHT,               //indicatorRight 
+      REVERSINGLIGHTS,               //reversingLights 
+      LICENSEPLATEILLUMINATION,               //licensePlateIllumination 
+      SPECIALPURPOSELIGHTS               //specialPurposeLights 
+};
+enum class e_Wetness : std::uint8_t  
+{
+      DRY,               //dry 
+      MOIST,               //moist 
+      WETWITHPUDDLES,               //wetWithPuddles 
+      LOWFLOODED,               //lowFlooded 
+      HIGHFLOODED               //highFlooded 
 };
 // Union Defintions
 struct  Boolean	// TODO: >> Should be union - will have to handle properly 
@@ -288,6 +437,17 @@ public:
     void save(pugi::xml_attribute attr);
     ~UnsignedShort(){};
 };
+struct  AutomaticGearType	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_AutomaticGearType  automaticGearType;
+public:
+    AutomaticGearType(){};
+    AutomaticGearType(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~AutomaticGearType(){};
+};
 struct  CloudState	// TODO: >> Should be union - will have to handle properly 
 {
 public:
@@ -298,6 +458,17 @@ public:
     CloudState(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
     ~CloudState(){};
+};
+struct  ColorType	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_ColorType  colorType;
+public:
+    ColorType(){};
+    ColorType(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~ColorType(){};
 };
 struct  ConditionEdge	// TODO: >> Should be union - will have to handle properly 
 {
@@ -310,6 +481,17 @@ public:
     void save(pugi::xml_attribute attr);
     ~ConditionEdge(){};
 };
+struct  ControllerType	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_ControllerType  controllerType;
+public:
+    ControllerType(){};
+    ControllerType(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~ControllerType(){};
+};
 struct  CoordinateSystem	// TODO: >> Should be union - will have to handle properly 
 {
 public:
@@ -320,6 +502,17 @@ public:
     CoordinateSystem(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
     ~CoordinateSystem(){};
+};
+struct  DirectionalDimension	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_DirectionalDimension  directionalDimension;
+public:
+    DirectionalDimension(){};
+    DirectionalDimension(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~DirectionalDimension(){};
 };
 struct  DynamicsDimension	// TODO: >> Should be union - will have to handle properly 
 {
@@ -354,6 +547,17 @@ public:
     void save(pugi::xml_attribute attr);
     ~FollowingMode(){};
 };
+struct  FractionalCloudCover	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_FractionalCloudCover  fractionalCloudCover;
+public:
+    FractionalCloudCover(){};
+    FractionalCloudCover(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~FractionalCloudCover(){};
+};
 struct  LateralDisplacement	// TODO: >> Should be union - will have to handle properly 
 {
 public:
@@ -364,6 +568,17 @@ public:
     LateralDisplacement(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
     ~LateralDisplacement(){};
+};
+struct  LightMode	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_LightMode  lightMode;
+public:
+    LightMode(){};
+    LightMode(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~LightMode(){};
 };
 struct  LongitudinalDisplacement	// TODO: >> Should be union - will have to handle properly 
 {
@@ -420,6 +635,28 @@ public:
     void save(pugi::xml_attribute attr);
     ~PedestrianCategory(){};
 };
+struct  PedestrianGestureType	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_PedestrianGestureType  pedestrianGestureType;
+public:
+    PedestrianGestureType(){};
+    PedestrianGestureType(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~PedestrianGestureType(){};
+};
+struct  PedestrianMotionType	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_PedestrianMotionType  pedestrianMotionType;
+public:
+    PedestrianMotionType(){};
+    PedestrianMotionType(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~PedestrianMotionType(){};
+};
 struct  PrecipitationType	// TODO: >> Should be union - will have to handle properly 
 {
 public:
@@ -464,6 +701,17 @@ public:
     void save(pugi::xml_attribute attr);
     ~RelativeDistanceType(){};
 };
+struct  Role	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_Role  role;
+public:
+    Role(){};
+    Role(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~Role(){};
+};
 struct  RouteStrategy	// TODO: >> Should be union - will have to handle properly 
 {
 public:
@@ -474,6 +722,17 @@ public:
     RouteStrategy(pugi::xml_attribute attr);
     void save(pugi::xml_attribute attr);
     ~RouteStrategy(){};
+};
+struct  RoutingAlgorithm	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_RoutingAlgorithm  routingAlgorithm;
+public:
+    RoutingAlgorithm(){};
+    RoutingAlgorithm(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~RoutingAlgorithm(){};
 };
 struct  Rule	// TODO: >> Should be union - will have to handle properly 
 {
@@ -541,7 +800,50 @@ public:
     void save(pugi::xml_attribute attr);
     ~VehicleCategory(){};
 };
+struct  VehicleComponentType	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_VehicleComponentType  vehicleComponentType;
+public:
+    VehicleComponentType(){};
+    VehicleComponentType(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~VehicleComponentType(){};
+};
+struct  VehicleLightType	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_VehicleLightType  vehicleLightType;
+public:
+    VehicleLightType(){};
+    VehicleLightType(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~VehicleLightType(){};
+};
+struct  Wetness	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+      parameter  m_parameter;
+      e_Wetness  wetness;
+public:
+    Wetness(){};
+    Wetness(pugi::xml_attribute attr);
+    void save(pugi::xml_attribute attr);
+    ~Wetness(){};
+};
 // Enumerations to String Value Maps
+template<>
+inline std::vector<std::pair<std::string, e_AutomaticGearType>>enum_map()
+{
+    return {
+        { "n", e_AutomaticGearType::N } , 
+        { "p", e_AutomaticGearType::P } , 
+        { "r", e_AutomaticGearType::R } , 
+        { "d", e_AutomaticGearType::D }  
+    };
+}
 template<>
 inline std::vector<std::pair<std::string, e_CloudState>>enum_map()
 {
@@ -551,6 +853,23 @@ inline std::vector<std::pair<std::string, e_CloudState>>enum_map()
         { "overcast", e_CloudState::OVERCAST } , 
         { "rainy", e_CloudState::RAINY } , 
         { "skyOff", e_CloudState::SKYOFF }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_ColorType>>enum_map()
+{
+    return {
+        { "other", e_ColorType::OTHER } , 
+        { "red", e_ColorType::RED } , 
+        { "yellow", e_ColorType::YELLOW } , 
+        { "green", e_ColorType::GREEN } , 
+        { "blue", e_ColorType::BLUE } , 
+        { "violet", e_ColorType::VIOLET } , 
+        { "orange", e_ColorType::ORANGE } , 
+        { "brown", e_ColorType::BROWN } , 
+        { "black", e_ColorType::BLACK } , 
+        { "grey", e_ColorType::GREY } , 
+        { "white", e_ColorType::WHITE }  
     };
 }
 template<>
@@ -564,6 +883,19 @@ inline std::vector<std::pair<std::string, e_ConditionEdge>>enum_map()
     };
 }
 template<>
+inline std::vector<std::pair<std::string, e_ControllerType>>enum_map()
+{
+    return {
+        { "lateral", e_ControllerType::LATERAL } , 
+        { "longitudinal", e_ControllerType::LONGITUDINAL } , 
+        { "lighting", e_ControllerType::LIGHTING } , 
+        { "animation", e_ControllerType::ANIMATION } , 
+        { "movement", e_ControllerType::MOVEMENT } , 
+        { "appearance", e_ControllerType::APPEARANCE } , 
+        { "all", e_ControllerType::ALL }  
+    };
+}
+template<>
 inline std::vector<std::pair<std::string, e_CoordinateSystem>>enum_map()
 {
     return {
@@ -571,6 +903,15 @@ inline std::vector<std::pair<std::string, e_CoordinateSystem>>enum_map()
         { "lane", e_CoordinateSystem::LANE } , 
         { "road", e_CoordinateSystem::ROAD } , 
         { "trajectory", e_CoordinateSystem::TRAJECTORY }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_DirectionalDimension>>enum_map()
+{
+    return {
+        { "longitudinal", e_DirectionalDimension::LONGITUDINAL } , 
+        { "lateral", e_DirectionalDimension::LATERAL } , 
+        { "vertical", e_DirectionalDimension::VERTICAL }  
     };
 }
 template<>
@@ -601,12 +942,37 @@ inline std::vector<std::pair<std::string, e_FollowingMode>>enum_map()
     };
 }
 template<>
+inline std::vector<std::pair<std::string, e_FractionalCloudCover>>enum_map()
+{
+    return {
+        { "zeroOktas", e_FractionalCloudCover::ZEROOKTAS } , 
+        { "oneOktas", e_FractionalCloudCover::ONEOKTAS } , 
+        { "twoOktas", e_FractionalCloudCover::TWOOKTAS } , 
+        { "threeOktas", e_FractionalCloudCover::THREEOKTAS } , 
+        { "fourOktas", e_FractionalCloudCover::FOUROKTAS } , 
+        { "fiveOktas", e_FractionalCloudCover::FIVEOKTAS } , 
+        { "sixOktas", e_FractionalCloudCover::SIXOKTAS } , 
+        { "sevenOktas", e_FractionalCloudCover::SEVENOKTAS } , 
+        { "eightOktas", e_FractionalCloudCover::EIGHTOKTAS } , 
+        { "nineOktas", e_FractionalCloudCover::NINEOKTAS }  
+    };
+}
+template<>
 inline std::vector<std::pair<std::string, e_LateralDisplacement>>enum_map()
 {
     return {
         { "any", e_LateralDisplacement::ANY } , 
         { "leftToReferencedEntity", e_LateralDisplacement::LEFTTOREFERENCEDENTITY } , 
         { "rightToReferencedEntity", e_LateralDisplacement::RIGHTTOREFERENCEDENTITY }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_LightMode>>enum_map()
+{
+    return {
+        { "on", e_LightMode::ON } , 
+        { "off", e_LightMode::OFF } , 
+        { "flashing", e_LightMode::FLASHING }  
     };
 }
 template<>
@@ -661,7 +1027,8 @@ inline std::vector<std::pair<std::string, e_ParameterType>>enum_map()
         { "integer", e_ParameterType::INTEGER } , 
         { "string", e_ParameterType::STRING } , 
         { "unsignedInt", e_ParameterType::UNSIGNEDINT } , 
-        { "unsignedShort", e_ParameterType::UNSIGNEDSHORT }  
+        { "unsignedShort", e_ParameterType::UNSIGNEDSHORT } , 
+        { "int", e_ParameterType::INT }  
     };
 }
 template<>
@@ -671,6 +1038,43 @@ inline std::vector<std::pair<std::string, e_PedestrianCategory>>enum_map()
         { "animal", e_PedestrianCategory::ANIMAL } , 
         { "pedestrian", e_PedestrianCategory::PEDESTRIAN } , 
         { "wheelchair", e_PedestrianCategory::WHEELCHAIR }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_PedestrianGestureType>>enum_map()
+{
+    return {
+        { "phoneCallRightHand", e_PedestrianGestureType::PHONECALLRIGHTHAND } , 
+        { "phoneCallLeftHand", e_PedestrianGestureType::PHONECALLLEFTHAND } , 
+        { "phoneTextRightHand", e_PedestrianGestureType::PHONETEXTRIGHTHAND } , 
+        { "phoneTextLeftHand", e_PedestrianGestureType::PHONETEXTLEFTHAND } , 
+        { "wavingRightArm", e_PedestrianGestureType::WAVINGRIGHTARM } , 
+        { "wavingLeftArm", e_PedestrianGestureType::WAVINGLEFTARM } , 
+        { "umbrellaRightHand", e_PedestrianGestureType::UMBRELLARIGHTHAND } , 
+        { "umbrellaLeftHand", e_PedestrianGestureType::UMBRELLALEFTHAND } , 
+        { "crossArms", e_PedestrianGestureType::CROSSARMS } , 
+        { "coffeeRightHand", e_PedestrianGestureType::COFFEERIGHTHAND } , 
+        { "coffeeLeftHand", e_PedestrianGestureType::COFFEELEFTHAND } , 
+        { "sandwichRightHand", e_PedestrianGestureType::SANDWICHRIGHTHAND } , 
+        { "sandwichLeftHand", e_PedestrianGestureType::SANDWICHLEFTHAND }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_PedestrianMotionType>>enum_map()
+{
+    return {
+        { "standing", e_PedestrianMotionType::STANDING } , 
+        { "sitting", e_PedestrianMotionType::SITTING } , 
+        { "lying", e_PedestrianMotionType::LYING } , 
+        { "squatting", e_PedestrianMotionType::SQUATTING } , 
+        { "walking", e_PedestrianMotionType::WALKING } , 
+        { "running", e_PedestrianMotionType::RUNNING } , 
+        { "reeling", e_PedestrianMotionType::REELING } , 
+        { "crawling", e_PedestrianMotionType::CRAWLING } , 
+        { "cycling", e_PedestrianMotionType::CYCLING } , 
+        { "jumping", e_PedestrianMotionType::JUMPING } , 
+        { "ducking", e_PedestrianMotionType::DUCKING } , 
+        { "bendingDown", e_PedestrianMotionType::BENDINGDOWN }  
     };
 }
 template<>
@@ -687,6 +1091,7 @@ inline std::vector<std::pair<std::string, e_Priority>>enum_map()
 {
     return {
         { "overwrite", e_Priority::OVERWRITE } , 
+        { "override", e_Priority::OVERRIDE } , 
         { "parallel", e_Priority::PARALLEL } , 
         { "skip", e_Priority::SKIP }  
     };
@@ -710,6 +1115,20 @@ inline std::vector<std::pair<std::string, e_RelativeDistanceType>>enum_map()
     };
 }
 template<>
+inline std::vector<std::pair<std::string, e_Role>>enum_map()
+{
+    return {
+        { "none", e_Role::NONE } , 
+        { "ambulance", e_Role::AMBULANCE } , 
+        { "civil", e_Role::CIVIL } , 
+        { "fire", e_Role::FIRE } , 
+        { "military", e_Role::MILITARY } , 
+        { "police", e_Role::POLICE } , 
+        { "publicTransport", e_Role::PUBLICTRANSPORT } , 
+        { "roadAssistance", e_Role::ROADASSISTANCE }  
+    };
+}
+template<>
 inline std::vector<std::pair<std::string, e_RouteStrategy>>enum_map()
 {
     return {
@@ -717,6 +1136,17 @@ inline std::vector<std::pair<std::string, e_RouteStrategy>>enum_map()
         { "leastIntersections", e_RouteStrategy::LEASTINTERSECTIONS } , 
         { "random", e_RouteStrategy::RANDOM } , 
         { "shortest", e_RouteStrategy::SHORTEST }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_RoutingAlgorithm>>enum_map()
+{
+    return {
+        { "assignedRoute", e_RoutingAlgorithm::ASSIGNEDROUTE } , 
+        { "fastest", e_RoutingAlgorithm::FASTEST } , 
+        { "leastIntersections", e_RoutingAlgorithm::LEASTINTERSECTIONS } , 
+        { "shortest", e_RoutingAlgorithm::SHORTEST } , 
+        { "undefined", e_RoutingAlgorithm::UNDEFINED }  
     };
 }
 template<>
@@ -788,6 +1218,55 @@ inline std::vector<std::pair<std::string, e_VehicleCategory>>enum_map()
         { "van", e_VehicleCategory::VAN }  
     };
 }
+template<>
+inline std::vector<std::pair<std::string, e_VehicleComponentType>>enum_map()
+{
+    return {
+        { "hood", e_VehicleComponentType::HOOD } , 
+        { "trunk", e_VehicleComponentType::TRUNK } , 
+        { "doorFrontRight", e_VehicleComponentType::DOORFRONTRIGHT } , 
+        { "doorFrontLeft", e_VehicleComponentType::DOORFRONTLEFT } , 
+        { "doorRearRight", e_VehicleComponentType::DOORREARRIGHT } , 
+        { "doorRearLeft", e_VehicleComponentType::DOORREARLEFT } , 
+        { "windowFrontRight", e_VehicleComponentType::WINDOWFRONTRIGHT } , 
+        { "windowFrontLeft", e_VehicleComponentType::WINDOWFRONTLEFT } , 
+        { "windowRearRight", e_VehicleComponentType::WINDOWREARRIGHT } , 
+        { "windowRearLeft", e_VehicleComponentType::WINDOWREARLEFT } , 
+        { "sideMirrors", e_VehicleComponentType::SIDEMIRRORS } , 
+        { "sideMirrorRight", e_VehicleComponentType::SIDEMIRRORRIGHT } , 
+        { "sideMirrorLeft", e_VehicleComponentType::SIDEMIRRORLEFT }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_VehicleLightType>>enum_map()
+{
+    return {
+        { "daytimeRunningLights", e_VehicleLightType::DAYTIMERUNNINGLIGHTS } , 
+        { "lowBeam", e_VehicleLightType::LOWBEAM } , 
+        { "highBeam", e_VehicleLightType::HIGHBEAM } , 
+        { "fogLights", e_VehicleLightType::FOGLIGHTS } , 
+        { "fogLightsFront", e_VehicleLightType::FOGLIGHTSFRONT } , 
+        { "fogLightsRear", e_VehicleLightType::FOGLIGHTSREAR } , 
+        { "brakeLights", e_VehicleLightType::BRAKELIGHTS } , 
+        { "warningLights", e_VehicleLightType::WARNINGLIGHTS } , 
+        { "indicatorLeft", e_VehicleLightType::INDICATORLEFT } , 
+        { "indicatorRight", e_VehicleLightType::INDICATORRIGHT } , 
+        { "reversingLights", e_VehicleLightType::REVERSINGLIGHTS } , 
+        { "licensePlateIllumination", e_VehicleLightType::LICENSEPLATEILLUMINATION } , 
+        { "specialPurposeLights", e_VehicleLightType::SPECIALPURPOSELIGHTS }  
+    };
+}
+template<>
+inline std::vector<std::pair<std::string, e_Wetness>>enum_map()
+{
+    return {
+        { "dry", e_Wetness::DRY } , 
+        { "moist", e_Wetness::MOIST } , 
+        { "wetWithPuddles", e_Wetness::WETWITHPUDDLES } , 
+        { "lowFlooded", e_Wetness::LOWFLOODED } , 
+        { "highFlooded", e_Wetness::HIGHFLOODED }  
+    };
+}
 //Begin Forward Declarations 
 struct AbsoluteSpeed;
 struct AbsoluteTargetLane;
@@ -800,11 +1279,18 @@ struct Action;
 struct ActivateControllerAction;
 struct Actors;
 struct AddEntityAction;
+struct AnimationAction;
+struct AnimationFile;
+struct AnimationState;
+struct AnimationType;
+struct AppearanceAction;
 struct AssignControllerAction;
 struct AssignRouteAction;
+struct AutomaticGear;
 struct Axle;
 struct Axles;
 struct BoundingBox;
+struct Brake;
 struct ByEntityCondition;
 struct ByObjectType;
 struct ByType;
@@ -816,6 +1302,10 @@ struct Center;
 struct CentralSwarmObject;
 struct Clothoid;
 struct CollisionCondition;
+struct Color;
+struct ColorCmyk;
+struct ColorRgb;
+struct ComponentAnimation;
 struct Condition;
 struct ConditionGroup;
 struct Controller;
@@ -825,16 +1315,19 @@ struct ControllerDistribution;
 struct ControllerDistributionEntry;
 struct ControlPoint;
 struct CustomCommandAction;
+struct CustomContent;
 struct DeleteEntityAction;
 struct Deterministic;
 struct DeterministicMultiParameterDistribution;
 struct DeterministicSingleParameterDistribution;
 struct Dimensions;
+struct DirectionOfTravelDistribution;
 struct Directory;
 struct DistanceCondition;
 struct DistributionRange;
 struct DistributionSet;
 struct DistributionSetElement;
+struct DomeImage;
 struct DynamicConstraints;
 struct EndOfRoadCondition;
 struct Entities;
@@ -870,11 +1363,15 @@ struct LanePosition;
 struct LateralAction;
 struct LateralDistanceAction;
 struct License;
+struct LightState;
+struct LightStateAction;
+struct LightType;
 struct LongitudinalAction;
 struct LongitudinalDistanceAction;
 struct Maneuver;
 struct ManeuverCatalogLocation;
 struct ManeuverGroup;
+struct ManualGear;
 struct MiscObject;
 struct MiscObjectCatalogLocation;
 struct ModifyRule;
@@ -905,7 +1402,9 @@ struct ParameterSetAction;
 struct ParameterValueDistribution;
 struct ParameterValueSet;
 struct Pedestrian;
+struct PedestrianAnimation;
 struct PedestrianCatalogLocation;
+struct PedestrianGesture;
 struct Performance;
 struct Phase;
 struct PoissonDistribution;
@@ -923,8 +1422,10 @@ struct Properties;
 struct Property;
 struct Range;
 struct ReachPositionCondition;
+struct RelativeClearanceCondition;
 struct RelativeDistanceCondition;
 struct RelativeLanePosition;
+struct RelativeLaneRange;
 struct RelativeObjectPosition;
 struct RelativeRoadPosition;
 struct RelativeSpeedCondition;
@@ -943,11 +1444,15 @@ struct RouteRef;
 struct RoutingAction;
 struct ScenarioObject;
 struct SelectedEntities;
+struct SensorReference;
+struct SensorReferenceSet;
 struct Shape;
 struct SimulationTimeCondition;
 struct SpeedAction;
 struct SpeedActionTarget;
 struct SpeedCondition;
+struct SpeedProfileAction;
+struct SpeedProfileEntry;
 struct StandStillCondition;
 struct Stochastic;
 struct StochasticDistribution;
@@ -974,6 +1479,7 @@ struct TrafficSignalController;
 struct TrafficSignals;
 struct TrafficSignalControllerAction;
 struct TrafficSignalControllerCondition;
+struct TrafficSignalGroupState;
 struct TrafficSignalState;
 struct TrafficSignalStateAction;
 struct TrafficSinkAction;
@@ -992,15 +1498,31 @@ struct TriggeringEntities;
 struct UniformDistribution;
 struct UsedArea;
 struct UserDefinedAction;
+struct UserDefinedAnimation;
+struct UserDefinedComponent;
 struct UserDefinedDistribution;
+struct UserDefinedLight;
 struct UserDefinedValueCondition;
 struct ValueConstraint;
 struct ValueConstraintGroup;
 struct ValueSetDistribution;
+struct VariableAction;
+struct VariableAddValueRule;
+struct VariableCondition;
+struct VariableDeclaration;
+struct VariableDeclarations;
+struct VariableModifyAction;
+struct VariableModifyRule;
+struct VariableMultiplyByValueRule;
+struct VariableSetAction;
 struct Vehicle;
 struct VehicleCatalogLocation;
 struct VehicleCategoryDistribution;
 struct VehicleCategoryDistributionEntry;
+struct VehicleComponent;
+struct VehicleLight;
+struct VehicleRoleDistribution;
+struct VehicleRoleDistributionEntry;
 struct Vertex;
 struct VisibilityAction;
 struct Waypoint;
@@ -1008,12 +1530,14 @@ struct Weather;
 struct Wind;
 struct WorldPosition;
 // xs:group -> aliased to group definition
+struct BrakeInput;
 struct CatalogDefinition;
 struct DeterministicMultiParameterDistributionType;
 struct DeterministicParameterDistribution;
 struct DeterministicSingleParameterDistributionType;
 struct DistributionDefinition;
 struct EntityObject;
+struct Gear;
 struct OpenScenarioCategory;
 struct ParameterValueDistributionDefinition;
 struct ScenarioDefinition;
@@ -1031,6 +1555,19 @@ public:
     Action_U(pugi::xml_node node);
     void save(pugi::xml_node node);
     ~Action_U(){};
+};
+struct  AnimationType_U	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+    std::shared_ptr<ComponentAnimation>                 m_ComponentAnimation; //xs:element
+    std::shared_ptr<PedestrianAnimation>                 m_PedestrianAnimation; //xs:element
+    std::shared_ptr<AnimationFile>                 m_AnimationFile; //xs:element
+    std::shared_ptr<UserDefinedAnimation>                 m_UserDefinedAnimation; //xs:element
+public:
+    AnimationType_U(){};
+    AnimationType_U(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    ~AnimationType_U(){};
 };
 struct  AssignControllerAction_U	// TODO: >> Should be union - will have to handle properly 
 {
@@ -1064,6 +1601,7 @@ public:
     std::shared_ptr<UserDefinedValueCondition>                 m_UserDefinedValueCondition; //xs:element
     std::shared_ptr<TrafficSignalCondition>                 m_TrafficSignalCondition; //xs:element
     std::shared_ptr<TrafficSignalControllerCondition>                 m_TrafficSignalControllerCondition; //xs:element
+    std::shared_ptr<VariableCondition>                 m_VariableCondition; //xs:element
 public:
     ByValueCondition_U(){};
     ByValueCondition_U(pugi::xml_node node);
@@ -1080,6 +1618,17 @@ public:
     CollisionCondition_U(pugi::xml_node node);
     void save(pugi::xml_node node);
     ~CollisionCondition_U(){};
+};
+struct  Color_U	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+    std::shared_ptr<ColorRgb>                 m_ColorRgb; //xs:element
+    std::shared_ptr<ColorCmyk>                 m_ColorCmyk; //xs:element
+public:
+    Color_U(){};
+    Color_U(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    ~Color_U(){};
 };
 struct  Condition_U	// TODO: >> Should be union - will have to handle properly 
 {
@@ -1130,6 +1679,7 @@ public:
     std::shared_ptr<ReachPositionCondition>                 m_ReachPositionCondition; //xs:element
     std::shared_ptr<DistanceCondition>                 m_DistanceCondition; //xs:element
     std::shared_ptr<RelativeDistanceCondition>                 m_RelativeDistanceCondition; //xs:element
+    std::shared_ptr<RelativeClearanceCondition>                 m_RelativeClearanceCondition; //xs:element
 public:
     EntityCondition_U(){};
     EntityCondition_U(pugi::xml_node node);
@@ -1166,6 +1716,7 @@ public:
     std::shared_ptr<ParameterAction>                 m_ParameterAction; //xs:element
     std::shared_ptr<InfrastructureAction>                 m_InfrastructureAction; //xs:element
     std::shared_ptr<TrafficAction>                 m_TrafficAction; //xs:element
+    std::shared_ptr<VariableAction>                 m_VariableAction; //xs:element
 public:
     GlobalAction_U(){};
     GlobalAction_U(pugi::xml_node node);
@@ -1223,6 +1774,7 @@ struct  LongitudinalAction_U	// TODO: >> Should be union - will have to handle p
 public:
     std::shared_ptr<SpeedAction>                 m_SpeedAction; //xs:element
     std::shared_ptr<LongitudinalDistanceAction>                 m_LongitudinalDistanceAction; //xs:element
+    std::shared_ptr<SpeedProfileAction>                 m_SpeedProfileAction; //xs:element
 public:
     LongitudinalAction_U(){};
     LongitudinalAction_U(pugi::xml_node node);
@@ -1292,6 +1844,7 @@ public:
     std::shared_ptr<ControllerAction>                 m_ControllerAction; //xs:element
     std::shared_ptr<TeleportAction>                 m_TeleportAction; //xs:element
     std::shared_ptr<RoutingAction>                 m_RoutingAction; //xs:element
+    std::shared_ptr<AppearanceAction>                 m_AppearanceAction; //xs:element
 public:
     PrivateAction_U(){};
     PrivateAction_U(pugi::xml_node node);
@@ -1412,6 +1965,28 @@ public:
     void save(pugi::xml_node node);
     ~TrajectoryRef_U(){};
 };
+struct  VariableAction_U	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+    std::shared_ptr<VariableSetAction>                 m_SetAction; //xs:element
+    std::shared_ptr<VariableModifyAction>                 m_ModifyAction; //xs:element
+public:
+    VariableAction_U(){};
+    VariableAction_U(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    ~VariableAction_U(){};
+};
+struct  VariableModifyRule_U	// TODO: >> Should be union - will have to handle properly 
+{
+public:
+    std::shared_ptr<VariableAddValueRule>                 m_AddValue; //xs:element
+    std::shared_ptr<VariableMultiplyByValueRule>                 m_MultiplyByValue; //xs:element
+public:
+    VariableModifyRule_U(){};
+    VariableModifyRule_U(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    ~VariableModifyRule_U(){};
+};
 struct  AbsoluteSpeed   
 {
 /**/
@@ -1474,6 +2049,8 @@ public:
     Rule	    rule; //  required 
     //
     Double	    value; //  required 
+    //
+    DirectionalDimension	    direction; //   
 };
 struct  AcquirePositionAction   
 {
@@ -1524,9 +2101,15 @@ public:
     virtual ~ActivateControllerAction(){};
 public: 
     //
+    String	    controllerRef; //   
+    //
     Boolean	    lateral; //   
     //
     Boolean	    longitudinal; //   
+    //
+    Boolean	    animation; //   
+    //
+    Boolean	    lighting; //   
 };
 struct  Actors   
 {
@@ -1552,6 +2135,70 @@ public:
 public: 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
+struct  AnimationAction   
+{
+/**/
+public:
+    AnimationAction(){};
+    AnimationAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~AnimationAction(){};
+public: 
+    //
+    Boolean	    loop; //   
+    //
+    Double	    animationDuration; //   
+    std::shared_ptr<AnimationType>                 m_AnimationType; //xs:element
+    std::shared_ptr<AnimationState>                 m_AnimationState; //xs:element
+};
+struct  AnimationFile   
+{
+/**/
+public:
+    AnimationFile(){};
+    AnimationFile(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~AnimationFile(){};
+public: 
+    //
+    Double	    timeOffset; //   
+    std::shared_ptr<File>                 m_File; //xs:element
+};
+struct  AnimationState   
+{
+/**/
+public:
+    AnimationState(){};
+    AnimationState(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~AnimationState(){};
+public: 
+    //
+    Double	    state; //  required 
+};
+struct  AnimationType   
+{
+/**/
+public:
+    AnimationType(){};
+    AnimationType(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~AnimationType(){};
+public: 
+    std::shared_ptr<AnimationType_U>                 m_AnimationType; //xs:element
+};
+struct  AppearanceAction   
+{
+/**/
+public:
+    AppearanceAction(){};
+    AppearanceAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~AppearanceAction(){};
+public: 
+    std::shared_ptr<LightStateAction>                 m_LightStateAction; //xs:element
+    std::shared_ptr<AnimationAction>                 m_AnimationAction; //xs:element
+};
 struct  AssignControllerAction   
 {
 /**/
@@ -1565,6 +2212,10 @@ public:
     Boolean	    activateLateral; //   
     //
     Boolean	    activateLongitudinal; //   
+    //
+    Boolean	    activateAnimation; //   
+    //
+    Boolean	    activateLighting; //   
     std::shared_ptr<AssignControllerAction_U>                 m_AssignControllerAction; //xs:element
 };
 struct  AssignRouteAction   
@@ -1577,6 +2228,18 @@ public:
     virtual ~AssignRouteAction(){};
 public: 
     std::shared_ptr<AssignRouteAction_U>                 m_AssignRouteAction; //xs:element
+};
+struct  AutomaticGear   
+{
+/**/
+public:
+    AutomaticGear(){};
+    AutomaticGear(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~AutomaticGear(){};
+public: 
+    //
+    AutomaticGearType	    gear; //  required 
 };
 struct  Axle   
 {
@@ -1622,6 +2285,20 @@ public:
 public: 
     std::shared_ptr<Center>                 m_Center; //xs:element
     std::shared_ptr<Dimensions>                 m_Dimensions; //xs:element
+};
+struct  Brake   
+{
+/**/
+public:
+    Brake(){};
+    Brake(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Brake(){};
+public: 
+    //
+    Double	    value; //  required 
+    //
+    Double	    maxRate; //   
 };
 struct  ByEntityCondition   
 {
@@ -1785,6 +2462,65 @@ public:
 public: 
     std::shared_ptr<CollisionCondition_U>                 m_CollisionCondition; //xs:element
 };
+struct  Color   
+{
+/**/
+public:
+    Color(){};
+    Color(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Color(){};
+public: 
+    //
+    ColorType	    colorType; //  required 
+    std::shared_ptr<Color_U>                 m_Color; //xs:element
+};
+struct  ColorCmyk   
+{
+/**/
+public:
+    ColorCmyk(){};
+    ColorCmyk(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ColorCmyk(){};
+public: 
+    //
+    Double	    cyan; //  required 
+    //
+    Double	    magenta; //  required 
+    //
+    Double	    yellow; //  required 
+    //
+    Double	    key; //  required 
+};
+struct  ColorRgb   
+{
+/**/
+public:
+    ColorRgb(){};
+    ColorRgb(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ColorRgb(){};
+public: 
+    //
+    Double	    red; //  required 
+    //
+    Double	    green; //  required 
+    //
+    Double	    blue; //  required 
+};
+struct  ComponentAnimation   
+{
+/**/
+public:
+    ComponentAnimation(){};
+    ComponentAnimation(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ComponentAnimation(){};
+public: 
+    std::shared_ptr<VehicleComponent>                 m_VehicleComponent; //xs:element
+    std::shared_ptr<UserDefinedComponent>                 m_UserDefinedComponent; //xs:element
+};
 struct  Condition   
 {
 /**/
@@ -1824,6 +2560,8 @@ public:
 public: 
     //
     String	    name; //  required 
+    //
+    ControllerType	    controllerType; //   
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
@@ -1902,6 +2640,16 @@ public:
     //
     String	    type; //  required 
 };
+struct  CustomContent   
+{
+/**/
+public:
+    CustomContent(){};
+    CustomContent(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~CustomContent(){};
+public: 
+};
 struct  DeleteEntityAction   
 {
 /**/
@@ -1963,6 +2711,20 @@ public:
     //
     Double	    width; //  required 
 };
+struct  DirectionOfTravelDistribution   
+{
+/**/
+public:
+    DirectionOfTravelDistribution(){};
+    DirectionOfTravelDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DirectionOfTravelDistribution(){};
+public: 
+    //
+    Double	    same; //  required 
+    //
+    Double	    opposite; //  required 
+};
 struct  Directory   
 {
 /**/
@@ -1996,6 +2758,8 @@ public:
     CoordinateSystem	    coordinateSystem; //   
     //
     RelativeDistanceType	    relativeDistanceType; //   
+    //
+    RoutingAlgorithm	    routingAlgorithm; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
 struct  DistributionRange   
@@ -2034,6 +2798,19 @@ public:
     //
     String	    value; //  required 
 };
+struct  DomeImage   
+{
+/**/
+public:
+    DomeImage(){};
+    DomeImage(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~DomeImage(){};
+public: 
+    //
+    Double	    azimuthOffset; //   
+    std::shared_ptr<File>                 m_DomeFile; //xs:element
+};
 struct  DynamicConstraints   
 {
 /**/
@@ -2046,7 +2823,11 @@ public:
     //
     Double	    maxAcceleration; //   
     //
+    Double	    maxAccelerationRate; //   
+    //
     Double	    maxDeceleration; //   
+    //
+    Double	    maxDecelerationRate; //   
     //
     Double	    maxSpeed; //   
 };
@@ -2223,6 +3004,7 @@ public:
     //
     UnsignedShort	    revMinor; //  required 
     std::shared_ptr<License>                 m_License; //xs:element
+    std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
 struct  FinalSpeed   
 {
@@ -2275,11 +3057,17 @@ public:
     virtual ~GeoPosition(){};
 public: 
     //
-    Double	    latitude; //  required 
+    Double	    latitude; //   
     //
-    Double	    longitude; //  required 
+    Double	    longitude; //   
     //
     Double	    height; //   
+    //
+    Double	    latitudeDeg; //   
+    //
+    Double	    longitudeDeg; //   
+    //
+    Double	    altitude; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
 };
 struct  GlobalAction   
@@ -2508,6 +3296,51 @@ public:
     //
     String	    spdxId; //   
 };
+struct  LightState   
+{
+/**/
+public:
+    LightState(){};
+    LightState(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~LightState(){};
+public: 
+    //
+    LightMode	    mode; //  required 
+    //
+    Double	    luminousIntensity; //   
+    //
+    Double	    flashingOnDuration; //   
+    //
+    Double	    flashingOffDuration; //   
+    std::shared_ptr<Color>                 m_Color; //xs:element
+};
+struct  LightStateAction   
+{
+/**/
+public:
+    LightStateAction(){};
+    LightStateAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~LightStateAction(){};
+public: 
+    //
+    Double	    transitionTime; //   
+    std::shared_ptr<LightType>                 m_LightType; //xs:element
+    std::shared_ptr<LightState>                 m_LightState; //xs:element
+};
+struct  LightType   
+{
+/**/
+public:
+    LightType(){};
+    LightType(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~LightType(){};
+public: 
+    std::shared_ptr<VehicleLight>                 m_VehicleLight; //xs:element
+    std::shared_ptr<UserDefinedLight>                 m_UserDefinedLight; //xs:element
+};
 struct  LongitudinalAction   
 {
 /**/
@@ -2585,6 +3418,18 @@ public:
     std::shared_ptr<Actors>                 m_Actors; //xs:element
     std::vector<std::shared_ptr<CatalogReference>>                 m_CatalogReferences; //xs:element
     std::vector<std::shared_ptr<Maneuver>>                 m_Maneuvers; //xs:element
+};
+struct  ManualGear   
+{
+/**/
+public:
+    ManualGear(){};
+    ManualGear(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~ManualGear(){};
+public: 
+    //
+    Int	    number; //  required 
 };
 struct  MiscObject   
 {
@@ -2733,7 +3578,8 @@ public:
     //
     Boolean	    active; //  required 
     //
-    Double	    value; //  required 
+    Double	    value; //   
+    std::shared_ptr<BrakeInput>                 m_BrakeInput; //xs:groupent
 };
 struct  OverrideClutchAction   
 {
@@ -2748,6 +3594,8 @@ public:
     Boolean	    active; //  required 
     //
     Double	    value; //  required 
+    //
+    Double	    maxRate; //   
 };
 struct  OverrideControllerValueAction   
 {
@@ -2777,7 +3625,8 @@ public:
     //
     Boolean	    active; //  required 
     //
-    Double	    number; //  required 
+    Double	    number; //   
+    std::shared_ptr<Gear>                 m_Gear; //xs:groupent
 };
 struct  OverrideParkingBrakeAction   
 {
@@ -2791,7 +3640,8 @@ public:
     //
     Boolean	    active; //  required 
     //
-    Double	    value; //  required 
+    Double	    value; //   
+    std::shared_ptr<BrakeInput>                 m_BrakeInput; //xs:groupent
 };
 struct  OverrideSteeringWheelAction   
 {
@@ -2806,6 +3656,10 @@ public:
     Boolean	    active; //  required 
     //
     Double	    value; //  required 
+    //
+    Double	    maxRate; //   
+    //
+    Double	    maxTorque; //   
 };
 struct  OverrideThrottleAction   
 {
@@ -2820,6 +3674,8 @@ public:
     Boolean	    active; //  required 
     //
     Double	    value; //  required 
+    //
+    Double	    maxRate; //   
 };
 struct  ParameterAction   
 {
@@ -2992,9 +3848,26 @@ public:
     PedestrianCategory	    pedestrianCategory; //  required 
     //
     String	    model3d; //   
+    //
+    Role	    role; //   
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
     std::shared_ptr<BoundingBox>                 m_BoundingBox; //xs:element
     std::shared_ptr<Properties>                 m_Properties; //xs:element
+};
+struct  PedestrianAnimation   
+{
+/**/
+public:
+    PedestrianAnimation(){};
+    PedestrianAnimation(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~PedestrianAnimation(){};
+public: 
+    //
+    PedestrianMotionType	    motion; //   
+    //
+    String	    userDefinedPedestrianAnimation; //   
+    std::vector<std::shared_ptr<PedestrianGesture>>                 m_PedestrianGestures; //xs:element
 };
 struct  PedestrianCatalogLocation   
 {
@@ -3006,6 +3879,18 @@ public:
     virtual ~PedestrianCatalogLocation(){};
 public: 
     std::shared_ptr<Directory>                 m_Directory; //xs:element
+};
+struct  PedestrianGesture   
+{
+/**/
+public:
+    PedestrianGesture(){};
+    PedestrianGesture(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~PedestrianGesture(){};
+public: 
+    //
+    PedestrianGestureType	    gesture; //  required 
 };
 struct  Performance   
 {
@@ -3019,7 +3904,11 @@ public:
     //
     Double	    maxAcceleration; //  required 
     //
+    Double	    maxAccelerationRate; //   
+    //
     Double	    maxDeceleration; //  required 
+    //
+    Double	    maxDecelerationRate; //   
     //
     Double	    maxSpeed; //  required 
 };
@@ -3037,6 +3926,7 @@ public:
     //
     String	    name; //  required 
     std::vector<std::shared_ptr<TrafficSignalState>>                 m_TrafficSignalStates; //xs:element
+    std::shared_ptr<TrafficSignalGroupState>                 m_TrafficeSignalGroupState; //xs:element
 };
 struct  PoissonDistribution   
 {
@@ -3191,6 +4081,7 @@ public:
 public: 
     std::vector<std::shared_ptr<Property>>                 m_Propertys; //xs:element
     std::vector<std::shared_ptr<File>>                 m_Files; //xs:element
+    std::vector<std::shared_ptr<CustomContent>>                 m_CustomContents; //xs:element
 };
 struct  Property   
 {
@@ -3233,6 +4124,26 @@ public:
     Double	    tolerance; //  required 
     std::shared_ptr<Position>                 m_Position; //xs:element
 };
+struct  RelativeClearanceCondition   
+{
+/**/
+public:
+    RelativeClearanceCondition(){};
+    RelativeClearanceCondition(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~RelativeClearanceCondition(){};
+public: 
+    //
+    Boolean	    oppositeLanes; //  required 
+    //
+    Double	    distanceForward; //   
+    //
+    Double	    distanceBackward; //   
+    //
+    Boolean	    freeSpace; //  required 
+    std::vector<std::shared_ptr<RelativeLaneRange>>                 m_RelativeLaneRanges; //xs:element
+    std::vector<std::shared_ptr<EntityRef>>                 m_EntityRefs; //xs:element
+};
 struct  RelativeDistanceCondition   
 {
 /**/
@@ -3254,6 +4165,8 @@ public:
     Double	    value; //  required 
     //
     CoordinateSystem	    coordinateSystem; //   
+    //
+    RoutingAlgorithm	    routingAlgorithm; //   
 };
 struct  RelativeLanePosition   
 {
@@ -3275,6 +4188,20 @@ public:
     //
     Double	    dsLane; //   
     std::shared_ptr<Orientation>                 m_Orientation; //xs:element
+};
+struct  RelativeLaneRange   
+{
+/**/
+public:
+    RelativeLaneRange(){};
+    RelativeLaneRange(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~RelativeLaneRange(){};
+public: 
+    //
+    Int	    from; //   
+    //
+    Int	    to; //   
 };
 struct  RelativeObjectPosition   
 {
@@ -3327,6 +4254,8 @@ public:
     Rule	    rule; //  required 
     //
     Double	    value; //  required 
+    //
+    DirectionalDimension	    direction; //   
 };
 struct  RelativeSpeedToMaster   
 {
@@ -3419,6 +4348,8 @@ public:
 public: 
     //
     Double	    frictionScaleFactor; //  required 
+    //
+    Wetness	    wetness; //   
     std::shared_ptr<Properties>                 m_Properties; //xs:element
 };
 struct  RoadNetwork   
@@ -3525,7 +4456,7 @@ public:
 public: 
     //
     String	    name; //  required 
-    std::shared_ptr<ObjectController>                 m_ObjectController; //xs:element
+    std::vector<std::shared_ptr<ObjectController>>                 m_ObjectControllers; //xs:element
     std::shared_ptr<EntityObject>                 m_EntityObject; //xs:groupent
 };
 struct  SelectedEntities   
@@ -3538,6 +4469,29 @@ public:
     virtual ~SelectedEntities(){};
 public: 
     std::shared_ptr<SelectedEntities_U>                 m_SelectedEntities; //xs:element
+};
+struct  SensorReference   
+{
+/**/
+public:
+    SensorReference(){};
+    SensorReference(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~SensorReference(){};
+public: 
+    //
+    String	    name; //  required 
+};
+struct  SensorReferenceSet   
+{
+/**/
+public:
+    SensorReferenceSet(){};
+    SensorReferenceSet(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~SensorReferenceSet(){};
+public: 
+    std::vector<std::shared_ptr<SensorReference>>                 m_SensorReferences; //xs:element
 };
 struct  Shape   
 {
@@ -3600,6 +4554,38 @@ public:
     Rule	    rule; //  required 
     //
     Double	    value; //  required 
+    //
+    DirectionalDimension	    direction; //   
+};
+struct  SpeedProfileAction   
+{
+/**/
+public:
+    SpeedProfileAction(){};
+    SpeedProfileAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~SpeedProfileAction(){};
+public: 
+    //
+    String	    entityRef; //   
+    //
+    FollowingMode	    followingMode; //  required 
+    std::shared_ptr<DynamicConstraints>                 m_DynamicConstraints; //xs:element
+    std::vector<std::shared_ptr<SpeedProfileEntry>>                 m_SpeedProfileEntrys; //xs:element
+};
+struct  SpeedProfileEntry   
+{
+/**/
+public:
+    SpeedProfileEntry(){};
+    SpeedProfileEntry(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~SpeedProfileEntry(){};
+public: 
+    //
+    Double	    speed; //  required 
+    //
+    Double	    time; //   
 };
 struct  StandStillCondition   
 {
@@ -3698,7 +4684,9 @@ public:
     //
     Double	    elevation; //  required 
     //
-    Double	    intensity; //  required 
+    Double	    intensity; //   
+    //
+    Double	    illuminance; //   
 };
 struct  SynchronizeAction   
 {
@@ -3777,6 +4765,8 @@ public:
     CoordinateSystem	    coordinateSystem; //   
     //
     RelativeDistanceType	    relativeDistanceType; //   
+    //
+    RoutingAlgorithm	    routingAlgorithm; //   
 };
 struct  TimeOfDay   
 {
@@ -3838,6 +4828,8 @@ public:
     RelativeDistanceType	    relativeDistanceType; //   
     //
     CoordinateSystem	    coordinateSystem; //   
+    //
+    RoutingAlgorithm	    routingAlgorithm; //   
     std::shared_ptr<TimeToCollisionConditionTarget>                 m_TimeToCollisionConditionTarget; //xs:element
 };
 struct  TimeToCollisionConditionTarget   
@@ -3892,6 +4884,7 @@ public:
     //
     String	    name; //  required 
     std::shared_ptr<VehicleCategoryDistribution>                 m_VehicleCategoryDistribution; //xs:element
+    std::shared_ptr<VehicleRoleDistribution>                 m_VehicleRoleDistribution; //xs:element
     std::shared_ptr<ControllerDistribution>                 m_ControllerDistribution; //xs:element
 };
 struct  TrafficSignalAction   
@@ -3975,6 +4968,18 @@ public:
     //
     String	    phase; //  required 
 };
+struct  TrafficSignalGroupState   
+{
+/**/
+public:
+    TrafficSignalGroupState(){};
+    TrafficSignalGroupState(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~TrafficSignalGroupState(){};
+public: 
+    //
+    String	    state; //  required 
+};
 struct  TrafficSignalState   
 {
 /**/
@@ -4034,6 +5039,8 @@ public:
     Double	    rate; //  required 
     //
     Double	    velocity; //   
+    //
+    Double	    speed; //   
     std::shared_ptr<Position>                 m_Position; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
 };
@@ -4070,6 +5077,8 @@ public:
     Double	    velocity; //   
     std::shared_ptr<CentralSwarmObject>                 m_CentralObject; //xs:element
     std::shared_ptr<TrafficDefinition>                 m_TrafficDefinition; //xs:element
+    std::shared_ptr<Range>                 m_InitialSpeedRange; //xs:element
+    std::shared_ptr<DirectionOfTravelDistribution>                 m_DirectionOfTravelDistribution; //xs:element
 };
 struct  Trajectory   
 {
@@ -4151,6 +5160,8 @@ public:
     //
     DynamicsShape	    dynamicsShape; //  required 
     //
+    FollowingMode	    followingMode; //   
+    //
     Double	    value; //  required 
 };
 struct  TraveledDistanceCondition   
@@ -4222,6 +5233,30 @@ public:
 public: 
     std::shared_ptr<CustomCommandAction>                 m_CustomCommandAction; //xs:element
 };
+struct  UserDefinedAnimation   
+{
+/**/
+public:
+    UserDefinedAnimation(){};
+    UserDefinedAnimation(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~UserDefinedAnimation(){};
+public: 
+    //
+    String	    userDefinedAnimationType; //  required 
+};
+struct  UserDefinedComponent   
+{
+/**/
+public:
+    UserDefinedComponent(){};
+    UserDefinedComponent(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~UserDefinedComponent(){};
+public: 
+    //
+    String	    userDefinedComponentType; //  required 
+};
 struct  UserDefinedDistribution   
 {
 /**/
@@ -4233,6 +5268,18 @@ public:
 public: 
     //
     String	    type; //  required 
+};
+struct  UserDefinedLight   
+{
+/**/
+public:
+    UserDefinedLight(){};
+    UserDefinedLight(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~UserDefinedLight(){};
+public: 
+    //
+    String	    userDefinedLightType; //  required 
 };
 struct  UserDefinedValueCondition   
 {
@@ -4286,6 +5333,120 @@ public:
 public: 
     std::vector<std::shared_ptr<ParameterValueSet>>                 m_ParameterValueSets; //xs:element
 };
+struct  VariableAction   
+{
+/**/
+public:
+    VariableAction(){};
+    VariableAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableAction(){};
+public: 
+    //
+    String	    variableRef; //  required 
+    std::shared_ptr<VariableAction_U>                 m_VariableAction; //xs:element
+};
+struct  VariableAddValueRule   
+{
+/**/
+public:
+    VariableAddValueRule(){};
+    VariableAddValueRule(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableAddValueRule(){};
+public: 
+    //
+    Double	    value; //  required 
+};
+struct  VariableCondition   
+{
+/**/
+public:
+    VariableCondition(){};
+    VariableCondition(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableCondition(){};
+public: 
+    //
+    String	    variableRef; //  required 
+    //
+    Rule	    rule; //  required 
+    //
+    String	    value; //  required 
+};
+struct  VariableDeclaration   
+{
+/**/
+public:
+    VariableDeclaration(){};
+    VariableDeclaration(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableDeclaration(){};
+public: 
+    //
+    String	    name; //  required 
+    //
+    ParameterType	    variableType; //  required 
+    //
+    String	    value; //  required 
+};
+struct  VariableDeclarations   
+{
+/**/
+public:
+    VariableDeclarations(){};
+    VariableDeclarations(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableDeclarations(){};
+public: 
+    std::vector<std::shared_ptr<VariableDeclaration>>                 m_VariableDeclarations; //xs:element
+};
+struct  VariableModifyAction   
+{
+/**/
+public:
+    VariableModifyAction(){};
+    VariableModifyAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableModifyAction(){};
+public: 
+    std::shared_ptr<VariableModifyRule>                 m_Rule; //xs:element
+};
+struct  VariableModifyRule   
+{
+/**/
+public:
+    VariableModifyRule(){};
+    VariableModifyRule(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableModifyRule(){};
+public: 
+    std::shared_ptr<VariableModifyRule_U>                 m_VariableModifyRule; //xs:element
+};
+struct  VariableMultiplyByValueRule   
+{
+/**/
+public:
+    VariableMultiplyByValueRule(){};
+    VariableMultiplyByValueRule(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableMultiplyByValueRule(){};
+public: 
+    //
+    Double	    value; //  required 
+};
+struct  VariableSetAction   
+{
+/**/
+public:
+    VariableSetAction(){};
+    VariableSetAction(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VariableSetAction(){};
+public: 
+    //
+    String	    value; //  required 
+};
 struct  Vehicle   
 {
 /**/
@@ -4299,6 +5460,8 @@ public:
     String	    name; //  required 
     //
     VehicleCategory	    vehicleCategory; //  required 
+    //
+    Role	    role; //   
     //
     Double	    mass; //   
     //
@@ -4345,6 +5508,55 @@ public:
     //
     Double	    weight; //  required 
 };
+struct  VehicleComponent   
+{
+/**/
+public:
+    VehicleComponent(){};
+    VehicleComponent(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VehicleComponent(){};
+public: 
+    //
+    VehicleComponentType	    vehicleComponentType; //  required 
+};
+struct  VehicleLight   
+{
+/**/
+public:
+    VehicleLight(){};
+    VehicleLight(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VehicleLight(){};
+public: 
+    //
+    VehicleLightType	    vehicleLightType; //  required 
+};
+struct  VehicleRoleDistribution   
+{
+/**/
+public:
+    VehicleRoleDistribution(){};
+    VehicleRoleDistribution(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VehicleRoleDistribution(){};
+public: 
+    std::vector<std::shared_ptr<VehicleRoleDistributionEntry>>                 m_VehicleRoleDistributionEntrys; //xs:element
+};
+struct  VehicleRoleDistributionEntry   
+{
+/**/
+public:
+    VehicleRoleDistributionEntry(){};
+    VehicleRoleDistributionEntry(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~VehicleRoleDistributionEntry(){};
+public: 
+    //
+    Role	    role; //  required 
+    //
+    Double	    weight; //  required 
+};
 struct  Vertex   
 {
 /**/
@@ -4373,6 +5585,7 @@ public:
     Boolean	    sensors; //  required 
     //
     Boolean	    traffic; //  required 
+    std::shared_ptr<SensorReferenceSet>                 m_SensorReferenceSet; //xs:element
 };
 struct  Waypoint   
 {
@@ -4402,10 +5615,13 @@ public:
     Double	    atmosphericPressure; //   
     //
     Double	    temperature; //   
+    //
+    FractionalCloudCover	    fractionalCloudCover; //   
     std::shared_ptr<Sun>                 m_Sun; //xs:element
     std::shared_ptr<Fog>                 m_Fog; //xs:element
     std::shared_ptr<Precipitation>                 m_Precipitation; //xs:element
     std::shared_ptr<Wind>                 m_Wind; //xs:element
+    std::shared_ptr<DomeImage>                 m_DomeImage; //xs:element
 };
 struct  Wind   
 {
@@ -4442,6 +5658,18 @@ public:
     Double	    y; //  required 
     //
     Double	    z; //   
+};
+// xs:group -> aliased to group definition
+struct  BrakeInput
+{
+public:
+    BrakeInput(){};
+    BrakeInput(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~BrakeInput(){};
+public:
+    std::shared_ptr<Brake>                 m_BrakePercent; //xs:element
+    std::shared_ptr<Brake>                 m_BrakeForce; //xs:element
 };
 // xs:group -> aliased to group definition
 struct  CatalogDefinition
@@ -4518,6 +5746,18 @@ public:
     std::shared_ptr<ExternalObjectReference>                 m_ExternalObjectReference; //xs:element
 };
 // xs:group -> aliased to group definition
+struct  Gear
+{
+public:
+    Gear(){};
+    Gear(pugi::xml_node node);
+    void save(pugi::xml_node node);
+    virtual ~Gear(){};
+public:
+    std::shared_ptr<ManualGear>                 m_ManualGear; //xs:element
+    std::shared_ptr<AutomaticGear>                 m_AutomaticGear; //xs:element
+};
+// xs:group -> aliased to group definition
 struct  OpenScenarioCategory
 {
 public:
@@ -4551,6 +5791,7 @@ public:
     virtual ~ScenarioDefinition(){};
 public:
     std::shared_ptr<ParameterDeclarations>                 m_ParameterDeclarations; //xs:element
+    std::shared_ptr<VariableDeclarations>                 m_VariableDeclarations; //xs:element
     std::shared_ptr<CatalogLocations>                 m_CatalogLocations; //xs:element
     std::shared_ptr<RoadNetwork>                 m_RoadNetwork; //xs:element
     std::shared_ptr<Entities>                 m_Entities; //xs:element
@@ -4602,4 +5843,4 @@ public:
     xosc();
     ~xosc();
 };
-#endif //_OPENSCENARIO_V1_1_1_H_
+#endif //_OPENSCENARIO_V1_2_H_

@@ -2,9 +2,9 @@
 //  opendrive_17_core.h
 //  xsd2cxx- for opendrive_17_core CXX classes
 //
-//  Created by Javed Shaik on Mon Dec 20 21:14:50 2021
+//  Created by Javed Shaik on Sat Jun 25 09:29:05 2022
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : 871f5bdb-7dc3-4e20-a79f-c20a510340af --
+//  -- UUIDv4 : a5823928-6b52-41d1-8a2e-c2eacc91b160 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 #ifndef _OPENDRIVE_17_CORE_H_
@@ -17,6 +17,7 @@
 #include <cstring>
 #include <string>
 #include <vector>
+#include <limits>
 //
 #include "pugixml.hpp"
 #include "common.h"

@@ -1,8 +1,8 @@
 //
-//  OpenSCENARIO_v1.1.1_py.cxx
-//  Created by Javed Shaik on Mon Dec 27 22:11:37 2021
+//  OpenSCENARIO_v1.2_py.cxx
+//  Created by Javed Shaik on Mon Dec 26 09:49:16 2022
 //  # AUTO-GENERATED FILE - DO NOT EDIT!!
-//  -- UUIDv4 : bbf119ed-5063-4f32-8378-5ee454c5df9e --
+//  -- UUIDv4 : 486a545d-cc8f-47ca-89a0-0a4f9294aca8 --
 //  All BUGS are Credited to ME :) - javedulu@gmail.com
 //
 //
@@ -15,11 +15,17 @@
 namespace py = pybind11;
 PYBIND11_MODULE(pyxosc,m)
 {
-    m.doc() = "Python Bindings for OpenSCENARIO_v1.1.1 - OPENSCENARIO_V1_1_1";
+    m.doc() = "Python Bindings for OpenSCENARIO_v1.2 - OPENSCENARIO_V1_2";
     py::class_<Action_U, std::shared_ptr<Action_U>>(m,"Action_U")
         .def_readwrite("GlobalAction", &Action_U::m_GlobalAction ) //GlobalAction
         .def_readwrite("UserDefinedAction", &Action_U::m_UserDefinedAction ) //UserDefinedAction
         .def_readwrite("PrivateAction", &Action_U::m_PrivateAction ) //PrivateAction
+;
+    py::class_<AnimationType_U, std::shared_ptr<AnimationType_U>>(m,"AnimationType_U")
+        .def_readwrite("ComponentAnimation", &AnimationType_U::m_ComponentAnimation ) //ComponentAnimation
+        .def_readwrite("PedestrianAnimation", &AnimationType_U::m_PedestrianAnimation ) //PedestrianAnimation
+        .def_readwrite("AnimationFile", &AnimationType_U::m_AnimationFile ) //AnimationFile
+        .def_readwrite("UserDefinedAnimation", &AnimationType_U::m_UserDefinedAnimation ) //UserDefinedAnimation
 ;
     py::class_<AssignControllerAction_U, std::shared_ptr<AssignControllerAction_U>>(m,"AssignControllerAction_U")
         .def_readwrite("Controller", &AssignControllerAction_U::m_Controller ) //Controller
@@ -37,10 +43,15 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("UserDefinedValueCondition", &ByValueCondition_U::m_UserDefinedValueCondition ) //UserDefinedValueCondition
         .def_readwrite("TrafficSignalCondition", &ByValueCondition_U::m_TrafficSignalCondition ) //TrafficSignalCondition
         .def_readwrite("TrafficSignalControllerCondition", &ByValueCondition_U::m_TrafficSignalControllerCondition ) //TrafficSignalControllerCondition
+        .def_readwrite("VariableCondition", &ByValueCondition_U::m_VariableCondition ) //VariableCondition
 ;
     py::class_<CollisionCondition_U, std::shared_ptr<CollisionCondition_U>>(m,"CollisionCondition_U")
         .def_readwrite("EntityRef", &CollisionCondition_U::m_EntityRef ) //EntityRef
         .def_readwrite("ByType", &CollisionCondition_U::m_ByType ) //ByObjectType
+;
+    py::class_<Color_U, std::shared_ptr<Color_U>>(m,"Color_U")
+        .def_readwrite("ColorRgb", &Color_U::m_ColorRgb ) //ColorRgb
+        .def_readwrite("ColorCmyk", &Color_U::m_ColorCmyk ) //ColorCmyk
 ;
     py::class_<Condition_U, std::shared_ptr<Condition_U>>(m,"Condition_U")
         .def_readwrite("ByEntityCondition", &Condition_U::m_ByEntityCondition ) //ByEntityCondition
@@ -68,6 +79,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("ReachPositionCondition", &EntityCondition_U::m_ReachPositionCondition ) //ReachPositionCondition
         .def_readwrite("DistanceCondition", &EntityCondition_U::m_DistanceCondition ) //DistanceCondition
         .def_readwrite("RelativeDistanceCondition", &EntityCondition_U::m_RelativeDistanceCondition ) //RelativeDistanceCondition
+        .def_readwrite("RelativeClearanceCondition", &EntityCondition_U::m_RelativeClearanceCondition ) //RelativeClearanceCondition
 ;
     py::class_<EnvironmentAction_U, std::shared_ptr<EnvironmentAction_U>>(m,"EnvironmentAction_U")
         .def_readwrite("Environment", &EnvironmentAction_U::m_Environment ) //Environment
@@ -83,6 +95,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("ParameterAction", &GlobalAction_U::m_ParameterAction ) //ParameterAction
         .def_readwrite("InfrastructureAction", &GlobalAction_U::m_InfrastructureAction ) //InfrastructureAction
         .def_readwrite("TrafficAction", &GlobalAction_U::m_TrafficAction ) //TrafficAction
+        .def_readwrite("VariableAction", &GlobalAction_U::m_VariableAction ) //VariableAction
 ;
     py::class_<InRoutePosition_U, std::shared_ptr<InRoutePosition_U>>(m,"InRoutePosition_U")
         .def_readwrite("FromCurrentEntity", &InRoutePosition_U::m_FromCurrentEntity ) //PositionOfCurrentEntity
@@ -105,6 +118,7 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<LongitudinalAction_U, std::shared_ptr<LongitudinalAction_U>>(m,"LongitudinalAction_U")
         .def_readwrite("SpeedAction", &LongitudinalAction_U::m_SpeedAction ) //SpeedAction
         .def_readwrite("LongitudinalDistanceAction", &LongitudinalAction_U::m_LongitudinalDistanceAction ) //LongitudinalDistanceAction
+        .def_readwrite("SpeedProfileAction", &LongitudinalAction_U::m_SpeedProfileAction ) //SpeedProfileAction
 ;
     py::class_<ModifyRule_U, std::shared_ptr<ModifyRule_U>>(m,"ModifyRule_U")
         .def_readwrite("AddValue", &ModifyRule_U::m_AddValue ) //ParameterAddValueRule
@@ -139,6 +153,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("ControllerAction", &PrivateAction_U::m_ControllerAction ) //ControllerAction
         .def_readwrite("TeleportAction", &PrivateAction_U::m_TeleportAction ) //TeleportAction
         .def_readwrite("RoutingAction", &PrivateAction_U::m_RoutingAction ) //RoutingAction
+        .def_readwrite("AppearanceAction", &PrivateAction_U::m_AppearanceAction ) //AppearanceAction
 ;
     py::class_<RouteRef_U, std::shared_ptr<RouteRef_U>>(m,"RouteRef_U")
         .def_readwrite("Route", &RouteRef_U::m_Route ) //Route
@@ -184,6 +199,14 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("Trajectory", &TrajectoryRef_U::m_Trajectory ) //Trajectory
         .def_readwrite("CatalogReference", &TrajectoryRef_U::m_CatalogReference ) //CatalogReference
 ;
+    py::class_<VariableAction_U, std::shared_ptr<VariableAction_U>>(m,"VariableAction_U")
+        .def_readwrite("SetAction", &VariableAction_U::m_SetAction ) //VariableSetAction
+        .def_readwrite("ModifyAction", &VariableAction_U::m_ModifyAction ) //VariableModifyAction
+;
+    py::class_<VariableModifyRule_U, std::shared_ptr<VariableModifyRule_U>>(m,"VariableModifyRule_U")
+        .def_readwrite("AddValue", &VariableModifyRule_U::m_AddValue ) //VariableAddValueRule
+        .def_readwrite("MultiplyByValue", &VariableModifyRule_U::m_MultiplyByValue ) //VariableMultiplyByValueRule
+;
 //
     py::class_<AbsoluteSpeed, std::shared_ptr<AbsoluteSpeed>>(m,"AbsoluteSpeed","")
         .def_readwrite("value", &AbsoluteSpeed::value, "") 
@@ -205,6 +228,7 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<AccelerationCondition, std::shared_ptr<AccelerationCondition>>(m,"AccelerationCondition","")
         .def_readwrite("rule", &AccelerationCondition::rule, "") 
         .def_readwrite("value", &AccelerationCondition::value, "") 
+        .def_readwrite("direction", &AccelerationCondition::direction, "") 
 ; 
 //
     py::class_<AcquirePositionAction, std::shared_ptr<AcquirePositionAction>>(m,"AcquirePositionAction","")
@@ -224,8 +248,11 @@ PYBIND11_MODULE(pyxosc,m)
 ; 
 //
     py::class_<ActivateControllerAction, std::shared_ptr<ActivateControllerAction>>(m,"ActivateControllerAction","")
+        .def_readwrite("controllerRef", &ActivateControllerAction::controllerRef, "") 
         .def_readwrite("lateral", &ActivateControllerAction::lateral, "") 
         .def_readwrite("longitudinal", &ActivateControllerAction::longitudinal, "") 
+        .def_readwrite("animation", &ActivateControllerAction::animation, "") 
+        .def_readwrite("lighting", &ActivateControllerAction::lighting, "") 
 ; 
 //
     py::class_<Actors, std::shared_ptr<Actors>>(m,"Actors","")
@@ -237,14 +264,45 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("Position", &AddEntityAction::m_Position ) //Position
 ; 
 //
+    py::class_<AnimationAction, std::shared_ptr<AnimationAction>>(m,"AnimationAction","")
+        .def_readwrite("loop", &AnimationAction::loop, "") 
+        .def_readwrite("animationDuration", &AnimationAction::animationDuration, "") 
+        .def_readwrite("AnimationType", &AnimationAction::m_AnimationType ) //AnimationType
+        .def_readwrite("AnimationState", &AnimationAction::m_AnimationState ) //AnimationState
+; 
+//
+    py::class_<AnimationFile, std::shared_ptr<AnimationFile>>(m,"AnimationFile","")
+        .def_readwrite("timeOffset", &AnimationFile::timeOffset, "") 
+        .def_readwrite("File", &AnimationFile::m_File ) //File
+; 
+//
+    py::class_<AnimationState, std::shared_ptr<AnimationState>>(m,"AnimationState","")
+        .def_readwrite("state", &AnimationState::state, "") 
+; 
+//
+    py::class_<AnimationType, std::shared_ptr<AnimationType>>(m,"AnimationType","")
+        .def_readwrite("AnimationType", &AnimationType::m_AnimationType ) //
+; 
+//
+    py::class_<AppearanceAction, std::shared_ptr<AppearanceAction>>(m,"AppearanceAction","")
+        .def_readwrite("LightStateAction", &AppearanceAction::m_LightStateAction ) //LightStateAction
+        .def_readwrite("AnimationAction", &AppearanceAction::m_AnimationAction ) //AnimationAction
+; 
+//
     py::class_<AssignControllerAction, std::shared_ptr<AssignControllerAction>>(m,"AssignControllerAction","")
         .def_readwrite("activateLateral", &AssignControllerAction::activateLateral, "") 
         .def_readwrite("activateLongitudinal", &AssignControllerAction::activateLongitudinal, "") 
+        .def_readwrite("activateAnimation", &AssignControllerAction::activateAnimation, "") 
+        .def_readwrite("activateLighting", &AssignControllerAction::activateLighting, "") 
         .def_readwrite("AssignControllerAction", &AssignControllerAction::m_AssignControllerAction ) //
 ; 
 //
     py::class_<AssignRouteAction, std::shared_ptr<AssignRouteAction>>(m,"AssignRouteAction","")
         .def_readwrite("AssignRouteAction", &AssignRouteAction::m_AssignRouteAction ) //
+; 
+//
+    py::class_<AutomaticGear, std::shared_ptr<AutomaticGear>>(m,"AutomaticGear","")
+        .def_readwrite("gear", &AutomaticGear::gear, "") 
 ; 
 //
     py::class_<Axle, std::shared_ptr<Axle>>(m,"Axle","")
@@ -264,6 +322,11 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<BoundingBox, std::shared_ptr<BoundingBox>>(m,"BoundingBox","")
         .def_readwrite("Center", &BoundingBox::m_Center ) //Center
         .def_readwrite("Dimensions", &BoundingBox::m_Dimensions ) //Dimensions
+; 
+//
+    py::class_<Brake, std::shared_ptr<Brake>>(m,"Brake","")
+        .def_readwrite("value", &Brake::value, "") 
+        .def_readwrite("maxRate", &Brake::maxRate, "") 
 ; 
 //
     py::class_<ByEntityCondition, std::shared_ptr<ByEntityCondition>>(m,"ByEntityCondition","")
@@ -336,6 +399,29 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("CollisionCondition", &CollisionCondition::m_CollisionCondition ) //
 ; 
 //
+    py::class_<Color, std::shared_ptr<Color>>(m,"Color","")
+        .def_readwrite("colorType", &Color::colorType, "") 
+        .def_readwrite("Color", &Color::m_Color ) //
+; 
+//
+    py::class_<ColorCmyk, std::shared_ptr<ColorCmyk>>(m,"ColorCmyk","")
+        .def_readwrite("cyan", &ColorCmyk::cyan, "") 
+        .def_readwrite("magenta", &ColorCmyk::magenta, "") 
+        .def_readwrite("yellow", &ColorCmyk::yellow, "") 
+        .def_readwrite("key", &ColorCmyk::key, "") 
+; 
+//
+    py::class_<ColorRgb, std::shared_ptr<ColorRgb>>(m,"ColorRgb","")
+        .def_readwrite("red", &ColorRgb::red, "") 
+        .def_readwrite("green", &ColorRgb::green, "") 
+        .def_readwrite("blue", &ColorRgb::blue, "") 
+; 
+//
+    py::class_<ComponentAnimation, std::shared_ptr<ComponentAnimation>>(m,"ComponentAnimation","")
+        .def_readwrite("VehicleComponent", &ComponentAnimation::m_VehicleComponent ) //VehicleComponent
+        .def_readwrite("UserDefinedComponent", &ComponentAnimation::m_UserDefinedComponent ) //UserDefinedComponent
+; 
+//
     py::class_<Condition, std::shared_ptr<Condition>>(m,"Condition","")
         .def_readwrite("conditionEdge", &Condition::conditionEdge, "") 
         .def_readwrite("delay", &Condition::delay, "") 
@@ -349,6 +435,7 @@ PYBIND11_MODULE(pyxosc,m)
 //
     py::class_<Controller, std::shared_ptr<Controller>>(m,"Controller","")
         .def_readwrite("name", &Controller::name, "") 
+        .def_readwrite("controllerType", &Controller::controllerType, "") 
         .def_readwrite("ParameterDeclarations", &Controller::m_ParameterDeclarations ) //ParameterDeclarations
         .def_readwrite("Properties", &Controller::m_Properties ) //Properties
 ; 
@@ -382,6 +469,9 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("type", &CustomCommandAction::type, "") 
 ; 
 //
+    py::class_<CustomContent, std::shared_ptr<CustomContent>>(m,"CustomContent","")
+; 
+//
     py::class_<DeleteEntityAction, std::shared_ptr<DeleteEntityAction>>(m,"DeleteEntityAction","")
 ; 
 //
@@ -404,6 +494,11 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("width", &Dimensions::width, "") 
 ; 
 //
+    py::class_<DirectionOfTravelDistribution, std::shared_ptr<DirectionOfTravelDistribution>>(m,"DirectionOfTravelDistribution","")
+        .def_readwrite("same", &DirectionOfTravelDistribution::same, "") 
+        .def_readwrite("opposite", &DirectionOfTravelDistribution::opposite, "") 
+; 
+//
     py::class_<Directory, std::shared_ptr<Directory>>(m,"Directory","")
         .def_readwrite("path", &Directory::path, "") 
 ; 
@@ -415,6 +510,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("value", &DistanceCondition::value, "") 
         .def_readwrite("coordinateSystem", &DistanceCondition::coordinateSystem, "") 
         .def_readwrite("relativeDistanceType", &DistanceCondition::relativeDistanceType, "") 
+        .def_readwrite("routingAlgorithm", &DistanceCondition::routingAlgorithm, "") 
         .def_readwrite("Position", &DistanceCondition::m_Position ) //Position
 ; 
 //
@@ -431,9 +527,16 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("value", &DistributionSetElement::value, "") 
 ; 
 //
+    py::class_<DomeImage, std::shared_ptr<DomeImage>>(m,"DomeImage","")
+        .def_readwrite("azimuthOffset", &DomeImage::azimuthOffset, "") 
+        .def_readwrite("DomeFile", &DomeImage::m_DomeFile ) //File
+; 
+//
     py::class_<DynamicConstraints, std::shared_ptr<DynamicConstraints>>(m,"DynamicConstraints","")
         .def_readwrite("maxAcceleration", &DynamicConstraints::maxAcceleration, "") 
+        .def_readwrite("maxAccelerationRate", &DynamicConstraints::maxAccelerationRate, "") 
         .def_readwrite("maxDeceleration", &DynamicConstraints::maxDeceleration, "") 
+        .def_readwrite("maxDecelerationRate", &DynamicConstraints::maxDecelerationRate, "") 
         .def_readwrite("maxSpeed", &DynamicConstraints::maxSpeed, "") 
 ; 
 //
@@ -503,6 +606,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("revMajor", &FileHeader::revMajor, "") 
         .def_readwrite("revMinor", &FileHeader::revMinor, "") 
         .def_readwrite("License", &FileHeader::m_License ) //License
+        .def_readwrite("Properties", &FileHeader::m_Properties ) //Properties
 ; 
 //
     py::class_<FinalSpeed, std::shared_ptr<FinalSpeed>>(m,"FinalSpeed","")
@@ -527,6 +631,9 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("latitude", &GeoPosition::latitude, "") 
         .def_readwrite("longitude", &GeoPosition::longitude, "") 
         .def_readwrite("height", &GeoPosition::height, "") 
+        .def_readwrite("latitudeDeg", &GeoPosition::latitudeDeg, "") 
+        .def_readwrite("longitudeDeg", &GeoPosition::longitudeDeg, "") 
+        .def_readwrite("altitude", &GeoPosition::altitude, "") 
         .def_readwrite("Orientation", &GeoPosition::m_Orientation ) //Orientation
 ; 
 //
@@ -618,6 +725,25 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("spdxId", &License::spdxId, "") 
 ; 
 //
+    py::class_<LightState, std::shared_ptr<LightState>>(m,"LightState","")
+        .def_readwrite("mode", &LightState::mode, "") 
+        .def_readwrite("luminousIntensity", &LightState::luminousIntensity, "") 
+        .def_readwrite("flashingOnDuration", &LightState::flashingOnDuration, "") 
+        .def_readwrite("flashingOffDuration", &LightState::flashingOffDuration, "") 
+        .def_readwrite("Color", &LightState::m_Color ) //Color
+; 
+//
+    py::class_<LightStateAction, std::shared_ptr<LightStateAction>>(m,"LightStateAction","")
+        .def_readwrite("transitionTime", &LightStateAction::transitionTime, "") 
+        .def_readwrite("LightType", &LightStateAction::m_LightType ) //LightType
+        .def_readwrite("LightState", &LightStateAction::m_LightState ) //LightState
+; 
+//
+    py::class_<LightType, std::shared_ptr<LightType>>(m,"LightType","")
+        .def_readwrite("VehicleLight", &LightType::m_VehicleLight ) //VehicleLight
+        .def_readwrite("UserDefinedLight", &LightType::m_UserDefinedLight ) //UserDefinedLight
+; 
+//
     py::class_<LongitudinalAction, std::shared_ptr<LongitudinalAction>>(m,"LongitudinalAction","")
         .def_readwrite("LongitudinalAction", &LongitudinalAction::m_LongitudinalAction ) //
 ; 
@@ -649,6 +775,10 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("Actors", &ManeuverGroup::m_Actors ) //Actors
         .def_readwrite("CatalogReference", &ManeuverGroup::m_CatalogReferences ) //CatalogReference
         .def_readwrite("Maneuver", &ManeuverGroup::m_Maneuvers ) //Maneuver
+; 
+//
+    py::class_<ManualGear, std::shared_ptr<ManualGear>>(m,"ManualGear","")
+        .def_readwrite("number", &ManualGear::number, "") 
 ; 
 //
     py::class_<MiscObject, std::shared_ptr<MiscObject>>(m,"MiscObject","")
@@ -707,11 +837,13 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<OverrideBrakeAction, std::shared_ptr<OverrideBrakeAction>>(m,"OverrideBrakeAction","")
         .def_readwrite("active", &OverrideBrakeAction::active, "") 
         .def_readwrite("value", &OverrideBrakeAction::value, "") 
+    .def_readwrite("BrakeInput", &OverrideBrakeAction::m_BrakeInput ) // group read 
 ; 
 //
     py::class_<OverrideClutchAction, std::shared_ptr<OverrideClutchAction>>(m,"OverrideClutchAction","")
         .def_readwrite("active", &OverrideClutchAction::active, "") 
         .def_readwrite("value", &OverrideClutchAction::value, "") 
+        .def_readwrite("maxRate", &OverrideClutchAction::maxRate, "") 
 ; 
 //
     py::class_<OverrideControllerValueAction, std::shared_ptr<OverrideControllerValueAction>>(m,"OverrideControllerValueAction","")
@@ -726,21 +858,26 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<OverrideGearAction, std::shared_ptr<OverrideGearAction>>(m,"OverrideGearAction","")
         .def_readwrite("active", &OverrideGearAction::active, "") 
         .def_readwrite("number", &OverrideGearAction::number, "") 
+    .def_readwrite("Gear", &OverrideGearAction::m_Gear ) // group read 
 ; 
 //
     py::class_<OverrideParkingBrakeAction, std::shared_ptr<OverrideParkingBrakeAction>>(m,"OverrideParkingBrakeAction","")
         .def_readwrite("active", &OverrideParkingBrakeAction::active, "") 
         .def_readwrite("value", &OverrideParkingBrakeAction::value, "") 
+    .def_readwrite("BrakeInput", &OverrideParkingBrakeAction::m_BrakeInput ) // group read 
 ; 
 //
     py::class_<OverrideSteeringWheelAction, std::shared_ptr<OverrideSteeringWheelAction>>(m,"OverrideSteeringWheelAction","")
         .def_readwrite("active", &OverrideSteeringWheelAction::active, "") 
         .def_readwrite("value", &OverrideSteeringWheelAction::value, "") 
+        .def_readwrite("maxRate", &OverrideSteeringWheelAction::maxRate, "") 
+        .def_readwrite("maxTorque", &OverrideSteeringWheelAction::maxTorque, "") 
 ; 
 //
     py::class_<OverrideThrottleAction, std::shared_ptr<OverrideThrottleAction>>(m,"OverrideThrottleAction","")
         .def_readwrite("active", &OverrideThrottleAction::active, "") 
         .def_readwrite("value", &OverrideThrottleAction::value, "") 
+        .def_readwrite("maxRate", &OverrideThrottleAction::maxRate, "") 
 ; 
 //
     py::class_<ParameterAction, std::shared_ptr<ParameterAction>>(m,"ParameterAction","")
@@ -805,18 +942,31 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("name", &Pedestrian::name, "") 
         .def_readwrite("pedestrianCategory", &Pedestrian::pedestrianCategory, "") 
         .def_readwrite("model3d", &Pedestrian::model3d, "") 
+        .def_readwrite("role", &Pedestrian::role, "") 
         .def_readwrite("ParameterDeclarations", &Pedestrian::m_ParameterDeclarations ) //ParameterDeclarations
         .def_readwrite("BoundingBox", &Pedestrian::m_BoundingBox ) //BoundingBox
         .def_readwrite("Properties", &Pedestrian::m_Properties ) //Properties
+; 
+//
+    py::class_<PedestrianAnimation, std::shared_ptr<PedestrianAnimation>>(m,"PedestrianAnimation","")
+        .def_readwrite("motion", &PedestrianAnimation::motion, "") 
+        .def_readwrite("userDefinedPedestrianAnimation", &PedestrianAnimation::userDefinedPedestrianAnimation, "") 
+        .def_readwrite("PedestrianGesture", &PedestrianAnimation::m_PedestrianGestures ) //PedestrianGesture
 ; 
 //
     py::class_<PedestrianCatalogLocation, std::shared_ptr<PedestrianCatalogLocation>>(m,"PedestrianCatalogLocation","")
         .def_readwrite("Directory", &PedestrianCatalogLocation::m_Directory ) //Directory
 ; 
 //
+    py::class_<PedestrianGesture, std::shared_ptr<PedestrianGesture>>(m,"PedestrianGesture","")
+        .def_readwrite("gesture", &PedestrianGesture::gesture, "") 
+; 
+//
     py::class_<Performance, std::shared_ptr<Performance>>(m,"Performance","")
         .def_readwrite("maxAcceleration", &Performance::maxAcceleration, "") 
+        .def_readwrite("maxAccelerationRate", &Performance::maxAccelerationRate, "") 
         .def_readwrite("maxDeceleration", &Performance::maxDeceleration, "") 
+        .def_readwrite("maxDecelerationRate", &Performance::maxDecelerationRate, "") 
         .def_readwrite("maxSpeed", &Performance::maxSpeed, "") 
 ; 
 //
@@ -824,6 +974,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("duration", &Phase::duration, "") 
         .def_readwrite("name", &Phase::name, "") 
         .def_readwrite("TrafficSignalState", &Phase::m_TrafficSignalStates ) //TrafficSignalState
+        .def_readwrite("TrafficeSignalGroupState", &Phase::m_TrafficeSignalGroupState ) //TrafficSignalGroupState
 ; 
 //
     py::class_<PoissonDistribution, std::shared_ptr<PoissonDistribution>>(m,"PoissonDistribution","")
@@ -881,6 +1032,7 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<Properties, std::shared_ptr<Properties>>(m,"Properties","")
         .def_readwrite("Property", &Properties::m_Propertys ) //Property
         .def_readwrite("File", &Properties::m_Files ) //File
+        .def_readwrite("CustomContent", &Properties::m_CustomContents ) //CustomContent
 ; 
 //
     py::class_<Property, std::shared_ptr<Property>>(m,"Property","")
@@ -898,6 +1050,15 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("Position", &ReachPositionCondition::m_Position ) //Position
 ; 
 //
+    py::class_<RelativeClearanceCondition, std::shared_ptr<RelativeClearanceCondition>>(m,"RelativeClearanceCondition","")
+        .def_readwrite("oppositeLanes", &RelativeClearanceCondition::oppositeLanes, "") 
+        .def_readwrite("distanceForward", &RelativeClearanceCondition::distanceForward, "") 
+        .def_readwrite("distanceBackward", &RelativeClearanceCondition::distanceBackward, "") 
+        .def_readwrite("freeSpace", &RelativeClearanceCondition::freeSpace, "") 
+        .def_readwrite("RelativeLaneRange", &RelativeClearanceCondition::m_RelativeLaneRanges ) //RelativeLaneRange
+        .def_readwrite("EntityRef", &RelativeClearanceCondition::m_EntityRefs ) //EntityRef
+; 
+//
     py::class_<RelativeDistanceCondition, std::shared_ptr<RelativeDistanceCondition>>(m,"RelativeDistanceCondition","")
         .def_readwrite("entityRef", &RelativeDistanceCondition::entityRef, "") 
         .def_readwrite("freespace", &RelativeDistanceCondition::freespace, "") 
@@ -905,6 +1066,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("rule", &RelativeDistanceCondition::rule, "") 
         .def_readwrite("value", &RelativeDistanceCondition::value, "") 
         .def_readwrite("coordinateSystem", &RelativeDistanceCondition::coordinateSystem, "") 
+        .def_readwrite("routingAlgorithm", &RelativeDistanceCondition::routingAlgorithm, "") 
 ; 
 //
     py::class_<RelativeLanePosition, std::shared_ptr<RelativeLanePosition>>(m,"RelativeLanePosition","")
@@ -914,6 +1076,11 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("offset", &RelativeLanePosition::offset, "") 
         .def_readwrite("dsLane", &RelativeLanePosition::dsLane, "") 
         .def_readwrite("Orientation", &RelativeLanePosition::m_Orientation ) //Orientation
+; 
+//
+    py::class_<RelativeLaneRange, std::shared_ptr<RelativeLaneRange>>(m,"RelativeLaneRange","")
+        .def_readwrite("from", &RelativeLaneRange::from, "") 
+        .def_readwrite("to", &RelativeLaneRange::to, "") 
 ; 
 //
     py::class_<RelativeObjectPosition, std::shared_ptr<RelativeObjectPosition>>(m,"RelativeObjectPosition","")
@@ -935,6 +1102,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("entityRef", &RelativeSpeedCondition::entityRef, "") 
         .def_readwrite("rule", &RelativeSpeedCondition::rule, "") 
         .def_readwrite("value", &RelativeSpeedCondition::value, "") 
+        .def_readwrite("direction", &RelativeSpeedCondition::direction, "") 
 ; 
 //
     py::class_<RelativeSpeedToMaster, std::shared_ptr<RelativeSpeedToMaster>>(m,"RelativeSpeedToMaster","")
@@ -970,6 +1138,7 @@ PYBIND11_MODULE(pyxosc,m)
 //
     py::class_<RoadCondition, std::shared_ptr<RoadCondition>>(m,"RoadCondition","")
         .def_readwrite("frictionScaleFactor", &RoadCondition::frictionScaleFactor, "") 
+        .def_readwrite("wetness", &RoadCondition::wetness, "") 
         .def_readwrite("Properties", &RoadCondition::m_Properties ) //Properties
 ; 
 //
@@ -1014,12 +1183,20 @@ PYBIND11_MODULE(pyxosc,m)
 //
     py::class_<ScenarioObject, std::shared_ptr<ScenarioObject>>(m,"ScenarioObject","")
         .def_readwrite("name", &ScenarioObject::name, "") 
-        .def_readwrite("ObjectController", &ScenarioObject::m_ObjectController ) //ObjectController
+        .def_readwrite("ObjectController", &ScenarioObject::m_ObjectControllers ) //ObjectController
     .def_readwrite("EntityObject", &ScenarioObject::m_EntityObject ) // group read 
 ; 
 //
     py::class_<SelectedEntities, std::shared_ptr<SelectedEntities>>(m,"SelectedEntities","")
         .def_readwrite("SelectedEntities", &SelectedEntities::m_SelectedEntities ) //
+; 
+//
+    py::class_<SensorReference, std::shared_ptr<SensorReference>>(m,"SensorReference","")
+        .def_readwrite("name", &SensorReference::name, "") 
+; 
+//
+    py::class_<SensorReferenceSet, std::shared_ptr<SensorReferenceSet>>(m,"SensorReferenceSet","")
+        .def_readwrite("SensorReference", &SensorReferenceSet::m_SensorReferences ) //SensorReference
 ; 
 //
     py::class_<Shape, std::shared_ptr<Shape>>(m,"Shape","")
@@ -1043,6 +1220,19 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<SpeedCondition, std::shared_ptr<SpeedCondition>>(m,"SpeedCondition","")
         .def_readwrite("rule", &SpeedCondition::rule, "") 
         .def_readwrite("value", &SpeedCondition::value, "") 
+        .def_readwrite("direction", &SpeedCondition::direction, "") 
+; 
+//
+    py::class_<SpeedProfileAction, std::shared_ptr<SpeedProfileAction>>(m,"SpeedProfileAction","")
+        .def_readwrite("entityRef", &SpeedProfileAction::entityRef, "") 
+        .def_readwrite("followingMode", &SpeedProfileAction::followingMode, "") 
+        .def_readwrite("DynamicConstraints", &SpeedProfileAction::m_DynamicConstraints ) //DynamicConstraints
+        .def_readwrite("SpeedProfileEntry", &SpeedProfileAction::m_SpeedProfileEntrys ) //SpeedProfileEntry
+; 
+//
+    py::class_<SpeedProfileEntry, std::shared_ptr<SpeedProfileEntry>>(m,"SpeedProfileEntry","")
+        .def_readwrite("speed", &SpeedProfileEntry::speed, "") 
+        .def_readwrite("time", &SpeedProfileEntry::time, "") 
 ; 
 //
     py::class_<StandStillCondition, std::shared_ptr<StandStillCondition>>(m,"StandStillCondition","")
@@ -1082,6 +1272,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("azimuth", &Sun::azimuth, "") 
         .def_readwrite("elevation", &Sun::elevation, "") 
         .def_readwrite("intensity", &Sun::intensity, "") 
+        .def_readwrite("illuminance", &Sun::illuminance, "") 
 ; 
 //
     py::class_<SynchronizeAction, std::shared_ptr<SynchronizeAction>>(m,"SynchronizeAction","")
@@ -1113,6 +1304,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("value", &TimeHeadwayCondition::value, "") 
         .def_readwrite("coordinateSystem", &TimeHeadwayCondition::coordinateSystem, "") 
         .def_readwrite("relativeDistanceType", &TimeHeadwayCondition::relativeDistanceType, "") 
+        .def_readwrite("routingAlgorithm", &TimeHeadwayCondition::routingAlgorithm, "") 
 ; 
 //
     py::class_<TimeOfDay, std::shared_ptr<TimeOfDay>>(m,"TimeOfDay","")
@@ -1136,6 +1328,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("value", &TimeToCollisionCondition::value, "") 
         .def_readwrite("relativeDistanceType", &TimeToCollisionCondition::relativeDistanceType, "") 
         .def_readwrite("coordinateSystem", &TimeToCollisionCondition::coordinateSystem, "") 
+        .def_readwrite("routingAlgorithm", &TimeToCollisionCondition::routingAlgorithm, "") 
         .def_readwrite("TimeToCollisionConditionTarget", &TimeToCollisionCondition::m_TimeToCollisionConditionTarget ) //TimeToCollisionConditionTarget
 ; 
 //
@@ -1157,6 +1350,7 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<TrafficDefinition, std::shared_ptr<TrafficDefinition>>(m,"TrafficDefinition","")
         .def_readwrite("name", &TrafficDefinition::name, "") 
         .def_readwrite("VehicleCategoryDistribution", &TrafficDefinition::m_VehicleCategoryDistribution ) //VehicleCategoryDistribution
+        .def_readwrite("VehicleRoleDistribution", &TrafficDefinition::m_VehicleRoleDistribution ) //VehicleRoleDistribution
         .def_readwrite("ControllerDistribution", &TrafficDefinition::m_ControllerDistribution ) //ControllerDistribution
 ; 
 //
@@ -1190,6 +1384,10 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("phase", &TrafficSignalControllerCondition::phase, "") 
 ; 
 //
+    py::class_<TrafficSignalGroupState, std::shared_ptr<TrafficSignalGroupState>>(m,"TrafficSignalGroupState","")
+        .def_readwrite("state", &TrafficSignalGroupState::state, "") 
+; 
+//
     py::class_<TrafficSignalState, std::shared_ptr<TrafficSignalState>>(m,"TrafficSignalState","")
         .def_readwrite("state", &TrafficSignalState::state, "") 
         .def_readwrite("trafficSignalId", &TrafficSignalState::trafficSignalId, "") 
@@ -1211,6 +1409,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("radius", &TrafficSourceAction::radius, "") 
         .def_readwrite("rate", &TrafficSourceAction::rate, "") 
         .def_readwrite("velocity", &TrafficSourceAction::velocity, "") 
+        .def_readwrite("speed", &TrafficSourceAction::speed, "") 
         .def_readwrite("Position", &TrafficSourceAction::m_Position ) //Position
         .def_readwrite("TrafficDefinition", &TrafficSourceAction::m_TrafficDefinition ) //TrafficDefinition
 ; 
@@ -1227,6 +1426,8 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("velocity", &TrafficSwarmAction::velocity, "") 
         .def_readwrite("CentralObject", &TrafficSwarmAction::m_CentralObject ) //CentralSwarmObject
         .def_readwrite("TrafficDefinition", &TrafficSwarmAction::m_TrafficDefinition ) //TrafficDefinition
+        .def_readwrite("InitialSpeedRange", &TrafficSwarmAction::m_InitialSpeedRange ) //Range
+        .def_readwrite("DirectionOfTravelDistribution", &TrafficSwarmAction::m_DirectionOfTravelDistribution ) //DirectionOfTravelDistribution
 ; 
 //
     py::class_<Trajectory, std::shared_ptr<Trajectory>>(m,"Trajectory","")
@@ -1258,6 +1459,7 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<TransitionDynamics, std::shared_ptr<TransitionDynamics>>(m,"TransitionDynamics","")
         .def_readwrite("dynamicsDimension", &TransitionDynamics::dynamicsDimension, "") 
         .def_readwrite("dynamicsShape", &TransitionDynamics::dynamicsShape, "") 
+        .def_readwrite("followingMode", &TransitionDynamics::followingMode, "") 
         .def_readwrite("value", &TransitionDynamics::value, "") 
 ; 
 //
@@ -1286,8 +1488,20 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("CustomCommandAction", &UserDefinedAction::m_CustomCommandAction ) //CustomCommandAction
 ; 
 //
+    py::class_<UserDefinedAnimation, std::shared_ptr<UserDefinedAnimation>>(m,"UserDefinedAnimation","")
+        .def_readwrite("userDefinedAnimationType", &UserDefinedAnimation::userDefinedAnimationType, "") 
+; 
+//
+    py::class_<UserDefinedComponent, std::shared_ptr<UserDefinedComponent>>(m,"UserDefinedComponent","")
+        .def_readwrite("userDefinedComponentType", &UserDefinedComponent::userDefinedComponentType, "") 
+; 
+//
     py::class_<UserDefinedDistribution, std::shared_ptr<UserDefinedDistribution>>(m,"UserDefinedDistribution","")
         .def_readwrite("type", &UserDefinedDistribution::type, "") 
+; 
+//
+    py::class_<UserDefinedLight, std::shared_ptr<UserDefinedLight>>(m,"UserDefinedLight","")
+        .def_readwrite("userDefinedLightType", &UserDefinedLight::userDefinedLightType, "") 
 ; 
 //
     py::class_<UserDefinedValueCondition, std::shared_ptr<UserDefinedValueCondition>>(m,"UserDefinedValueCondition","")
@@ -1309,9 +1523,51 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("ParameterValueSet", &ValueSetDistribution::m_ParameterValueSets ) //ParameterValueSet
 ; 
 //
+    py::class_<VariableAction, std::shared_ptr<VariableAction>>(m,"VariableAction","")
+        .def_readwrite("variableRef", &VariableAction::variableRef, "") 
+        .def_readwrite("VariableAction", &VariableAction::m_VariableAction ) //
+; 
+//
+    py::class_<VariableAddValueRule, std::shared_ptr<VariableAddValueRule>>(m,"VariableAddValueRule","")
+        .def_readwrite("value", &VariableAddValueRule::value, "") 
+; 
+//
+    py::class_<VariableCondition, std::shared_ptr<VariableCondition>>(m,"VariableCondition","")
+        .def_readwrite("variableRef", &VariableCondition::variableRef, "") 
+        .def_readwrite("rule", &VariableCondition::rule, "") 
+        .def_readwrite("value", &VariableCondition::value, "") 
+; 
+//
+    py::class_<VariableDeclaration, std::shared_ptr<VariableDeclaration>>(m,"VariableDeclaration","")
+        .def_readwrite("name", &VariableDeclaration::name, "") 
+        .def_readwrite("variableType", &VariableDeclaration::variableType, "") 
+        .def_readwrite("value", &VariableDeclaration::value, "") 
+; 
+//
+    py::class_<VariableDeclarations, std::shared_ptr<VariableDeclarations>>(m,"VariableDeclarations","")
+        .def_readwrite("VariableDeclaration", &VariableDeclarations::m_VariableDeclarations ) //VariableDeclaration
+; 
+//
+    py::class_<VariableModifyAction, std::shared_ptr<VariableModifyAction>>(m,"VariableModifyAction","")
+        .def_readwrite("Rule", &VariableModifyAction::m_Rule ) //VariableModifyRule
+; 
+//
+    py::class_<VariableModifyRule, std::shared_ptr<VariableModifyRule>>(m,"VariableModifyRule","")
+        .def_readwrite("VariableModifyRule", &VariableModifyRule::m_VariableModifyRule ) //
+; 
+//
+    py::class_<VariableMultiplyByValueRule, std::shared_ptr<VariableMultiplyByValueRule>>(m,"VariableMultiplyByValueRule","")
+        .def_readwrite("value", &VariableMultiplyByValueRule::value, "") 
+; 
+//
+    py::class_<VariableSetAction, std::shared_ptr<VariableSetAction>>(m,"VariableSetAction","")
+        .def_readwrite("value", &VariableSetAction::value, "") 
+; 
+//
     py::class_<Vehicle, std::shared_ptr<Vehicle>>(m,"Vehicle","")
         .def_readwrite("name", &Vehicle::name, "") 
         .def_readwrite("vehicleCategory", &Vehicle::vehicleCategory, "") 
+        .def_readwrite("role", &Vehicle::role, "") 
         .def_readwrite("mass", &Vehicle::mass, "") 
         .def_readwrite("model3d", &Vehicle::model3d, "") 
         .def_readwrite("ParameterDeclarations", &Vehicle::m_ParameterDeclarations ) //ParameterDeclarations
@@ -1334,6 +1590,23 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("weight", &VehicleCategoryDistributionEntry::weight, "") 
 ; 
 //
+    py::class_<VehicleComponent, std::shared_ptr<VehicleComponent>>(m,"VehicleComponent","")
+        .def_readwrite("vehicleComponentType", &VehicleComponent::vehicleComponentType, "") 
+; 
+//
+    py::class_<VehicleLight, std::shared_ptr<VehicleLight>>(m,"VehicleLight","")
+        .def_readwrite("vehicleLightType", &VehicleLight::vehicleLightType, "") 
+; 
+//
+    py::class_<VehicleRoleDistribution, std::shared_ptr<VehicleRoleDistribution>>(m,"VehicleRoleDistribution","")
+        .def_readwrite("VehicleRoleDistributionEntry", &VehicleRoleDistribution::m_VehicleRoleDistributionEntrys ) //VehicleRoleDistributionEntry
+; 
+//
+    py::class_<VehicleRoleDistributionEntry, std::shared_ptr<VehicleRoleDistributionEntry>>(m,"VehicleRoleDistributionEntry","")
+        .def_readwrite("role", &VehicleRoleDistributionEntry::role, "") 
+        .def_readwrite("weight", &VehicleRoleDistributionEntry::weight, "") 
+; 
+//
     py::class_<Vertex, std::shared_ptr<Vertex>>(m,"Vertex","")
         .def_readwrite("time", &Vertex::time, "") 
         .def_readwrite("Position", &Vertex::m_Position ) //Position
@@ -1343,6 +1616,7 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("graphics", &VisibilityAction::graphics, "") 
         .def_readwrite("sensors", &VisibilityAction::sensors, "") 
         .def_readwrite("traffic", &VisibilityAction::traffic, "") 
+        .def_readwrite("SensorReferenceSet", &VisibilityAction::m_SensorReferenceSet ) //SensorReferenceSet
 ; 
 //
     py::class_<Waypoint, std::shared_ptr<Waypoint>>(m,"Waypoint","")
@@ -1354,10 +1628,12 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("cloudState", &Weather::cloudState, "") 
         .def_readwrite("atmosphericPressure", &Weather::atmosphericPressure, "") 
         .def_readwrite("temperature", &Weather::temperature, "") 
+        .def_readwrite("fractionalCloudCover", &Weather::fractionalCloudCover, "") 
         .def_readwrite("Sun", &Weather::m_Sun ) //Sun
         .def_readwrite("Fog", &Weather::m_Fog ) //Fog
         .def_readwrite("Precipitation", &Weather::m_Precipitation ) //Precipitation
         .def_readwrite("Wind", &Weather::m_Wind ) //Wind
+        .def_readwrite("DomeImage", &Weather::m_DomeImage ) //DomeImage
 ; 
 //
     py::class_<Wind, std::shared_ptr<Wind>>(m,"Wind","")
@@ -1373,6 +1649,11 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("y", &WorldPosition::y, "") 
         .def_readwrite("z", &WorldPosition::z, "") 
 ; 
+    // xs:group -> aliased to group definition
+    py::class_<BrakeInput, std::shared_ptr<BrakeInput>>(m,"BrakeInput","Group BrakeInput")
+        .def_readwrite("BrakePercent", &BrakeInput::m_BrakePercent ) //Brake
+        .def_readwrite("BrakeForce", &BrakeInput::m_BrakeForce ) //Brake
+    ;
     // xs:group -> aliased to group definition
     py::class_<CatalogDefinition, std::shared_ptr<CatalogDefinition>>(m,"CatalogDefinition","Group CatalogDefinition")
         .def_readwrite("Catalog", &CatalogDefinition::m_Catalog ) //Catalog
@@ -1406,6 +1687,11 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("ExternalObjectReference", &EntityObject::m_ExternalObjectReference ) //ExternalObjectReference
     ;
     // xs:group -> aliased to group definition
+    py::class_<Gear, std::shared_ptr<Gear>>(m,"Gear","Group Gear")
+        .def_readwrite("ManualGear", &Gear::m_ManualGear ) //ManualGear
+        .def_readwrite("AutomaticGear", &Gear::m_AutomaticGear ) //AutomaticGear
+    ;
+    // xs:group -> aliased to group definition
     py::class_<OpenScenarioCategory, std::shared_ptr<OpenScenarioCategory>>(m,"OpenScenarioCategory","Group OpenScenarioCategory")
     .def_readwrite("ScenarioDefinition", &OpenScenarioCategory::m_ScenarioDefinition ) // group read 
     .def_readwrite("CatalogDefinition", &OpenScenarioCategory::m_CatalogDefinition ) // group read 
@@ -1418,6 +1704,7 @@ PYBIND11_MODULE(pyxosc,m)
     // xs:group -> aliased to group definition
     py::class_<ScenarioDefinition, std::shared_ptr<ScenarioDefinition>>(m,"ScenarioDefinition","Group ScenarioDefinition")
         .def_readwrite("ParameterDeclarations", &ScenarioDefinition::m_ParameterDeclarations ) //ParameterDeclarations
+        .def_readwrite("VariableDeclarations", &ScenarioDefinition::m_VariableDeclarations ) //VariableDeclarations
         .def_readwrite("CatalogLocations", &ScenarioDefinition::m_CatalogLocations ) //CatalogLocations
         .def_readwrite("RoadNetwork", &ScenarioDefinition::m_RoadNetwork ) //RoadNetwork
         .def_readwrite("Entities", &ScenarioDefinition::m_Entities ) //Entities
@@ -1438,6 +1725,12 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("UserDefinedDistribution", &StochasticDistributionType::m_UserDefinedDistribution ) //UserDefinedDistribution
     ;
 //
+    py::enum_<e_AutomaticGearType>(m,"e_AutomaticGearType", py::arithmetic(),"")
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::N).c_str(),e_AutomaticGearType::N,"")            //n
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::P).c_str(),e_AutomaticGearType::P,"")            //p
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::R).c_str(),e_AutomaticGearType::R,"")            //r
+        .value(enum2str<e_AutomaticGearType>(e_AutomaticGearType::D).c_str(),e_AutomaticGearType::D,"");            //d
+    ;
     py::enum_<e_CloudState>(m,"e_CloudState", py::arithmetic(),"")
         .value(enum2str<e_CloudState>(e_CloudState::CLOUDY).c_str(),e_CloudState::CLOUDY,"")            //cloudy
         .value(enum2str<e_CloudState>(e_CloudState::FREE).c_str(),e_CloudState::FREE,"")            //free
@@ -1445,17 +1738,44 @@ PYBIND11_MODULE(pyxosc,m)
         .value(enum2str<e_CloudState>(e_CloudState::RAINY).c_str(),e_CloudState::RAINY,"")            //rainy
         .value(enum2str<e_CloudState>(e_CloudState::SKYOFF).c_str(),e_CloudState::SKYOFF,"");            //skyOff
     ;
+    py::enum_<e_ColorType>(m,"e_ColorType", py::arithmetic(),"")
+        .value(enum2str<e_ColorType>(e_ColorType::OTHER).c_str(),e_ColorType::OTHER,"")            //other
+        .value(enum2str<e_ColorType>(e_ColorType::RED).c_str(),e_ColorType::RED,"")            //red
+        .value(enum2str<e_ColorType>(e_ColorType::YELLOW).c_str(),e_ColorType::YELLOW,"")            //yellow
+        .value(enum2str<e_ColorType>(e_ColorType::GREEN).c_str(),e_ColorType::GREEN,"")            //green
+        .value(enum2str<e_ColorType>(e_ColorType::BLUE).c_str(),e_ColorType::BLUE,"")            //blue
+        .value(enum2str<e_ColorType>(e_ColorType::VIOLET).c_str(),e_ColorType::VIOLET,"")            //violet
+        .value(enum2str<e_ColorType>(e_ColorType::ORANGE).c_str(),e_ColorType::ORANGE,"")            //orange
+        .value(enum2str<e_ColorType>(e_ColorType::BROWN).c_str(),e_ColorType::BROWN,"")            //brown
+        .value(enum2str<e_ColorType>(e_ColorType::BLACK).c_str(),e_ColorType::BLACK,"")            //black
+        .value(enum2str<e_ColorType>(e_ColorType::GREY).c_str(),e_ColorType::GREY,"")            //grey
+        .value(enum2str<e_ColorType>(e_ColorType::WHITE).c_str(),e_ColorType::WHITE,"");            //white
+    ;
     py::enum_<e_ConditionEdge>(m,"e_ConditionEdge", py::arithmetic(),"")
         .value(enum2str<e_ConditionEdge>(e_ConditionEdge::FALLING).c_str(),e_ConditionEdge::FALLING,"")            //falling
         .value(enum2str<e_ConditionEdge>(e_ConditionEdge::NONE).c_str(),e_ConditionEdge::NONE,"")            //none
         .value(enum2str<e_ConditionEdge>(e_ConditionEdge::RISING).c_str(),e_ConditionEdge::RISING,"")            //rising
         .value(enum2str<e_ConditionEdge>(e_ConditionEdge::RISINGORFALLING).c_str(),e_ConditionEdge::RISINGORFALLING,"");            //risingOrFalling
     ;
+    py::enum_<e_ControllerType>(m,"e_ControllerType", py::arithmetic(),"")
+        .value(enum2str<e_ControllerType>(e_ControllerType::LATERAL).c_str(),e_ControllerType::LATERAL,"")            //lateral
+        .value(enum2str<e_ControllerType>(e_ControllerType::LONGITUDINAL).c_str(),e_ControllerType::LONGITUDINAL,"")            //longitudinal
+        .value(enum2str<e_ControllerType>(e_ControllerType::LIGHTING).c_str(),e_ControllerType::LIGHTING,"")            //lighting
+        .value(enum2str<e_ControllerType>(e_ControllerType::ANIMATION).c_str(),e_ControllerType::ANIMATION,"")            //animation
+        .value(enum2str<e_ControllerType>(e_ControllerType::MOVEMENT).c_str(),e_ControllerType::MOVEMENT,"")            //movement
+        .value(enum2str<e_ControllerType>(e_ControllerType::APPEARANCE).c_str(),e_ControllerType::APPEARANCE,"")            //appearance
+        .value(enum2str<e_ControllerType>(e_ControllerType::ALL).c_str(),e_ControllerType::ALL,"");            //all
+    ;
     py::enum_<e_CoordinateSystem>(m,"e_CoordinateSystem", py::arithmetic(),"")
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::ENTITY).c_str(),e_CoordinateSystem::ENTITY,"")            //entity
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::LANE).c_str(),e_CoordinateSystem::LANE,"")            //lane
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::ROAD).c_str(),e_CoordinateSystem::ROAD,"")            //road
         .value(enum2str<e_CoordinateSystem>(e_CoordinateSystem::TRAJECTORY).c_str(),e_CoordinateSystem::TRAJECTORY,"");            //trajectory
+    ;
+    py::enum_<e_DirectionalDimension>(m,"e_DirectionalDimension", py::arithmetic(),"")
+        .value(enum2str<e_DirectionalDimension>(e_DirectionalDimension::LONGITUDINAL).c_str(),e_DirectionalDimension::LONGITUDINAL,"")            //longitudinal
+        .value(enum2str<e_DirectionalDimension>(e_DirectionalDimension::LATERAL).c_str(),e_DirectionalDimension::LATERAL,"")            //lateral
+        .value(enum2str<e_DirectionalDimension>(e_DirectionalDimension::VERTICAL).c_str(),e_DirectionalDimension::VERTICAL,"");            //vertical
     ;
     py::enum_<e_DynamicsDimension>(m,"e_DynamicsDimension", py::arithmetic(),"")
         .value(enum2str<e_DynamicsDimension>(e_DynamicsDimension::DISTANCE).c_str(),e_DynamicsDimension::DISTANCE,"")            //distance
@@ -1472,10 +1792,27 @@ PYBIND11_MODULE(pyxosc,m)
         .value(enum2str<e_FollowingMode>(e_FollowingMode::FOLLOW).c_str(),e_FollowingMode::FOLLOW,"")            //follow
         .value(enum2str<e_FollowingMode>(e_FollowingMode::POSITION).c_str(),e_FollowingMode::POSITION,"");            //position
     ;
+    py::enum_<e_FractionalCloudCover>(m,"e_FractionalCloudCover", py::arithmetic(),"")
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::ZEROOKTAS).c_str(),e_FractionalCloudCover::ZEROOKTAS,"")            //zeroOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::ONEOKTAS).c_str(),e_FractionalCloudCover::ONEOKTAS,"")            //oneOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::TWOOKTAS).c_str(),e_FractionalCloudCover::TWOOKTAS,"")            //twoOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::THREEOKTAS).c_str(),e_FractionalCloudCover::THREEOKTAS,"")            //threeOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::FOUROKTAS).c_str(),e_FractionalCloudCover::FOUROKTAS,"")            //fourOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::FIVEOKTAS).c_str(),e_FractionalCloudCover::FIVEOKTAS,"")            //fiveOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::SIXOKTAS).c_str(),e_FractionalCloudCover::SIXOKTAS,"")            //sixOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::SEVENOKTAS).c_str(),e_FractionalCloudCover::SEVENOKTAS,"")            //sevenOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::EIGHTOKTAS).c_str(),e_FractionalCloudCover::EIGHTOKTAS,"")            //eightOktas
+        .value(enum2str<e_FractionalCloudCover>(e_FractionalCloudCover::NINEOKTAS).c_str(),e_FractionalCloudCover::NINEOKTAS,"");            //nineOktas
+    ;
     py::enum_<e_LateralDisplacement>(m,"e_LateralDisplacement", py::arithmetic(),"")
         .value(enum2str<e_LateralDisplacement>(e_LateralDisplacement::ANY).c_str(),e_LateralDisplacement::ANY,"")            //any
         .value(enum2str<e_LateralDisplacement>(e_LateralDisplacement::LEFTTOREFERENCEDENTITY).c_str(),e_LateralDisplacement::LEFTTOREFERENCEDENTITY,"")            //leftToReferencedEntity
         .value(enum2str<e_LateralDisplacement>(e_LateralDisplacement::RIGHTTOREFERENCEDENTITY).c_str(),e_LateralDisplacement::RIGHTTOREFERENCEDENTITY,"");            //rightToReferencedEntity
+    ;
+    py::enum_<e_LightMode>(m,"e_LightMode", py::arithmetic(),"")
+        .value(enum2str<e_LightMode>(e_LightMode::ON).c_str(),e_LightMode::ON,"")            //on
+        .value(enum2str<e_LightMode>(e_LightMode::OFF).c_str(),e_LightMode::OFF,"")            //off
+        .value(enum2str<e_LightMode>(e_LightMode::FLASHING).c_str(),e_LightMode::FLASHING,"");            //flashing
     ;
     py::enum_<e_LongitudinalDisplacement>(m,"e_LongitudinalDisplacement", py::arithmetic(),"")
         .value(enum2str<e_LongitudinalDisplacement>(e_LongitudinalDisplacement::ANY).c_str(),e_LongitudinalDisplacement::ANY,"")            //any
@@ -1514,12 +1851,42 @@ PYBIND11_MODULE(pyxosc,m)
         .value(enum2str<e_ParameterType>(e_ParameterType::INTEGER).c_str(),e_ParameterType::INTEGER,"")            //integer
         .value(enum2str<e_ParameterType>(e_ParameterType::STRING).c_str(),e_ParameterType::STRING,"")            //string
         .value(enum2str<e_ParameterType>(e_ParameterType::UNSIGNEDINT).c_str(),e_ParameterType::UNSIGNEDINT,"")            //unsignedInt
-        .value(enum2str<e_ParameterType>(e_ParameterType::UNSIGNEDSHORT).c_str(),e_ParameterType::UNSIGNEDSHORT,"");            //unsignedShort
+        .value(enum2str<e_ParameterType>(e_ParameterType::UNSIGNEDSHORT).c_str(),e_ParameterType::UNSIGNEDSHORT,"")            //unsignedShort
+        .value(enum2str<e_ParameterType>(e_ParameterType::INT).c_str(),e_ParameterType::INT,"");            //int
     ;
     py::enum_<e_PedestrianCategory>(m,"e_PedestrianCategory", py::arithmetic(),"")
         .value(enum2str<e_PedestrianCategory>(e_PedestrianCategory::ANIMAL).c_str(),e_PedestrianCategory::ANIMAL,"")            //animal
         .value(enum2str<e_PedestrianCategory>(e_PedestrianCategory::PEDESTRIAN).c_str(),e_PedestrianCategory::PEDESTRIAN,"")            //pedestrian
         .value(enum2str<e_PedestrianCategory>(e_PedestrianCategory::WHEELCHAIR).c_str(),e_PedestrianCategory::WHEELCHAIR,"");            //wheelchair
+    ;
+    py::enum_<e_PedestrianGestureType>(m,"e_PedestrianGestureType", py::arithmetic(),"")
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONECALLRIGHTHAND).c_str(),e_PedestrianGestureType::PHONECALLRIGHTHAND,"")            //phoneCallRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONECALLLEFTHAND).c_str(),e_PedestrianGestureType::PHONECALLLEFTHAND,"")            //phoneCallLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONETEXTRIGHTHAND).c_str(),e_PedestrianGestureType::PHONETEXTRIGHTHAND,"")            //phoneTextRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::PHONETEXTLEFTHAND).c_str(),e_PedestrianGestureType::PHONETEXTLEFTHAND,"")            //phoneTextLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::WAVINGRIGHTARM).c_str(),e_PedestrianGestureType::WAVINGRIGHTARM,"")            //wavingRightArm
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::WAVINGLEFTARM).c_str(),e_PedestrianGestureType::WAVINGLEFTARM,"")            //wavingLeftArm
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::UMBRELLARIGHTHAND).c_str(),e_PedestrianGestureType::UMBRELLARIGHTHAND,"")            //umbrellaRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::UMBRELLALEFTHAND).c_str(),e_PedestrianGestureType::UMBRELLALEFTHAND,"")            //umbrellaLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::CROSSARMS).c_str(),e_PedestrianGestureType::CROSSARMS,"")            //crossArms
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::COFFEERIGHTHAND).c_str(),e_PedestrianGestureType::COFFEERIGHTHAND,"")            //coffeeRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::COFFEELEFTHAND).c_str(),e_PedestrianGestureType::COFFEELEFTHAND,"")            //coffeeLeftHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::SANDWICHRIGHTHAND).c_str(),e_PedestrianGestureType::SANDWICHRIGHTHAND,"")            //sandwichRightHand
+        .value(enum2str<e_PedestrianGestureType>(e_PedestrianGestureType::SANDWICHLEFTHAND).c_str(),e_PedestrianGestureType::SANDWICHLEFTHAND,"");            //sandwichLeftHand
+    ;
+    py::enum_<e_PedestrianMotionType>(m,"e_PedestrianMotionType", py::arithmetic(),"")
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::STANDING).c_str(),e_PedestrianMotionType::STANDING,"")            //standing
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::SITTING).c_str(),e_PedestrianMotionType::SITTING,"")            //sitting
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::LYING).c_str(),e_PedestrianMotionType::LYING,"")            //lying
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::SQUATTING).c_str(),e_PedestrianMotionType::SQUATTING,"")            //squatting
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::WALKING).c_str(),e_PedestrianMotionType::WALKING,"")            //walking
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::RUNNING).c_str(),e_PedestrianMotionType::RUNNING,"")            //running
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::REELING).c_str(),e_PedestrianMotionType::REELING,"")            //reeling
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::CRAWLING).c_str(),e_PedestrianMotionType::CRAWLING,"")            //crawling
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::CYCLING).c_str(),e_PedestrianMotionType::CYCLING,"")            //cycling
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::JUMPING).c_str(),e_PedestrianMotionType::JUMPING,"")            //jumping
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::DUCKING).c_str(),e_PedestrianMotionType::DUCKING,"")            //ducking
+        .value(enum2str<e_PedestrianMotionType>(e_PedestrianMotionType::BENDINGDOWN).c_str(),e_PedestrianMotionType::BENDINGDOWN,"");            //bendingDown
     ;
     py::enum_<e_PrecipitationType>(m,"e_PrecipitationType", py::arithmetic(),"")
         .value(enum2str<e_PrecipitationType>(e_PrecipitationType::DRY).c_str(),e_PrecipitationType::DRY,"")            //dry
@@ -1528,6 +1895,7 @@ PYBIND11_MODULE(pyxosc,m)
     ;
     py::enum_<e_Priority>(m,"e_Priority", py::arithmetic(),"")
         .value(enum2str<e_Priority>(e_Priority::OVERWRITE).c_str(),e_Priority::OVERWRITE,"")            //overwrite
+        .value(enum2str<e_Priority>(e_Priority::OVERRIDE).c_str(),e_Priority::OVERRIDE,"")            //override
         .value(enum2str<e_Priority>(e_Priority::PARALLEL).c_str(),e_Priority::PARALLEL,"")            //parallel
         .value(enum2str<e_Priority>(e_Priority::SKIP).c_str(),e_Priority::SKIP,"");            //skip
     ;
@@ -1541,11 +1909,28 @@ PYBIND11_MODULE(pyxosc,m)
         .value(enum2str<e_RelativeDistanceType>(e_RelativeDistanceType::CARTESIANDISTANCE).c_str(),e_RelativeDistanceType::CARTESIANDISTANCE,"")            //cartesianDistance
         .value(enum2str<e_RelativeDistanceType>(e_RelativeDistanceType::EUCLIDIANDISTANCE).c_str(),e_RelativeDistanceType::EUCLIDIANDISTANCE,"");            //euclidianDistance
     ;
+    py::enum_<e_Role>(m,"e_Role", py::arithmetic(),"")
+        .value(enum2str<e_Role>(e_Role::NONE).c_str(),e_Role::NONE,"")            //none
+        .value(enum2str<e_Role>(e_Role::AMBULANCE).c_str(),e_Role::AMBULANCE,"")            //ambulance
+        .value(enum2str<e_Role>(e_Role::CIVIL).c_str(),e_Role::CIVIL,"")            //civil
+        .value(enum2str<e_Role>(e_Role::FIRE).c_str(),e_Role::FIRE,"")            //fire
+        .value(enum2str<e_Role>(e_Role::MILITARY).c_str(),e_Role::MILITARY,"")            //military
+        .value(enum2str<e_Role>(e_Role::POLICE).c_str(),e_Role::POLICE,"")            //police
+        .value(enum2str<e_Role>(e_Role::PUBLICTRANSPORT).c_str(),e_Role::PUBLICTRANSPORT,"")            //publicTransport
+        .value(enum2str<e_Role>(e_Role::ROADASSISTANCE).c_str(),e_Role::ROADASSISTANCE,"");            //roadAssistance
+    ;
     py::enum_<e_RouteStrategy>(m,"e_RouteStrategy", py::arithmetic(),"")
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::FASTEST).c_str(),e_RouteStrategy::FASTEST,"")            //fastest
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::LEASTINTERSECTIONS).c_str(),e_RouteStrategy::LEASTINTERSECTIONS,"")            //leastIntersections
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::RANDOM).c_str(),e_RouteStrategy::RANDOM,"")            //random
         .value(enum2str<e_RouteStrategy>(e_RouteStrategy::SHORTEST).c_str(),e_RouteStrategy::SHORTEST,"");            //shortest
+    ;
+    py::enum_<e_RoutingAlgorithm>(m,"e_RoutingAlgorithm", py::arithmetic(),"")
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::ASSIGNEDROUTE).c_str(),e_RoutingAlgorithm::ASSIGNEDROUTE,"")            //assignedRoute
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::FASTEST).c_str(),e_RoutingAlgorithm::FASTEST,"")            //fastest
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::LEASTINTERSECTIONS).c_str(),e_RoutingAlgorithm::LEASTINTERSECTIONS,"")            //leastIntersections
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::SHORTEST).c_str(),e_RoutingAlgorithm::SHORTEST,"")            //shortest
+        .value(enum2str<e_RoutingAlgorithm>(e_RoutingAlgorithm::UNDEFINED).c_str(),e_RoutingAlgorithm::UNDEFINED,"");            //undefined
     ;
     py::enum_<e_Rule>(m,"e_Rule", py::arithmetic(),"")
         .value(enum2str<e_Rule>(e_Rule::EQUALTO).c_str(),e_Rule::EQUALTO,"")            //equalTo
@@ -1592,6 +1977,43 @@ PYBIND11_MODULE(pyxosc,m)
         .value(enum2str<e_VehicleCategory>(e_VehicleCategory::TRUCK).c_str(),e_VehicleCategory::TRUCK,"")            //truck
         .value(enum2str<e_VehicleCategory>(e_VehicleCategory::VAN).c_str(),e_VehicleCategory::VAN,"");            //van
     ;
+    py::enum_<e_VehicleComponentType>(m,"e_VehicleComponentType", py::arithmetic(),"")
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::HOOD).c_str(),e_VehicleComponentType::HOOD,"")            //hood
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::TRUNK).c_str(),e_VehicleComponentType::TRUNK,"")            //trunk
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORFRONTRIGHT).c_str(),e_VehicleComponentType::DOORFRONTRIGHT,"")            //doorFrontRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORFRONTLEFT).c_str(),e_VehicleComponentType::DOORFRONTLEFT,"")            //doorFrontLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORREARRIGHT).c_str(),e_VehicleComponentType::DOORREARRIGHT,"")            //doorRearRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::DOORREARLEFT).c_str(),e_VehicleComponentType::DOORREARLEFT,"")            //doorRearLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWFRONTRIGHT).c_str(),e_VehicleComponentType::WINDOWFRONTRIGHT,"")            //windowFrontRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWFRONTLEFT).c_str(),e_VehicleComponentType::WINDOWFRONTLEFT,"")            //windowFrontLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWREARRIGHT).c_str(),e_VehicleComponentType::WINDOWREARRIGHT,"")            //windowRearRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::WINDOWREARLEFT).c_str(),e_VehicleComponentType::WINDOWREARLEFT,"")            //windowRearLeft
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::SIDEMIRRORS).c_str(),e_VehicleComponentType::SIDEMIRRORS,"")            //sideMirrors
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::SIDEMIRRORRIGHT).c_str(),e_VehicleComponentType::SIDEMIRRORRIGHT,"")            //sideMirrorRight
+        .value(enum2str<e_VehicleComponentType>(e_VehicleComponentType::SIDEMIRRORLEFT).c_str(),e_VehicleComponentType::SIDEMIRRORLEFT,"");            //sideMirrorLeft
+    ;
+    py::enum_<e_VehicleLightType>(m,"e_VehicleLightType", py::arithmetic(),"")
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::DAYTIMERUNNINGLIGHTS).c_str(),e_VehicleLightType::DAYTIMERUNNINGLIGHTS,"")            //daytimeRunningLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::LOWBEAM).c_str(),e_VehicleLightType::LOWBEAM,"")            //lowBeam
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::HIGHBEAM).c_str(),e_VehicleLightType::HIGHBEAM,"")            //highBeam
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::FOGLIGHTS).c_str(),e_VehicleLightType::FOGLIGHTS,"")            //fogLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::FOGLIGHTSFRONT).c_str(),e_VehicleLightType::FOGLIGHTSFRONT,"")            //fogLightsFront
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::FOGLIGHTSREAR).c_str(),e_VehicleLightType::FOGLIGHTSREAR,"")            //fogLightsRear
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::BRAKELIGHTS).c_str(),e_VehicleLightType::BRAKELIGHTS,"")            //brakeLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::WARNINGLIGHTS).c_str(),e_VehicleLightType::WARNINGLIGHTS,"")            //warningLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::INDICATORLEFT).c_str(),e_VehicleLightType::INDICATORLEFT,"")            //indicatorLeft
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::INDICATORRIGHT).c_str(),e_VehicleLightType::INDICATORRIGHT,"")            //indicatorRight
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::REVERSINGLIGHTS).c_str(),e_VehicleLightType::REVERSINGLIGHTS,"")            //reversingLights
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::LICENSEPLATEILLUMINATION).c_str(),e_VehicleLightType::LICENSEPLATEILLUMINATION,"")            //licensePlateIllumination
+        .value(enum2str<e_VehicleLightType>(e_VehicleLightType::SPECIALPURPOSELIGHTS).c_str(),e_VehicleLightType::SPECIALPURPOSELIGHTS,"");            //specialPurposeLights
+    ;
+    py::enum_<e_Wetness>(m,"e_Wetness", py::arithmetic(),"")
+        .value(enum2str<e_Wetness>(e_Wetness::DRY).c_str(),e_Wetness::DRY,"")            //dry
+        .value(enum2str<e_Wetness>(e_Wetness::MOIST).c_str(),e_Wetness::MOIST,"")            //moist
+        .value(enum2str<e_Wetness>(e_Wetness::WETWITHPUDDLES).c_str(),e_Wetness::WETWITHPUDDLES,"")            //wetWithPuddles
+        .value(enum2str<e_Wetness>(e_Wetness::LOWFLOODED).c_str(),e_Wetness::LOWFLOODED,"")            //lowFlooded
+        .value(enum2str<e_Wetness>(e_Wetness::HIGHFLOODED).c_str(),e_Wetness::HIGHFLOODED,"");            //highFlooded
+    ;
     py::class_<Boolean, std::shared_ptr<Boolean>>(m,"Boolean") // union definition
         .def_readwrite("m_expression",&Boolean::m_expression)
         .def_readwrite("m_parameter",&Boolean::m_parameter)
@@ -1625,17 +2047,33 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("m_parameter",&UnsignedShort::m_parameter)
         .def_readwrite("m_unsignedShort",&UnsignedShort::m_unsignedShort)
     ;
+    py::class_<AutomaticGearType, std::shared_ptr<AutomaticGearType>>(m,"AutomaticGearType") // union definition
+        .def_readwrite("m_parameter",&AutomaticGearType::m_parameter)
+        .def_readwrite("automaticGearType",&AutomaticGearType::automaticGearType)
+    ;
     py::class_<CloudState, std::shared_ptr<CloudState>>(m,"CloudState") // union definition
         .def_readwrite("m_parameter",&CloudState::m_parameter)
         .def_readwrite("cloudState",&CloudState::cloudState)
+    ;
+    py::class_<ColorType, std::shared_ptr<ColorType>>(m,"ColorType") // union definition
+        .def_readwrite("m_parameter",&ColorType::m_parameter)
+        .def_readwrite("colorType",&ColorType::colorType)
     ;
     py::class_<ConditionEdge, std::shared_ptr<ConditionEdge>>(m,"ConditionEdge") // union definition
         .def_readwrite("m_parameter",&ConditionEdge::m_parameter)
         .def_readwrite("conditionEdge",&ConditionEdge::conditionEdge)
     ;
+    py::class_<ControllerType, std::shared_ptr<ControllerType>>(m,"ControllerType") // union definition
+        .def_readwrite("m_parameter",&ControllerType::m_parameter)
+        .def_readwrite("controllerType",&ControllerType::controllerType)
+    ;
     py::class_<CoordinateSystem, std::shared_ptr<CoordinateSystem>>(m,"CoordinateSystem") // union definition
         .def_readwrite("m_parameter",&CoordinateSystem::m_parameter)
         .def_readwrite("coordinateSystem",&CoordinateSystem::coordinateSystem)
+    ;
+    py::class_<DirectionalDimension, std::shared_ptr<DirectionalDimension>>(m,"DirectionalDimension") // union definition
+        .def_readwrite("m_parameter",&DirectionalDimension::m_parameter)
+        .def_readwrite("directionalDimension",&DirectionalDimension::directionalDimension)
     ;
     py::class_<DynamicsDimension, std::shared_ptr<DynamicsDimension>>(m,"DynamicsDimension") // union definition
         .def_readwrite("m_parameter",&DynamicsDimension::m_parameter)
@@ -1649,9 +2087,17 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("m_parameter",&FollowingMode::m_parameter)
         .def_readwrite("followingMode",&FollowingMode::followingMode)
     ;
+    py::class_<FractionalCloudCover, std::shared_ptr<FractionalCloudCover>>(m,"FractionalCloudCover") // union definition
+        .def_readwrite("m_parameter",&FractionalCloudCover::m_parameter)
+        .def_readwrite("fractionalCloudCover",&FractionalCloudCover::fractionalCloudCover)
+    ;
     py::class_<LateralDisplacement, std::shared_ptr<LateralDisplacement>>(m,"LateralDisplacement") // union definition
         .def_readwrite("m_parameter",&LateralDisplacement::m_parameter)
         .def_readwrite("lateralDisplacement",&LateralDisplacement::lateralDisplacement)
+    ;
+    py::class_<LightMode, std::shared_ptr<LightMode>>(m,"LightMode") // union definition
+        .def_readwrite("m_parameter",&LightMode::m_parameter)
+        .def_readwrite("lightMode",&LightMode::lightMode)
     ;
     py::class_<LongitudinalDisplacement, std::shared_ptr<LongitudinalDisplacement>>(m,"LongitudinalDisplacement") // union definition
         .def_readwrite("m_parameter",&LongitudinalDisplacement::m_parameter)
@@ -1673,6 +2119,14 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("m_parameter",&PedestrianCategory::m_parameter)
         .def_readwrite("pedestrianCategory",&PedestrianCategory::pedestrianCategory)
     ;
+    py::class_<PedestrianGestureType, std::shared_ptr<PedestrianGestureType>>(m,"PedestrianGestureType") // union definition
+        .def_readwrite("m_parameter",&PedestrianGestureType::m_parameter)
+        .def_readwrite("pedestrianGestureType",&PedestrianGestureType::pedestrianGestureType)
+    ;
+    py::class_<PedestrianMotionType, std::shared_ptr<PedestrianMotionType>>(m,"PedestrianMotionType") // union definition
+        .def_readwrite("m_parameter",&PedestrianMotionType::m_parameter)
+        .def_readwrite("pedestrianMotionType",&PedestrianMotionType::pedestrianMotionType)
+    ;
     py::class_<PrecipitationType, std::shared_ptr<PrecipitationType>>(m,"PrecipitationType") // union definition
         .def_readwrite("m_parameter",&PrecipitationType::m_parameter)
         .def_readwrite("precipitationType",&PrecipitationType::precipitationType)
@@ -1689,9 +2143,17 @@ PYBIND11_MODULE(pyxosc,m)
         .def_readwrite("m_parameter",&RelativeDistanceType::m_parameter)
         .def_readwrite("relativeDistanceType",&RelativeDistanceType::relativeDistanceType)
     ;
+    py::class_<Role, std::shared_ptr<Role>>(m,"Role") // union definition
+        .def_readwrite("m_parameter",&Role::m_parameter)
+        .def_readwrite("role",&Role::role)
+    ;
     py::class_<RouteStrategy, std::shared_ptr<RouteStrategy>>(m,"RouteStrategy") // union definition
         .def_readwrite("m_parameter",&RouteStrategy::m_parameter)
         .def_readwrite("routeStrategy",&RouteStrategy::routeStrategy)
+    ;
+    py::class_<RoutingAlgorithm, std::shared_ptr<RoutingAlgorithm>>(m,"RoutingAlgorithm") // union definition
+        .def_readwrite("m_parameter",&RoutingAlgorithm::m_parameter)
+        .def_readwrite("routingAlgorithm",&RoutingAlgorithm::routingAlgorithm)
     ;
     py::class_<Rule, std::shared_ptr<Rule>>(m,"Rule") // union definition
         .def_readwrite("m_parameter",&Rule::m_parameter)
@@ -1716,6 +2178,18 @@ PYBIND11_MODULE(pyxosc,m)
     py::class_<VehicleCategory, std::shared_ptr<VehicleCategory>>(m,"VehicleCategory") // union definition
         .def_readwrite("m_parameter",&VehicleCategory::m_parameter)
         .def_readwrite("vehicleCategory",&VehicleCategory::vehicleCategory)
+    ;
+    py::class_<VehicleComponentType, std::shared_ptr<VehicleComponentType>>(m,"VehicleComponentType") // union definition
+        .def_readwrite("m_parameter",&VehicleComponentType::m_parameter)
+        .def_readwrite("vehicleComponentType",&VehicleComponentType::vehicleComponentType)
+    ;
+    py::class_<VehicleLightType, std::shared_ptr<VehicleLightType>>(m,"VehicleLightType") // union definition
+        .def_readwrite("m_parameter",&VehicleLightType::m_parameter)
+        .def_readwrite("vehicleLightType",&VehicleLightType::vehicleLightType)
+    ;
+    py::class_<Wetness, std::shared_ptr<Wetness>>(m,"Wetness") // union definition
+        .def_readwrite("m_parameter",&Wetness::m_parameter)
+        .def_readwrite("wetness",&Wetness::wetness)
     ;
 //
     py::class_<OpenSCENARIO, std::shared_ptr<OpenSCENARIO>>(m,"OpenSCENARIO")

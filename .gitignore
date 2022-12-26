@@ -107,3 +107,4 @@ doc/code/cxx-doc
 *.swp
 PaxHeader
 .cache/
+*build-rel/
