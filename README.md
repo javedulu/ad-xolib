@@ -9,8 +9,8 @@ This repository provides a library for reading ASAM's OpenStandards OpenScenario
 [ASAM OpenDRIVE 1.7
 Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4422&token=e590561f3c39aa2260e5442e29e93f6693d1cccd)
 
-[ASAM OpenScenario 1.1.1
-Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4596&token=55bca7d8439f2bae072c4dffd1ee544a6d76b786)
+[ASAM OpenScenario 1.2
+Specification](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4908&token=ae9d9b44ab9257e817072a653b5d5e98ee0babf8)
 
 ![Image of asam-logo](https://www.asam.net/typo3conf/ext/asam_cms/Resources/Public/Images/asam-logo.svg)
 
