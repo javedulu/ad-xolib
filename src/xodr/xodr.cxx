@@ -2011,14 +2011,7 @@ void xodr::load(std::string xodrfilename )
 }
 void xodr::parse()
 {
-    try {
-        m_OpenDRIVE = std::make_shared<OpenDRIVE>(m_root.child("OpenDRIVE"));
-        std::cout << "OpenDRIVE parse successfully " << m_OpenDRIVE<< std::endl;
-    }
-    catch (std::exception &e)
-    {
-        std::cout << "ERROR :Exception .. " << e.what() << std::endl;
-    }
+    m_OpenDRIVE = std::make_shared<OpenDRIVE>(m_root.child("OpenDRIVE"));
 }
 void xodr::save(std::string filename)
 {

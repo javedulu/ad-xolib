@@ -11,7 +11,15 @@ int main (int argc , char **argv)
     
     xodr _odrive;
     _odrive.load(filename);
-    _odrive.parse();
+
+    try{
+        _odrive.parse();
+        std::cout << "OpenDRIVE parse successfully " << _odrive.m_OpenDRIVE<< std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "ERROR :Exception .. " << e.what() << std::endl;
+    }
 
     _odrive.save("xodr_save.xml");
 
